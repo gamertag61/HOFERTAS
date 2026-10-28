@@ -36,6 +36,7 @@
   /* Foto del héroe */
   @keyframes deriva { 0%, 100% { transform: scale(1.06) translate3d(0, 0, 0); } 50% { transform: scale(1.06) translate3d(-1.2%, -1%, 0); } }
   .foto-heroe { animation: deriva 14s ease-in-out infinite; }
+  .difuso { --m: radial-gradient(ellipse 58% 56% at 50% 46%, #000 38%, rgba(0,0,0,.55) 66%, transparent 92%); -webkit-mask-image: var(--m); mask-image: var(--m); }
   .luz-heroe { background:
       radial-gradient(closest-side at 30% 60%, rgba(198,241,53,.30), transparent),
       radial-gradient(closest-side at 75% 35%, rgba(47,143,255,.22), transparent); filter: blur(40px); }
@@ -159,15 +160,14 @@
     <!-- Foto real con luz ambiental -->
     <div class="rev relative" style="--d:2">
       <div class="luz-heroe pointer-events-none absolute -inset-6 sm:-inset-10" aria-hidden="true"></div>
-      <figure class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-grafito shadow-[0_30px_60px_-24px_rgba(0,0,0,.9)]">
-        <div class="aspect-[4/3] overflow-hidden lg:aspect-[5/4]">
+      <figure class="relative">
+        <div class="difuso aspect-[4/3] overflow-hidden lg:aspect-[5/4]">
           <img class="foto-heroe h-full w-full object-cover" src="img/teclado-rgb.jpg" width="1200" height="722" alt="Teclado mecánico gamer con retroiluminación RGB" fetchpriority="high">
         </div>
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent"></div>
-        <figcaption class="absolute right-4 top-3 text-[10px] text-white/45">Foto: Unsplash</figcaption>
+        <figcaption class="absolute -bottom-6 right-1 text-[10px] text-ceniza">Foto: Unsplash</figcaption>
         <!-- Oferta real destacada -->
         <a id="h-oferta" href="#ofertas" class="absolute inset-x-3 bottom-3 flex items-center gap-3 rounded-2xl border border-white/10 bg-tinta/75 p-2.5 pr-3 backdrop-blur-md transition-colors hover:border-lima/40 sm:inset-x-4 sm:bottom-4">
-          <span id="h-img" class="grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-xl bg-white"></span>
+          <span id="h-img" class="block h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-alto"></span>
           <span class="min-w-0 flex-1">
             <span id="h-titulo" class="block truncate text-sm font-semibold">Teclados en oferta</span>
             <span class="mt-0.5 flex items-baseline gap-2"><span id="h-precio" class="num font-bold text-lima">—</span><span id="h-antes" class="num truncate text-xs text-ceniza line-through"></span></span>
@@ -187,12 +187,18 @@
           <p id="act" class="rev mt-2 max-w-xl text-sm leading-6 text-humo" style="--d:1">Ordenado por descuento real. Toca una oferta y sales directo a Mercado Libre.</p>
         </div>
         <div class="flex items-center gap-2">
-          <label class="sr-only" for="orden">Ordenar ofertas</label>
-          <select id="orden" class="h-10 flex-1 cursor-pointer rounded-full border border-linea bg-grafito px-4 text-sm text-zinc-200 outline-none transition-colors hover:border-zinc-500 md:flex-none">
-            <option value="descuento">Mayor descuento</option>
-            <option value="precio">Menor precio</option>
-            <option value="ahorro">Mayor ahorro</option>
-          </select>
+          <form id="rango" class="flex flex-1 items-center gap-1.5 md:flex-none" role="search" aria-label="Filtrar por precio" novalidate>
+            <label class="sr-only" for="min">Precio mínimo</label>
+            <input id="min" type="number" inputmode="numeric" min="0" step="1" placeholder="Mín ($)"
+              class="num h-10 w-full min-w-0 rounded-full border border-linea bg-alto px-4 text-sm text-zinc-100 placeholder:text-ceniza outline-none transition-colors [appearance:textfield] hover:border-zinc-600 focus:border-lima/60 md:w-28 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none">
+            <span class="text-ceniza" aria-hidden="true">–</span>
+            <label class="sr-only" for="max">Precio máximo</label>
+            <input id="max" type="number" inputmode="numeric" min="0" step="1" placeholder="Máx ($)"
+              class="num h-10 w-full min-w-0 rounded-full border border-linea bg-alto px-4 text-sm text-zinc-100 placeholder:text-ceniza outline-none transition-colors [appearance:textfield] hover:border-zinc-600 focus:border-lima/60 md:w-28 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none">
+            <button type="submit" aria-label="Filtrar por precio" class="btn-lima grid h-10 w-10 shrink-0 place-items-center rounded-full">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </form>
           <div class="flex rounded-full border border-linea bg-grafito p-1 md:hidden" role="group" aria-label="Vista">
             <button type="button" data-vista="lista" aria-label="Ver como lista" class="vista-btn grid h-8 w-9 place-items-center rounded-full"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="6" height="6" rx="1.5"/><rect x="3" y="14" width="6" height="6" rx="1.5"/><path d="M13 6h8M13 9h5M13 16h8M13 19h5"/></svg></button>
             <button type="button" data-vista="cuadro" aria-label="Ver como cuadrícula" class="vista-btn grid h-8 w-9 place-items-center rounded-full"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg></button>
@@ -296,17 +302,13 @@
   /* ---------- Cuadrícula de ofertas ---------- */
   const grid = $('grid'), mas = $('mas');
   let P = [], visibles = 12;
-  const ordenes = {
-    descuento: (x, y) => off(y) - off(x),
-    precio: (x, y) => x.n - y.n,
-    ahorro: (x, y) => (y.o - y.n) - (x.o - x.n)
-  };
+  const ordenes = { descuento: (x, y) => off(y) - off(x) };
 
   function tarjeta(p, k) {
     return `
     <article class="oferta rev rounded-2xl border border-linea bg-mate p-2.5 md:p-3" style="--d:${k % 4}">
-      <a ${enlace(p.link)} tabindex="-1" aria-hidden="true" class="foto relative block aspect-square overflow-hidden rounded-xl bg-white">
-        <img src="${esc(p.i)}" alt="" loading="lazy" draggable="false" class="h-full w-full object-contain p-2 md:p-4">
+      <a ${enlace(p.link)} tabindex="-1" aria-hidden="true" class="foto relative block aspect-square overflow-hidden rounded-xl bg-alto">
+        <img src="${esc(p.i)}" alt="" loading="lazy" draggable="false" class="h-full w-full object-cover object-center">
         <span class="num absolute left-1.5 top-1.5 rounded-full bg-lima px-2 py-0.5 font-mono text-[11px] font-semibold text-tinta md:left-2.5 md:top-2.5">-${off(p)}%</span>
       </a>
       <div class="info pt-3">
@@ -328,15 +330,30 @@
     </article>`;
   }
 
+  let rango = [0, Infinity];
   function pintar() {
-    const lista = [...P].sort(ordenes[$('orden').value]);
+    const lista = P.filter(p => p.n >= rango[0] && p.n <= rango[1]).sort(ordenes.descuento);
+    if (!lista.length) {
+      grid.innerHTML = `<div class="col-span-full py-14 text-center"><p class="text-humo">Ninguna oferta entre ${mxn.format(rango[0])} y ${rango[1] === Infinity ? 'más' : mxn.format(rango[1])}.</p>
+        <button type="button" id="limpiar" class="btn-linea mt-4 rounded-full border border-linea px-5 py-2.5 text-sm text-zinc-200 hover:border-zinc-500">Quitar filtro</button></div>`;
+      $('limpiar').addEventListener('click', () => { $('min').value = $('max').value = ''; filtrar(); });
+      mas.classList.add('hidden');
+      return;
+    }
     grid.innerHTML = lista.slice(0, visibles).map(tarjeta).join('');
     const resto = lista.length - visibles;
     mas.classList.toggle('hidden', resto <= 0);
     mas.textContent = `Ver ${resto} ofertas más`;
     observar();
   }
-  $('orden').addEventListener('change', () => { guardar('h-orden', $('orden').value); pintar(); });
+  function filtrar() {
+    let a = parseFloat($('min').value), b = parseFloat($('max').value);
+    a = a >= 0 ? a : 0; b = b >= 0 ? b : Infinity;
+    if (a > b) { [a, b] = [b, a]; $('min').value = a; $('max').value = b; }
+    rango = [a, b]; visibles = 12;
+    if (P.length) pintar();
+  }
+  $('rango').addEventListener('submit', e => { e.preventDefault(); filtrar(); });
   mas.addEventListener('click', () => { visibles = P.length; pintar(); });
 
   function vista(v) {
@@ -353,7 +370,6 @@
   }
   document.querySelectorAll('.vista-btn').forEach(b => b.addEventListener('click', () => vista(b.dataset.vista)));
   vista(leerLS('h-vista') === 'cuadro' ? 'cuadro' : 'lista');
-  if (ordenes[leerLS('h-orden')]) $('orden').value = leerLS('h-orden');
 
   grid.innerHTML = Array.from({ length: 8 }, () => `<div class="rounded-2xl border border-linea bg-mate p-3"><div class="esq aspect-square rounded-xl"></div><div class="esq mt-3 h-3.5 w-4/5 rounded"></div><div class="esq mt-2 h-3.5 w-1/2 rounded"></div><div class="esq mt-4 h-9 rounded-full"></div></div>`).join('');
   const aviso = txt => { grid.innerHTML = `<p class="col-span-full py-16 text-center text-humo">${txt}</p>`; };
@@ -447,7 +463,7 @@
       $('h-precio').textContent = mxn.format(tec.n);
       $('h-antes').textContent = mxn.format(tec.o);
       $('h-off').textContent = `-${off(tec)}%`;
-      $('h-img').innerHTML = `<img src="${esc(tec.i)}" alt="" class="h-full w-full object-contain p-1">`;
+      $('h-img').innerHTML = `<img src="${esc(tec.i)}" alt="" class="h-full w-full object-cover object-center">`;
       const a = $('h-oferta'); a.href = tec.link; a.target = '_blank'; a.rel = 'noopener noreferrer sponsored';
       a.setAttribute('aria-label', `Oferta: ${tec.t}, ${mxn.format(tec.n)}`);
     })

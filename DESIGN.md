@@ -157,7 +157,7 @@ Mobile-first para quien llega desde TikTok, con la densidad de una tienda real e
 - **Contenedor:** `max-w-7xl` (80rem) centrado con `px-4 sm:px-6 lg:px-8`.
 - **Cabecera:** sticky, 64 px, tres columnas: menú hamburguesa a la izquierda, logo "H | Ofertas" con punto lima al centro, estado del radar a la derecha (desde 640 px).
 - **Héroe:** una columna en móvil (texto arriba, foto abajo); desde 768 px, dos columnas 50/50 con separación de 48–64 px.
-- **Cuadrícula de ofertas:** `md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`, separación de 20 px. En móvil hay dos vistas que el usuario elige (se recuerda en `localStorage`): **lista** (fila estilo Amazon: foto de 108 px a la izquierda, datos a la derecha) y **cuadrícula** de 2 columnas. Se muestran 12 ofertas y un botón "Ver N ofertas más"; un selector ordena por mayor descuento, menor precio o mayor ahorro.
+- **Cuadrícula de ofertas:** `md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`, separación de 20 px. En móvil hay dos vistas que el usuario elige (se recuerda en `localStorage`): **lista** (fila estilo Amazon: foto de 108 px a la izquierda, datos a la derecha) y **cuadrícula** de 2 columnas. Se muestran 12 ofertas (orden por mayor descuento) y un botón "Ver N ofertas más". Arriba a la derecha, filtro de rango de precio: campos "Mín ($)" y "Máx ($)" en píldora `mate-alto` y un botón lima redondo con flecha; si no hay resultados aparece "Ninguna oferta entre … " con "Quitar filtro".
 - **Radar:** una columna en móvil; desde 1024 px, texto `.8fr` + panel `1.2fr`.
 - **Ritmo vertical:** secciones de 56–64 px en móvil y 80–96 px desde 768 px, separadas por una línea blanca al 5 %.
 
@@ -168,11 +168,11 @@ Profundidad por sombras oscuras con desplazamiento y por luz difusa: lima y azul
 ### Shadow Vocabulary
 - **Botón lima** (`0 6px 16px -8px rgba(0,0,0,.8)`; hover: escala 1.03, brillo +8 % y `0 8px 22px -6px rgba(198,241,53,.45)`).
 - **Tarjeta en hover** (sube 4 px, `0 10px 30px rgba(198,241,53,.10)`, borde verdoso).
-- **Foto del héroe** (`0 30px 60px -24px rgba(0,0,0,.9)`) sobre una luz ambiental lima 30 % + azul 22 %, `blur(40px)`.
+- **Foto del héroe:** sin sombra ni borde; se desvanece con máscara radial sobre una luz ambiental lima 30 % + azul 22 %, `blur(40px)`.
 
 ## Shapes
 
-Foto del héroe 2rem → tarjeta 1rem → imagen de producto 0.75rem. Toda acción y etiqueta es píldora. Bordes de 1 px en `linea`.
+Foto del héroe sin esquinas (bordes difuminados) → tarjeta 1rem → imagen de producto 0.75rem. Toda acción y etiqueta es píldora. Bordes de 1 px en `linea`.
 
 ## Components
 
@@ -187,11 +187,11 @@ Foto del héroe 2rem → tarjeta 1rem → imagen de producto 0.75rem. Toda acci�
 - **Píldoras técnicas:** 3 por tarjeta, borde `linea`, fondo negro al 30 %, icono SVG lima + texto mono. Se extraen del título real (Hz, pulgadas, ms, inalámbrico/alámbrico, mecánico/magnético, ANC, mAh, GB/TB, RGB); si faltan, se completan con "-X %" y "Ahorras $Y".
 
 ### Cards
-- **Tarjeta de oferta:** mate, borde `linea`, 1rem, 10–12 px de relleno. Orden: imagen cuadrada sobre blanco con `object-contain` (proporción natural, sin recortes) + píldora de descuento → título completo a 2 líneas → píldoras técnicas → precio lima + tachado (+ "Ahorras" desde 768 px) → botón. Botón: "Ver oferta" en móvil, "Aprovechar oferta" desde 768 px. Hover: sube 4 px y la foto escala 1.05.
+- **Tarjeta de oferta:** mate, borde `linea`, 1rem, 10–12 px de relleno. Orden: imagen cuadrada a sangre (`object-cover object-center`, sin fondo blanco ni relleno, contenedor `mate-alto` con `overflow-hidden`) + píldora de descuento → título completo a 2 líneas → píldoras técnicas → precio lima + tachado (+ "Ahorras" desde 768 px) → botón. Botón: "Ver oferta" en móvil, "Aprovechar oferta" desde 768 px. Hover: sube 4 px y la foto escala 1.05.
 - **Vista lista (móvil):** fila con foto de 108 px, 2 píldoras y el botón compacto a la derecha del precio. **Vista cuadrícula (móvil):** 2 columnas, 1 píldora.
 
 ### Héroe
-- **Foto:** teclado mecánico retroiluminado de Unsplash (`photo-1538481199705-c710c4e965fc`, crédito "Foto: Unsplash"), `object-cover` 4:3 (5:4 desde 1024 px), degradado negro inferior y deriva lenta de 14 s.
+- **Foto:** teclado mecánico retroiluminado de Unsplash (`img/teclado-rgb.jpg`, crédito "Foto: Unsplash" debajo), `object-cover` 4:3 (5:4 desde 1024 px), sin marco: una máscara radial (`mask-image`) la funde con el fondo, sobre la luz ambiental lima y azul, con deriva lenta de 14 s.
 - **Oferta destacada sobre la foto:** tarjeta translúcida con miniatura real, nombre, precio lima, tachado y descuento del teclado con más descuento de `ofertas.json`; enlaza a Mercado Libre.
 - **Métricas:** ofertas verificadas (conteo real), "24/7" radar activo, "100%" precios reales, sobre una línea `linea`.
 
