@@ -105,25 +105,26 @@ components:
 
 Una herramienta de compra con aire de producto técnico: fondo grafito casi negro, tarjetas gris mate y un único acento verde lima que marca lo que importa (la palabra clave, el precio, la acción). La página no promete: muestra. Cada número sale del radar.
 
-Mobile-first para quien llega desde TikTok. Héroe dividido (texto monumental + teclado que levita), carrusel horizontal de ofertas con scroll-snap y una sección "mini software" que dibuja el historial real de una baja de precio.
+Mobile-first para quien llega desde TikTok, con la densidad de una tienda real en laptop. Héroe 50/50 (texto monumental + foto real de un teclado retroiluminado), cuadrícula compacta de ofertas estilo Amazon/Mercado Libre y una sección "mini software" que dibuja el historial real de una baja de precio.
 
 **Key Characteristics:**
 - Grafito `#0a0b0d` con una luz lima muy tenue arriba a la derecha.
 - Verde lima como acento exclusivo: palabras clave, botones primarios, píldoras de valor, precios.
 - Titulares en Poppins 800 con interletrado apretado; datos en JetBrains Mono con cifras tabulares.
 - Píldoras para toda acción y etiqueta; esquinas amplias en contenedores.
-- Movimiento sobrio: aparición desde abajo al hacer scroll, teclado que flota, línea de precio que se dibuja.
+- Fotografía real, nunca ilustraciones planas de producto.
+- Movimiento sobrio: aparición desde abajo al hacer scroll, deriva lenta de la foto del héroe, línea de precio que se dibuja.
 
 ## Colors
 
 ### Primary
-- **Lima** (`lima`): palabra clave del titular, CTA primario, botón "Aprovechar oferta", píldora de descuento, precio actual, punto de marca, estado del radar, línea y puntos del gráfico, anillo de foco y selección de texto. También como luz difusa: halo radial detrás de cada producto (32 % → 8 % → transparente, `blur(18px)`) y relleno bajo la línea del gráfico.
+- **Lima** (`lima`): palabra clave del titular, CTA primario, botón "Aprovechar oferta", píldora de descuento, precio actual, punto de marca, estado del radar, línea y puntos del gráfico, anillo de foco y selección de texto. También como luz difusa: luz ambiental detrás de la foto del héroe, resplandor tenue en hover y relleno bajo la línea del gráfico.
 
 ### Neutral
 - **Grafito** (`grafito`): fondo de página, `theme-color`, texto sobre lima, cabecera al 75 % con desenfoque.
-- **Panel** (`panel`): menú lateral, bloque del radar, base del degradado del escenario.
+- **Panel** (`panel`): menú lateral, bloque del radar, fondo detrás de la foto del héroe.
 - **Mate** (`mate`): tarjetas de oferta.
-- **Mate alto** (`mate-alto`): parte superior del degradado de escenario e imagen, etiquetas del gráfico.
+- **Mate alto** (`mate-alto`): etiquetas del gráfico.
 - **Línea** (`linea`): bordes de 1 px, guías punteadas del gráfico, bordes de píldoras técnicas.
 - **Texto principal / tarjeta**: titulares y nombres de producto.
 - **Humo** (`humo`): subtítulos y párrafos.
@@ -132,7 +133,7 @@ Mobile-first para quien llega desde TikTok. Héroe dividido (texto monumental + 
 ### Named Rules
 **The Lima Es Valor Rule.** El lima marca valor o acción: el dato que convence (palabra clave, precio, descuento, la baja en el gráfico) y el botón que lleva a Mercado Libre. Si algo lima no es valor ni acción, sobra.
 
-**The Paleta Cerrada Rule.** Ningún color de marca fuera de este frontmatter sin preguntar. Sin rojos de "baja", sin azules, sin rosa TikTok.
+**The Paleta Cerrada Rule.** Ningún color de marca fuera de este frontmatter sin preguntar. Sin rojos de "baja" ni rosa TikTok. Única excepción: un azul `#2f8fff` difuso (22 %) en la luz ambiental detrás de la foto del héroe, nunca en texto ni botones.
 
 ## Typography
 
@@ -153,26 +154,25 @@ Mobile-first para quien llega desde TikTok. Héroe dividido (texto monumental + 
 
 ## Layout
 
-- **Contenedor:** 72rem máx., centrado, margen lateral de 20 px (24 px desde 640 px).
+- **Contenedor:** `max-w-7xl` (80rem) centrado con `px-4 sm:px-6 lg:px-8`.
 - **Cabecera:** sticky, 64 px, tres columnas: menú hamburguesa a la izquierda, logo "H | Ofertas" con punto lima al centro, estado del radar a la derecha (desde 640 px).
-- **Héroe:** una columna en móvil (texto arriba, teclado abajo); desde 768 px, dos columnas `1.05fr / .95fr`.
-- **Carrusel de ofertas:** pista horizontal sin barra visible, `scroll-snap-type: x mandatory`; tarjetas de `78vw` (máx. 300 px) en móvil y 290 px desde 640 px; separación de 16 px; flechas desde 768 px. Desde 1200 px la primera tarjeta se alinea con el contenedor.
+- **Héroe:** una columna en móvil (texto arriba, foto abajo); desde 768 px, dos columnas 50/50 con separación de 48–64 px.
+- **Cuadrícula de ofertas:** `md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`, separación de 20 px. En móvil hay dos vistas que el usuario elige (se recuerda en `localStorage`): **lista** (fila estilo Amazon: foto de 108 px a la izquierda, datos a la derecha) y **cuadrícula** de 2 columnas. Se muestran 12 ofertas y un botón "Ver N ofertas más"; un selector ordena por mayor descuento, menor precio o mayor ahorro.
 - **Radar:** una columna en móvil; desde 1024 px, texto `.8fr` + panel `1.2fr`.
-- **Ritmo vertical:** secciones de 80 px (112 px desde 768 px), separadas por una línea blanca al 5 %.
+- **Ritmo vertical:** secciones de 56–64 px en móvil y 80–96 px desde 768 px, separadas por una línea blanca al 5 %.
 
 ## Elevation & Depth
 
-Profundidad por luz lima difusa detrás del producto y por sombras oscuras con desplazamiento; nunca resplandores de color alrededor de botones.
+Profundidad por sombras oscuras con desplazamiento y por luz difusa: lima y azul detrás de la foto del héroe, y un resplandor lima muy tenue al pasar el cursor por tarjetas y botones (pedido por el usuario).
 
 ### Shadow Vocabulary
-- **Botón lima** (`0 6px 16px -8px rgba(0,0,0,.8)`; hover `0 10px 22px -10px rgba(0,0,0,.9)`).
-- **Foto de producto** (`0 18px 30px -12px rgba(0,0,0,.7)`).
-- **Teclado** (`drop-shadow(0 30px 40px rgba(0,0,0,.6))`) más una sombra elíptica en el piso que se encoge cuando sube.
-- **Halo lima**: degradado radial desenfocado detrás de cada producto (ver Colors).
+- **Botón lima** (`0 6px 16px -8px rgba(0,0,0,.8)`; hover: escala 1.03, brillo +8 % y `0 8px 22px -6px rgba(198,241,53,.45)`).
+- **Tarjeta en hover** (sube 4 px, `0 10px 30px rgba(198,241,53,.10)`, borde verdoso).
+- **Foto del héroe** (`0 30px 60px -24px rgba(0,0,0,.9)`) sobre una luz ambiental lima 30 % + azul 22 %, `blur(40px)`.
 
 ## Shapes
 
-Héroe/escenario 2rem → tarjeta 1.5rem → imagen 1rem → foto 0.75rem. Toda acción y etiqueta es píldora. Bordes de 1 px en `linea`.
+Foto del héroe 2rem → tarjeta 1rem → imagen de producto 0.75rem. Toda acción y etiqueta es píldora. Bordes de 1 px en `linea`.
 
 ## Components
 
@@ -187,23 +187,25 @@ Héroe/escenario 2rem → tarjeta 1.5rem → imagen 1rem → foto 0.75rem. Toda 
 - **Píldoras técnicas:** 3 por tarjeta, borde `linea`, fondo negro al 30 %, icono SVG lima + texto mono. Se extraen del título real (Hz, pulgadas, ms, inalámbrico/alámbrico, mecánico/magnético, ANC, mAh, GB/TB, RGB); si faltan, se completan con "-X %" y "Ahorras $Y".
 
 ### Cards
-- **Tarjeta de oferta:** mate, borde `linea`, 1.5rem, 12 px de relleno. Orden: escenario con halo + foto sobre blanco + píldora de descuento → nombre (2 líneas) → píldoras técnicas → precio + tachado → botón. Hover: sube 3 px, el borde se aclara y la foto escala 1.04.
+- **Tarjeta de oferta:** mate, borde `linea`, 1rem, 10–12 px de relleno. Orden: imagen cuadrada sobre blanco con `object-contain` (proporción natural, sin recortes) + píldora de descuento → título completo a 2 líneas → píldoras técnicas → precio lima + tachado (+ "Ahorras" desde 768 px) → botón. Botón: "Ver oferta" en móvil, "Aprovechar oferta" desde 768 px. Hover: sube 4 px y la foto escala 1.05.
+- **Vista lista (móvil):** fila con foto de 108 px, 2 píldoras y el botón compacto a la derecha del precio. **Vista cuadrícula (móvil):** 2 columnas, 1 píldora.
 
 ### Héroe
-- **Escenario del teclado:** contenedor de 2rem con degradado `mate-alto → panel`, halo lima, teclado SVG en perspectiva (`rotateX(34deg) rotateZ(-9deg)`) con dos teclas lima, píldora "Oferta: $precio real" flotando y barra inferior con nombre, precio anterior y "Ver oferta". Todo apunta al teclado real con más descuento de `ofertas.json`.
-- **Métricas:** ofertas verificadas (conteo real), "24/7" radar activo, "100%" precios reales.
+- **Foto:** teclado mecánico retroiluminado de Unsplash (`photo-1538481199705-c710c4e965fc`, crédito "Foto: Unsplash"), `object-cover` 4:3 (5:4 desde 1024 px), degradado negro inferior y deriva lenta de 14 s.
+- **Oferta destacada sobre la foto:** tarjeta translúcida con miniatura real, nombre, precio lima, tachado y descuento del teclado con más descuento de `ofertas.json`; enlaza a Mercado Libre.
+- **Métricas:** ofertas verificadas (conteo real), "24/7" radar activo, "100%" precios reales, sobre una línea `linea`.
 
 ### Radar (mini software)
 Panel `panel` con barra superior (nombre del producto + botones de baja "-X %"), gráfico SVG del historial real (`historial.json` + la alerta), leyenda "antes → ahora" y log mono de las bajas detectadas. Sin bajas muestra "El radar no detectó bajas en su última vuelta."
 
 ### Estados
-Carga con esqueletos brillantes en la pista; vacío: "Hoy no hay ofertas nuevas. Vuelve en unas horas."; error: "No pudimos cargar las ofertas. Recarga en un momento."
+Carga con 8 esqueletos brillantes en la cuadrícula; vacío: "Hoy no hay ofertas nuevas. Vuelve en unas horas."; error: "No pudimos cargar las ofertas. Recarga en un momento."
 
 ### Motion
-- **Aparición:** sube 18 px y aparece (opacidad 0.7 s, transform 0.9 s, `cubic-bezier(.16,1,.3,1)`), con 70 ms entre piezas, por IntersectionObserver; sin JS todo es visible.
-- **Teclado:** flota 14 px en 6 s; la sombra y la píldora lo acompañan.
+- **Aparición:** sube 14 px y aparece (opacidad 0.5 s, transform 0.6 s, `cubic-bezier(.16,1,.3,1)`), con 60 ms entre piezas (cascada por fila de 4), por IntersectionObserver; sin JS todo es visible.
+- **Foto del héroe:** deriva lenta (escala 1.06, desplazamiento ~1 %) en 14 s.
 - **Gráfico:** la línea se dibuja en 1.6 s; después aparecen el relleno y los puntos en cascada.
-- **Interacción:** botones de 160 a 200 ms; menú 0.38 s.
+- **Interacción:** tarjetas y botones 200–300 ms; menú 0.38 s.
 - **Movimiento reducido:** se apagan los loops, los desplazamientos y el dibujo; solo queda un fundido corto.
 
 ## Do's and Don'ts
@@ -215,7 +217,8 @@ Carga con esqueletos brillantes en la pista; vacío: "Hoy no hay ofertas nuevas.
 - **Do** verificar en 375 px sin scroll horizontal y respetar `prefers-reduced-motion`.
 
 ### Don't:
-- **Don't** poner resplandores de color alrededor de botones.
+- **Don't** dibujar productos con CSS o vectores planos; usar fotos reales.
+- **Don't** volver al carrusel horizontal de tarjetas gigantes.
 - **Don't** usar emojis como iconos; los iconos son SVG de trazo de 2 px.
 - **Don't** inventar specs, reseñas, envío ni stock.
 - **Don't** poner etiquetas pequeñas encima de los títulos.
