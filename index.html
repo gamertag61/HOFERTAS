@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>H | Ofertas</title>
-<meta name="description" content="Ofertas de tecnología de Mercado Libre verificadas por precio real. El radar revisa cada precio y solo publica bajas de verdad.">
+<meta name="description" content="Ofertas de tecnología de Mercado Libre verificadas por precio real. Monitoreamos los precios 24/7 y solo publicamos bajas de verdad.">
 <meta name="theme-color" content="#0a0b0d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,7 +40,7 @@
   .sobre-negro { text-shadow: 0 2px 14px rgba(0,0,0,.9); }
   .sobre-negro .btn-lima, .sobre-negro .pildora-h { text-shadow: none; }
 
-  /* Estado del radar */
+  /* Indicador de monitoreo */
   @keyframes latido { 0% { box-shadow: 0 0 0 0 rgba(198,241,53,.55); } 70%, 100% { box-shadow: 0 0 0 7px rgba(198,241,53,0); } }
   .latido { animation: latido 2.4s ease-out infinite; }
 
@@ -68,7 +68,7 @@
   .btn-lima:active, .btn-linea:active { transform: scale(.97); }
   .btn-linea { transition: transform .16s ease, border-color .2s ease, background-color .2s ease, color .2s ease; }
 
-  /* Gráfico del radar */
+  /* Gráfico de historial de precios */
   .trazo { stroke-dasharray: var(--len); stroke-dashoffset: var(--len); }
   .grafico.in .trazo { transition: stroke-dashoffset 1.6s var(--ease); stroke-dashoffset: 0; }
   .area, .punto, .etiqueta { opacity: 0; }
@@ -109,8 +109,8 @@
       <span>H</span><span class="mx-1.5 font-normal text-ceniza">|</span><span>Ofertas</span><span class="ml-0.5 inline-block h-1.5 w-1.5 rounded-full bg-lima"></span>
     </a>
     <div class="flex justify-end">
-      <a href="#radar" class="hidden items-center gap-2 rounded-full border border-linea px-3 py-1.5 text-xs text-humo transition-colors hover:border-zinc-500 hover:text-zinc-200 sm:flex">
-        <span class="latido h-1.5 w-1.5 rounded-full bg-lima"></span><span id="estado">Radar 24/7</span>
+      <a href="#monitoreo" class="hidden items-center gap-2 rounded-full border border-linea px-3 py-1.5 text-xs text-humo transition-colors hover:border-zinc-500 hover:text-zinc-200 sm:flex">
+        <span class="latido h-1.5 w-1.5 rounded-full bg-lima"></span><span id="estado">Monitoreo 24/7</span>
       </a>
     </div>
   </div>
@@ -127,7 +127,7 @@
   </div>
   <ul class="mt-6 divide-y divide-linea border-y border-linea">
     <li><a href="#ofertas" class="flex items-center justify-between py-4 text-xl font-semibold transition-colors hover:text-lima">Ofertas de hoy<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a></li>
-    <li><a href="#radar" class="flex items-center justify-between py-4 text-xl font-semibold transition-colors hover:text-lima">Cómo funciona el radar<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a></li>
+    <li><a href="#monitoreo" class="flex items-center justify-between py-4 text-xl font-semibold transition-colors hover:text-lima">Cómo buscamos los precios<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a></li>
   </ul>
   <p class="mt-auto text-sm leading-6 text-humo">Precios leídos directo de Mercado Libre. Solo publicamos bajas reales de 5 % o más.</p>
 </nav>
@@ -141,18 +141,18 @@
       </h1>
       <div class="lg:pb-2">
         <p class="rev max-w-[32rem] text-base leading-7 text-humo" style="--d:1">
-          Nuestro radar revisa el precio real de cada componente en Mercado Libre todos los días y solo te enseña las bajas de verdad.
+          Buscamos los mejores precios de cada componente en Mercado Libre todos los días y solo te enseñamos las bajas de verdad.
         </p>
         <div class="rev mt-6 flex flex-wrap items-center gap-3" style="--d:2">
           <a href="#ofertas" class="btn-lima inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold">
             Ver ofertas de hoy
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a href="#radar" class="btn-linea inline-flex items-center rounded-full border border-linea px-6 py-3.5 text-sm font-medium text-zinc-200 hover:border-zinc-500 hover:bg-white/[.03]">Cómo funciona el radar</a>
+          <a href="#monitoreo" class="btn-linea inline-flex items-center rounded-full border border-linea px-6 py-3.5 text-sm font-medium text-zinc-200 hover:border-zinc-500 hover:bg-white/[.03]">Cómo buscamos los precios</a>
         </div>
         <dl class="rev mt-7 grid max-w-md grid-cols-3 gap-6 border-t border-linea pt-5" style="--d:3">
           <div><dt class="sr-only">Ofertas verificadas</dt><dd id="m-total" class="num text-2xl font-bold tracking-tight">—</dd><p class="mt-1 text-xs text-ceniza">ofertas verificadas</p></div>
-          <div><dt class="sr-only">Radar</dt><dd class="num text-2xl font-bold tracking-tight">24/7</dd><p class="mt-1 text-xs text-ceniza">radar activo</p></div>
+          <div><dt class="sr-only">Monitoreo</dt><dd class="num text-2xl font-bold tracking-tight">24/7</dd><p class="mt-1 text-xs text-ceniza">monitoreo de precios</p></div>
           <div><dt class="sr-only">Datos reales</dt><dd class="num text-2xl font-bold tracking-tight">100%</dd><p class="mt-1 text-xs text-ceniza">precios reales</p></div>
         </dl>
       </div>
@@ -228,12 +228,12 @@
     </div>
   </section>
 
-  <!-- El radar -->
-  <section id="radar" class="border-t border-white/[.05] py-16 md:py-24">
+  <!-- Monitoreo de precios -->
+  <section id="monitoreo" class="border-t border-white/[.05] py-16 md:py-24">
     <div class="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)] gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)] lg:items-center lg:gap-16 lg:px-8">
       <div>
         <h2 class="rev text-balance text-[1.75rem] font-bold leading-tight tracking-[-0.025em] sm:text-4xl">Vemos caer el precio <span class="text-lima">antes</span> que tú.</h2>
-        <p class="rev mt-4 max-w-md leading-7 text-humo" style="--d:1">Cada día el radar abre la página de cada producto, anota su precio y lo compara con su historial. Si baja, lo verás aquí; si el “descuento” es inflado, no pasa el filtro.</p>
+        <p class="rev mt-4 max-w-md leading-7 text-humo" style="--d:1">Todos los días revisamos la página de cada producto, anotamos su precio y lo comparamos con su historial. Si baja, lo verás aquí; si el “descuento” es inflado, no pasa el filtro.</p>
         <ul class="rev mt-8 space-y-4 text-sm" style="--d:2">
           <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-lima"></span><span class="text-zinc-300">Precio leído directo de Mercado Libre, nunca escrito a mano.</span></li>
           <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-lima"></span><span class="text-zinc-300">Historial diario de hasta 90 días por producto.</span></li>
@@ -245,7 +245,7 @@
         <div class="flex flex-wrap items-center gap-2 border-b border-linea p-3">
           <div class="flex min-w-0 flex-1 items-center gap-2 rounded-full bg-black/40 px-4 py-2.5">
             <svg class="shrink-0 text-ceniza" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-            <span id="r-nombre" class="truncate text-sm text-zinc-200">Esperando al radar…</span>
+            <span id="r-nombre" class="truncate text-sm text-zinc-200">Cargando historial de precios…</span>
           </div>
           <div id="r-chips" class="flex gap-1.5" role="group" aria-label="Elegir baja detectada"></div>
         </div>
@@ -261,10 +261,24 @@
   </section>
 </main>
 
-<footer class="border-t border-white/[.05]">
-  <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-10 text-xs leading-5 text-ceniza sm:flex-row sm:justify-between sm:px-6 lg:px-8">
-    <p><span class="font-semibold text-zinc-300">H | Ofertas</span> · Enlaces de afiliado de Mercado Libre.</p>
-    <p>Precios verificados por el radar; pueden cambiar en Mercado Libre.</p>
+<footer class="border-t border-white/[.05] bg-grafito/40">
+  <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <div class="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+      <a href="#" class="flex items-baseline text-base font-extrabold tracking-tight" aria-label="H | Ofertas, inicio">
+        <span>H</span><span class="mx-1.5 font-normal text-ceniza">|</span><span>Ofertas</span><span class="ml-0.5 inline-block h-1.5 w-1.5 rounded-full bg-lima"></span>
+      </a>
+      <nav aria-label="Legal">
+        <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-humo">
+          <li><a href="#" class="underline-offset-4 transition-colors hover:text-zinc-100 hover:underline">Aviso de Privacidad</a></li>
+          <li><a href="#" class="underline-offset-4 transition-colors hover:text-zinc-100 hover:underline">Términos y Condiciones</a></li>
+          <li><a href="#" class="underline-offset-4 transition-colors hover:text-zinc-100 hover:underline">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="mt-6 max-w-3xl border-t border-white/[.05] pt-6 text-xs leading-5 text-gray-500">
+      Participamos en los Programas de Afiliados de Amazon y Mercado Libre. Las compras realizadas a través de nuestros enlaces pueden generarnos una comisión sin costo extra para ti. Los precios y disponibilidad de los productos son precisos a la fecha/hora indicada y están sujetos a cambios.
+    </p>
+    <p id="f-fecha" class="num mt-2 text-xs text-gray-500"></p>
   </div>
 </footer>
 
@@ -396,7 +410,7 @@
   function observar() { document.querySelectorAll('.rev').forEach(el => vigia.observe(el)); }
   observar();
 
-  /* ---------- Gráfico del radar ---------- */
+  /* ---------- Gráfico de historial de precios ---------- */
   const svg = $('grafico');
   let serieActual = 0, series = [];
   function dibujar(k) {
@@ -439,7 +453,7 @@
   let svgVisible = false;
   new IntersectionObserver(es => es.forEach(e => { svgVisible = e.isIntersecting; svg.classList.toggle('in', svgVisible); }), { threshold: 0.35 }).observe(svg);
 
-  function montarRadar(d, hist) {
+  function montarHistorial(d, hist) {
     const alertas = (d.alertas || []).filter(a => a && a.antes > a.ahora).slice(0, 3);
     series = alertas.map(a => {
       const h = (hist[a.link] || []).filter(q => q && q.precio > 0).map(q => ({ fecha: q.fecha, precio: q.precio }));
@@ -451,7 +465,7 @@
     });
     if (!series.length) {
       $('r-nombre').textContent = 'Sin bajas nuevas hoy';
-      svg.innerHTML = `<text x="300" y="130" text-anchor="middle" fill="#6b7079" font-family="Poppins" font-size="14">El radar no detectó bajas en su última vuelta.</text>`;
+      svg.innerHTML = `<text x="300" y="130" text-anchor="middle" fill="#6b7079" font-family="Poppins" font-size="14">Sin bajas nuevas en la última actualización.</text>`;
       return;
     }
     $('r-chips').innerHTML = series.map(s => `<button type="button" aria-label="Ver ${esc(corto(s.nombre, 4))}">-${Math.round((1 - s.ahora / s.antes) * 100)} %</button>`).join('');
@@ -460,7 +474,7 @@
     dibujar(0);
   }
 
-  /* ---------- Datos reales del radar ---------- */
+  /* ---------- Datos reales de precios ---------- */
   const leer = url => fetch(url + '?t=' + Date.now(), { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
   Promise.all([leer('ofertas.json'), leer('historial.json').catch(() => ({}))])
     .then(([d, hist]) => {
@@ -469,10 +483,11 @@
       if (d.actualizado) {
         const t = new Date(d.actualizado), h = Math.max(0, Math.round((Date.now() - t) / 36e5));
         const txt = h < 1 ? 'hace menos de 1 h' : h < 48 ? `hace ${h} h` : `el ${dia.format(t)}`;
-        $('estado').textContent = `Radar · revisó ${txt}`;
-        $('act').textContent = `${P.length} ofertas con descuento real. Última revisión del radar ${txt}.`;
+        $('estado').textContent = `Actualizado ${txt}`;
+        $('f-fecha').textContent = `Precios actualizados el ${new Intl.DateTimeFormat('es-MX', { dateStyle: 'long', timeStyle: 'short' }).format(t)}`;
+        $('act').textContent = `${P.length} ofertas con descuento real. Última actualización de precios ${txt}.`;
       }
-      montarRadar(d, hist);
+      montarHistorial(d, hist);
       if (!P.length) { $('h-oferta').hidden = true; return aviso('Hoy no hay ofertas nuevas. Vuelve en unas horas.'); }
       pintar();
       /* Oferta del día: el teclado con más descuento (o la mayor oferta si no hay teclados) */
@@ -482,12 +497,12 @@
       $('h-pildoras').innerHTML = pildoras(tec).map(([t, ic]) => `<li class="pildora-h num inline-flex items-center gap-1.5 rounded-full border border-linea bg-grafito px-3.5 py-1.5 font-mono text-[13px] text-zinc-200"><span class="text-lima">${icono(ic)}</span>${esc(t)}</li>`).join('');
       $('h-precio').textContent = mxn.format(tec.n);
       $('h-antes').textContent = mxn.format(tec.o);
-      $('h-ahorro').textContent = `Ahorras ${mxn.format(tec.o - tec.n)} · precio verificado por el radar`;
+      $('h-ahorro').textContent = `Ahorras ${mxn.format(tec.o - tec.n)} · precio verificado`;
       $('h-off').textContent = `-${off(tec)}%`;
       $('h-img').innerHTML = `<img src="${esc(tec.i)}" alt="${esc(tec.t)}" fetchpriority="high" class="h-full w-full object-contain object-center">`;
       for (const id of ['h-foto', 'h-link']) { const a = $(id); a.href = tec.link; a.target = '_blank'; a.rel = 'noopener noreferrer sponsored'; }
     })
-    .catch(() => { $('h-oferta').hidden = true; aviso('No pudimos cargar las ofertas. Recarga en un momento.'); $('r-nombre').textContent = 'Radar sin conexión'; });
+    .catch(() => { $('h-oferta').hidden = true; aviso('No pudimos cargar las ofertas. Recarga en un momento.'); $('r-nombre').textContent = 'Historial no disponible'; });
 
   /* ---------- Menú lateral ---------- */
   const menu = $('menu'), velo = $('velo'), abrir = $('abrir');
