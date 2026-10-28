@@ -40,12 +40,12 @@ Para cada interfaz que se toque, usar las skills de diseño instaladas: **Impecc
 
 Pedido por el usuario el 2026-10-28. Ya **no** carga Mercado Libre: el `<iframe>` y la ventana acoplada se quitaron porque Mercado Libre bloquea el iframe con `frame-ancestors` (comprobado). Es un panel 100 % vertical (`w-full h-[100dvh]`, máx. 48rem) pensado para acoplarse a un lado de la pantalla en Windows, junto a Mercado Libre abierto aparte. Sin textos visibles "Heleos" ni "radar" (se publica en GitHub Pages).
 
-- **Mitad superior · Enlaces:** cada pegado (Ctrl+V) queda en su línea y el cursor baja al renglón siguiente; Enter limpia y salta; conteo, borrador en `localStorage`; "Guardar enlaces" agrega a `enlaces.txt` sin duplicar (GitHub si hay token; si no, File System Access API o descarga `enlaces_nuevos.txt`).
-- **Mitad inferior · Módulo IA:** alertas (bajas reales de `ofertas.json.alertas`/`historial.json` + "Simular alerta"; clic abre el producto en Mercado Libre en otra pestaña) y buscador aesthetic (SKU/ID → Pinterest "aesthetic wallpaper").
+- **Arriba · Enlaces (altura fija `h-56`):** cada pegado (Ctrl+V) queda en su línea y el cursor baja al renglón siguiente; Enter limpia y salta; conteo, borrador en `localStorage`; "Guardar enlaces" agrega a `enlaces.txt` sin duplicar (GitHub si hay token; si no, File System Access API o descarga `enlaces_nuevos.txt`). La caja crece solo mientras está abierta la conexión con GitHub.
+- **Abajo · Módulo IA (`flex-1`, scroll interno):** feed de súper ofertas con las mismas tarjetas que `app.html` (foto, nombre corto, specs, precio lima y tachado) y dos botones: "Buscar fondos" (Pinterest con el nombre corto + "aesthetic wallpaper") y "Guion" (teleprompter a pantalla completa con la plantilla de datos reales).
 - Las claves de `localStorage` siguen siendo `heleos.municion` y `heleos.github` para no perder el borrador ni el token ya guardados.
 ### App del creador (`app.html`) — nueva (2026-10-28)
 
-Mobile-first (`max-w-md`), para usar en el celular al grabar TikToks. Feed compacto de `ofertas.json` (foto, título a 2 líneas, specs sacadas del título, tachado y precio lima) con "Buscar fondos" (Pinterest) y "Ver guion": teleprompter a pantalla completa con un guion armado por plantilla con los datos reales (no hay IA conectada), botón lima grande para cerrar, A−/A+ y Escape.
+Mobile-first (`max-w-md`), para usar en el celular al grabar TikToks. (Todavía muestra el título largo de Mercado Libre recortado a 2 líneas; no usa `nombres.js`.) Feed compacto de `ofertas.json` (foto, título a 2 líneas, specs sacadas del título, tachado y precio lima) con "Buscar fondos" (Pinterest) y "Ver guion": teleprompter a pantalla completa con un guion armado por plantilla con los datos reales (no hay IA conectada), botón lima grande para cerrar, A−/A+ y Escape.
 
 - Se sirve con `python -m http.server 8765` (`.claude/launch.json`) → `http://localhost:8765/dashboard.html`.
 
@@ -53,6 +53,7 @@ Mobile-first (`max-w-md`), para usar en el celular al grabar TikToks. Feed compa
 
 Arquitectura: **GitHub es el bus de datos**. Solo el radar depende de una máquina encendida (laptop viejita).
 
+- **Nombres comerciales:** `nombres.js` (compartido por `index.html` y `dashboard.html`) guarda `NOMBRES` por enlace de afiliado y `nombreComercial(p)` (NOMBRES → `p.nombre` → recorte automático hasta el modelo). Al agregar enlaces nuevos, sumar aquí su nombre.
 - **GitHub Pages** sirve `index.html`, `dashboard.html` y `app.html` (repositorio público `gamertag61/HOFERTAS` → https://gamertag61.github.io/HOFERTAS/).
 - **Cockpit**: "Guardar Enlaces" escribe `enlaces.txt` en el repo vía API de GitHub (token fine-grained, solo Contents, guardado en `localStorage` del navegador del usuario; repo deducido de `usuario.github.io/repo`). Sin token usa el archivo local como antes.
 - **Radar** (`heleos_radar.py`): con `heleos_config.json` (gitignored) lee `enlaces.txt` del repo y publica `ofertas.json` + `historial.json` en **un solo commit** (Git Data API, solo `requests`). `--loop` corre cada `intervalo_min` (mín. 15, default 180) y no se cae por errores de red. Detecta bajas de precio contra el último precio del historial y las guarda en `ofertas.json.alertas` (máx. 30); el Cockpit las muestra.

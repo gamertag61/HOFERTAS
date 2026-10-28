@@ -20,7 +20,7 @@
   :root { --lima: #c6f135; --tinta: #0a0b0d; --ease: cubic-bezier(.16, 1, .3, 1); color-scheme: dark; }
   html, body { height: 100%; overflow: hidden; background: var(--tinta); }
   body { -webkit-text-size-adjust: 100%;
-    background: radial-gradient(ellipse 50% 35% at 30% -5%, rgba(198,241,53,.06), transparent 70%), var(--tinta); }
+    background: radial-gradient(ellipse 60% 30% at 50% -5%, rgba(198,241,53,.06), transparent 70%), var(--tinta); }
   ::selection { background: var(--lima); color: var(--tinta); }
   textarea, input { caret-color: var(--lima); }
   .num { font-variant-numeric: tabular-nums; }
@@ -31,8 +31,8 @@
   .scroll::-webkit-scrollbar-thumb { background: #2c3037; border-radius: 9999px; border: 2px solid var(--tinta); }
 
   /* Entrada en cascada */
-  @keyframes rise { from { opacity: 0; translate: 0 14px; } to { opacity: 1; translate: 0 0; } }
-  .rise { animation: rise .6s var(--ease) both; animation-delay: calc(var(--i, 0) * 80ms); }
+  @keyframes rise { from { opacity: 0; translate: 0 12px; } to { opacity: 1; translate: 0 0; } }
+  .rise { animation: rise .5s var(--ease) both; animation-delay: calc(var(--i, 0) * 50ms); }
 
   /* Controles */
   .press { transition: transform 160ms var(--ease), filter 160ms ease, background-color 160ms ease, color 160ms ease, border-color 160ms ease, opacity 160ms ease; }
@@ -45,107 +45,119 @@
   .campo:focus { outline: none; border-color: rgba(198,241,53,.55); background: #121417; }
   .campo::placeholder { color: #6b7079; }
 
-  /* Alertas */
-  @keyframes flash-in { from { opacity: 0; translate: 0 -8px; filter: blur(4px); } to { opacity: 1; translate: 0 0; filter: none; } }
-  @keyframes flash-borde { from { border-color: rgba(198,241,53,.7); } to { border-color: #24272d; } }
-  .alerta { background: #15171b; border: 1px solid #24272d; transition: border-color 160ms ease; }
-  .alerta.nueva { animation: flash-in 300ms var(--ease) both, flash-borde 1.6s ease-out 300ms both; }
-  .alerta:hover { border-color: #3a3f2a; }
+  /* Tarjetas del feed */
+  .oferta { transition: border-color .2s ease; }
+  .oferta:hover { border-color: #3a3f2a; }
 
-  /* Aviso de estado bajo cada botón */
+  /* Aviso de estado bajo el botón */
   .aviso { transition: opacity 220ms ease, translate 220ms var(--ease); }
   .aviso:empty { opacity: 0; translate: 0 -4px; }
 
   @keyframes latido { 0% { box-shadow: 0 0 0 0 rgba(198,241,53,.55); } 70%, 100% { box-shadow: 0 0 0 6px rgba(198,241,53,0); } }
   .latido { animation: latido 2.4s ease-out infinite; }
 
+  /* Teleprompter */
+  #prompter { opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility 0s linear .25s; }
+  #prompter.abierto { opacity: 1; visibility: visible; transition: opacity .25s ease; }
+  #prompter .hoja { translate: 0 16px; transition: translate .35s var(--ease); }
+  #prompter.abierto .hoja { translate: 0 0; }
+  #guion { font-size: var(--tam, 2rem); }
+  #guion p + p { margin-top: 1.1em; }
+
+  @keyframes brillo { to { background-position: -200% 0; } }
+  .esq { background: linear-gradient(90deg, #15171b 0%, #1d2026 50%, #15171b 100%); background-size: 200% 100%; animation: brillo 1.4s linear infinite; }
+
   a:focus-visible, button:focus-visible, textarea:focus-visible, input:focus-visible { outline: 2px solid var(--lima); outline-offset: 2px; }
 
   @media (prefers-reduced-motion: reduce) {
-    .rise, .latido, .alerta.nueva { animation: none; }
-    .press, .campo, .aviso { transition: none; }
+    .rise, .latido, .esq { animation: none; }
+    .press, .campo, .aviso, .oferta, #prompter, #prompter .hoja { transition: none; }
   }
 </style>
 </head>
 <body class="font-sans text-zinc-100 antialiased">
 
-<main class="mx-auto flex h-[100dvh] w-full max-w-3xl flex-col gap-3 p-3" aria-label="Panel de control">
+<main class="mx-auto flex h-screen w-full max-w-3xl flex-col gap-3 p-3" aria-label="Panel de control">
 
-    <!-- CAJA SUPERIOR · Ingreso de enlaces -->
-    <section class="rise flex min-h-0 flex-1 flex-col rounded-3xl border border-linea bg-grafito p-4 sm:p-5" style="--i:0" aria-labelledby="t-enlaces">
-      <header class="flex items-center justify-between gap-3">
-        <h2 id="t-enlaces" class="flex items-baseline gap-2 text-lg font-bold tracking-tight">
-          <span class="flex items-baseline font-extrabold"><span>H</span><span class="mx-1 font-normal text-ceniza">|</span><span>Ofertas</span><span class="ml-0.5 inline-block h-1.5 w-1.5 rounded-full bg-lima"></span></span>
-          <span class="text-humo">Enlaces</span>
-        </h2>
-        <span class="flex items-center gap-1">
-          <span id="conteo" class="num font-mono text-[11px] text-humo">0 enlaces</span>
-          <button id="ajustes" type="button" class="press -mr-1.5 grid h-8 w-8 place-items-center rounded-full text-humo hover:bg-white/5 hover:text-zinc-100" aria-label="Conexión con GitHub" aria-expanded="false" aria-controls="conexion" title="Conexión con GitHub">
-            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12a3.5 3.5 0 0 0 5 0l2.5-2.5a3.5 3.5 0 0 0-5-5L9.8 5.2M12 8a3.5 3.5 0 0 0-5 0L4.5 10.5a3.5 3.5 0 0 0 5 5l.7-.7"/></svg>
-          </button>
-        </span>
-      </header>
-      <!-- Conexión con GitHub: guarda enlaces.txt en el repositorio -->
-      <form id="conexion" class="mt-3 hidden flex-col gap-2 border-b border-linea pb-3">
-        <label class="text-xs text-humo" for="gh-repo">Repositorio</label>
-        <input id="gh-repo" type="text" autocomplete="off" spellcheck="false" placeholder="usuario/repositorio" class="campo h-9 rounded-full px-4 font-mono text-[12px] text-zinc-100">
-        <label class="text-xs text-humo" for="gh-token">Token (solo Contents: lectura y escritura)</label>
-        <input id="gh-token" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_…" class="campo h-9 rounded-full px-4 font-mono text-[12px] text-zinc-100">
-        <div class="mt-1 flex items-center gap-2">
-          <button type="submit" class="press flex-1 rounded-full border border-linea py-2 text-xs font-semibold text-zinc-100 hover:border-zinc-500">Conectar</button>
-          <button type="button" id="gh-olvidar" class="press rounded-full px-3 py-2 text-xs text-humo hover:text-zinc-100">Olvidar</button>
-        </div>
-        <p id="gh-estado" class="text-xs text-humo" role="status"></p>
-      </form>
-      <label for="municion" class="sr-only">Enlaces de afiliado, uno por línea</label>
+  <!-- CAJA SUPERIOR · Enlaces (altura fija moderada) -->
+  <section id="caja-enlaces" class="rise flex h-56 shrink-0 flex-col rounded-3xl border border-linea bg-grafito p-4" style="--i:0" aria-labelledby="t-enlaces">
+    <header class="flex shrink-0 items-center justify-between gap-3">
+      <h2 id="t-enlaces" class="flex items-baseline gap-2 text-base font-bold tracking-tight">
+        <span class="flex items-baseline font-extrabold"><span>H</span><span class="mx-1 font-normal text-humo">|</span><span>Ofertas</span><span class="ml-0.5 inline-block h-1.5 w-1.5 rounded-full bg-lima"></span></span>
+        <span class="text-humo">Enlaces</span>
+      </h2>
+      <span class="flex items-center gap-1">
+        <span id="conteo" class="num font-mono text-[11px] text-humo">0 enlaces</span>
+        <button id="ajustes" type="button" class="press -mr-1.5 grid h-8 w-8 place-items-center rounded-full text-humo hover:bg-white/5 hover:text-zinc-100" aria-label="Conexión con GitHub" aria-expanded="false" aria-controls="conexion" title="Conexión con GitHub">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12a3.5 3.5 0 0 0 5 0l2.5-2.5a3.5 3.5 0 0 0-5-5L9.8 5.2M12 8a3.5 3.5 0 0 0-5 0L4.5 10.5a3.5 3.5 0 0 0 5 5l.7-.7"/></svg>
+        </button>
+      </span>
+    </header>
+    <!-- Conexión con GitHub: guarda enlaces.txt en el repositorio -->
+    <form id="conexion" class="mt-3 hidden shrink-0 flex-col gap-2 border-b border-linea pb-3">
+      <label class="text-xs text-humo" for="gh-repo">Repositorio</label>
+      <input id="gh-repo" type="text" autocomplete="off" spellcheck="false" placeholder="usuario/repositorio" class="campo h-9 rounded-full px-4 font-mono text-[12px] text-zinc-100">
+      <label class="text-xs text-humo" for="gh-token">Token (solo Contents: lectura y escritura)</label>
+      <input id="gh-token" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_…" class="campo h-9 rounded-full px-4 font-mono text-[12px] text-zinc-100">
+      <div class="mt-1 flex items-center gap-2">
+        <button type="submit" class="press flex-1 rounded-full border border-linea py-2 text-xs font-semibold text-zinc-100 hover:border-zinc-500">Conectar</button>
+        <button type="button" id="gh-olvidar" class="press rounded-full px-3 py-2 text-xs text-humo hover:text-zinc-100">Olvidar</button>
+      </div>
+      <p id="gh-estado" class="text-xs text-humo" role="status"></p>
+    </form>
+    <label for="municion" class="sr-only">Enlaces de afiliado, uno por línea</label>
+    <div class="mt-2.5 flex min-h-0 flex-1 gap-2">
       <textarea id="municion" spellcheck="false" autocomplete="off"
                 placeholder="https://meli.la/…&#10;Pega con Ctrl+V: cada enlace queda en su línea"
-                class="campo scroll mt-3 block min-h-[6rem] w-full flex-1 resize-none rounded-2xl px-4 py-3 font-mono text-[13px] leading-6 text-zinc-200"></textarea>
-      <button id="guardar" type="button" class="press btn-lima mt-3 block w-full shrink-0 rounded-full py-3 text-sm font-semibold" disabled>Guardar enlaces</button>
-      <p id="aviso-municion" class="aviso mt-1.5 min-h-[1rem] shrink-0 text-xs text-humo" role="status"></p>
-    </section>
+                class="campo scroll block min-h-0 w-full flex-1 resize-none rounded-2xl px-4 py-2.5 font-mono text-[13px] leading-6 text-zinc-200"></textarea>
+    </div>
+    <div class="mt-2.5 flex shrink-0 items-center gap-3">
+      <button id="guardar" type="button" class="press btn-lima shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold" disabled>Guardar enlaces</button>
+      <p id="aviso-municion" class="aviso min-w-0 flex-1 truncate text-xs text-humo" role="status"></p>
+    </div>
+  </section>
 
-    <!-- CAJA INFERIOR · Módulo IA -->
-    <section class="rise flex min-h-0 flex-1 flex-col overflow-hidden rounded-3xl border border-linea bg-grafito" style="--i:1" aria-labelledby="t-ia">
-      <header class="flex shrink-0 items-center justify-between gap-3 px-4 pt-4 sm:px-5">
-        <h2 id="t-ia" class="flex items-center gap-2 text-lg font-bold tracking-tight">
-          <span class="latido h-1.5 w-1.5 rounded-full bg-lima" aria-hidden="true"></span>Módulo IA
+  <!-- CAJA INFERIOR · Módulo IA: feed de súper ofertas -->
+  <section class="rise flex min-h-0 flex-1 flex-col overflow-hidden rounded-3xl border border-linea bg-grafito" style="--i:1" aria-labelledby="t-ia">
+    <header class="flex shrink-0 items-end justify-between gap-3 border-b border-linea px-5 pb-4 pt-5">
+      <div>
+        <h2 id="t-ia" class="flex items-center gap-2.5 text-xl font-bold tracking-tight">
+          <span class="latido h-2 w-2 rounded-full bg-lima" aria-hidden="true"></span>Módulo IA
         </h2>
-        <span id="reloj" class="num font-mono text-[11px] text-humo"></span>
-      </header>
-
-      <!-- Mitad 1: alertas -->
-      <div class="flex min-h-0 flex-1 flex-col px-4 pb-3 pt-3 sm:px-5">
-        <div class="flex items-center justify-between gap-2">
-          <h3 class="text-sm font-semibold text-zinc-200">Alertas de precio</h3>
-          <button id="simular" type="button" class="press rounded-full border border-linea px-2.5 py-1 text-[11px] font-medium text-zinc-300 hover:border-zinc-500 hover:text-zinc-100">Simular alerta</button>
-        </div>
-        <p id="origen" class="mt-0.5 truncate font-mono text-[11px] text-humo"></p>
-        <ol id="alertas" class="scroll -mr-2 mt-2 flex min-h-0 flex-1 flex-col gap-1.5 overflow-y-auto pr-2" aria-live="polite"></ol>
+        <p id="origen" class="num mt-1 font-mono text-xs text-humo">Cargando súper ofertas…</p>
       </div>
-
-      <!-- Mitad 2: buscador aesthetic -->
-      <div class="shrink-0 border-t border-linea bg-mate/60 px-4 pb-4 pt-3 sm:px-5">
-        <h3 class="text-sm font-semibold text-zinc-200">Buscador aesthetic</h3>
-        <form id="foto" class="mt-2 flex gap-2">
-          <label for="sku" class="sr-only">SKU o ID del producto</label>
-          <input id="sku" type="text" autocomplete="off" spellcheck="false" placeholder="SKU o ID · ej. Aula Win60HE"
-                 class="campo h-12 min-w-0 flex-1 rounded-full px-5 text-[15px] text-zinc-100">
-          <button id="buscar" type="submit" class="press btn-lima grid h-12 shrink-0 place-items-center rounded-full px-6 text-[15px] font-semibold" disabled>
-            Buscar
-          </button>
-        </form>
-        <p class="mt-1.5 text-[11px] text-ceniza">Abre Pinterest con fondos aesthetic de ese producto.</p>
-      </div>
-    </section>
+      <span id="reloj" class="num font-mono text-xs text-humo"></span>
+    </header>
+    <ol id="feed" class="scroll flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto px-4 py-4 sm:px-5" aria-live="polite" aria-label="Feed de súper ofertas"></ol>
+  </section>
 </main>
 
+<!-- Teleprompter: modal a pantalla completa -->
+<div id="prompter" role="dialog" aria-modal="true" aria-labelledby="p-titulo" class="fixed inset-0 z-50 bg-black">
+  <div class="hoja mx-auto flex h-[100dvh] max-w-2xl flex-col">
+    <div class="flex shrink-0 items-center gap-3 px-5 pb-3 pt-5">
+      <button id="cerrar" type="button" aria-label="Cerrar guion" class="press btn-lima grid h-14 w-14 shrink-0 place-items-center rounded-full">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <h2 id="p-titulo" class="min-w-0 flex-1 truncate text-sm font-semibold text-humo">Guion</h2>
+      <div class="flex shrink-0 gap-1.5" role="group" aria-label="Tamaño del texto">
+        <button id="menos" type="button" aria-label="Texto más chico" class="press grid h-11 w-11 place-items-center rounded-full border border-linea text-sm font-bold text-zinc-200">A−</button>
+        <button id="mas" type="button" aria-label="Texto más grande" class="press grid h-11 w-11 place-items-center rounded-full border border-linea text-base font-bold text-zinc-200">A+</button>
+      </div>
+    </div>
+    <div id="guion" class="scroll min-h-0 flex-1 overflow-y-auto px-7 pb-10 pt-4 font-bold leading-[1.3] tracking-[-0.01em] text-zinc-50"></div>
+  </div>
+</div>
+
+<script src="nombres.js"></script>
 <script>
 (() => {
   const $ = id => document.getElementById(id);
   const mxn = new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', maximumFractionDigits: 0 });
   const esc = t => String(t ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const ML = 'https://www.mercadolibre.com.mx/';
+  const nombre = window.nombreComercial;
+  const off = p => Math.round((1 - p.n / p.o) * 100);
+  const enlace = url => `href="${esc(url)}" target="_blank" rel="noopener noreferrer sponsored"`;
 
   /* ---------- Ingreso de enlaces ---------- */
   const caja = $('municion'), guardar = $('guardar'), avisoM = $('aviso-municion'), conteo = $('conteo');
@@ -162,7 +174,7 @@
     try { localStorage.setItem(BORRADOR, caja.value); } catch {}
   }
   let avisoT;
-  function avisar(el, txt) { clearTimeout(avisoT); el.textContent = txt; avisoT = setTimeout(() => (el.textContent = ''), 6000); }
+  function avisar(el, txt) { clearTimeout(avisoT); el.textContent = txt; el.title = txt; avisoT = setTimeout(() => (el.textContent = ''), 6000); }
 
   // Enter al final de un enlace: limpia espacios y salta a una línea nueva limpia.
   caja.addEventListener('keydown', e => {
@@ -187,6 +199,7 @@
     const fin = post.startsWith('\n') ? '' : '\n';
     caja.value = pre + sep + cuerpo + fin + post;
     caja.selectionStart = caja.selectionEnd = (pre + sep + cuerpo + fin).length;
+    caja.scrollTop = caja.scrollHeight;
     contar();
   });
   caja.addEventListener('input', contar);
@@ -246,7 +259,7 @@
       } catch (e) { if (e.status !== 409 || intento) throw e; } // alguien escribió al mismo tiempo: reintenta
     }
   }
-  const conexion = $('conexion'), ajustes = $('ajustes'), ghEstado = $('gh-estado');
+  const conexion = $('conexion'), ajustes = $('ajustes'), ghEstado = $('gh-estado'), cajaEnlaces = $('caja-enlaces');
   function pintarConexion() {
     const c = ghCfg();
     $('gh-repo').value = c.repo || deducido;
@@ -257,6 +270,8 @@
   ajustes.addEventListener('click', () => {
     const abrir = conexion.classList.contains('hidden');
     conexion.classList.toggle('hidden', !abrir); conexion.classList.toggle('flex', abrir);
+    // Mientras se configura GitHub la caja crece; al cerrar vuelve a su altura fija.
+    cajaEnlaces.classList.toggle('h-56', !abrir); cajaEnlaces.classList.toggle('h-auto', abrir);
     ajustes.setAttribute('aria-expanded', abrir);
     if (abrir) { pintarConexion(); $('gh-repo').focus(); }
   });
@@ -285,10 +300,10 @@
     if (cfg.token) {
       try {
         const { agregar, rep } = await guardarGitHub(cfg, nuevos);
-        avisar(avisoM, (agregar.length ? `${agregar.length} ${agregar.length === 1 ? 'enlace guardado' : 'enlaces guardados'} en GitHub` : 'Nada nuevo') + (rep ? ` · ${rep} ya estaba${rep === 1 ? '' : 'n'}` : '') + '. Entran en la próxima actualización.');
+        avisar(avisoM, (agregar.length ? `${agregar.length} ${agregar.length === 1 ? 'enlace guardado' : 'enlaces guardados'} en GitHub` : 'Nada nuevo') + (rep ? ` · ${rep} ya estaba${rep === 1 ? '' : 'n'}` : '') + '.');
         caja.value = '';
       } catch (e) {
-        avisar(avisoM, e.status === 401 ? 'El token de GitHub ya no sirve: vuelve a conectarlo.' : `No se pudo guardar en GitHub (${e.message}). Tus enlaces siguen en la caja.`);
+        avisar(avisoM, e.status === 401 ? 'El token de GitHub ya no sirve: vuelve a conectarlo.' : `No se pudo guardar en GitHub (${e.message}).`);
       }
       return contar();
     }
@@ -306,7 +321,7 @@
         await w.close();
       }
       const rep = nuevos.length - agregar.length;
-      avisar(avisoM, `${agregar.length} ${agregar.length === 1 ? 'enlace guardado' : 'enlaces guardados'} en ${h.name}` + (rep ? ` · ${rep} ya estaba${rep === 1 ? '' : 'n'}` : '') + '. Entran en la próxima actualización.');
+      avisar(avisoM, `${agregar.length} ${agregar.length === 1 ? 'enlace guardado' : 'enlaces guardados'} en ${h.name}` + (rep ? ` · ${rep} ya estaba${rep === 1 ? '' : 'n'}` : '') + '.');
       caja.value = '';
       contar();
     } catch (e) {
@@ -315,94 +330,120 @@
         const blob = new Blob([nuevos.join('\n') + '\n'], { type: 'text/plain' });
         const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: 'enlaces_nuevos.txt' });
         a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
-        avisar(avisoM, 'Este navegador no deja escribir en enlaces.txt: se descargó enlaces_nuevos.txt para pegarlos ahí.');
+        avisar(avisoM, 'Se descargó enlaces_nuevos.txt: pega su contenido en enlaces.txt.');
       }
       contar();
     }
   });
   contar();
 
-  /* ---------- Módulo IA · alertas ---------- */
-  const lista = $('alertas'), origen = $('origen');
-  const off = p => Math.round((1 - p.n / p.o) * 100);
-  const corto = t => t.split(/[,\-–|(]/)[0].trim().split(/\s+/).slice(0, 5).join(' ');
-  let pool = [], hist = {}, sim = 0;
-  const DEMO = [
-    { t: 'Teclado mecánico compacto 75% inalámbrico', o: 1799, n: 1079, i: '', link: ML },
-    { t: 'Audífonos inalámbricos con cancelación de ruido', o: 1899, n: 1199, i: '', link: ML },
-    { t: 'Monitor gamer curvo 27 pulgadas QHD 165 Hz', o: 5499, n: 3899, i: '', link: ML }
+  /* ---------- Módulo IA · feed de súper ofertas (mismas tarjetas que app.html) ---------- */
+  const reglas = [
+    [/(\d{2,3})\s?hz/i, m => `${m[1]} Hz`],
+    [/(\d{2}(?:[.,]\d)?)\s?(?:"|”|''|pulgadas|pulg\b)/i, m => `${m[1].replace(',', '.')}"`],
+    [/\b(\d(?:\.\d)?)\s?ms\b/i, m => `${m[1]} ms`],
+    [/inal[aá]mbric|bluetooth|wireless|\bbt\b/i, () => 'Inalámbrico'],
+    [/(?<!in)al[aá]mbric|(?<!-)\bwired\b/i, () => 'Alámbrico'],
+    [/mec[aá]nic|magn[eé]tic/i, m => /magn/i.test(m[0]) ? 'Magnético' : 'Mecánico'],
+    [/cancelaci[oó]n|\banc\b/i, () => 'ANC'],
+    [/(\d{3,5})\s?mah/i, m => `${m[1]} mAh`],
+    [/(\d{2,4})\s?(gb|tb)\b/i, m => `${m[1]} ${m[2].toUpperCase()}`],
+    [/\brgb\b/i, () => 'RGB']
   ];
-  const vacio = () => {
-    if (lista.children.length) return;
-    lista.innerHTML = `<li class="vacio flex flex-1 flex-col items-center justify-center gap-1 py-4 text-center">
-      <p class="text-sm text-humo">Sin alertas por ahora</p>
-      <p class="text-xs text-ceniza">Aparecen aquí cuando un precio baja.</p></li>`;
-  };
-  function alerta(p, nota, nueva = true) {
-    lista.querySelector('.vacio')?.remove();
-    const li = document.createElement('li');
-    li.className = 'alerta shrink-0 rounded-2xl' + (nueva ? ' nueva' : '');
-    const img = /^https:\/\//.test(p.i)
-      ? `<img src="${esc(p.i)}" alt="" class="h-12 w-12 shrink-0 rounded-xl bg-white object-contain p-0.5" loading="lazy">`
-      : `<span class="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-alto text-lima" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></span>`;
-    li.innerHTML = `<button type="button" class="press flex w-full items-center gap-3 rounded-2xl p-2.5 text-left" title="Abrir en Mercado Libre">
-      ${img}
-      <span class="min-w-0 flex-1">
-        <span class="block truncate text-sm leading-5 text-zinc-100"><span class="font-semibold text-lima">${esc(corto(p.t))}</span> bajó un ${off(p)}%</span>
-        <span class="mt-0.5 flex items-baseline gap-2">
-          <span class="num font-mono text-sm font-semibold text-lima">${mxn.format(p.n)}</span>
-          <span class="num font-mono text-[11px] text-ceniza line-through">${mxn.format(p.o)}</span>
-          <span class="truncate text-[11px] text-humo">${esc(nota)}</span>
-        </span>
-      </span>
-    </button>`;
-    li.querySelector('button').addEventListener('click', () => window.open(p.link, '_blank', 'noopener'));
-    lista.prepend(li);
-    while (lista.children.length > 30) lista.lastElementChild.remove();
+  const specs = p => { const out = []; for (const [re, f] of reglas) { const m = p.t.match(re); if (m) out.push(f(m)); if (out.length === 3) break; } return out; };
+
+  const feed = $('feed'), origen = $('origen');
+  let P = [];
+  feed.innerHTML = Array.from({ length: 4 }, () => `<li class="flex gap-4 rounded-2xl border border-linea bg-mate p-3"><div class="esq h-24 w-24 shrink-0 rounded-xl"></div><div class="flex-1 pt-1"><div class="esq h-4 w-3/4 rounded"></div><div class="esq mt-3 h-6 w-1/3 rounded"></div></div></li>`).join('');
+
+  function tarjeta(p, k) {
+    const s = specs(p);
+    return `
+    <li class="oferta rise rounded-2xl border border-linea bg-mate p-3" style="--i:${Math.min(k, 8)}">
+      <div class="flex gap-4">
+        <a ${enlace(p.link)} class="relative block h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-white p-2" aria-label="Abrir ${esc(nombre(p))} en Mercado Libre">
+          <img src="${esc(p.i)}" alt="" loading="lazy" class="h-full w-full object-contain">
+          <span class="num absolute left-1 top-1 rounded-full bg-lima px-1.5 py-0.5 font-mono text-[11px] font-bold text-tinta">-${off(p)}%</span>
+        </a>
+        <div class="min-w-0 flex-1">
+          <h3 class="line-clamp-2 text-[15px] font-semibold leading-snug text-zinc-50" title="${esc(p.t)}">${esc(nombre(p))}</h3>
+          ${s.length ? `<p class="mt-1 truncate font-mono text-xs text-humo">${esc(s.join(' · '))}</p>` : ''}
+          <p class="mt-2 flex items-baseline gap-2.5">
+            <span class="num text-2xl font-extrabold tracking-tight text-lima">${mxn.format(p.n)}</span>
+            <span class="num text-sm text-humo line-through">${mxn.format(p.o)}</span>
+          </p>
+        </div>
+      </div>
+      <div class="mt-3 grid grid-cols-2 gap-2">
+        <button type="button" data-fondos="${k}" class="press flex items-center justify-center gap-2 rounded-full border border-linea bg-grafito py-3 text-sm font-semibold text-zinc-100 hover:border-zinc-500">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8a2 2 0 0 1 2-2h1.5l1.5-2h6l1.5 2H18a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><circle cx="12" cy="12.5" r="3.5"/></svg>
+          Buscar fondos
+        </button>
+        <button type="button" data-guion="${k}" class="press btn-lima flex items-center justify-center gap-2 rounded-full py-3 text-sm font-semibold">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
+          Guion
+        </button>
+      </div>
+    </li>`;
   }
-  // Baja real: último precio contra el anterior en historial.json.
-  function bajas() {
-    return pool.map(p => {
-      const h = hist[p.link] || [];
-      const [a, b] = h.slice(-2);
-      return a && b && b.precio < a.precio ? { p, nota: `bajó ${mxn.format(a.precio - b.precio)}` } : null;
-    }).filter(Boolean);
-  }
-  $('simular').addEventListener('click', () => {
-    const base = pool.length ? pool : DEMO;
-    const p = { ...base[sim++ % base.length] };
-    const caida = Math.max(1, Math.round(p.n * (0.04 + Math.random() * 0.08)));
-    p.n = p.n - caida;
-    alerta(p, 'simulada');
-  });
-  Promise.all([
-    fetch('ofertas.json?t=' + Date.now(), { cache: 'no-store' }).then(r => r.ok ? r.json() : Promise.reject(r.status)),
-    fetch('historial.json?t=' + Date.now(), { cache: 'no-store' }).then(r => r.ok ? r.json() : {}).catch(() => ({}))
-  ]).then(([d, h]) => {
-    pool = (d.productos || []).filter(p => p && p.n > 0 && p.n < p.o && /^https:\/\//.test(p.link));
-    hist = h || {};
-    const hora = d.actualizado ? new Date(d.actualizado).toLocaleString('es-MX', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '';
-    origen.textContent = `${pool.length} ofertas` + (hora ? ` · actualizado ${hora}` : '');
-    const hace = f => { const m = Math.round((Date.now() - new Date(f)) / 60000);
-      return m < 60 ? `hace ${Math.max(1, m)} min` : m < 1440 ? `hace ${Math.round(m / 60)} h` : `hace ${Math.round(m / 1440)} d`; };
-    const detectadas = (d.alertas || []).filter(a => a && a.ahora > 0 && /^https:\/\//.test(a.link))
-      .map(a => ({ p: { t: a.t, i: a.i, n: a.ahora, o: Math.max(a.o || a.antes, a.ahora), link: a.link }, nota: hace(a.fecha) }));
-    (detectadas.length ? detectadas : bajas()).slice(0, 8).reverse().forEach(x => alerta(x.p, x.nota, false));
-    vacio();
-  }).catch(() => {
-    origen.textContent = 'Sin conexión con ofertas.json · usa "Simular alerta"';
-    vacio();
+
+  feed.addEventListener('click', e => {
+    const f = e.target.closest('[data-fondos]'), g = e.target.closest('[data-guion]');
+    if (f) window.open('https://www.pinterest.com/search/pins/?q=' + encodeURIComponent(nombre(P[f.dataset.fondos]) + ' aesthetic wallpaper'), '_blank', 'noopener');
+    if (g) abrir(P[g.dataset.guion], g);
   });
 
-  /* ---------- Módulo IA · buscador aesthetic ---------- */
-  const sku = $('sku'), buscar = $('buscar');
-  sku.addEventListener('input', () => (buscar.disabled = !sku.value.trim()));
-  $('foto').addEventListener('submit', e => {
-    e.preventDefault();
-    const q = sku.value.trim();
-    if (!q) return;
-    window.open('https://www.pinterest.com/search/pins/?q=' + encodeURIComponent(q + ' aesthetic wallpaper'), '_blank', 'noopener');
-  });
+  /* ---------- Guion (plantilla con los datos reales de la oferta) ---------- */
+  function guion(p) {
+    const s = specs(p), lista = s.length > 1 ? s.slice(0, -1).join(', ') + ' y ' + s[s.length - 1] : s[0];
+    return [
+      `¿Ibas a pagar <span class="text-zinc-400 line-through decoration-[3px]">${esc(mxn.format(p.o))}</span> por esto?`,
+      `Hoy el <span class="text-lima">${esc(nombre(p))}</span> bajó a <span class="text-lima">${esc(mxn.format(p.n))}</span>.`,
+      `Es <span class="text-lima">${off(p)}% menos</span>: te ahorras ${esc(mxn.format(p.o - p.n))}.`,
+      lista ? `Datos clave: ${esc(lista)}. Mismo producto, mucho menos dinero.` : `Mismo producto, mucho menos dinero.`,
+      `Revisamos el precio real todos los días; esta baja es de verdad.`,
+      `El link está en mi perfil. Corre, que estos precios cambian rápido.`
+    ];
+  }
+
+  /* ---------- Teleprompter ---------- */
+  const prompter = $('prompter'), texto = $('guion');
+  let regreso = null, tam = 2;
+  try { tam = parseFloat(localStorage.getItem('h-prompter-panel')) || tam; } catch (e) {}
+  const aplicarTam = () => { texto.style.setProperty('--tam', tam + 'rem'); try { localStorage.setItem('h-prompter-panel', tam); } catch (e) {} };
+  aplicarTam();
+  $('menos').addEventListener('click', () => { tam = Math.max(1.3, +(tam - .2).toFixed(1)); aplicarTam(); });
+  $('mas').addEventListener('click', () => { tam = Math.min(3.4, +(tam + .2).toFixed(1)); aplicarTam(); });
+  function abrir(p, boton) {
+    regreso = boton;
+    $('p-titulo').textContent = nombre(p);
+    texto.innerHTML = guion(p).map(l => `<p>${l}</p>`).join('');
+    texto.scrollTop = 0;
+    prompter.classList.add('abierto');
+    $('cerrar').focus();
+  }
+  function cerrar() {
+    prompter.classList.remove('abierto');
+    if (regreso) regreso.focus();
+  }
+  $('cerrar').addEventListener('click', cerrar);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && prompter.classList.contains('abierto')) cerrar(); });
+
+  /* ---------- Datos ---------- */
+  fetch('ofertas.json?t=' + Date.now(), { cache: 'no-store' })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(d => {
+      P = (d.productos || [])
+        .filter(p => p && /^https:\/\//.test(p.link) && /^(https:\/\/|[\w\/-]+\.(webp|jpe?g|png)$)/i.test(p.i) && p.n > 0 && p.n < p.o)
+        .sort((x, y) => off(y) - off(x));
+      const hora = d.actualizado ? new Date(d.actualizado).toLocaleString('es-MX', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '';
+      origen.textContent = `${P.length} súper ofertas` + (hora ? ` · actualizado ${hora}` : '');
+      feed.innerHTML = P.length ? P.map(tarjeta).join('') : '<li class="py-16 text-center text-humo">Hoy no hay ofertas nuevas.</li>';
+    })
+    .catch(() => {
+      origen.textContent = 'Sin conexión con ofertas.json';
+      feed.innerHTML = '<li class="py-16 text-center text-humo">No pudimos cargar las ofertas. Recarga en un momento.</li>';
+    });
 
   /* ---------- Reloj ---------- */
   const reloj = $('reloj');
