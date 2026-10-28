@@ -34,11 +34,8 @@
   .js .rev { opacity: 0; translate: 0 22px; transition: opacity .45s var(--ease), translate .6s var(--ease), transform .3s var(--ease), box-shadow .3s ease, border-color .3s ease; }
   .js .rev.in { opacity: 1; translate: 0 0; transition-delay: calc(var(--d, 0) * 60ms), calc(var(--d, 0) * 60ms), 0s, 0s, 0s; }
 
-  /* Héroe: la foto real del producto; sus 4 bordes se funden con degradados lineales */
-  @keyframes deriva { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.025); } }
-  .foto-heroe { animation: deriva 9s ease-in-out infinite; }
-  .sobre-negro { text-shadow: 0 2px 14px rgba(0,0,0,.9); }
-  .sobre-negro .btn-lima, .sobre-negro .pildora-h { text-shadow: none; }
+  /* Oferta del día: resplandor 3D sutil detrás de la tarjeta */
+  .luz-oferta { background: radial-gradient(closest-side at 50% 55%, rgba(198,241,53,.14), transparent 75%); filter: blur(24px); }
 
   /* Indicador de monitoreo */
   @keyframes latido { 0% { box-shadow: 0 0 0 0 rgba(198,241,53,.55); } 70%, 100% { box-shadow: 0 0 0 7px rgba(198,241,53,0); } }
@@ -86,7 +83,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .foto-heroe, .latido, .esq { animation: none; }
+    .latido, .esq { animation: none; }
     .js .rev { opacity: 1; translate: none; transition: none; }
     .grafico .trazo { stroke-dashoffset: 0; transition: none; }
     .area, .punto, .etiqueta { opacity: 1; transition: none; }
@@ -134,62 +131,54 @@
 
 <main>
   <!-- Héroe -->
-  <section class="mx-auto max-w-7xl px-4 pb-14 pt-8 sm:px-6 md:pb-20 md:pt-14 lg:px-8">
-    <div class="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,.85fr)] lg:items-end lg:gap-14">
+  <section class="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)] items-center gap-12 px-4 pb-16 pt-8 sm:px-6 md:grid-cols-2 md:gap-10 md:pb-24 md:pt-16 lg:grid-cols-[minmax(0,.95fr)_minmax(0,1.05fr)] lg:gap-14 lg:px-8">
+    <div>
       <h1 class="rev text-balance text-[clamp(2.1rem,10.4vw,2.75rem)] font-extrabold leading-[.98] tracking-[-0.035em] sm:text-[3.4rem] lg:text-[4rem] xl:text-[4.5rem]">
         Arma tu setup con <span class="text-lima">datos</span>, no pagues sobreprecio.
       </h1>
-      <div class="lg:pb-2">
-        <p class="rev max-w-[32rem] text-base leading-7 text-humo" style="--d:1">
-          Buscamos los mejores precios de cada componente en Mercado Libre todos los días y solo te enseñamos las bajas de verdad.
-        </p>
-        <div class="rev mt-6 flex flex-wrap items-center gap-3" style="--d:2">
-          <a href="#ofertas" class="btn-lima inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold">
-            Ver ofertas de hoy
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a href="#monitoreo" class="btn-linea inline-flex items-center rounded-full border border-linea px-6 py-3.5 text-sm font-medium text-zinc-200 hover:border-zinc-500 hover:bg-white/[.03]">Cómo buscamos los precios</a>
-        </div>
-        <dl class="rev mt-7 grid max-w-md grid-cols-3 gap-6 border-t border-linea pt-5" style="--d:3">
-          <div><dt class="sr-only">Ofertas verificadas</dt><dd id="m-total" class="num text-2xl font-bold tracking-tight">—</dd><p class="mt-1 text-xs text-ceniza">ofertas verificadas</p></div>
-          <div><dt class="sr-only">Monitoreo</dt><dd class="num text-2xl font-bold tracking-tight">24/7</dd><p class="mt-1 text-xs text-ceniza">monitoreo de precios</p></div>
-          <div><dt class="sr-only">Datos reales</dt><dd class="num text-2xl font-bold tracking-tight">100%</dd><p class="mt-1 text-xs text-ceniza">precios reales</p></div>
-        </dl>
+      <p class="rev mt-6 max-w-[32rem] text-base leading-7 text-humo lg:text-lg" style="--d:1">
+        Buscamos los mejores precios de cada componente en Mercado Libre todos los días y solo te enseñamos las bajas de verdad.
+      </p>
+      <div class="rev mt-8 flex flex-wrap items-center gap-3" style="--d:2">
+        <a href="#ofertas" class="btn-lima inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold">
+          Ver ofertas de hoy
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#monitoreo" class="btn-linea inline-flex items-center rounded-full border border-linea px-6 py-3.5 text-sm font-medium text-zinc-200 hover:border-zinc-500 hover:bg-white/[.03]">Cómo buscamos los precios</a>
       </div>
+      <dl class="rev mt-10 grid max-w-md grid-cols-3 gap-6 border-t border-linea pt-6 lg:mt-12" style="--d:3">
+        <div><dt class="sr-only">Ofertas verificadas</dt><dd id="m-total" class="num text-2xl font-bold tracking-tight lg:text-3xl">—</dd><p class="mt-1 text-xs text-ceniza">ofertas verificadas</p></div>
+        <div><dt class="sr-only">Monitoreo</dt><dd class="num text-2xl font-bold tracking-tight lg:text-3xl">24/7</dd><p class="mt-1 text-xs text-ceniza">monitoreo de precios</p></div>
+        <div><dt class="sr-only">Datos reales</dt><dd class="num text-2xl font-bold tracking-tight lg:text-3xl">100%</dd><p class="mt-1 text-xs text-ceniza">precios reales</p></div>
+      </dl>
     </div>
 
-    <!-- Oferta del día: contenedor relativo; la foto real ocupa el centro y los datos se anclan a las esquinas -->
-    <div id="h-oferta" class="rev relative mt-10 lg:mt-12 lg:h-[460px] xl:h-[500px]" style="--d:2">
-      <!-- Foto del producto con los 4 bordes fundidos hacia el fondo -->
-      <a id="h-foto" href="#ofertas" tabindex="-1" aria-hidden="true" class="relative mx-auto block aspect-square w-full max-w-[460px] overflow-hidden lg:h-full lg:max-w-none lg:w-auto">
-        <div id="h-img" class="foto-heroe h-full w-full bg-white"></div>
-        <div class="pointer-events-none absolute inset-x-0 top-0 h-[30%] bg-gradient-to-b from-tinta via-tinta/55 to-transparent"></div>
-        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-tinta via-tinta/70 to-transparent"></div>
-        <div class="pointer-events-none absolute inset-y-0 left-0 w-[32%] bg-gradient-to-r from-tinta via-tinta/55 to-transparent"></div>
-        <div class="pointer-events-none absolute inset-y-0 right-0 w-[32%] bg-gradient-to-l from-tinta via-tinta/55 to-transparent"></div>
-      </a>
-
-      <!-- Superior derecha: solo el descuento -->
-      <span id="h-off" class="num absolute right-3 top-3 rounded-full bg-lima px-5 py-2 font-mono text-lg font-bold text-tinta lg:right-6 lg:top-6 lg:text-xl">-%</span>
-
-      <!-- Inferior izquierda: nombre + píldoras -->
-      <div class="sobre-negro relative -mt-16 lg:absolute lg:bottom-6 lg:left-6 lg:mt-0 lg:max-w-[30%]">
-        <h2 id="h-titulo" class="line-clamp-3 text-balance text-[1.75rem] font-extrabold leading-[1.08] tracking-[-0.03em] sm:text-4xl lg:text-[1.9rem] xl:text-[2.25rem]">Cargando la oferta del día…</h2>
-        <ul id="h-pildoras" class="mt-4 flex flex-wrap gap-2"></ul>
-      </div>
-
-      <!-- Inferior derecha: precio + botón -->
-      <div class="sobre-negro mt-6 lg:absolute lg:bottom-6 lg:right-6 lg:mt-0 lg:max-w-[30%] lg:text-right">
-        <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 lg:justify-end">
-          <span id="h-antes" class="num order-2 text-xl text-ceniza line-through lg:order-1"></span>
-          <span id="h-precio" class="num order-1 text-5xl font-extrabold tracking-[-0.035em] text-lima sm:text-6xl lg:order-2">—</span>
+    <!-- Oferta del día: tarjeta horizontal, misma estructura que las de la cuadrícula -->
+    <div id="h-oferta" class="rev relative" style="--d:2">
+      <div class="luz-oferta pointer-events-none absolute -inset-8" aria-hidden="true"></div>
+      <article aria-labelledby="h-titulo" class="relative rounded-[1.75rem] border border-linea bg-mate p-3 shadow-[0_30px_60px_-24px_rgba(0,0,0,.95),inset_0_1px_0_rgba(255,255,255,.06)] sm:p-4">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)] sm:items-center sm:gap-5 md:grid-cols-1 lg:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)]">
+          <!-- Izquierda: foto del producto -->
+          <a id="h-foto" href="#ofertas" tabindex="-1" aria-hidden="true" class="foto relative block aspect-square overflow-hidden rounded-2xl bg-white p-5 md:aspect-[4/3] lg:aspect-square">
+            <div id="h-img" class="esq h-full w-full rounded-xl"></div>
+            <span id="h-off" class="num absolute left-3 top-3 rounded-full bg-lima px-3 py-1.5 font-mono text-sm font-bold text-tinta shadow-[0_6px_14px_-6px_rgba(0,0,0,.6)]">-%</span>
+          </a>
+          <!-- Derecha: datos y acción -->
+          <div class="flex min-w-0 flex-col px-1 pb-1 sm:py-1">
+            <h2 id="h-titulo" class="text-[15px] font-semibold leading-[1.45] text-zinc-50 sm:text-base">Cargando la oferta del día…</h2>
+            <ul id="h-pildoras" class="mt-3 flex flex-wrap gap-1.5"></ul>
+            <div class="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <span id="h-precio" class="num text-5xl font-extrabold tracking-[-0.035em] text-lima">—</span>
+              <span id="h-antes" class="num text-lg text-ceniza line-through"></span>
+            </div>
+            <p id="h-ahorro" class="num mt-1 text-sm text-humo"></p>
+            <a id="h-link" href="#ofertas" class="btn-lima mt-5 inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-base font-bold">
+              Aprovechar oferta
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
         </div>
-        <p id="h-ahorro" class="num mt-1.5 text-sm text-humo"></p>
-        <a id="h-link" href="#ofertas" class="btn-lima mt-5 inline-flex w-full items-center justify-center gap-2.5 rounded-full px-9 py-4 text-lg font-bold sm:w-auto">
-          Aprovechar oferta
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </div>
+      </article>
     </div>
   </section>
 
@@ -492,13 +481,14 @@
       pintar();
       /* Oferta del día: el teclado con más descuento (o la mayor oferta si no hay teclados) */
       const tec = [...P].sort(ordenes.descuento).find(p => /teclado/i.test(p.t)) || [...P].sort(ordenes.descuento)[0];
-      $('h-titulo').textContent = corto(tec.t, 8);
+      $('h-titulo').textContent = tec.t;
       $('h-titulo').title = tec.t;
-      $('h-pildoras').innerHTML = pildoras(tec).map(([t, ic]) => `<li class="pildora-h num inline-flex items-center gap-1.5 rounded-full border border-linea bg-grafito px-3.5 py-1.5 font-mono text-[13px] text-zinc-200"><span class="text-lima">${icono(ic)}</span>${esc(t)}</li>`).join('');
+      $('h-pildoras').innerHTML = pildoras(tec).map(([t, ic]) => `<li class="num inline-flex items-center gap-1.5 rounded-full border border-linea bg-black/30 px-3 py-1 font-mono text-xs text-zinc-200"><span class="text-lima">${icono(ic)}</span>${esc(t)}</li>`).join('');
       $('h-precio').textContent = mxn.format(tec.n);
       $('h-antes').textContent = mxn.format(tec.o);
       $('h-ahorro').textContent = `Ahorras ${mxn.format(tec.o - tec.n)} · precio verificado`;
       $('h-off').textContent = `-${off(tec)}%`;
+      $('h-img').className = 'h-full w-full';
       $('h-img').innerHTML = `<img src="${esc(tec.i)}" alt="${esc(tec.t)}" fetchpriority="high" class="h-full w-full object-contain object-center">`;
       for (const id of ['h-foto', 'h-link']) { const a = $(id); a.href = tec.link; a.target = '_blank'; a.rel = 'noopener noreferrer sponsored'; }
     })
