@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>📱 Estudio Heleos</title>
+<meta name="theme-color" content="#070b14">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<script src="[https://cdn.tailwindcss.com/3.4.17](https://cdn.tailwindcss.com/3.4.17)"></script>
+<script>
+  tailwind.config = { theme: { extend: { colors: { tiktok: '#ff0050', deep: '#070b14', edge: '#1b2a3d' } } } };
+</script>
+<style>
+  body { background: #070b14; color: white; font-family: system-ui, sans-serif; }
+  /* Ocultar scroll para capturas limpias */
+  ::-webkit-scrollbar { display: none; }
+  
+  /* Formato exacto de Carrusel de TikTok (9:16) */
+  .marco-tiktok { 
+    aspect-ratio: 9/16; 
+    background: #0f1826; 
+    position: relative; 
+    overflow: hidden; 
+    border: 2px solid #1b2a3d; 
+    border-radius: 12px; 
+    box-shadow: 0 10px 30px -10px rgba(47,143,255,0.3);
+  }
+  .fondo-borroso { 
+    position: absolute; inset: -20px; 
+    filter: blur(35px) brightness(0.4); 
+    z-index: 0; 
+    background-size: cover; 
+    background-position: center; 
+  }
+</style>
+</head>
+<body class="p-4 pb-20">
+
+<header class="mb-6 flex items-center justify-between border-b border-edge pb-3 pt-2">
+  <div class="flex items-center gap-2">
+    <span class="h-3 w-3 rounded-full bg-[#ff0050] animate-pulse shadow-[0_0_10px_#ff0050]"></span>
+    <h1 class="text-xl font-bold">Estudio Creador</h1>
+  </div>
+  <span class="text-sm font-medium text-zinc-400 bg-edge/50 px-3 py-1 rounded-full" id="estado">Cargando...</span>
+</header>
+
+<main id="galeria" class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto"></main>
+
+<script>
+async function cargarEstudio() {
+  try {
+    // 1. Lee tu mismo archivo de ofertas que actualiza Heleos
+    const res = await fetch('ofertas.json?t=' + new Date().getTime()); // Evita caché
+    const datos = await res.json();
+    const productos = datos.productos || datos;
+    
+    if(!productos || !productos.length) {
+      document.getElementById('galeria').innerHTML = '<div class="text-center p-10 text-zinc-500 bg-edge/20 rounded-2xl border border-edge">No hay ofertas de Heleos para procesar hoy.</div>';
+      document.getElementById('estado').textContent = "Vacío";
+      return;
+    }
+
+    document.getElementById('estado').textContent = `${productos.length} ofertas`;
+    const mxn = new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', maximumFractionDigits: 0 });
+
+    // 2. Imprime los productos con formato de TikTok
+    document.getElementById('galeria').innerHTML = productos.map(p => {
+      const pOferta = typeof p.n === 'number' ? p.n : parseFloat(p.n);
+      const pOriginal = typeof p.o === 'number' ? p.o : parseFloat(p.o);
+      const descuento = pOriginal > pOferta ? Math.round((1 - (pOferta / pOriginal)) * 100) : 0;
+      
+      const urlPinterest = `[https://www.pinterest.com/search/pins/?q=$](https://www.pinterest.com/search/pins/?q=$){encodeURIComponent(p.t + ' aesthetic wallpaper')}`;
+      
+      return `
+      <div class="flex flex-col gap-3">
+        
+        <!-- MARCO TIKTOK (Toma captura de esto) -->
+        <div class="marco-tiktok flex flex-col justify-center p-6">
+          <div class="fondo-borroso" style="background-image: url('${p.i}')"></div>
+          
+          <div class="relative z-10 flex flex-col items-center text-center mt-[-10%]">
+            ${descuento > 0 ? `
+            <span class="mb-6 rounded-full bg-tiktok px-5 py-1.5 text-base font-bold text-white shadow-[0_0_25px_rgba(255,0,80,0.6)]">
+              🔥 -${descuento}% OFF
+            </span>` : ''}
+            
+            <div class="relative w-4/5 aspect-square mb-8">
+               <div class="absolute inset-0 bg-blue-500/20 blur-2xl rounded-full"></div>
+               <img src="${p.i}" alt="Producto" class="relative z-10 h-full w-full object-contain drop-shadow-2xl scale-110">
+            </div>
+            
+            <h2 class="mb-4 text-xl font-bold leading-tight text-white line-clamp-3 px-2 drop-shadow-md">${p.t}</h2>
+            
+            <div class="flex flex-col items-center bg-black/40 backdrop-blur-md px-8 py-3 rounded-2xl border border-white/10">
+              ${pOriginal > pOferta ? `<span class="text-sm text-zinc-400 line-through mb-1">${mxn.format(pOriginal)}</span>` : ''}
+              <span class="text-5xl font-black text-[#ffb340] drop-shadow-[0_0_15px_rgba(255,179,64,0.4)]">${mxn.format(pOferta)}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- HERRAMIENTAS INVISIBLES (Botones útiles) -->
+        <div class="flex gap-2 mt-1">
+          <a href="${p.link}" target="_blank" class="flex-1 rounded-xl bg-blue-600/20 border border-blue-500/50 py-3 text-center text-sm font-bold text-blue-400 transition hover:bg-blue-600/40 active:scale-95">
+            Ver Link
+          </a>
+          <a href="${urlPinterest}" target="_blank" class="flex-1 rounded-xl bg-red-600/20 border border-red-500/50 py-3 text-center text-sm font-bold text-red-400 transition hover:bg-red-600/40 active:scale-95">
+            🔍 Buscar Fondos
+          </a>
+        </div>
+      </div>
+      `;
+    }).join('');
+
+  } catch (e) {
+    document.getElementById('estado').textContent = "Error";
+    console.error(e);
+  }
+}
+
+cargarEstudio();
+</script>
+</body>
+</html>

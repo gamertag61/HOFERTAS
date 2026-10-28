@@ -1,0 +1,13 @@
+# Secretos del radar: nunca subir el token
+heleos_config.json
+
+# Herramientas locales (no forman parte del sitio)
+.claude/
+.agent/
+.gemini/
+.impeccable/
+.mcp.json
+skills-lock.json
+probar_ml*.py
+__pycache__/
+*.log

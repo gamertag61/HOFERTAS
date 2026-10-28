@@ -1,0 +1,6 @@
+{
+  "repo": "TU_USUARIO/TU_REPOSITORIO",
+  "token": "PEGA_AQUI_TU_TOKEN_DE_GITHUB",
+  "rama": "main",
+  "intervalo_min": 180
+}

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>H | Ofertas</title>
+<meta name="theme-color" content="#070b14">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+  tailwind.config = { theme: { extend: { colors: { sun: '#ffb340', deep: '#070b14', navy: '#0d141f', edge: '#1b2a3d', glow: '#2f8fff' } } } };
+</script>
+<style>
+  html { background: #070b14; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+    background:
+      radial-gradient(ellipse 80% 40% at 50% -5%, rgba(47,143,255,.14), transparent 70%),
+      linear-gradient(180deg, #070b14 0%, #0a1220 50%, #070b14 100%);
+    background-attachment: fixed;
+  }
+  .noscroll { scrollbar-width: none; -ms-overflow-style: none; }
+  .noscroll::-webkit-scrollbar { display: none; }
+
+  /* Entrada en cascada (usa "translate" para no chocar con los transform de hover) */
+  @keyframes rise { from { opacity: 0; translate: 0 18px; } to { opacity: 1; translate: 0 0; } }
+  .rise { opacity: 0; animation: rise .8s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 90ms); }
+
+  /* Héroe deslizable */
+  .slide { transition: none; }
+  .prod { opacity: 0; transform: scale(1.3) translateX(6%); filter: blur(16px);
+          transition: transform 1.3s cubic-bezier(.16,.8,.2,1), filter 1.1s ease, opacity .9s ease; }
+  .slide.on .prod { opacity: 1; transform: none; filter: none; }
+  .txt > * { opacity: 0; transform: translateY(14px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+  .slide.on .txt > * { opacity: 1; transform: none; }
+  .slide.on .txt > :nth-child(1) { transition-delay: .2s; }
+  .slide.on .txt > :nth-child(2) { transition-delay: .35s; }
+  .slide.on .txt > :nth-child(3) { transition-delay: .5s; }
+  .slide.on .txt > :nth-child(4) { transition-delay: .65s; }
+
+  /* Iluminación 3D y resplandor azul */
+  @keyframes pulse { 0%, 100% { opacity: .75; transform: scale(1); } 50% { opacity: 1; transform: scale(1.1); } }
+  .halo { background: radial-gradient(circle, rgba(47,143,255,.62) 0%, rgba(30,90,200,.28) 38%, transparent 68%);
+          filter: blur(8px); animation: pulse 5s ease-in-out infinite; }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  .float { animation: float 6s ease-in-out infinite; }
+
+  /* Indicadores */
+  @keyframes fill { from { width: 0; } to { width: 100%; } }
+  .dot i { display: block; height: 100%; width: 0; background: #ffb340; }
+  .dot.on i { animation: fill 5s linear forwards; }
+
+  /* Cinta */
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee { animation: marquee 32s linear infinite; }
+
+  /* Tarjetas */
+  .card { background: linear-gradient(180deg, #0f1826, #0b121d); border: 1px solid #1b2a3d;
+          transition: border-color .4s ease, box-shadow .4s ease, transform .4s ease; }
+  .card:hover { border-color: rgba(47,143,255,.55); box-shadow: 0 0 34px -8px rgba(47,143,255,.55); transform: translateY(-3px); }
+
+  /* Menú lateral */
+  #menu { transform: translateX(-102%); transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+  #menu.open { transform: none; }
+  #velo { opacity: 0; pointer-events: none; transition: opacity .35s ease; }
+  #velo.open { opacity: 1; pointer-events: auto; }
+  #menu li { opacity: 0; transform: translateX(-12px); transition: opacity .5s ease, transform .5s ease; }
+  #menu.open li { opacity: 1; transform: none; transition-delay: calc(var(--k) * 70ms + 150ms); }
+
+  a:focus-visible, button:focus-visible { outline: 2px solid #ffb340; outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    .rise { animation: none; opacity: 1; }
+    .halo, .float, .marquee { animation: none; }
+    .prod, .txt > *, .card, .card img, #menu, #menu li, #velo { transition: none; }
+    .prod { transform: none; filter: none; }
+    .dot.on i { animation: none; width: 100%; }
+  }
+</style>
+</head>
+<body class="min-h-screen text-zinc-100 antialiased">
+
+<!-- Cabecera -->
+<header class="rise sticky top-0 z-20 border-b border-edge/70 bg-deep/80 backdrop-blur-md" style="--i:0">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+    <div class="flex items-center gap-3">
+      <button id="abrir" class="-ml-2 flex h-10 w-10 items-center justify-center rounded-full transition hover:bg-white/5 active:scale-95" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16"/></svg>
+      </button>
+      <span class="flex items-center gap-2.5">
+        <span class="h-2.5 w-2.5 rounded-full bg-sun shadow-[0_0_14px_3px_rgba(255,179,64,.55)]"></span>
+        <span class="text-lg font-semibold tracking-tight">H | Ofertas</span>
+      </span>
+    </div>
+    <span class="text-xs text-zinc-400">Expiran pronto</span>
+  </div>
+  <div class="h-px w-full bg-edge/60" aria-hidden="true"><div id="dia" class="h-full bg-sun" style="width:0"></div></div>
+</header>
+
+<!-- Menú lateral -->
+<div id="velo" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"></div>
+<aside id="menu" class="fixed inset-y-0 left-0 z-50 flex w-[78%] max-w-xs flex-col border-r border-edge bg-[#060a12] px-6 pb-8 pt-4 shadow-[20px_0_60px_-20px_rgba(0,0,0,.9)]" aria-label="Categorías" inert>
+  <div class="flex items-center justify-between">
+    <span class="flex items-center gap-2.5">
+      <span class="h-2.5 w-2.5 rounded-full bg-sun shadow-[0_0_14px_3px_rgba(255,179,64,.55)]"></span>
+      <span class="text-lg font-semibold tracking-tight">H | Ofertas</span>
+    </span>
+    <button id="cerrar" class="-mr-2 flex h-10 w-10 items-center justify-center rounded-full transition hover:bg-white/5 active:scale-95" aria-label="Cerrar menú">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16"/></svg>
+    </button>
+  </div>
+  <ul id="cats" class="mt-10 divide-y divide-edge/70"></ul>
+</aside>
+
+<main class="mx-auto max-w-6xl px-4 pb-16 pt-4">
+
+  <!-- Héroe deslizable -->
+  <section class="rise relative overflow-hidden rounded-[2rem] border border-edge bg-deep/60" style="--i:1" aria-roledescription="carrusel" aria-label="Ofertas destacadas">
+    <div id="hero" class="noscroll flex snap-x snap-mandatory overflow-x-auto overscroll-x-contain"></div>
+    <div id="dots" class="pointer-events-none absolute inset-x-0 bottom-4 z-10 flex justify-center gap-2 md:justify-start md:px-12"></div>
+  </section>
+
+  <!-- Cinta -->
+  <div class="rise mt-6 overflow-hidden border-y border-edge/60 py-3 text-sm text-zinc-400" style="--i:2" aria-hidden="true">
+    <div class="marquee flex w-max gap-8 whitespace-nowrap">
+      <span id="m1" class="flex gap-8"></span><span id="m2" class="flex gap-8"></span>
+    </div>
+  </div>
+
+  <!-- Vitrina: cuadrícula vertical -->
+  <section id="grid" class="mt-8 grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-4"></section>
+</main>
+
+<script>
+(() => {
+  const mxn = new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', maximumFractionDigits: 0 });
+
+  // Edita aquí tus 5 categorías
+  const CATS = ['Audífonos', 'Monitores', 'Teclados', 'Smartwatch', 'Bocinas'];
+
+  let P = [], H = [];
+  const esc = t => String(t ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const enlace = p => `href="${esc(p.link)}" target="_blank" rel="noopener noreferrer sponsored"`;
+  const titular = t => t.split(/[,\-–|(]/)[0].trim().split(/\s+/).slice(0, 5).join(' ');
+  const off = p => Math.round((1 - p.n / p.o) * 100);
+
+  const hero = document.getElementById('hero'), dots = document.getElementById('dots');
+  function montar() {
+  /* ---------- Héroe ---------- */
+  hero.innerHTML = H.map((s, k) => {
+    const p = P[s.p];
+    return `
+    <article class="slide ${k === 0 ? 'on' : ''} grid w-full min-w-full shrink-0 snap-center items-center md:grid-cols-2" aria-hidden="${k !== 0}">
+      <div class="relative order-1 flex aspect-[5/4] items-center justify-center md:order-2 md:aspect-square md:max-h-[500px]">
+        <div class="halo absolute h-[85%] w-[85%] rounded-full"></div>
+        <div class="float relative h-[78%] w-[78%]">
+          <img src="${esc(p.i)}" alt="" draggable="false" class="prod h-full w-full rounded-3xl object-cover shadow-[0_30px_80px_-20px_rgba(0,0,0,.8)]" ${k ? '' : 'fetchpriority="high"'}>
+        </div>
+      </div>
+      <div class="txt order-2 px-6 pb-14 pt-2 md:order-1 md:px-12 md:pb-0">
+        <h2 class="text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">${esc(s.h)}</h2>
+        <p class="mt-3 line-clamp-2 max-w-md text-sm text-zinc-400 md:text-base">${esc(p.t)}</p>
+        <div class="mt-4 flex items-baseline gap-3">
+          <span class="text-3xl font-semibold text-sun">${mxn.format(p.n)}</span>
+          <span class="text-zinc-500 line-through">${mxn.format(p.o)}</span>
+          <span class="rounded-full bg-sun/15 px-2.5 py-0.5 text-xs font-semibold text-sun">-${off(p)}%</span>
+        </div>
+        <a ${enlace(p)} class="mt-5 inline-block rounded-full bg-sun px-9 py-3 text-sm font-semibold text-deep shadow-[0_0_28px_-4px_rgba(255,179,64,.6)] transition hover:brightness-110 active:scale-95">Comprar</a>
+      </div>
+    </article>`;
+  }).join('');
+  dots.innerHTML = H.map((_, k) => `<span class="dot ${k === 0 ? 'on' : ''} h-1 w-9 overflow-hidden rounded-full bg-edge"><i></i></span>`).join('');
+
+  const slides = [...hero.children], ds = [...dots.children];
+  let cur = 0, timer;
+  function activar(k) {
+    if (k === cur) return;
+    slides[cur].classList.remove('on'); slides[cur].setAttribute('aria-hidden', 'true'); ds[cur].classList.remove('on');
+    cur = k;
+    slides[cur].classList.add('on'); slides[cur].setAttribute('aria-hidden', 'false');
+    void ds[cur].offsetWidth;
+    ds[cur].classList.add('on');
+    start();
+  }
+  function start() {
+    clearInterval(timer);
+    timer = setInterval(() => hero.scrollTo({ left: ((cur + 1) % slides.length) * hero.clientWidth, behavior: 'smooth' }), 5000);
+  }
+  const vigia = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) activar(slides.indexOf(e.target)); }),
+    { root: hero, threshold: 0.6 });
+  slides.forEach(s => vigia.observe(s));
+  hero.addEventListener('pointerdown', () => clearInterval(timer));
+  hero.addEventListener('pointerup', start);
+  hero.addEventListener('pointercancel', start);
+  document.addEventListener('visibilitychange', () => document.hidden ? clearInterval(timer) : start());
+  start();
+
+  /* ---------- Cinta ---------- */
+  const cinta = CATS.map(c => `<span class="flex items-center gap-8">${c}<i class="h-1 w-1 rounded-full bg-glow"></i></span>`).join('');
+  document.getElementById('m1').innerHTML = cinta; document.getElementById('m2').innerHTML = cinta;
+
+  /* ---------- Vitrina ---------- */
+  document.getElementById('grid').innerHTML = P.map((p, k) => `
+    <article class="card rise group flex flex-col rounded-3xl p-3" style="--i:${k + 4}">
+      <a ${enlace(p)} class="relative block overflow-hidden rounded-2xl" tabindex="-1" aria-hidden="true">
+        <img src="${esc(p.i)}" alt="" loading="lazy" draggable="false" class="aspect-square w-full object-cover transition duration-500 ease-out group-hover:scale-105">
+        <span class="absolute left-2.5 top-2.5 rounded-full bg-deep/80 px-2.5 py-1 text-xs font-semibold text-sun backdrop-blur">-${off(p)}%</span>
+      </a>
+      <h3 class="mt-3 line-clamp-2 min-h-[2.5rem] px-1 text-sm leading-5 text-zinc-200">${esc(p.t)}</h3>
+      <div class="mt-2 flex items-baseline gap-2 px-1">
+        <span class="text-lg font-semibold text-sun drop-shadow-[0_0_10px_rgba(255,179,64,.35)]">${mxn.format(p.n)}</span>
+        <span class="text-sm text-zinc-500 line-through">${mxn.format(p.o)}</span>
+      </div>
+      <a ${enlace(p)} class="mt-3 block rounded-full bg-sun py-2.5 text-center text-sm font-semibold text-deep transition hover:brightness-110 active:scale-95">Comprar</a>
+    </article>`).join('');
+  }
+
+  /* ---------- Menú lateral ---------- */
+  const menu = document.getElementById('menu'), velo = document.getElementById('velo'), abrir = document.getElementById('abrir');
+  document.getElementById('cats').innerHTML = CATS.map((c, k) => `
+    <li style="--k:${k}"><a href="#" class="flex items-center justify-between py-4 text-xl font-medium text-zinc-100 transition hover:text-sun">${c}
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a></li>`).join('');
+  function menuOn(v) {
+    menu.classList.toggle('open', v); velo.classList.toggle('open', v);
+    menu.inert = !v; abrir.setAttribute('aria-expanded', v);
+    document.documentElement.style.overflow = v ? 'hidden' : '';
+    (v ? document.getElementById('cerrar') : abrir).focus();
+  }
+  abrir.addEventListener('click', () => menuOn(true));
+  document.getElementById('cerrar').addEventListener('click', () => menuOn(false));
+  velo.addEventListener('click', () => menuOn(false));
+  menu.addEventListener('click', e => { if (e.target.closest('#cats a')) { e.preventDefault(); menuOn(false); } });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) menuOn(false); });
+
+  /* ---------- Carga de ofertas.json ---------- */
+  const grid = document.getElementById('grid');
+  const aviso = txt => { grid.className = 'mt-8'; grid.innerHTML = `<p class="py-16 text-center text-zinc-400">${txt}</p>`; };
+  aviso('Cargando ofertas…');
+  fetch('ofertas.json?t=' + Date.now(), { cache: 'no-store' })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(d => {
+      P = (d.productos || [])
+        .filter(p => p && /^https:\/\//.test(p.link) && /^https:\/\//.test(p.i) && p.n > 0 && p.n < p.o)
+        .sort((x, y) => off(y) - off(x));
+      if (!P.length) { hero.parentElement.classList.add('hidden'); return aviso('Hoy no hay ofertas nuevas. Vuelve en unas horas.'); }
+      H = P.slice(0, 3).map((p, k) => ({ p: k, h: titular(p.t) }));
+      grid.className = 'mt-8 grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-4';
+      montar();
+    })
+    .catch(() => { hero.parentElement.classList.add('hidden'); aviso('No pudimos cargar las ofertas. Recarga en un momento.'); });
+
+  /* ---------- Barra del día ---------- */
+  const d = new Date();
+  document.getElementById('dia').style.width = (((d.getHours() * 60 + d.getMinutes()) / 1440) * 100).toFixed(1) + '%';
+})();
+</script>
+</body>
+</html>

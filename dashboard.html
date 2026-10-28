@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Heleos | Cockpit</title>
+<meta name="theme-color" content="#070b14">
+<meta name="robots" content="noindex, nofollow">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+  tailwind.config = { theme: { extend: { colors: { sun: '#ffb340', deep: '#070b14', abyss: '#060a12', navy: '#0b121d', lift: '#0f1826', edge: '#1b2a3d', glow: '#2f8fff' } } } };
+</script>
+<style>
+  html, body { height: 100%; overflow: hidden; background: #070b14; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+    background:
+      radial-gradient(ellipse 60% 40% at 35% -5%, rgba(47,143,255,.12), transparent 70%),
+      linear-gradient(180deg, #070b14 0%, #0a1220 50%, #070b14 100%);
+  }
+  ::selection { background: rgba(255,179,64,.35); color: #fff; }
+  textarea, input { caret-color: #ffb340; }
+  .mono { font-family: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace; font-variant-numeric: tabular-nums; }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* Barras de scroll internas con la paleta */
+  .scroll { scrollbar-width: thin; scrollbar-color: #1b2a3d transparent; }
+  .scroll::-webkit-scrollbar { width: 8px; }
+  .scroll::-webkit-scrollbar-thumb { background: #1b2a3d; border-radius: 9999px; border: 2px solid #070b14; }
+
+  /* Entrada en cascada (DESIGN.md · Motion) */
+  @keyframes rise { from { opacity: 0; translate: 0 18px; } to { opacity: 1; translate: 0 0; } }
+  .rise { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 90ms); }
+
+  /* Visor: el foco azul vive detrás de Mercado Libre mientras carga */
+  .halo { background: radial-gradient(circle, rgba(47,143,255,.62) 0%, rgba(30,90,200,.28) 38%, transparent 68%); filter: blur(8px); }
+  @keyframes pulse { 0%, 100% { opacity: .55; transform: scale(1); } 50% { opacity: .9; transform: scale(1.08); } }
+  .halo { animation: pulse 2.4s ease-in-out infinite; }
+  #frame { opacity: 0; filter: blur(16px); transform: scale(1.02);
+           transition: opacity .9s ease, filter 1.1s ease, transform 1.3s cubic-bezier(.16,.8,.2,1); }
+  #visor.listo #frame { opacity: 1; filter: none; transform: none; }
+  #carga { transition: opacity .5s ease; }
+  #visor.listo #carga { opacity: 0; pointer-events: none; }
+
+  /* Controles: respuesta corta (Emil Kowalski) */
+  .press { transition: transform 160ms cubic-bezier(.2,.8,.2,1), filter 160ms ease, background-color 160ms ease, color 160ms ease, opacity 160ms ease; }
+  .press:active:not(:disabled) { transform: scale(.97); }
+  .btn-sun { background: #ffb340; color: #070b14; }
+  .btn-sun:hover:not(:disabled) { filter: brightness(1.1); }
+  .btn-sun:disabled { background: rgba(255,179,64,.12); color: rgba(255,179,64,.7); cursor: not-allowed; }
+  .campo { background: #0b121d; border: 1px solid #1b2a3d; transition: border-color 160ms ease, box-shadow 160ms ease; }
+  .campo:focus { outline: none; border-color: rgba(47,143,255,.55); box-shadow: 0 0 24px -8px rgba(47,143,255,.55); }
+  .campo::placeholder { color: #8e8e99; }
+
+  /* Alertas Flash */
+  @keyframes flash-in { from { opacity: 0; translate: 0 -10px; filter: blur(6px); } to { opacity: 1; translate: 0 0; filter: none; } }
+  @keyframes flash-glow { from { box-shadow: 0 0 30px -6px rgba(47,143,255,.6); border-color: rgba(47,143,255,.6); } to { box-shadow: 0 0 0 0 rgba(47,143,255,0); border-color: #1b2a3d; } }
+  .alerta { background: linear-gradient(180deg, #0f1826, #0b121d); border: 1px solid #1b2a3d; }
+  .alerta.nueva { animation: flash-in 320ms cubic-bezier(.2,.7,.2,1) both, flash-glow 1.6s ease-out 320ms both; }
+  .alerta:hover { border-color: rgba(47,143,255,.55); }
+
+  /* Aviso de estado bajo cada botón */
+  .aviso { transition: opacity 220ms ease, translate 220ms cubic-bezier(.2,.7,.2,1); }
+  .aviso:empty { opacity: 0; translate: 0 -4px; }
+
+  @keyframes radar { to { transform: rotate(360deg); } }
+  .barrido { animation: radar 3.2s linear infinite; }
+
+  a:focus-visible, button:focus-visible { outline: 2px solid #ffb340; outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rise, .halo, .barrido, .alerta.nueva { animation: none; }
+    #frame, #carga, .press, .campo, .aviso { transition: none; }
+    #frame { filter: none; transform: none; }
+  }
+</style>
+</head>
+<body class="text-zinc-100 antialiased">
+
+<div class="grid h-[100dvh] grid-rows-[58dvh_1fr] gap-3 p-3 lg:grid-cols-[minmax(0,7fr)_minmax(0,3fr)] lg:grid-rows-1">
+
+  <!-- ═══════════ VISOR (70 %) ═══════════ -->
+  <section id="visor" class="rise relative flex min-h-0 flex-col overflow-hidden rounded-[2rem] border border-edge bg-abyss" style="--i:0" aria-label="Visor de Mercado Libre">
+    <!-- Barra del visor -->
+    <form id="ir" class="flex items-center gap-1.5 border-b border-edge/70 bg-deep/80 px-3 py-2 backdrop-blur-md">
+      <button type="button" id="inicio" class="press flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-zinc-300 hover:bg-white/5 hover:text-zinc-100" aria-label="Ir al inicio de Mercado Libre" title="Inicio">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 10 4l7 5.5V16a1 1 0 0 1-1 1h-3.5v-4.5h-5V17H4a1 1 0 0 1-1-1z"/></svg>
+      </button>
+      <button type="button" id="recargar" class="press flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-zinc-300 hover:bg-white/5 hover:text-zinc-100" aria-label="Recargar visor" title="Recargar">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 10a6 6 0 1 1-1.8-4.3M16 3.5v3.2h-3.2"/></svg>
+      </button>
+      <label class="relative min-w-0 flex-1">
+        <span class="sr-only">Buscar en Mercado Libre o pegar una URL</span>
+        <svg class="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400" width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="m13.5 13.5 3.5 3.5"/></svg>
+        <input id="destino" type="text" autocomplete="off" spellcheck="false" placeholder="Buscar en Mercado Libre o pegar URL…" class="campo h-9 w-full rounded-full pl-10 pr-4 text-sm text-zinc-100">
+      </label>
+      <button type="button" id="ventana" class="press flex h-9 shrink-0 items-center gap-2 rounded-full px-3.5 text-xs font-semibold text-zinc-300 hover:bg-white/5 hover:text-zinc-100" title="Abre Mercado Libre en una ventana acoplada sobre el visor (con tu sesión iniciada)">
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 3h6v6M17 3l-7.5 7.5M14.5 12v3.5a1.5 1.5 0 0 1-1.5 1.5H4.5A1.5 1.5 0 0 1 3 15.5V7a1.5 1.5 0 0 1 1.5-1.5H8"/></svg>
+        <span class="hidden xl:inline">Abrir acoplado</span>
+      </button>
+    </form>
+    <p id="pista" class="flex items-center justify-between gap-3 border-b border-edge/70 bg-navy px-4 py-1.5 text-xs text-zinc-400">
+      <span>¿Visor en blanco? Mercado Libre bloquea el visor cuando hay sesión iniciada.</span>
+      <button type="button" id="ventana2" class="press shrink-0 rounded-full px-2.5 py-1 font-semibold text-sun hover:bg-sun/10">Abrir acoplado</button>
+    </p>
+
+    <div class="relative min-h-0 flex-1">
+      <iframe id="frame" title="Mercado Libre" src="https://www.mercadolibre.com.mx/"
+              class="absolute inset-0 h-full w-full border-0 bg-white"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="clipboard-read; clipboard-write"></iframe>
+      <div id="carga" class="absolute inset-0 flex flex-col items-center justify-center gap-5 bg-abyss" aria-live="polite">
+        <div class="relative flex h-40 w-40 items-center justify-center">
+          <div class="halo absolute inset-0 rounded-full"></div>
+          <span class="relative h-3 w-3 rounded-full bg-sun shadow-[0_0_14px_3px_rgba(255,179,64,.55)]"></span>
+        </div>
+        <p class="text-sm text-zinc-400">Conectando con Mercado Libre…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PANEL HELEOS (30 %) ═══════════ -->
+  <aside class="rise flex min-h-0 flex-col overflow-hidden rounded-[2rem] border border-edge bg-deep" style="--i:1" aria-label="Panel Heleos">
+
+    <!-- Marca + barra del día -->
+    <header class="shrink-0">
+      <div class="flex items-center justify-between px-5 pb-3 pt-4">
+        <span class="flex items-center gap-2.5">
+          <span class="h-2.5 w-2.5 rounded-full bg-sun shadow-[0_0_14px_3px_rgba(255,179,64,.55)]"></span>
+          <span class="text-lg font-semibold tracking-tight">Heleos</span>
+          <span class="text-lg font-semibold tracking-tight text-zinc-400">Cockpit</span>
+        </span>
+        <span id="reloj" class="num text-xs text-zinc-400"></span>
+      </div>
+      <div class="h-px w-full bg-edge/60" aria-hidden="true"><div id="dia" class="h-full bg-sun" style="width:0"></div></div>
+    </header>
+
+    <div class="flex min-h-0 flex-1 flex-col divide-y divide-edge/70">
+
+      <!-- ARRIBA · Caja de Municiones -->
+      <section class="shrink-0 px-5 pb-5 pt-4" aria-labelledby="t-municion">
+        <div class="flex items-baseline justify-between gap-3">
+          <h2 id="t-municion" class="text-base font-semibold tracking-tight">Caja de municiones</h2>
+          <span class="flex items-center gap-1">
+            <span id="conteo" class="num text-xs text-zinc-400">0 enlaces</span>
+            <button id="ajustes" type="button" class="press -mr-2 flex h-8 w-8 items-center justify-center rounded-full text-zinc-400 hover:bg-white/5 hover:text-zinc-100" aria-label="Conexión con GitHub" aria-expanded="false" aria-controls="conexion" title="Conexión con GitHub">
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12a3.5 3.5 0 0 0 5 0l2.5-2.5a3.5 3.5 0 0 0-5-5L9.8 5.2M12 8a3.5 3.5 0 0 0-5 0L4.5 10.5a3.5 3.5 0 0 0 5 5l.7-.7"/></svg>
+            </button>
+          </span>
+        </div>
+        <!-- Conexión con GitHub: el Cockpit escribe enlaces.txt en el repositorio y el radar lo lee desde ahí -->
+        <form id="conexion" class="mt-3 hidden flex-col gap-2 rounded-2xl border border-edge bg-navy p-3">
+          <label class="text-xs text-zinc-400" for="gh-repo">Repositorio</label>
+          <input id="gh-repo" type="text" autocomplete="off" spellcheck="false" placeholder="usuario/repositorio" class="campo mono h-9 rounded-full px-4 text-[13px] text-zinc-100">
+          <label class="text-xs text-zinc-400" for="gh-token">Token (solo Contents: lectura y escritura)</label>
+          <input id="gh-token" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_…" class="campo mono h-9 rounded-full px-4 text-[13px] text-zinc-100">
+          <div class="mt-1 flex items-center gap-2">
+            <button type="submit" class="press flex-1 rounded-full border border-edge py-2 text-xs font-semibold text-zinc-100 hover:border-zinc-400">Conectar</button>
+            <button type="button" id="gh-olvidar" class="press rounded-full px-3 py-2 text-xs text-zinc-400 hover:text-zinc-100">Olvidar</button>
+          </div>
+          <p id="gh-estado" class="text-xs text-zinc-400" role="status"></p>
+        </form>
+        <label for="municion" class="sr-only">Enlaces de afiliado, uno por línea</label>
+        <textarea id="municion" rows="6" spellcheck="false" autocomplete="off"
+                  placeholder="https://meli.la/…&#10;Pega un enlace por línea"
+                  class="campo scroll mono mt-3 block h-36 w-full resize-none rounded-2xl px-4 py-3 text-[13px] leading-6 text-zinc-200 xl:h-44"></textarea>
+        <button id="guardar" type="button" class="press btn-sun mt-3 block w-full rounded-full py-3 text-sm font-semibold" disabled>Guardar Enlaces</button>
+        <p id="aviso-municion" class="aviso mt-2 min-h-[1rem] text-xs text-zinc-400" role="status"></p>
+      </section>
+
+      <!-- EN MEDIO · Radar de Alertas -->
+      <section class="flex min-h-0 flex-1 flex-col px-5 pb-4 pt-4" aria-labelledby="t-radar">
+        <div class="flex items-center justify-between gap-3">
+          <h2 id="t-radar" class="flex items-center gap-2.5 text-base font-semibold tracking-tight">
+            <span class="relative flex h-4 w-4 items-center justify-center" aria-hidden="true">
+              <span class="absolute inset-0 rounded-full border border-edge"></span>
+              <span class="barrido absolute inset-0 rounded-full" style="background: conic-gradient(from 0deg, rgba(47,143,255,.7), transparent 30%)"></span>
+              <span class="relative h-1 w-1 rounded-full bg-zinc-100"></span>
+            </span>
+            Alertas flash
+          </h2>
+          <button id="simular" type="button" class="press rounded-full border border-edge px-3 py-1.5 text-xs font-medium text-zinc-300 hover:border-zinc-500 hover:text-zinc-100">Simular alerta</button>
+        </div>
+        <p id="origen" class="mt-1 text-xs text-zinc-400"></p>
+        <ol id="alertas" class="scroll -mr-2 mt-3 flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto pr-2" aria-live="polite"></ol>
+      </section>
+
+      <!-- ABAJO · Centro TikTok -->
+      <section class="shrink-0 px-5 pb-5 pt-4" aria-labelledby="t-tiktok">
+        <h2 id="t-tiktok" class="text-base font-semibold tracking-tight">Centro TikTok</h2>
+        <form id="foto" class="mt-3 flex flex-col gap-2.5">
+          <label for="sku" class="sr-only">SKU o modelo del producto</label>
+          <input id="sku" type="text" autocomplete="off" spellcheck="false" placeholder="SKU o modelo · ej. Aula Win60HE"
+                 class="campo h-10 w-full rounded-full px-4 text-sm text-zinc-100">
+          <button id="buscar" type="submit" class="press btn-sun block w-full rounded-full py-2.5 text-sm font-semibold" disabled>Buscar Foto Aesthetic</button>
+        </form>
+      </section>
+    </div>
+  </aside>
+</div>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const mxn = new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', maximumFractionDigits: 0 });
+  const esc = t => String(t ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const ML = 'https://www.mercadolibre.com.mx/';
+
+  /* ---------- Visor ---------- */
+  const visor = $('visor'), frame = $('frame'), destino = $('destino');
+  let actual = ML;
+  frame.addEventListener('load', () => visor.classList.add('listo'));
+  function navegar(url) {
+    actual = url;
+    visor.classList.remove('listo');
+    frame.src = url;
+  }
+  function resolver(txt) {
+    const t = txt.trim();
+    if (!t) return ML;
+    if (/^https?:\/\//i.test(t)) return t;
+    if (/^(www\.)?[\w-]+\.[\w.-]+(\/|$)/i.test(t)) return 'https://' + t;
+    return 'https://listado.mercadolibre.com.mx/' + encodeURIComponent(t.replace(/\s+/g, '-'));
+  }
+  $('ir').addEventListener('submit', e => { e.preventDefault(); navegar(resolver(destino.value)); destino.blur(); });
+  $('inicio').addEventListener('click', () => { destino.value = ''; navegar(ML); });
+  $('recargar').addEventListener('click', () => navegar(actual));
+
+  // Ventana acoplada: misma posición y tamaño que el visor, con la sesión real del navegador.
+  let pop;
+  $('ventana2').addEventListener('click', () => $('ventana').click());
+  $('ventana').addEventListener('click', () => {
+    const r = visor.getBoundingClientRect();
+    const bx = window.screenX + (window.outerWidth - window.innerWidth) / 2;
+    const by = window.screenY + (window.outerHeight - window.innerHeight);
+    const f = `popup=yes,left=${Math.round(bx + r.left)},top=${Math.round(by + r.top)},width=${Math.round(r.width)},height=${Math.round(r.height)}`;
+    pop = window.open(actual, 'heleos-visor', f) || pop;
+    if (pop) pop.focus();
+  });
+
+  /* ---------- Caja de Municiones ---------- */
+  const caja = $('municion'), guardar = $('guardar'), avisoM = $('aviso-municion'), conteo = $('conteo');
+  const BORRADOR = 'heleos.municion';
+  try { caja.value = localStorage.getItem(BORRADOR) || ''; } catch {}
+
+  const lineas = () => caja.value.split('\n').map(l => l.trim()).filter(Boolean);
+  const validas = () => [...new Set(lineas().filter(l => /^https?:\/\/\S+$/i.test(l)))];
+  function contar() {
+    const ls = lineas(), vs = validas(), malas = ls.filter(l => !/^https?:\/\/\S+$/i.test(l)).length;
+    conteo.textContent = `${vs.length} ${vs.length === 1 ? 'enlace' : 'enlaces'}` + (malas ? ` · ${malas} sin URL` : '');
+    conteo.classList.toggle('text-sun', malas > 0);
+    guardar.disabled = !vs.length;
+    try { localStorage.setItem(BORRADOR, caja.value); } catch {}
+  }
+  let avisoT;
+  function avisar(el, txt) { clearTimeout(avisoT); el.textContent = txt; avisoT = setTimeout(() => (el.textContent = ''), 6000); }
+
+  // Enter al final de un enlace: limpia espacios y salta a una línea nueva limpia.
+  caja.addEventListener('keydown', e => {
+    if (e.key !== 'Enter' || e.shiftKey || e.isComposing) return;
+    e.preventDefault();
+    const v = caja.value, a = caja.selectionStart, b = caja.selectionEnd;
+    const inicio = v.lastIndexOf('\n', a - 1) + 1;
+    const antes = v.slice(0, inicio) + v.slice(inicio, a).trimEnd();
+    caja.value = antes + '\n' + v.slice(b).replace(/^[ \t]+/, '');
+    caja.selectionStart = caja.selectionEnd = antes.length + 1;
+    contar();
+  });
+  // Pegar un enlace: cada pegado queda en su propia línea y el cursor ya espera el siguiente.
+  caja.addEventListener('paste', e => {
+    const txt = (e.clipboardData || window.clipboardData).getData('text').trim();
+    if (!/^https?:\/\//i.test(txt)) return;
+    e.preventDefault();
+    const v = caja.value, a = caja.selectionStart, b = caja.selectionEnd;
+    const pre = v.slice(0, a), post = v.slice(b);
+    const sep = pre && !pre.endsWith('\n') ? '\n' : '';
+    const fin = post.startsWith('\n') ? '' : '\n';
+    caja.value = pre + sep + txt.split(/\s+/).join('\n') + fin + post;
+    caja.selectionStart = caja.selectionEnd = (pre + sep + txt.split(/\s+/).join('\n') + fin).length;
+    contar();
+  });
+  caja.addEventListener('input', contar);
+
+  // Guardado: escribe directo en enlaces.txt (Chrome/Edge) y recuerda el archivo; si no se puede, lo descarga.
+  const IDB = () => new Promise((ok, mal) => {
+    const r = indexedDB.open('heleos', 1);
+    r.onupgradeneeded = () => r.result.createObjectStore('archivos');
+    r.onsuccess = () => ok(r.result); r.onerror = () => mal(r.error);
+  });
+  const idb = async (modo, valor) => {
+    const db = await IDB();
+    return new Promise((ok, mal) => {
+      const tx = db.transaction('archivos', modo ? 'readwrite' : 'readonly').objectStore('archivos');
+      const r = modo ? tx.put(valor, 'enlaces') : tx.get('enlaces');
+      r.onsuccess = () => ok(r.result); r.onerror = () => mal(r.error);
+    });
+  };
+  async function archivo() {
+    let h = await idb().catch(() => null);
+    if (h && (await h.queryPermission({ mode: 'readwrite' })) !== 'granted'
+          && (await h.requestPermission({ mode: 'readwrite' })) !== 'granted') h = null;
+    if (!h) {
+      [h] = await window.showOpenFilePicker({ id: 'heleos', types: [{ description: 'Lista de enlaces', accept: { 'text/plain': ['.txt'] } }] });
+      await idb(true, h).catch(() => {});
+    }
+    return h;
+  }
+  /* GitHub: el repositorio es el punto de encuentro entre Cockpit, radar y catálogo. */
+  const GH = 'heleos.github';
+  const deducido = (() => {
+    const m = location.hostname.match(/^([\w-]+)\.github\.io$/i), seg = location.pathname.split('/').filter(Boolean)[0];
+    return m ? `${m[1]}/${seg && !seg.includes('.') ? seg : m[1] + '.github.io'}` : '';
+  })();
+  const ghCfg = () => { try { return JSON.parse(localStorage.getItem(GH)) || {}; } catch { return {}; } };
+  const ghApi = async (cfg, ruta, op = {}) => {
+    const r = await fetch(`https://api.github.com/repos/${cfg.repo}${ruta}`, { ...op, cache: 'no-store',
+      headers: { Authorization: `Bearer ${cfg.token}`, Accept: 'application/vnd.github+json', ...(op.headers || {}) } });
+    if (!r.ok && r.status !== 404) throw Object.assign(new Error(`GitHub respondió ${r.status}`), { status: r.status });
+    return r.status === 404 ? null : r.json();
+  };
+  const b64 = { de: s => new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\n/g, '')), c => c.charCodeAt(0))),
+                a: s => btoa(String.fromCharCode(...new TextEncoder().encode(s))) };
+  async function guardarGitHub(cfg, nuevos) {
+    for (let intento = 0; intento < 2; intento++) {
+      const f = await ghApi(cfg, '/contents/enlaces.txt');
+      const previo = f ? b64.de(f.content) : '';
+      const ya = new Set(previo.split(/\r?\n/).map(l => l.trim()).filter(Boolean));
+      const agregar = nuevos.filter(u => !ya.has(u));
+      if (!agregar.length) return { agregar, rep: nuevos.length };
+      const base = previo.replace(/\s+$/, '');
+      try {
+        await ghApi(cfg, '/contents/enlaces.txt', { method: 'PUT', body: JSON.stringify({
+          message: `Cockpit: +${agregar.length} ${agregar.length === 1 ? 'enlace' : 'enlaces'}`,
+          content: b64.a((base ? base + '\n' : '') + agregar.join('\n') + '\n'), ...(f ? { sha: f.sha } : {}) }) });
+        return { agregar, rep: nuevos.length - agregar.length };
+      } catch (e) { if (e.status !== 409 || intento) throw e; } // el radar escribió al mismo tiempo: reintenta
+    }
+  }
+  const conexion = $('conexion'), ajustes = $('ajustes'), ghEstado = $('gh-estado');
+  function pintarConexion() {
+    const c = ghCfg();
+    $('gh-repo').value = c.repo || deducido;
+    $('gh-token').value = c.token ? '••••••••' : '';
+    ajustes.classList.toggle('text-sun', !!c.token);
+    ghEstado.textContent = c.token ? `Conectado a ${c.repo}. Guardar Enlaces escribe en el repositorio.` : 'Sin conexión: los enlaces se guardan en un archivo de esta computadora.';
+  }
+  ajustes.addEventListener('click', () => {
+    const abrir = conexion.classList.contains('hidden');
+    conexion.classList.toggle('hidden', !abrir); conexion.classList.toggle('flex', abrir);
+    ajustes.setAttribute('aria-expanded', abrir);
+    if (abrir) { pintarConexion(); $('gh-repo').focus(); }
+  });
+  conexion.addEventListener('submit', async e => {
+    e.preventDefault();
+    const repo = $('gh-repo').value.trim().replace(/^https?:\/\/github\.com\//, '').replace(/\/+$/, '');
+    const t = $('gh-token').value.trim(), token = /^•+$/.test(t) ? ghCfg().token : t;
+    if (!/^[\w.-]+\/[\w.-]+$/.test(repo) || !token) return (ghEstado.textContent = 'Escribe el repositorio como usuario/repositorio y el token.');
+    ghEstado.textContent = 'Verificando…';
+    try {
+      const r = await ghApi({ repo, token }, '');
+      if (!r) throw new Error('No encuentro ese repositorio con este token.');
+      if (r.permissions && !r.permissions.push) throw new Error('El token no tiene permiso de escritura en ese repositorio.');
+      try { localStorage.setItem(GH, JSON.stringify({ repo, token })); } catch {}
+      pintarConexion();
+    } catch (err) { ghEstado.textContent = err.status === 401 ? 'Token inválido o vencido.' : err.message; }
+  });
+  $('gh-olvidar').addEventListener('click', () => { try { localStorage.removeItem(GH); } catch {} pintarConexion(); });
+  pintarConexion();
+
+  guardar.addEventListener('click', async () => {
+    const nuevos = validas();
+    if (!nuevos.length) return;
+    guardar.disabled = true;
+    const cfg = ghCfg();
+    if (cfg.token) {
+      try {
+        const { agregar, rep } = await guardarGitHub(cfg, nuevos);
+        avisar(avisoM, (agregar.length ? `${agregar.length} ${agregar.length === 1 ? 'enlace guardado' : 'enlaces guardados'} en GitHub` : 'Nada nuevo') + (rep ? ` · ${rep} ya estaba${rep === 1 ? '' : 'n'}` : '') + '. El radar los toma en su próxima vuelta.');
+        caja.value = '';
+      } catch (e) {
+        avisar(avisoM, e.status === 401 ? 'El token de GitHub ya no sirve: vuelve a conectarlo.' : `No se pudo guardar en GitHub (${e.message}). Tus enlaces siguen en la caja.`);
+      }
+      return contar();
+    }
+    try {
+      if (!window.showOpenFilePicker) throw Object.assign(new Error(), { name: 'SinAPI' });
+      const h = await archivo();
+      const previo = await (await h.getFile()).text();
+      const ya = new Set(previo.split(/\r?\n/).map(l => l.trim()).filter(Boolean));
+      const agregar = nuevos.filter(u => !ya.has(u));
+      if (agregar.length) {
+        const w = await h.createWritable({ keepExistingData: true });
+        const base = previo.replace(/\s+$/, '');
+        await w.truncate(0);
+        await w.write((base ? base + '\n' : '') + agregar.join('\n') + '\n');
+        await w.close();
+      }
+      const rep = nuevos.length - agregar.length;
+      avisar(avisoM, `${agregar.length} ${agregar.length === 1 ? 'enlace guardado' : 'enlaces guardados'} en ${h.name}` + (rep ? ` · ${rep} ya estaba${rep === 1 ? '' : 'n'}` : '') + '. El radar los toma en su próxima vuelta.');
+      caja.value = '';
+      contar();
+    } catch (e) {
+      if (e.name === 'AbortError') { avisar(avisoM, 'Elige enlaces.txt para guardar.'); }
+      else {
+        const blob = new Blob([nuevos.join('\n') + '\n'], { type: 'text/plain' });
+        const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: 'enlaces_nuevos.txt' });
+        a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+        avisar(avisoM, 'Este navegador no deja escribir en enlaces.txt: se descargó enlaces_nuevos.txt para pegarlos ahí.');
+      }
+      contar();
+    }
+  });
+  contar();
+
+  /* ---------- Radar de Alertas ---------- */
+  const lista = $('alertas'), origen = $('origen');
+  const off = p => Math.round((1 - p.n / p.o) * 100);
+  const corto = t => t.split(/[,\-–|(]/)[0].trim().split(/\s+/).slice(0, 6).join(' ');
+  let pool = [], hist = {}, sim = 0;
+  const DEMO = [
+    { t: 'Audífonos inalámbricos con cancelación de ruido', o: 1899, n: 1199, i: '', link: ML },
+    { t: 'Monitor gamer curvo 27 pulgadas QHD 165 Hz', o: 5499, n: 3899, i: '', link: ML },
+    { t: 'Teclado mecánico compacto 75% inalámbrico', o: 1799, n: 1149, i: '', link: ML }
+  ];
+  const vacio = () => {
+    if (lista.children.length) return;
+    lista.innerHTML = `<li class="vacio flex flex-1 flex-col items-center justify-center gap-1 py-6 text-center">
+      <p class="text-sm text-zinc-400">Sin alertas por ahora</p>
+      <p class="text-xs text-zinc-400">Aparecen aquí cuando el radar detecta una baja de precio.</p></li>`;
+  };
+  function alerta(p, nota, nueva = true) {
+    lista.querySelector('.vacio')?.remove();
+    const li = document.createElement('li');
+    li.className = 'alerta group shrink-0 rounded-2xl' + (nueva ? ' nueva' : '');
+    const img = /^https:\/\//.test(p.i)
+      ? `<img src="${esc(p.i)}" alt="" class="h-11 w-11 shrink-0 rounded-xl bg-white object-contain" loading="lazy">`
+      : `<span class="h-11 w-11 shrink-0 rounded-xl bg-lift" aria-hidden="true"></span>`;
+    li.innerHTML = `<button type="button" class="press flex w-full items-center gap-3 rounded-2xl p-2.5 text-left">
+      ${img}
+      <span class="min-w-0 flex-1">
+        <span class="block truncate text-[13px] leading-5 text-zinc-200">${esc(corto(p.t))}</span>
+        <span class="mt-0.5 flex items-baseline gap-2">
+          <span class="num text-sm font-semibold text-sun">${mxn.format(p.n)}</span>
+          <span class="num text-xs text-zinc-400 line-through">${mxn.format(p.o)}</span>
+          <span class="truncate text-[11px] text-zinc-400">${esc(nota)}</span>
+        </span>
+      </span>
+      <span class="num shrink-0 rounded-full bg-sun/15 px-2 py-0.5 text-xs font-semibold text-sun">-${off(p)}%</span>
+    </button>`;
+    li.querySelector('button').addEventListener('click', () => navegar(p.link));
+    li.querySelector('button').title = 'Abrir en el visor';
+    lista.prepend(li);
+    while (lista.children.length > 30) lista.lastElementChild.remove();
+  }
+  // Baja real: último precio contra el anterior en historial.json.
+  function bajas() {
+    return pool.map(p => {
+      const h = hist[p.link] || [];
+      const [a, b] = h.slice(-2);
+      return a && b && b.precio < a.precio ? { p, nota: `bajó ${mxn.format(a.precio - b.precio)}` } : null;
+    }).filter(Boolean);
+  }
+  $('simular').addEventListener('click', () => {
+    const base = pool.length ? pool : DEMO;
+    const p = { ...base[sim++ % base.length] };
+    const caida = Math.max(1, Math.round(p.n * (0.04 + Math.random() * 0.08)));
+    p.n = p.n - caida;
+    alerta(p, `simulada · −${mxn.format(caida)}`);
+  });
+  Promise.all([
+    fetch('ofertas.json?t=' + Date.now(), { cache: 'no-store' }).then(r => r.ok ? r.json() : Promise.reject(r.status)),
+    fetch('historial.json?t=' + Date.now(), { cache: 'no-store' }).then(r => r.ok ? r.json() : {}).catch(() => ({}))
+  ]).then(([d, h]) => {
+    pool = (d.productos || []).filter(p => p && p.n > 0 && p.n < p.o && /^https:\/\//.test(p.link));
+    hist = h || {};
+    const hora = d.actualizado ? new Date(d.actualizado).toLocaleString('es-MX', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '';
+    origen.textContent = `${pool.length} ofertas en ofertas.json` + (hora ? ` · radar ${hora}` : '');
+    // Las bajas las decide el radar (ofertas.json.alertas); si aún no hay, se calculan del historial.
+    const hace = f => { const m = Math.round((Date.now() - new Date(f)) / 60000);
+      return m < 60 ? `hace ${Math.max(1, m)} min` : m < 1440 ? `hace ${Math.round(m / 60)} h` : `hace ${Math.round(m / 1440)} d`; };
+    const delRadar = (d.alertas || []).filter(a => a && a.ahora > 0 && /^https:\/\//.test(a.link))
+      .map(a => ({ p: { t: a.t, i: a.i, n: a.ahora, o: Math.max(a.o || a.antes, a.ahora), link: a.link }, nota: `bajó ${mxn.format(a.antes - a.ahora)} · ${hace(a.fecha)}` }));
+    (delRadar.length ? delRadar : bajas()).slice(0, 8).reverse().forEach(x => alerta(x.p, x.nota, false));
+    vacio();
+  }).catch(() => {
+    origen.textContent = 'Sin conexión con ofertas.json · usando datos de prueba';
+    vacio();
+  });
+
+  /* ---------- Centro TikTok ---------- */
+  const sku = $('sku'), buscar = $('buscar');
+  sku.addEventListener('input', () => (buscar.disabled = !sku.value.trim()));
+  $('foto').addEventListener('submit', e => {
+    e.preventDefault();
+    const q = sku.value.trim();
+    if (!q) return;
+    window.open('https://www.pinterest.com/search/pins/?q=' + encodeURIComponent(q + ' aesthetic wallpaper'), '_blank', 'noopener');
+  });
+
+  /* ---------- Reloj y barra del día ---------- */
+  const reloj = $('reloj'), dia = $('dia');
+  function tic() {
+    const d = new Date();
+    reloj.textContent = d.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' });
+    dia.style.width = (((d.getHours() * 60 + d.getMinutes()) / 1440) * 100).toFixed(1) + '%';
+  }
+  tic(); setInterval(tic, 30000);
+})();
+</script>
+</body>
+</html>
