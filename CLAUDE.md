@@ -46,7 +46,7 @@ Para cada interfaz que se toque, usar las skills de diseño instaladas: **Impecc
 
 Arquitectura: **GitHub es el bus de datos**. Solo el radar depende de una máquina encendida (laptop viejita).
 
-- **GitHub Pages** sirve `index.html` y `dashboard.html` (repositorio público nuevo `heleos`, a crear por el usuario).
+- **GitHub Pages** sirve `index.html` y `dashboard.html` (repositorio público `gamertag61/HOFERTAS` → https://gamertag61.github.io/HOFERTAS/).
 - **Cockpit**: "Guardar Enlaces" escribe `enlaces.txt` en el repo vía API de GitHub (token fine-grained, solo Contents, guardado en `localStorage` del navegador del usuario; repo deducido de `usuario.github.io/repo`). Sin token usa el archivo local como antes.
 - **Radar** (`heleos_radar.py`): con `heleos_config.json` (gitignored) lee `enlaces.txt` del repo y publica `ofertas.json` + `historial.json` en **un solo commit** (Git Data API, solo `requests`). `--loop` corre cada `intervalo_min` (mín. 15, default 180) y no se cae por errores de red. Detecta bajas de precio contra el último precio del historial y las guarda en `ofertas.json.alertas` (máx. 30); el Cockpit las muestra.
 - Pasos de instalación para el usuario: `INSTALAR.md`. Arranque 24/7: `iniciar_radar.bat` en `shell:startup`.

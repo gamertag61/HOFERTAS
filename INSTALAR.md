@@ -11,18 +11,18 @@
 
 ## 1. Repositorio y GitHub Pages (una sola vez)
 
-1. En github.com crea un repositorio **público** llamado `heleos` (sin README).
+1. En github.com crea un repositorio **público** llamado `HOFERTAS` (sin README) — hecho.
 2. Sube esta carpeta (Claude deja el commit listo; `git push` te pedirá iniciar sesión en GitHub).
 3. En el repositorio: **Settings → Pages → Source: Deploy from a branch → `main` / `(root)` → Save**.
 4. En 1–2 minutos quedan en línea:
-   - Catálogo: `https://TU_USUARIO.github.io/heleos/`
-   - Cockpit: `https://TU_USUARIO.github.io/heleos/dashboard.html`
+   - Catálogo: `https://gamertag61.github.io/HOFERTAS/`
+   - Cockpit: `https://gamertag61.github.io/HOFERTAS/dashboard.html`
 
 ## 2. Token de GitHub (lo creas tú)
 
 GitHub → **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**:
 
-- Repository access: **Only select repositories → `heleos`**.
+- Repository access: **Only select repositories → `HOFERTAS`**.
 - Permissions → Repository → **Contents: Read and write** (nada más).
 - Expiración: la que prefieras (cuando venza, crea otro y cámbialo en los dos lugares de abajo).
 
@@ -33,15 +33,15 @@ Ese token se usa en el radar y en el Cockpit. No lo subas al repositorio ni lo c
 1. Instala Python 3 (python.org, marca "Add python.exe to PATH").
 2. En una terminal: `pip install requests beautifulsoup4`
 3. Copia a una carpeta (p. ej. `C:\Heleos`): `heleos_radar.py`, `iniciar_radar.bat` y `heleos_config.ejemplo.json`.
-4. Renombra `heleos_config.ejemplo.json` a `heleos_config.json` y llena `repo` (`TU_USUARIO/heleos`) y `token`.
+4. Renombra `heleos_config.ejemplo.json` a `heleos_config.json` y llena `repo` (`gamertag61/HOFERTAS`) y `token`.
    `intervalo_min` = minutos entre vueltas (180 = cada 3 horas; mínimo 15).
-5. Doble clic en `iniciar_radar.bat`. Debe decir `Modo: GitHub TU_USUARIO/heleos` y al final `publicado en GitHub`.
+5. Doble clic en `iniciar_radar.bat`. Debe decir `Modo: GitHub gamertag61/HOFERTAS` y al final `publicado en GitHub`.
 6. Para que arranque solo: `Win + R` → `shell:startup` → pega ahí un acceso directo a `iniciar_radar.bat`.
 7. Configura Windows para que la laptop no se suspenda (Configuración → Energía → Suspender: Nunca).
 
 ## 4. Cockpit
 
-Abre `https://TU_USUARIO.github.io/heleos/dashboard.html`, toca el ícono de enlace junto al contador de la Caja de municiones,
+Abre `https://gamertag61.github.io/HOFERTAS/dashboard.html`, toca el ícono de enlace junto al contador de la Caja de municiones,
 pega tu token y presiona **Conectar** (el repositorio se detecta solo). Desde ahí, **Guardar Enlaces** escribe en el `enlaces.txt`
 del repositorio y el radar los rastrea en su siguiente vuelta.
 
