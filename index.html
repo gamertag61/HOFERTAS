@@ -165,7 +165,7 @@
           </a>
           <!-- Derecha: datos y acción -->
           <div class="flex min-w-0 flex-col px-1 pb-1 sm:py-1">
-            <h2 id="h-titulo" class="line-clamp-3 text-lg font-bold leading-snug tracking-[-0.015em] text-zinc-50 xl:text-xl">Cargando la oferta del día…</h2>
+            <h2 id="h-titulo" class="line-clamp-2 text-xl font-bold leading-snug tracking-[-0.02em] text-zinc-50 lg:text-lg xl:text-xl">Cargando la oferta del día…</h2>
             <ul id="h-pildoras" class="mt-3 flex flex-wrap gap-1.5"></ul>
             <div class="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
               <span id="h-precio" class="num text-5xl font-extrabold tracking-[-0.035em] text-lima">—</span>
@@ -278,6 +278,20 @@
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const off = p => Math.round((1 - p.n / p.o) * 100);
   const corto = (t, n = 6) => t.split(/[,|(]/)[0].trim().split(/\s+/).slice(0, n).join(' ');
+  /* Nombre comercial corto para la oferta del día: usa p.nombre si viene en ofertas.json;
+     si no, toma el título de Mercado Libre hasta el modelo (máx. 6 palabras) y corta antes de
+     cantidades, "con", "para", "RGB"… ("Teclado Inalámbrico Mecánico Attack Shark X85 Pro 82 Teclas…"
+     → "Teclado Inalámbrico Mecánico Attack Shark X85"). */
+  function nombreComercial(p) {
+    if (p.nombre) return p.nombre;
+    const pal = p.t.split(/[,|(–]| - /)[0].trim().split(/\s+/), out = [];
+    for (const w of pal) {
+      if (out.length >= 3 && /^(con|para|de|del|y|sin|rgb|led|\d+(\.\d+)?)$/i.test(w)) break;
+      out.push(w);
+      if (out.length === 6) break;
+    }
+    return out.join(' ').replace(/\s+(en|de|del|con|para|y|la|el)$/i, '');
+  }
   const enlace = url => `href="${esc(url)}" target="_blank" rel="noopener noreferrer sponsored"`;
   const $ = id => document.getElementById(id);
   const guardar = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
@@ -481,7 +495,7 @@
       pintar();
       /* Oferta del día: el teclado con más descuento (o la mayor oferta si no hay teclados) */
       const tec = [...P].sort(ordenes.descuento).find(p => /teclado/i.test(p.t)) || [...P].sort(ordenes.descuento)[0];
-      $('h-titulo').textContent = tec.t;
+      $('h-titulo').textContent = nombreComercial(tec);
       $('h-titulo').title = tec.t;
       $('h-pildoras').innerHTML = pildoras(tec).map(([t, ic]) => `<li class="num inline-flex items-center gap-1.5 rounded-full border border-linea bg-black/30 px-3 py-1 font-mono text-xs text-zinc-200"><span class="text-lima">${icono(ic)}</span>${esc(t)}</li>`).join('');
       $('h-precio').textContent = mxn.format(tec.n);

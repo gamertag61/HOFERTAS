@@ -34,15 +34,6 @@
   @keyframes rise { from { opacity: 0; translate: 0 14px; } to { opacity: 1; translate: 0 0; } }
   .rise { animation: rise .6s var(--ease) both; animation-delay: calc(var(--i, 0) * 80ms); }
 
-  /* Visor: luz lima mientras carga Mercado Libre */
-  .halo { background: radial-gradient(circle, rgba(198,241,53,.35) 0%, rgba(198,241,53,.1) 40%, transparent 68%); filter: blur(10px); }
-  @keyframes pulse { 0%, 100% { opacity: .55; transform: scale(1); } 50% { opacity: .95; transform: scale(1.08); } }
-  .halo { animation: pulse 2.4s ease-in-out infinite; }
-  #frame { opacity: 0; filter: blur(12px); transform: scale(1.01); transition: opacity .7s ease, filter .9s ease, transform 1s var(--ease); }
-  #visor.listo #frame { opacity: 1; filter: none; transform: none; }
-  #carga { transition: opacity .4s ease; }
-  #visor.listo #carga { opacity: 0; pointer-events: none; }
-
   /* Controles */
   .press { transition: transform 160ms var(--ease), filter 160ms ease, background-color 160ms ease, color 160ms ease, border-color 160ms ease, opacity 160ms ease; }
   .press:active:not(:disabled) { transform: scale(.97); }
@@ -71,61 +62,19 @@
   a:focus-visible, button:focus-visible, textarea:focus-visible, input:focus-visible { outline: 2px solid var(--lima); outline-offset: 2px; }
 
   @media (prefers-reduced-motion: reduce) {
-    .rise, .halo, .latido, .alerta.nueva { animation: none; }
-    #frame, #carga, .press, .campo, .aviso { transition: none; }
-    #frame { filter: none; transform: none; }
+    .rise, .latido, .alerta.nueva { animation: none; }
+    .press, .campo, .aviso { transition: none; }
   }
 </style>
 </head>
 <body class="font-sans text-zinc-100 antialiased">
 
-<div class="grid h-[100dvh] grid-rows-[58dvh_1fr] gap-3 p-3 lg:grid-cols-[minmax(0,7fr)_minmax(0,3fr)] lg:grid-rows-1">
-
-  <!-- ═══════════ ÁREA PRINCIPAL (70 %) · Mercado Libre Afiliados ═══════════ -->
-  <section id="visor" class="rise relative flex min-h-0 flex-col overflow-hidden rounded-3xl border border-linea bg-grafito" style="--i:0" aria-label="Mercado Libre Afiliados">
-    <form id="ir" class="flex items-center gap-1.5 border-b border-linea bg-tinta/70 px-3 py-2 backdrop-blur-md">
-      <button type="button" id="inicio" class="press grid h-9 w-9 shrink-0 place-items-center rounded-full text-zinc-300 hover:bg-white/5 hover:text-zinc-100" aria-label="Ir a Mercado Libre Afiliados" title="Afiliados">
-        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 10 4l7 5.5V16a1 1 0 0 1-1 1h-3.5v-4.5h-5V17H4a1 1 0 0 1-1-1z"/></svg>
-      </button>
-      <button type="button" id="recargar" class="press grid h-9 w-9 shrink-0 place-items-center rounded-full text-zinc-300 hover:bg-white/5 hover:text-zinc-100" aria-label="Recargar" title="Recargar">
-        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 10a6 6 0 1 1-1.8-4.3M16 3.5v3.2h-3.2"/></svg>
-      </button>
-      <label class="relative min-w-0 flex-1">
-        <span class="sr-only">Buscar en Mercado Libre o pegar una URL</span>
-        <svg class="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-ceniza" width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="m13.5 13.5 3.5 3.5"/></svg>
-        <input id="destino" type="text" autocomplete="off" spellcheck="false" placeholder="Buscar en Mercado Libre o pegar URL…" class="campo h-9 w-full rounded-full pl-10 pr-4 text-sm text-zinc-100">
-      </label>
-      <button type="button" id="ventana" class="press flex h-9 shrink-0 items-center gap-2 rounded-full border border-linea px-3.5 text-xs font-semibold text-zinc-200 hover:border-zinc-500" title="Abre Mercado Libre en una ventana acoplada sobre este visor, con tu sesión iniciada">
-        <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 3h6v6M17 3l-7.5 7.5M14.5 12v3.5a1.5 1.5 0 0 1-1.5 1.5H4.5A1.5 1.5 0 0 1 3 15.5V7a1.5 1.5 0 0 1 1.5-1.5H8"/></svg>
-        <span class="hidden xl:inline">Abrir acoplado</span>
-      </button>
-    </form>
-    <p class="flex items-center justify-between gap-3 border-b border-linea bg-mate px-4 py-1.5 text-xs text-humo">
-      <span>¿Visor en blanco? Mercado Libre bloquea el iframe cuando hay sesión iniciada.</span>
-      <button type="button" id="ventana2" class="press shrink-0 rounded-full px-2.5 py-1 font-semibold text-lima hover:bg-lima/10">Abrir acoplado</button>
-    </p>
-    <div class="relative min-h-0 flex-1">
-      <iframe id="frame" title="Mercado Libre Afiliados" src="https://www.mercadolibre.com.mx/afiliados"
-              class="absolute inset-0 h-full w-full border-0 bg-white"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allow="clipboard-read; clipboard-write"></iframe>
-      <div id="carga" class="absolute inset-0 flex flex-col items-center justify-center gap-5 bg-grafito" aria-live="polite">
-        <div class="relative grid h-40 w-40 place-items-center">
-          <div class="halo absolute inset-0 rounded-full"></div>
-          <span class="relative h-3 w-3 rounded-full bg-lima"></span>
-        </div>
-        <p class="text-sm text-humo">Conectando con Mercado Libre…</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════ PANEL LATERAL (30 %) ═══════════ -->
-  <aside class="flex min-h-0 flex-col gap-3" aria-label="Panel de control">
+<main class="mx-auto flex h-[100dvh] w-full max-w-3xl flex-col gap-3 p-3" aria-label="Panel de control">
 
     <!-- CAJA SUPERIOR · Ingreso de enlaces -->
-    <section class="rise flex min-h-0 flex-[1.05] flex-col rounded-3xl border border-linea bg-grafito p-4" style="--i:1" aria-labelledby="t-enlaces">
+    <section class="rise flex min-h-0 flex-1 flex-col rounded-3xl border border-linea bg-grafito p-4 sm:p-5" style="--i:0" aria-labelledby="t-enlaces">
       <header class="flex items-center justify-between gap-3">
-        <h2 id="t-enlaces" class="flex items-baseline gap-2 text-[15px] font-semibold tracking-tight">
+        <h2 id="t-enlaces" class="flex items-baseline gap-2 text-lg font-bold tracking-tight">
           <span class="flex items-baseline font-extrabold"><span>H</span><span class="mx-1 font-normal text-ceniza">|</span><span>Ofertas</span><span class="ml-0.5 inline-block h-1.5 w-1.5 rounded-full bg-lima"></span></span>
           <span class="text-humo">Enlaces</span>
         </h2>
@@ -151,85 +100,52 @@
       <label for="municion" class="sr-only">Enlaces de afiliado, uno por línea</label>
       <textarea id="municion" spellcheck="false" autocomplete="off"
                 placeholder="https://meli.la/…&#10;Pega con Ctrl+V: cada enlace queda en su línea"
-                class="campo scroll mt-3 block min-h-[6rem] w-full flex-1 resize-none rounded-2xl px-4 py-3 font-mono text-[12.5px] leading-6 text-zinc-200"></textarea>
+                class="campo scroll mt-3 block min-h-[6rem] w-full flex-1 resize-none rounded-2xl px-4 py-3 font-mono text-[13px] leading-6 text-zinc-200"></textarea>
       <button id="guardar" type="button" class="press btn-lima mt-3 block w-full shrink-0 rounded-full py-3 text-sm font-semibold" disabled>Guardar enlaces</button>
       <p id="aviso-municion" class="aviso mt-1.5 min-h-[1rem] shrink-0 text-xs text-humo" role="status"></p>
     </section>
 
     <!-- CAJA INFERIOR · Módulo IA -->
-    <section class="rise flex min-h-0 flex-1 flex-col overflow-hidden rounded-3xl border border-linea bg-grafito" style="--i:2" aria-labelledby="t-ia">
-      <header class="flex shrink-0 items-center justify-between gap-3 px-4 pt-4">
-        <h2 id="t-ia" class="flex items-center gap-2 text-[15px] font-semibold tracking-tight">
+    <section class="rise flex min-h-0 flex-1 flex-col overflow-hidden rounded-3xl border border-linea bg-grafito" style="--i:1" aria-labelledby="t-ia">
+      <header class="flex shrink-0 items-center justify-between gap-3 px-4 pt-4 sm:px-5">
+        <h2 id="t-ia" class="flex items-center gap-2 text-lg font-bold tracking-tight">
           <span class="latido h-1.5 w-1.5 rounded-full bg-lima" aria-hidden="true"></span>Módulo IA
         </h2>
         <span id="reloj" class="num font-mono text-[11px] text-humo"></span>
       </header>
 
       <!-- Mitad 1: alertas -->
-      <div class="flex min-h-0 flex-1 flex-col px-4 pb-3 pt-3">
+      <div class="flex min-h-0 flex-1 flex-col px-4 pb-3 pt-3 sm:px-5">
         <div class="flex items-center justify-between gap-2">
-          <h3 class="text-xs font-semibold text-zinc-300">Alertas de precio</h3>
+          <h3 class="text-sm font-semibold text-zinc-200">Alertas de precio</h3>
           <button id="simular" type="button" class="press rounded-full border border-linea px-2.5 py-1 text-[11px] font-medium text-zinc-300 hover:border-zinc-500 hover:text-zinc-100">Simular alerta</button>
         </div>
-        <p id="origen" class="mt-0.5 truncate font-mono text-[10.5px] text-ceniza"></p>
+        <p id="origen" class="mt-0.5 truncate font-mono text-[11px] text-humo"></p>
         <ol id="alertas" class="scroll -mr-2 mt-2 flex min-h-0 flex-1 flex-col gap-1.5 overflow-y-auto pr-2" aria-live="polite"></ol>
       </div>
 
       <!-- Mitad 2: buscador aesthetic -->
-      <div class="shrink-0 border-t border-linea bg-mate/60 px-4 pb-4 pt-3">
-        <h3 class="text-xs font-semibold text-zinc-300">Buscador aesthetic</h3>
+      <div class="shrink-0 border-t border-linea bg-mate/60 px-4 pb-4 pt-3 sm:px-5">
+        <h3 class="text-sm font-semibold text-zinc-200">Buscador aesthetic</h3>
         <form id="foto" class="mt-2 flex gap-2">
           <label for="sku" class="sr-only">SKU o ID del producto</label>
           <input id="sku" type="text" autocomplete="off" spellcheck="false" placeholder="SKU o ID · ej. Aula Win60HE"
-                 class="campo h-10 min-w-0 flex-1 rounded-full px-4 text-sm text-zinc-100">
-          <button id="buscar" type="submit" class="press btn-lima grid h-10 shrink-0 place-items-center rounded-full px-4 text-sm font-semibold" disabled>
+                 class="campo h-12 min-w-0 flex-1 rounded-full px-5 text-[15px] text-zinc-100">
+          <button id="buscar" type="submit" class="press btn-lima grid h-12 shrink-0 place-items-center rounded-full px-6 text-[15px] font-semibold" disabled>
             Buscar
           </button>
         </form>
         <p class="mt-1.5 text-[11px] text-ceniza">Abre Pinterest con fondos aesthetic de ese producto.</p>
       </div>
     </section>
-  </aside>
-</div>
+</main>
 
 <script>
 (() => {
   const $ = id => document.getElementById(id);
   const mxn = new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', maximumFractionDigits: 0 });
   const esc = t => String(t ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const AFILIADOS = 'https://www.mercadolibre.com.mx/afiliados';
-
-  /* ---------- Visor ---------- */
-  const visor = $('visor'), frame = $('frame'), destino = $('destino');
-  let actual = AFILIADOS;
-  frame.addEventListener('load', () => visor.classList.add('listo'));
-  function navegar(url) {
-    actual = url;
-    visor.classList.remove('listo');
-    frame.src = url;
-  }
-  function resolver(txt) {
-    const t = txt.trim();
-    if (!t) return AFILIADOS;
-    if (/^https?:\/\//i.test(t)) return t;
-    if (/^(www\.)?[\w-]+\.[\w.-]+(\/|$)/i.test(t)) return 'https://' + t;
-    return 'https://listado.mercadolibre.com.mx/' + encodeURIComponent(t.replace(/\s+/g, '-'));
-  }
-  $('ir').addEventListener('submit', e => { e.preventDefault(); navegar(resolver(destino.value)); destino.blur(); });
-  $('inicio').addEventListener('click', () => { destino.value = ''; navegar(AFILIADOS); });
-  $('recargar').addEventListener('click', () => navegar(actual));
-
-  // Ventana acoplada: misma posición y tamaño que el visor, con la sesión real del navegador.
-  let pop;
-  $('ventana2').addEventListener('click', () => $('ventana').click());
-  $('ventana').addEventListener('click', () => {
-    const r = visor.getBoundingClientRect();
-    const bx = window.screenX + (window.outerWidth - window.innerWidth) / 2;
-    const by = window.screenY + (window.outerHeight - window.innerHeight);
-    const f = `popup=yes,left=${Math.round(bx + r.left)},top=${Math.round(by + r.top)},width=${Math.round(r.width)},height=${Math.round(r.height)}`;
-    pop = window.open(actual, 'hofertas-visor', f) || pop;
-    if (pop) pop.focus();
-  });
+  const ML = 'https://www.mercadolibre.com.mx/';
 
   /* ---------- Ingreso de enlaces ---------- */
   const caja = $('municion'), guardar = $('guardar'), avisoM = $('aviso-municion'), conteo = $('conteo');
@@ -412,9 +328,9 @@
   const corto = t => t.split(/[,\-–|(]/)[0].trim().split(/\s+/).slice(0, 5).join(' ');
   let pool = [], hist = {}, sim = 0;
   const DEMO = [
-    { t: 'Teclado mecánico compacto 75% inalámbrico', o: 1799, n: 1079, i: '', link: AFILIADOS },
-    { t: 'Audífonos inalámbricos con cancelación de ruido', o: 1899, n: 1199, i: '', link: AFILIADOS },
-    { t: 'Monitor gamer curvo 27 pulgadas QHD 165 Hz', o: 5499, n: 3899, i: '', link: AFILIADOS }
+    { t: 'Teclado mecánico compacto 75% inalámbrico', o: 1799, n: 1079, i: '', link: ML },
+    { t: 'Audífonos inalámbricos con cancelación de ruido', o: 1899, n: 1199, i: '', link: ML },
+    { t: 'Monitor gamer curvo 27 pulgadas QHD 165 Hz', o: 5499, n: 3899, i: '', link: ML }
   ];
   const vacio = () => {
     if (lista.children.length) return;
@@ -427,20 +343,20 @@
     const li = document.createElement('li');
     li.className = 'alerta shrink-0 rounded-2xl' + (nueva ? ' nueva' : '');
     const img = /^https:\/\//.test(p.i)
-      ? `<img src="${esc(p.i)}" alt="" class="h-10 w-10 shrink-0 rounded-xl bg-white object-contain p-0.5" loading="lazy">`
-      : `<span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-alto text-lima" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></span>`;
-    li.innerHTML = `<button type="button" class="press flex w-full items-center gap-2.5 rounded-2xl p-2 text-left" title="Abrir en el visor">
+      ? `<img src="${esc(p.i)}" alt="" class="h-12 w-12 shrink-0 rounded-xl bg-white object-contain p-0.5" loading="lazy">`
+      : `<span class="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-alto text-lima" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></span>`;
+    li.innerHTML = `<button type="button" class="press flex w-full items-center gap-3 rounded-2xl p-2.5 text-left" title="Abrir en Mercado Libre">
       ${img}
       <span class="min-w-0 flex-1">
-        <span class="block truncate text-[12.5px] leading-5 text-zinc-100"><span class="font-semibold text-lima">${esc(corto(p.t))}</span> bajó un ${off(p)}%</span>
+        <span class="block truncate text-sm leading-5 text-zinc-100"><span class="font-semibold text-lima">${esc(corto(p.t))}</span> bajó un ${off(p)}%</span>
         <span class="mt-0.5 flex items-baseline gap-2">
-          <span class="num font-mono text-[13px] font-semibold text-lima">${mxn.format(p.n)}</span>
+          <span class="num font-mono text-sm font-semibold text-lima">${mxn.format(p.n)}</span>
           <span class="num font-mono text-[11px] text-ceniza line-through">${mxn.format(p.o)}</span>
-          <span class="truncate text-[10.5px] text-ceniza">${esc(nota)}</span>
+          <span class="truncate text-[11px] text-humo">${esc(nota)}</span>
         </span>
       </span>
     </button>`;
-    li.querySelector('button').addEventListener('click', () => navegar(p.link));
+    li.querySelector('button').addEventListener('click', () => window.open(p.link, '_blank', 'noopener'));
     lista.prepend(li);
     while (lista.children.length > 30) lista.lastElementChild.remove();
   }

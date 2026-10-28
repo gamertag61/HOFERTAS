@@ -36,16 +36,13 @@ Para cada interfaz que se toque, usar las skills de diseño instaladas: **Impecc
 
 ## Estado del proyecto
 
-### Fase A: Centro de Control (`dashboard.html`) — rediseñado a grafito/lima (2026-10-28)
+### Fase A: Centro de Control (`dashboard.html`) — panel vertical (2026-10-28)
 
-Pedido por el usuario el 2026-10-28 (iframe 70 % + panel 30 % con caja de enlaces y "Módulo IA"). Sin textos visibles "Heleos" ni "radar" (se publica en GitHub Pages).
+Pedido por el usuario el 2026-10-28. Ya **no** carga Mercado Libre: el `<iframe>` y la ventana acoplada se quitaron porque Mercado Libre bloquea el iframe con `frame-ancestors` (comprobado). Es un panel 100 % vertical (`w-full h-[100dvh]`, máx. 48rem) pensado para acoplarse a un lado de la pantalla en Windows, junto a Mercado Libre abierto aparte. Sin textos visibles "Heleos" ni "radar" (se publica en GitHub Pages).
 
-- **Área principal (70 %)**: `<iframe>` a `https://www.mercadolibre.com.mx/afiliados`. Mercado Libre lo bloquea con `frame-ancestors` (comprobado: el visor queda en blanco). **Ruta que sí funciona: "Abrir acoplado"**: abre Mercado Libre en una ventana de Chrome del mismo tamaño y posición que el visor, con la sesión real del usuario. Se descartó Electron.
-- **Panel lateral (30 %)**, dos cajas:
-  - Enlaces: cada pegado (Ctrl+V) queda en su línea y el cursor baja al renglón siguiente; Enter limpia y salta; conteo, borrador en `localStorage`; "Guardar enlaces" agrega a `enlaces.txt` sin duplicar (GitHub si hay token; si no, File System Access API o descarga `enlaces_nuevos.txt`).
-  - Módulo IA: arriba alertas (bajas reales de `ofertas.json.alertas`/`historial.json` + "Simular alerta"; clic abre el producto en el visor); abajo buscador aesthetic (SKU/ID → Pinterest "aesthetic wallpaper").
-  - Las claves de `localStorage` siguen siendo `heleos.municion` y `heleos.github` para no perder el borrador ni el token ya guardados.
-
+- **Mitad superior · Enlaces:** cada pegado (Ctrl+V) queda en su línea y el cursor baja al renglón siguiente; Enter limpia y salta; conteo, borrador en `localStorage`; "Guardar enlaces" agrega a `enlaces.txt` sin duplicar (GitHub si hay token; si no, File System Access API o descarga `enlaces_nuevos.txt`).
+- **Mitad inferior · Módulo IA:** alertas (bajas reales de `ofertas.json.alertas`/`historial.json` + "Simular alerta"; clic abre el producto en Mercado Libre en otra pestaña) y buscador aesthetic (SKU/ID → Pinterest "aesthetic wallpaper").
+- Las claves de `localStorage` siguen siendo `heleos.municion` y `heleos.github` para no perder el borrador ni el token ya guardados.
 ### App del creador (`app.html`) — nueva (2026-10-28)
 
 Mobile-first (`max-w-md`), para usar en el celular al grabar TikToks. Feed compacto de `ofertas.json` (foto, título a 2 líneas, specs sacadas del título, tachado y precio lima) con "Buscar fondos" (Pinterest) y "Ver guion": teleprompter a pantalla completa con un guion armado por plantilla con los datos reales (no hay IA conectada), botón lima grande para cerrar, A−/A+ y Escape.
