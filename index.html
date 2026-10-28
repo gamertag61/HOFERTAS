@@ -34,13 +34,13 @@
   .js .rev { opacity: 0; translate: 0 22px; transition: opacity .45s var(--ease), translate .6s var(--ease), transform .3s var(--ease), box-shadow .3s ease, border-color .3s ease; }
   .js .rev.in { opacity: 1; translate: 0 0; transition-delay: calc(var(--d, 0) * 60ms), calc(var(--d, 0) * 60ms), 0s, 0s, 0s; }
 
-  /* Foto del héroe */
-  @keyframes deriva { 0%, 100% { transform: scale(1.06) translate3d(0, 0, 0); } 50% { transform: scale(1.06) translate3d(-1.2%, -1%, 0); } }
-  .foto-heroe { animation: deriva 14s ease-in-out infinite; }
-  .difuso { --m: radial-gradient(ellipse 58% 56% at 50% 46%, #000 38%, rgba(0,0,0,.55) 66%, transparent 92%); -webkit-mask-image: var(--m); mask-image: var(--m); }
-  .luz-heroe { background:
-      radial-gradient(closest-side at 30% 60%, rgba(198,241,53,.30), transparent),
-      radial-gradient(closest-side at 75% 35%, rgba(47,143,255,.22), transparent); filter: blur(40px); }
+  /* Héroe: la foto real del producto (fondo blanco de Mercado Libre) se funde con el negro */
+  @keyframes deriva { 0%, 100% { transform: translate3d(0, 0, 0) scale(1); } 50% { transform: translate3d(0, -1.5%, 0) scale(1.02); } }
+  .foto-heroe { animation: deriva 9s ease-in-out infinite; }
+  .difuso { --m: radial-gradient(ellipse 50% 50% at 50% 46%, #000 30%, rgba(0,0,0,.82) 42%, rgba(0,0,0,.5) 56%, rgba(0,0,0,.2) 68%, transparent 80%); -webkit-mask-image: var(--m); mask-image: var(--m); }
+  .luz-heroe { background: radial-gradient(closest-side, rgba(198,241,53,.16), transparent); filter: blur(30px); }
+  .sobre-negro { text-shadow: 0 2px 14px rgba(0,0,0,.9); }
+  .sobre-negro .btn-lima, .sobre-negro .pildora-h { text-shadow: none; }
 
   /* Estado del radar */
   @keyframes latido { 0% { box-shadow: 0 0 0 0 rgba(198,241,53,.55); } 70%, 100% { box-shadow: 0 0 0 7px rgba(198,241,53,0); } }
@@ -158,39 +158,26 @@
       </dl>
     </div>
 
-    <!-- Oferta del día: foto inmersiva de fondo + tarjeta dividida encima -->
-    <div class="rev relative" style="--d:2">
-      <div class="luz-heroe pointer-events-none absolute -inset-6 sm:-inset-10" aria-hidden="true"></div>
-      <figure class="relative">
-        <div class="difuso aspect-[16/10] overflow-hidden">
-          <img class="foto-heroe h-full w-full object-cover" src="img/teclado-rgb.jpg" width="1200" height="722" alt="" fetchpriority="high">
+    <!-- Oferta del día: la foto real del producto, difuminada hacia el negro, con los datos flotando encima -->
+    <div id="h-oferta" class="rev relative" style="--d:2">
+      <div class="luz-heroe pointer-events-none absolute inset-x-0 top-0 mx-auto aspect-square max-w-[560px]" aria-hidden="true"></div>
+      <a id="h-foto" href="#ofertas" tabindex="-1" aria-hidden="true" class="difuso relative mx-auto block aspect-square w-full max-w-[440px] bg-white sm:max-w-[480px] lg:max-w-[400px] xl:max-w-[430px]">
+        <div id="h-img" class="foto-heroe h-full w-full p-[17%]"></div>
+      </a>
+      <div class="sobre-negro relative -mt-[18%] text-center sm:-mt-24 lg:-mt-20">
+        <span id="h-off" class="num inline-block rounded-full bg-lima px-4 py-1.5 font-mono text-base font-bold text-tinta" style="text-shadow:none">-%</span>
+        <h2 id="h-titulo" class="mx-auto mt-4 line-clamp-3 max-w-xl text-balance text-[1.75rem] font-extrabold leading-[1.08] tracking-[-0.03em] sm:text-4xl md:text-[1.75rem] lg:text-4xl">Cargando la oferta del día…</h2>
+        <ul id="h-pildoras" class="mt-4 flex flex-wrap justify-center gap-2"></ul>
+        <div class="mt-5 flex flex-wrap items-baseline justify-center gap-x-4 gap-y-1">
+          <span id="h-precio" class="num text-5xl font-extrabold tracking-[-0.035em] text-lima sm:text-6xl">—</span>
+          <span id="h-antes" class="num text-xl text-ceniza line-through"></span>
         </div>
-        <figcaption class="absolute right-[14%] top-[8%] text-[10px] text-white/40">Foto: Unsplash</figcaption>
-      </figure>
-
-      <article id="h-oferta" aria-labelledby="h-titulo" class="relative -mt-28 rounded-[1.75rem] border border-white/10 bg-tinta/60 p-3 shadow-[0_30px_60px_-20px_rgba(0,0,0,.85)] backdrop-blur-xl sm:-mt-36 sm:p-4 md:-mt-28 lg:-mt-40">
-        <div class="grid grid-cols-1 gap-4 sm:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)] sm:items-center sm:gap-5 md:grid-cols-1 lg:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)]">
-          <!-- Columna visual -->
-          <a id="h-foto" href="#ofertas" tabindex="-1" aria-hidden="true" class="relative block aspect-[4/3] overflow-hidden rounded-2xl bg-white p-4 sm:aspect-square md:aspect-[4/3] lg:aspect-square">
-            <div id="h-img" class="esq h-full w-full rounded-xl"></div>
-            <span id="h-off" class="num absolute left-3 top-3 rounded-full bg-lima px-3 py-1.5 font-mono text-sm font-bold text-tinta shadow-[0_6px_14px_-6px_rgba(0,0,0,.6)]">-%</span>
-          </a>
-          <!-- Columna de información y acción -->
-          <div class="flex min-w-0 flex-col px-1 pb-1 sm:py-1">
-            <h2 id="h-titulo" class="line-clamp-3 text-balance text-[1.6rem] font-extrabold leading-[1.1] tracking-[-0.025em] sm:text-3xl lg:text-[1.6rem] xl:text-[1.8rem]">Cargando la oferta del día…</h2>
-            <ul id="h-pildoras" class="mt-3 flex flex-wrap gap-1.5"></ul>
-            <div class="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span id="h-precio" class="num text-5xl font-extrabold tracking-[-0.03em] text-lima">—</span>
-              <span id="h-antes" class="num text-lg text-ceniza line-through"></span>
-            </div>
-            <p id="h-ahorro" class="num mt-1 text-sm text-humo"></p>
-            <a id="h-link" href="#ofertas" class="btn-lima mt-5 inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-base font-bold sm:self-start">
-              Aprovechar oferta
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-          </div>
-        </div>
-      </article>
+        <p id="h-ahorro" class="num mt-1.5 text-sm text-humo"></p>
+        <a id="h-link" href="#ofertas" class="btn-lima mt-6 inline-flex items-center justify-center gap-2.5 rounded-full px-9 py-4 text-lg font-bold">
+          Aprovechar oferta
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -480,13 +467,12 @@
       const tec = [...P].sort(ordenes.descuento).find(p => /teclado/i.test(p.t)) || [...P].sort(ordenes.descuento)[0];
       $('h-titulo').textContent = corto(tec.t, 8);
       $('h-titulo').title = tec.t;
-      $('h-pildoras').innerHTML = pildoras(tec).map(([t, ic]) => `<li class="num inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/35 px-3 py-1 font-mono text-xs text-zinc-200"><span class="text-lima">${icono(ic)}</span>${esc(t)}</li>`).join('');
+      $('h-pildoras').innerHTML = pildoras(tec).map(([t, ic]) => `<li class="pildora-h num inline-flex items-center gap-1.5 rounded-full border border-linea bg-grafito px-3.5 py-1.5 font-mono text-[13px] text-zinc-200"><span class="text-lima">${icono(ic)}</span>${esc(t)}</li>`).join('');
       $('h-precio').textContent = mxn.format(tec.n);
       $('h-antes').textContent = mxn.format(tec.o);
       $('h-ahorro').textContent = `Ahorras ${mxn.format(tec.o - tec.n)} · precio verificado por el radar`;
       $('h-off').textContent = `-${off(tec)}%`;
-      const img = $('h-img'); img.className = 'h-full w-full';
-      img.innerHTML = `<img src="${esc(tec.i)}" alt="${esc(tec.t)}" class="h-full w-full object-contain object-center">`;
+      $('h-img').innerHTML = `<img src="${esc(tec.i)}" alt="${esc(tec.t)}" fetchpriority="high" class="h-full w-full object-contain object-center">`;
       for (const id of ['h-foto', 'h-link']) { const a = $(id); a.href = tec.link; a.target = '_blank'; a.rel = 'noopener noreferrer sponsored'; }
     })
     .catch(() => { $('h-oferta').hidden = true; aviso('No pudimos cargar las ofertas. Recarga en un momento.'); $('r-nombre').textContent = 'Radar sin conexión'; });

@@ -105,7 +105,7 @@ components:
 
 Una herramienta de compra con aire de producto técnico: fondo grafito casi negro, tarjetas gris mate y un único acento verde lima que marca lo que importa (la palabra clave, el precio, la acción). La página no promete: muestra. Cada número sale del radar.
 
-Mobile-first para quien llega desde TikTok, con la densidad de una tienda real en laptop. Héroe 50/50 (texto monumental + foto real de un teclado retroiluminado), cuadrícula compacta de ofertas estilo Amazon/Mercado Libre y una sección "mini software" que dibuja el historial real de una baja de precio.
+Mobile-first para quien llega desde TikTok, con la densidad de una tienda real en laptop. Héroe 50/50 (texto monumental + la foto real de la oferta del día, difuminada hacia el negro), cuadrícula compacta de ofertas estilo Amazon/Mercado Libre y una sección "mini software" que dibuja el historial real de una baja de precio.
 
 **Key Characteristics:**
 - Grafito `#0a0b0d` con una luz lima muy tenue arriba a la derecha.
@@ -133,7 +133,7 @@ Mobile-first para quien llega desde TikTok, con la densidad de una tienda real e
 ### Named Rules
 **The Lima Es Valor Rule.** El lima marca valor o acción: el dato que convence (palabra clave, precio, descuento, la baja en el gráfico) y el botón que lleva a Mercado Libre. Si algo lima no es valor ni acción, sobra.
 
-**The Paleta Cerrada Rule.** Ningún color de marca fuera de este frontmatter sin preguntar. Sin rojos de "baja" ni rosa TikTok. Única excepción: un azul `#2f8fff` difuso (22 %) en la luz ambiental detrás de la foto del héroe, nunca en texto ni botones.
+**The Paleta Cerrada Rule.** Ningún color de marca fuera de este frontmatter sin preguntar. Sin rojos de "baja" ni rosa TikTok.
 
 ## Typography
 
@@ -163,16 +163,16 @@ Mobile-first para quien llega desde TikTok, con la densidad de una tienda real e
 
 ## Elevation & Depth
 
-Profundidad por sombras oscuras con desplazamiento y por luz difusa: lima y azul detrás de la foto del héroe, y un resplandor lima muy tenue al pasar el cursor por tarjetas y botones (pedido por el usuario).
+Profundidad por sombras oscuras con desplazamiento y por luz difusa: lima detrás del producto del héroe, y un resplandor lima muy tenue al pasar el cursor por tarjetas y botones (pedido por el usuario).
 
 ### Shadow Vocabulary
 - **Botón lima** (`0 6px 16px -8px rgba(0,0,0,.8)`; hover: escala 1.03, brillo +8 % y `0 8px 22px -6px rgba(198,241,53,.45)`).
 - **Tarjeta en hover** (sube 4 px, `0 10px 30px rgba(198,241,53,.10)`, borde verdoso).
-- **Foto del héroe:** sin sombra ni borde; se desvanece con máscara radial sobre una luz ambiental lima 30 % + azul 22 %, `blur(40px)`.
+- **Producto del héroe:** sin sombra ni borde; se desvanece con máscara radial sobre una luz lima al 16 %, `blur(30px)`.
 
 ## Shapes
 
-Foto del héroe sin esquinas (bordes difuminados) → tarjeta 1rem → imagen de producto 0.75rem. Toda acción y etiqueta es píldora. Bordes de 1 px en `linea`.
+Producto del héroe sin esquinas (bordes difuminados) → tarjeta 1rem → imagen de producto 0.75rem. Toda acción y etiqueta es píldora. Bordes de 1 px en `linea`.
 
 ## Components
 
@@ -191,10 +191,8 @@ Foto del héroe sin esquinas (bordes difuminados) → tarjeta 1rem → imagen de
 - **Vista lista (móvil):** fila con foto de 108 px, 2 píldoras y el botón compacto a la derecha del precio. **Vista cuadrícula (móvil):** 2 columnas, 1 píldora.
 
 ### Héroe
-- **Foto de fondo:** teclado mecánico retroiluminado de Unsplash (`img/teclado-rgb.jpg`, crédito "Foto: Unsplash" dentro de la foto), `object-cover` 16:10, sin marco: una máscara radial (`mask-image`) la funde con el fondo, sobre la luz ambiental lima y azul, con deriva lenta de 14 s. La foto puede cambiar a diario.
-- **Oferta del día (tarjeta dividida):** sube 112–160 px sobre la zona difuminada. Vidrio oscuro (`grafito` al 60 % + `backdrop-blur-xl`), borde blanco al 10 %, esquinas de 1.75rem y sombra oscura. Dos columnas desde 640 px y desde 1024 px; apilada en móvil y en la mitad del héroe de 768–1023 px.
-  - **Izquierda:** foto real del producto en recuadro blanco redondeado (`object-contain`, 16 px de relleno) con la píldora lima "-X%" flotando en la esquina superior izquierda.
-  - **Derecha:** título extrabold (1.6rem → 1.875rem; 1.6rem en `lg`, 1.8rem en `xl`; máx. 3 líneas), píldoras técnicas como en las tarjetas, precio lima de 3rem extrabold junto al original tachado, "Ahorras $X · precio verificado por el radar" y botón lima grande "Aprovechar oferta" con flecha (ancho completo en móvil).
+- **Oferta del día (sin cajas):** la foto real del producto que extrae el radar es la imagen monumental del héroe (cuadrada, 400–480 px, `object-contain` sobre su fondo blanco con 17 % de relleno). Una máscara radial (`mask-image`) la desvanece hacia el negro, con una luz lima tenue detrás y una flotación lenta de 9 s. Nada de fotos de stock.
+  - Los datos flotan directo sobre el negro, centrados y subiendo sobre la zona difuminada, sin tarjeta ni fondo: píldora lima "-X%", nombre en extrabold (1.75rem → 2.25rem, máx. 3 líneas), píldoras técnicas, precio lima de 3–3.75rem junto al original tachado, "Ahorras $X · precio verificado por el radar" y botón lima grande "Aprovechar oferta →". Sombra de texto oscura para que se lea.
   - Es el teclado real con más descuento de `ofertas.json` (o la mayor oferta si no hay teclados); se oculta si no hay ofertas o falla la carga.
 - **Proporción del héroe:** 50/50 en `md`; desde 1024 px, texto `.9fr` + oferta `1.1fr`.
 - **Métricas:** ofertas verificadas (conteo real), "24/7" radar activo, "100%" precios reales, sobre una línea `linea`.
@@ -207,7 +205,7 @@ Carga con 8 esqueletos brillantes en la cuadrícula; vacío: "Hoy no hay ofertas
 
 ### Motion
 - **Aparición bidireccional:** sube 22 px y aparece al entrar en pantalla, y se oculta al salir, en ambos sentidos del scroll (opacidad 0.45 s, `translate` 0.6 s, `cubic-bezier(.16,1,.3,1)`), con 60 ms entre piezas (cascada por fila de 4), por IntersectionObserver (umbral 0.15, márgenes -4 % / -6 %); usa `translate` para no pisar el `transform` del hover; sin JS todo es visible.
-- **Foto del héroe:** deriva lenta (escala 1.06, desplazamiento ~1 %) en 14 s.
+- **Producto del héroe:** flota 1.5 % y escala 1.02 en 9 s.
 - **Gráfico:** la línea se dibuja en 1.6 s cada vez que el gráfico entra en pantalla; después aparecen el relleno y los puntos en cascada.
 - **Interacción:** tarjetas y botones 200–300 ms; menú 0.38 s.
 - **Movimiento reducido:** se apagan los loops, los desplazamientos y el dibujo; solo queda un fundido corto.
