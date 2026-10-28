@@ -34,11 +34,9 @@
   .js .rev { opacity: 0; translate: 0 22px; transition: opacity .45s var(--ease), translate .6s var(--ease), transform .3s var(--ease), box-shadow .3s ease, border-color .3s ease; }
   .js .rev.in { opacity: 1; translate: 0 0; transition-delay: calc(var(--d, 0) * 60ms), calc(var(--d, 0) * 60ms), 0s, 0s, 0s; }
 
-  /* Héroe: la foto real del producto (fondo blanco de Mercado Libre) se funde con el negro */
-  @keyframes deriva { 0%, 100% { transform: translate3d(0, 0, 0) scale(1); } 50% { transform: translate3d(0, -1.5%, 0) scale(1.02); } }
+  /* Héroe: la foto real del producto; sus 4 bordes se funden con degradados lineales */
+  @keyframes deriva { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.025); } }
   .foto-heroe { animation: deriva 9s ease-in-out infinite; }
-  .difuso { --m: radial-gradient(ellipse 50% 50% at 50% 46%, #000 30%, rgba(0,0,0,.82) 42%, rgba(0,0,0,.5) 56%, rgba(0,0,0,.2) 68%, transparent 80%); -webkit-mask-image: var(--m); mask-image: var(--m); }
-  .luz-heroe { background: radial-gradient(closest-side, rgba(198,241,53,.16), transparent); filter: blur(30px); }
   .sobre-negro { text-shadow: 0 2px 14px rgba(0,0,0,.9); }
   .sobre-negro .btn-lima, .sobre-negro .pildora-h { text-shadow: none; }
 
@@ -136,44 +134,58 @@
 
 <main>
   <!-- Héroe -->
-  <section class="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)] items-center gap-10 px-4 pb-16 pt-8 sm:px-6 md:grid-cols-2 lg:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)] md:gap-12 md:pb-24 md:pt-16 lg:gap-16 lg:px-8">
-    <div class="md:py-6">
+  <section class="mx-auto max-w-7xl px-4 pb-14 pt-8 sm:px-6 md:pb-20 md:pt-14 lg:px-8">
+    <div class="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,.85fr)] lg:items-end lg:gap-14">
       <h1 class="rev text-balance text-[clamp(2.1rem,10.4vw,2.75rem)] font-extrabold leading-[.98] tracking-[-0.035em] sm:text-[3.4rem] lg:text-[4rem] xl:text-[4.5rem]">
         Arma tu setup con <span class="text-lima">datos</span>, no pagues sobreprecio.
       </h1>
-      <p class="rev mt-6 max-w-[32rem] text-base leading-7 text-humo lg:text-lg" style="--d:1">
-        Nuestro radar revisa el precio real de cada componente en Mercado Libre todos los días y solo te enseña las bajas de verdad.
-      </p>
-      <div class="rev mt-8 flex flex-wrap items-center gap-3" style="--d:2">
-        <a href="#ofertas" class="btn-lima inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold">
-          Ver ofertas de hoy
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a href="#radar" class="btn-linea inline-flex items-center rounded-full border border-linea px-6 py-3.5 text-sm font-medium text-zinc-200 hover:border-zinc-500 hover:bg-white/[.03]">Cómo funciona el radar</a>
+      <div class="lg:pb-2">
+        <p class="rev max-w-[32rem] text-base leading-7 text-humo" style="--d:1">
+          Nuestro radar revisa el precio real de cada componente en Mercado Libre todos los días y solo te enseña las bajas de verdad.
+        </p>
+        <div class="rev mt-6 flex flex-wrap items-center gap-3" style="--d:2">
+          <a href="#ofertas" class="btn-lima inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold">
+            Ver ofertas de hoy
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#radar" class="btn-linea inline-flex items-center rounded-full border border-linea px-6 py-3.5 text-sm font-medium text-zinc-200 hover:border-zinc-500 hover:bg-white/[.03]">Cómo funciona el radar</a>
+        </div>
+        <dl class="rev mt-7 grid max-w-md grid-cols-3 gap-6 border-t border-linea pt-5" style="--d:3">
+          <div><dt class="sr-only">Ofertas verificadas</dt><dd id="m-total" class="num text-2xl font-bold tracking-tight">—</dd><p class="mt-1 text-xs text-ceniza">ofertas verificadas</p></div>
+          <div><dt class="sr-only">Radar</dt><dd class="num text-2xl font-bold tracking-tight">24/7</dd><p class="mt-1 text-xs text-ceniza">radar activo</p></div>
+          <div><dt class="sr-only">Datos reales</dt><dd class="num text-2xl font-bold tracking-tight">100%</dd><p class="mt-1 text-xs text-ceniza">precios reales</p></div>
+        </dl>
       </div>
-      <dl class="rev mt-10 grid max-w-md grid-cols-3 gap-6 border-t border-linea pt-6 lg:mt-12" style="--d:3">
-        <div><dt class="sr-only">Ofertas verificadas</dt><dd id="m-total" class="num text-2xl font-bold tracking-tight lg:text-3xl">—</dd><p class="mt-1 text-xs text-ceniza">ofertas verificadas</p></div>
-        <div><dt class="sr-only">Radar</dt><dd class="num text-2xl font-bold tracking-tight lg:text-3xl">24/7</dd><p class="mt-1 text-xs text-ceniza">radar activo</p></div>
-        <div><dt class="sr-only">Datos reales</dt><dd class="num text-2xl font-bold tracking-tight lg:text-3xl">100%</dd><p class="mt-1 text-xs text-ceniza">precios reales</p></div>
-      </dl>
     </div>
 
-    <!-- Oferta del día: la foto real del producto, difuminada hacia el negro, con los datos flotando encima -->
-    <div id="h-oferta" class="rev relative" style="--d:2">
-      <div class="luz-heroe pointer-events-none absolute inset-x-0 top-0 mx-auto aspect-square max-w-[560px]" aria-hidden="true"></div>
-      <a id="h-foto" href="#ofertas" tabindex="-1" aria-hidden="true" class="difuso relative mx-auto block aspect-square w-full max-w-[440px] bg-white sm:max-w-[480px] lg:max-w-[400px] xl:max-w-[430px]">
-        <div id="h-img" class="foto-heroe h-full w-full p-[17%]"></div>
+    <!-- Oferta del día: contenedor relativo; la foto real ocupa el centro y los datos se anclan a las esquinas -->
+    <div id="h-oferta" class="rev relative mt-10 lg:mt-12 lg:h-[460px] xl:h-[500px]" style="--d:2">
+      <!-- Foto del producto con los 4 bordes fundidos hacia el fondo -->
+      <a id="h-foto" href="#ofertas" tabindex="-1" aria-hidden="true" class="relative mx-auto block aspect-square w-full max-w-[460px] overflow-hidden lg:h-full lg:max-w-none lg:w-auto">
+        <div id="h-img" class="foto-heroe h-full w-full bg-white"></div>
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-[30%] bg-gradient-to-b from-tinta via-tinta/55 to-transparent"></div>
+        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-tinta via-tinta/70 to-transparent"></div>
+        <div class="pointer-events-none absolute inset-y-0 left-0 w-[32%] bg-gradient-to-r from-tinta via-tinta/55 to-transparent"></div>
+        <div class="pointer-events-none absolute inset-y-0 right-0 w-[32%] bg-gradient-to-l from-tinta via-tinta/55 to-transparent"></div>
       </a>
-      <div class="sobre-negro relative -mt-[18%] text-center sm:-mt-24 lg:-mt-20">
-        <span id="h-off" class="num inline-block rounded-full bg-lima px-4 py-1.5 font-mono text-base font-bold text-tinta" style="text-shadow:none">-%</span>
-        <h2 id="h-titulo" class="mx-auto mt-4 line-clamp-3 max-w-xl text-balance text-[1.75rem] font-extrabold leading-[1.08] tracking-[-0.03em] sm:text-4xl md:text-[1.75rem] lg:text-4xl">Cargando la oferta del día…</h2>
-        <ul id="h-pildoras" class="mt-4 flex flex-wrap justify-center gap-2"></ul>
-        <div class="mt-5 flex flex-wrap items-baseline justify-center gap-x-4 gap-y-1">
-          <span id="h-precio" class="num text-5xl font-extrabold tracking-[-0.035em] text-lima sm:text-6xl">—</span>
-          <span id="h-antes" class="num text-xl text-ceniza line-through"></span>
+
+      <!-- Superior derecha: solo el descuento -->
+      <span id="h-off" class="num absolute right-3 top-3 rounded-full bg-lima px-5 py-2 font-mono text-lg font-bold text-tinta lg:right-6 lg:top-6 lg:text-xl">-%</span>
+
+      <!-- Inferior izquierda: nombre + píldoras -->
+      <div class="sobre-negro relative -mt-16 lg:absolute lg:bottom-6 lg:left-6 lg:mt-0 lg:max-w-[30%]">
+        <h2 id="h-titulo" class="line-clamp-3 text-balance text-[1.75rem] font-extrabold leading-[1.08] tracking-[-0.03em] sm:text-4xl lg:text-[1.9rem] xl:text-[2.25rem]">Cargando la oferta del día…</h2>
+        <ul id="h-pildoras" class="mt-4 flex flex-wrap gap-2"></ul>
+      </div>
+
+      <!-- Inferior derecha: precio + botón -->
+      <div class="sobre-negro mt-6 lg:absolute lg:bottom-6 lg:right-6 lg:mt-0 lg:max-w-[30%] lg:text-right">
+        <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 lg:justify-end">
+          <span id="h-antes" class="num order-2 text-xl text-ceniza line-through lg:order-1"></span>
+          <span id="h-precio" class="num order-1 text-5xl font-extrabold tracking-[-0.035em] text-lima sm:text-6xl lg:order-2">—</span>
         </div>
         <p id="h-ahorro" class="num mt-1.5 text-sm text-humo"></p>
-        <a id="h-link" href="#ofertas" class="btn-lima mt-6 inline-flex items-center justify-center gap-2.5 rounded-full px-9 py-4 text-lg font-bold">
+        <a id="h-link" href="#ofertas" class="btn-lima mt-5 inline-flex w-full items-center justify-center gap-2.5 rounded-full px-9 py-4 text-lg font-bold sm:w-auto">
           Aprovechar oferta
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>

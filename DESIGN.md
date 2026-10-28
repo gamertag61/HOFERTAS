@@ -105,7 +105,7 @@ components:
 
 Una herramienta de compra con aire de producto técnico: fondo grafito casi negro, tarjetas gris mate y un único acento verde lima que marca lo que importa (la palabra clave, el precio, la acción). La página no promete: muestra. Cada número sale del radar.
 
-Mobile-first para quien llega desde TikTok, con la densidad de una tienda real en laptop. Héroe 50/50 (texto monumental + la foto real de la oferta del día, difuminada hacia el negro), cuadrícula compacta de ofertas estilo Amazon/Mercado Libre y una sección "mini software" que dibuja el historial real de una baja de precio.
+Mobile-first para quien llega desde TikTok, con la densidad de una tienda real en laptop. Héroe con titular arriba y la oferta del día debajo: la foto real del producto, con los bordes fundidos hacia el negro y los datos anclados a las esquinas, cuadrícula compacta de ofertas estilo Amazon/Mercado Libre y una sección "mini software" que dibuja el historial real de una baja de precio.
 
 **Key Characteristics:**
 - Grafito `#0a0b0d` con una luz lima muy tenue arriba a la derecha.
@@ -156,7 +156,7 @@ Mobile-first para quien llega desde TikTok, con la densidad de una tienda real e
 
 - **Contenedor:** `max-w-7xl` (80rem) centrado con `px-4 sm:px-6 lg:px-8`.
 - **Cabecera:** sticky, 64 px, tres columnas: menú hamburguesa a la izquierda, logo "H | Ofertas" con punto lima al centro, estado del radar a la derecha (desde 640 px).
-- **Héroe:** una columna en móvil (texto arriba, foto abajo); desde 768 px, dos columnas 50/50 con separación de 48–64 px.
+- **Héroe:** titular y CTAs arriba; debajo, la oferta del día a todo el ancho (ver Components › Héroe).
 - **Cuadrícula de ofertas:** `md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`, separación de 20 px. En móvil hay dos vistas que el usuario elige (se recuerda en `localStorage`): **lista** (fila estilo Amazon: foto de 108 px a la izquierda, datos a la derecha) y **cuadrícula** de 2 columnas. Se muestran 12 ofertas (orden por mayor descuento) y un botón "Ver N ofertas más". Arriba a la derecha, filtro de rango de precio: campos "Mín ($)" y "Máx ($)" en píldora `mate-alto` y un botón lima redondo con flecha; si no hay resultados aparece "Ninguna oferta entre … " con "Quitar filtro".
 - **Radar:** una columna en móvil; desde 1024 px, texto `.8fr` + panel `1.2fr`.
 - **Ritmo vertical:** secciones de 56–64 px en móvil y 80–96 px desde 768 px, separadas por una línea blanca al 5 %.
@@ -168,7 +168,7 @@ Profundidad por sombras oscuras con desplazamiento y por luz difusa: lima detrá
 ### Shadow Vocabulary
 - **Botón lima** (`0 6px 16px -8px rgba(0,0,0,.8)`; hover: escala 1.03, brillo +8 % y `0 8px 22px -6px rgba(198,241,53,.45)`).
 - **Tarjeta en hover** (sube 4 px, `0 10px 30px rgba(198,241,53,.10)`, borde verdoso).
-- **Producto del héroe:** sin sombra ni borde; se desvanece con máscara radial sobre una luz lima al 16 %, `blur(30px)`.
+- **Producto del héroe:** sin sombra ni borde; se funde con degradados lineales en sus 4 bordes.
 
 ## Shapes
 
@@ -191,10 +191,13 @@ Producto del héroe sin esquinas (bordes difuminados) → tarjeta 1rem → image
 - **Vista lista (móvil):** fila con foto de 108 px, 2 píldoras y el botón compacto a la derecha del precio. **Vista cuadrícula (móvil):** 2 columnas, 1 píldora.
 
 ### Héroe
-- **Oferta del día (sin cajas):** la foto real del producto que extrae el radar es la imagen monumental del héroe (cuadrada, 400–480 px, `object-contain` sobre su fondo blanco con 17 % de relleno). Una máscara radial (`mask-image`) la desvanece hacia el negro, con una luz lima tenue detrás y una flotación lenta de 9 s. Nada de fotos de stock.
-  - Los datos flotan directo sobre el negro, centrados y subiendo sobre la zona difuminada, sin tarjeta ni fondo: píldora lima "-X%", nombre en extrabold (1.75rem → 2.25rem, máx. 3 líneas), píldoras técnicas, precio lima de 3–3.75rem junto al original tachado, "Ahorras $X · precio verificado por el radar" y botón lima grande "Aprovechar oferta →". Sombra de texto oscura para que se lea.
-  - Es el teclado real con más descuento de `ofertas.json` (o la mayor oferta si no hay teclados); se oculta si no hay ofertas o falla la carga.
-- **Proporción del héroe:** 50/50 en `md`; desde 1024 px, texto `.9fr` + oferta `1.1fr`.
+- **Arriba:** titular a la izquierda y, desde 1024 px, subtítulo + CTAs + métricas a la derecha (`1.15fr / .85fr`).
+- **Oferta del día (asimétrica, sin cajas):** contenedor `relative` de ancho completo, 460 px de alto (500 px desde 1280 px). La foto real del producto que extrae el radar ocupa el centro (cuadrada, alto completo, `object-contain` sobre su fondo blanco, escala 1.025 en 9 s). Sus 4 bordes se funden hacia `grafito` con degradados lineales absolutos: arriba 30 %, abajo 42 %, izquierda y derecha 32 %, con parada intermedia al 55–70 %. Nada de fotos de stock ni máscaras circulares.
+  - **Superior derecha** (`top-6 right-6`): solo la píldora lima "-X%".
+  - **Inferior izquierda** (`bottom-6 left-6`, máx. 30 %): nombre extrabold (1.9rem → 2.25rem, máx. 3 líneas) + píldoras técnicas.
+  - **Inferior derecha** (`bottom-6 right-6`, máx. 30 %, alineado a la derecha): precio anterior tachado + precio lima de 3.75rem, "Ahorras $X · precio verificado por el radar" y botón lima grande "Aprovechar oferta →".
+  - En móvil y tablet todo se apila (foto de máx. 460 px; nombre subiendo 64 px sobre el degradado inferior; botón de ancho completo en móvil); solo la píldora queda anclada arriba a la derecha.
+  - Es el teclado real con más descuento de `ofertas.json` (o la mayor oferta si no hay teclados); se oculta si no hay ofertas o falla la carga. Sombra de texto oscura en los datos.
 - **Métricas:** ofertas verificadas (conteo real), "24/7" radar activo, "100%" precios reales, sobre una línea `linea`.
 
 ### Radar (mini software)
@@ -205,7 +208,7 @@ Carga con 8 esqueletos brillantes en la cuadrícula; vacío: "Hoy no hay ofertas
 
 ### Motion
 - **Aparición bidireccional:** sube 22 px y aparece al entrar en pantalla, y se oculta al salir, en ambos sentidos del scroll (opacidad 0.45 s, `translate` 0.6 s, `cubic-bezier(.16,1,.3,1)`), con 60 ms entre piezas (cascada por fila de 4), por IntersectionObserver (umbral 0.15, márgenes -4 % / -6 %); usa `translate` para no pisar el `transform` del hover; sin JS todo es visible.
-- **Producto del héroe:** flota 1.5 % y escala 1.02 en 9 s.
+- **Producto del héroe:** escala 1.025 en 9 s.
 - **Gráfico:** la línea se dibuja en 1.6 s cada vez que el gráfico entra en pantalla; después aparecen el relleno y los puntos en cascada.
 - **Interacción:** tarjetas y botones 200–300 ms; menú 0.38 s.
 - **Movimiento reducido:** se apagan los loops, los desplazamientos y el dibujo; solo queda un fundido corto.
