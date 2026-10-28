@@ -191,8 +191,12 @@ Foto del héroe sin esquinas (bordes difuminados) → tarjeta 1rem → imagen de
 - **Vista lista (móvil):** fila con foto de 108 px, 2 píldoras y el botón compacto a la derecha del precio. **Vista cuadrícula (móvil):** 2 columnas, 1 píldora.
 
 ### Héroe
-- **Foto:** teclado mecánico retroiluminado de Unsplash (`img/teclado-rgb.jpg`, crédito "Foto: Unsplash" dentro de la foto), `object-cover` 4:3 (5:4 desde 1024 px), sin marco: una máscara radial (`mask-image`) la funde con el fondo, sobre la luz ambiental lima y azul, con deriva lenta de 14 s. La foto puede cambiar a diario.
-- **Oferta destacada:** sin caja ni tarjeta. Centrada directamente sobre la zona difuminada (sube 64–80 px sobre la foto): "-X%" en lima, precio grande, precio anterior tachado, título a 2 líneas y botón lima grande "Aprovechar oferta" con flecha. Sombra de texto oscura para que se lea. Es el teclado real con más descuento de `ofertas.json`.
+- **Foto de fondo:** teclado mecánico retroiluminado de Unsplash (`img/teclado-rgb.jpg`, crédito "Foto: Unsplash" dentro de la foto), `object-cover` 16:10, sin marco: una máscara radial (`mask-image`) la funde con el fondo, sobre la luz ambiental lima y azul, con deriva lenta de 14 s. La foto puede cambiar a diario.
+- **Oferta del día (tarjeta dividida):** sube 112–160 px sobre la zona difuminada. Vidrio oscuro (`grafito` al 60 % + `backdrop-blur-xl`), borde blanco al 10 %, esquinas de 1.75rem y sombra oscura. Dos columnas desde 640 px y desde 1024 px; apilada en móvil y en la mitad del héroe de 768–1023 px.
+  - **Izquierda:** foto real del producto en recuadro blanco redondeado (`object-contain`, 16 px de relleno) con la píldora lima "-X%" flotando en la esquina superior izquierda.
+  - **Derecha:** título extrabold (1.6rem → 1.875rem; 1.6rem en `lg`, 1.8rem en `xl`; máx. 3 líneas), píldoras técnicas como en las tarjetas, precio lima de 3rem extrabold junto al original tachado, "Ahorras $X · precio verificado por el radar" y botón lima grande "Aprovechar oferta" con flecha (ancho completo en móvil).
+  - Es el teclado real con más descuento de `ofertas.json` (o la mayor oferta si no hay teclados); se oculta si no hay ofertas o falla la carga.
+- **Proporción del héroe:** 50/50 en `md`; desde 1024 px, texto `.9fr` + oferta `1.1fr`.
 - **Métricas:** ofertas verificadas (conteo real), "24/7" radar activo, "100%" precios reales, sobre una línea `linea`.
 
 ### Radar (mini software)
