@@ -277,12 +277,41 @@
   const dia = new Intl.DateTimeFormat('es-MX', { day: 'numeric', month: 'short' });
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const off = p => Math.round((1 - p.n / p.o) * 100);
-  const corto = (t, n = 6) => t.split(/[,|(]/)[0].trim().split(/\s+/).slice(0, n).join(' ');
-  /* Nombre comercial corto para la oferta del día: usa p.nombre si viene en ofertas.json;
+  /* Nombres comerciales escritos a mano, por enlace de afiliado (sobreviven a cada actualización de ofertas.json).
+     Para un producto nuevo: agrega aquí su enlace; si no está, se usa p.nombre o el recorte automático. */
+  const NOMBRES = {
+    'https://meli.la/31Pgsbw': 'Teclado Magnético Aula Win60 HE',
+    'https://meli.la/2XiVSGp': 'Teclado Inalámbrico Mecánico Attack Shark X85',
+    'https://meli.la/1BTQ3gk': 'Monitor Gamer LG UltraGear 24" 144 Hz',
+    'https://meli.la/2CrimQa': 'Monitor Gamer Curvo 24" Adir',
+    'https://meli.la/1roJ5aB': 'Monitor Portátil Arzopa A1 15"',
+    'https://meli.la/1c3APAY': 'Monitor Gamer Xiaomi G27i 27" 165 Hz',
+    'https://meli.la/2wfe9sS': 'Mouse Gaming Logitech G203',
+    'https://meli.la/2W8Y1Hs': 'Mouse Inalámbrico Silencioso Recargable',
+    'https://meli.la/2tkpTJg': 'Escritorio Gamer en L Tielopa',
+    'https://meli.la/2tHSan9': 'Escritorio de Oficina con Estantería',
+    'https://meli.la/2fdwXJB': 'Escritorio Gamer en L con Luces RGB',
+    'https://meli.la/1yqVWgS': 'Escritorio Gamer en L con Soporte para Monitor',
+    'https://meli.la/2TgQfrM': 'Escritorio Librero Ejecutivo',
+    'https://meli.la/1njdMMx': 'Escritorio Home Office Negro Mate',
+    'https://meli.la/1t8NUEe': 'Silla de Oficina Ergonómica con Soporte Lumbar',
+    'https://meli.la/2UL7Zk8': 'Lámpara de Escritorio Giratoria 360°',
+    'https://meli.la/2Nu8c5R': 'Bocinas para PC con Subwoofer RGB',
+    'https://meli.la/143CXmW': 'Procesador AMD Ryzen 7 5700X',
+    'https://meli.la/2mrYvFT': 'Procesador AMD Ryzen 5 5500',
+    'https://meli.la/1cJLBjz': 'Lámpara de Buró LED con USB-C',
+    'https://meli.la/1C5wWyp': 'Soporte para Tablet Plegable 360°',
+    'https://meli.la/2TWBd3D': 'Control GameSir Kaleid para Xbox y PC',
+    'https://meli.la/2iJyZxj': 'Control GameSir G7 Pro para Xbox y PC',
+    'https://meli.la/15C8wq7': 'Control GameSir Kaleid Flux para Xbox y PC',
+    'https://meli.la/2pZcUyu': 'Audífonos Anker Soundcore Q11i Bluetooth'
+  };
+  /* Nombre comercial corto: primero NOMBRES, luego p.nombre si viene en ofertas.json;
      si no, toma el título de Mercado Libre hasta el modelo (máx. 6 palabras) y corta antes de
      cantidades, "con", "para", "RGB"… ("Teclado Inalámbrico Mecánico Attack Shark X85 Pro 82 Teclas…"
      → "Teclado Inalámbrico Mecánico Attack Shark X85"). */
   function nombreComercial(p) {
+    if (NOMBRES[p.link]) return NOMBRES[p.link];
     if (p.nombre) return p.nombre;
     const pal = p.t.split(/[,|(–]| - /)[0].trim().split(/\s+/), out = [];
     for (const w of pal) {
@@ -344,7 +373,7 @@
         <span class="num absolute left-1.5 top-1.5 rounded-full bg-lima px-2 py-0.5 font-mono text-[11px] font-semibold text-tinta md:left-2.5 md:top-2.5">-${off(p)}%</span>
       </a>
       <div class="info pt-3">
-        <h3 class="titulo line-clamp-2 min-h-[2.5rem] text-[13px] font-medium leading-5 text-zinc-100 md:text-sm" title="${esc(p.t)}">${esc(p.t)}</h3>
+        <h3 class="titulo line-clamp-2 min-h-[2.5rem] text-[13px] font-medium leading-5 text-zinc-100 md:text-sm" title="${esc(p.t)}">${esc(nombreComercial(p))}</h3>
         <ul class="pildoras mt-2 flex flex-wrap gap-1">
           ${pildoras(p).map(([t, ic]) => `<li class="num inline-flex items-center gap-1 rounded-full border border-linea bg-black/30 px-2 py-0.5 font-mono text-[10.5px] text-zinc-300"><span class="text-lima">${icono(ic)}</span>${esc(t)}</li>`).join('')}
         </ul>
@@ -446,9 +475,10 @@
     trazo.style.setProperty('--len', Math.ceil(trazo.getTotalLength() || 900));
     void svg.getBoundingClientRect();
     if (svgVisible) requestAnimationFrame(() => svg.classList.add('in'));
-    $('r-nombre').textContent = s.nombre;
+    $('r-nombre').textContent = s.corto;
+    $('r-nombre').title = s.nombre;
     const caida = Math.round((1 - s.ahora / s.antes) * 100);
-    $('r-leyenda').innerHTML = `<span class="h-2 w-2 rounded-[3px] bg-lima"></span><span>${esc(corto(s.nombre, 4))}</span><span class="text-ceniza">·</span><span>antes ${esc(mxn.format(s.antes))}</span><span class="text-ceniza">→</span><span class="font-semibold text-lima">${esc(mxn.format(s.ahora))}</span><span class="text-ceniza">(-${caida} %)</span>`;
+    $('r-leyenda').innerHTML = `<span class="h-2 w-2 rounded-[3px] bg-lima"></span><span>${esc(s.corto)}</span><span class="text-ceniza">·</span><span>antes ${esc(mxn.format(s.antes))}</span><span class="text-ceniza">→</span><span class="font-semibold text-lima">${esc(mxn.format(s.ahora))}</span><span class="text-ceniza">(-${caida} %)</span>`;
     [...$('r-chips').children].forEach((b, i) => { const on = i === k; b.setAttribute('aria-pressed', on);
       b.className = 'btn-linea rounded-full px-3 py-2 font-mono text-xs font-semibold ' + (on ? 'bg-lima text-tinta' : 'text-humo hover:text-zinc-200'); });
   }
@@ -464,16 +494,16 @@
       if (!h.length || h[h.length - 1].precio !== a.antes) h.push({ fecha: h.length ? h[h.length - 1].fecha : f, precio: a.antes });
       h.push({ fecha: f, precio: a.ahora, ahora: true });
       const puntos = h.slice(-14).map(q => ({ precio: q.precio, etiqueta: q.ahora ? 'ahora' : (q.fecha ? dia.format(new Date(q.fecha + 'T12:00:00')) : '') }));
-      return { nombre: a.t, antes: a.antes, ahora: a.ahora, puntos };
+      return { nombre: a.t, corto: nombreComercial(a), antes: a.antes, ahora: a.ahora, puntos };
     });
     if (!series.length) {
       $('r-nombre').textContent = 'Sin bajas nuevas hoy';
       svg.innerHTML = `<text x="300" y="130" text-anchor="middle" fill="#6b7079" font-family="Poppins" font-size="14">Sin bajas nuevas en la última actualización.</text>`;
       return;
     }
-    $('r-chips').innerHTML = series.map(s => `<button type="button" aria-label="Ver ${esc(corto(s.nombre, 4))}">-${Math.round((1 - s.ahora / s.antes) * 100)} %</button>`).join('');
+    $('r-chips').innerHTML = series.map(s => `<button type="button" aria-label="Ver ${esc(s.corto)}">-${Math.round((1 - s.ahora / s.antes) * 100)} %</button>`).join('');
     [...$('r-chips').children].forEach((b, i) => b.addEventListener('click', () => i !== serieActual && dibujar(i)));
-    $('r-log').innerHTML = alertas.map(a => `<li class="truncate"><span class="text-lima">▾</span> ${esc(corto(a.t, 4))} <span class="text-zinc-500">${esc(mxn.format(a.antes))} → </span><span class="text-zinc-300">${esc(mxn.format(a.ahora))}</span></li>`).join('');
+    $('r-log').innerHTML = alertas.map(a => `<li class="truncate"><span class="text-lima">▾</span> ${esc(nombreComercial(a))} <span class="text-zinc-500">${esc(mxn.format(a.antes))} → </span><span class="text-zinc-300">${esc(mxn.format(a.ahora))}</span></li>`).join('');
     dibujar(0);
   }
 
