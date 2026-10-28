@@ -30,12 +30,15 @@
       radial-gradient(ellipse 45% 35% at 8% 0%, rgba(255,255,255,.03), transparent 70%); }
 
   /* Aparición al hacer scroll (solo con JS; sin JS todo es visible) */
-  .js .rev { opacity: 0; transform: translateY(14px); transition: opacity .5s var(--ease), transform .6s var(--ease); transition-delay: calc(var(--d, 0) * 60ms); }
-  .js .rev.in { opacity: 1; transform: none; }
+  /* "translate" (no "transform") para no pisar el hover de las tarjetas */
+  .js .rev { opacity: 0; translate: 0 22px; transition: opacity .45s var(--ease), translate .6s var(--ease), transform .3s var(--ease), box-shadow .3s ease, border-color .3s ease; }
+  .js .rev.in { opacity: 1; translate: 0 0; transition-delay: calc(var(--d, 0) * 60ms), calc(var(--d, 0) * 60ms), 0s, 0s, 0s; }
 
   /* Foto del héroe */
   @keyframes deriva { 0%, 100% { transform: scale(1.06) translate3d(0, 0, 0); } 50% { transform: scale(1.06) translate3d(-1.2%, -1%, 0); } }
   .foto-heroe { animation: deriva 14s ease-in-out infinite; }
+  .sobre-foto { text-shadow: 0 2px 12px rgba(0,0,0,.85); }
+  .sobre-foto .btn-lima { text-shadow: none; }
   .difuso { --m: radial-gradient(ellipse 58% 56% at 50% 46%, #000 38%, rgba(0,0,0,.55) 66%, transparent 92%); -webkit-mask-image: var(--m); mask-image: var(--m); }
   .luz-heroe { background:
       radial-gradient(closest-side at 30% 60%, rgba(198,241,53,.30), transparent),
@@ -88,7 +91,7 @@
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .foto-heroe, .latido, .esq { animation: none; }
-    .js .rev { transform: none; transition: opacity .3s linear; }
+    .js .rev { opacity: 1; translate: none; transition: none; }
     .grafico .trazo { stroke-dashoffset: 0; transition: none; }
     .area, .punto, .etiqueta { opacity: 1; transition: none; }
     .oferta, .oferta .foto img, .btn-lima { transition: none; }
@@ -164,17 +167,21 @@
         <div class="difuso aspect-[4/3] overflow-hidden lg:aspect-[5/4]">
           <img class="foto-heroe h-full w-full object-cover" src="img/teclado-rgb.jpg" width="1200" height="722" alt="Teclado mecánico gamer con retroiluminación RGB" fetchpriority="high">
         </div>
-        <figcaption class="absolute -bottom-6 right-1 text-[10px] text-ceniza">Foto: Unsplash</figcaption>
-        <!-- Oferta real destacada -->
-        <a id="h-oferta" href="#ofertas" class="absolute inset-x-3 bottom-3 flex items-center gap-3 rounded-2xl border border-white/10 bg-tinta/75 p-2.5 pr-3 backdrop-blur-md transition-colors hover:border-lima/40 sm:inset-x-4 sm:bottom-4">
-          <span id="h-img" class="block h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-alto"></span>
-          <span class="min-w-0 flex-1">
-            <span id="h-titulo" class="block truncate text-sm font-semibold">Teclados en oferta</span>
-            <span class="mt-0.5 flex items-baseline gap-2"><span id="h-precio" class="num font-bold text-lima">—</span><span id="h-antes" class="num truncate text-xs text-ceniza line-through"></span></span>
-          </span>
-          <span id="h-off" class="num shrink-0 rounded-full bg-lima px-2.5 py-1 font-mono text-[11px] font-semibold text-tinta">Oferta</span>
-        </a>
+        <figcaption class="absolute right-[14%] top-[8%] text-[10px] text-white/40">Foto: Unsplash</figcaption>
       </figure>
+      <!-- Oferta real destacada, directo sobre la zona difuminada -->
+      <div class="sobre-foto relative -mt-16 px-2 text-center sm:-mt-20 sm:px-6">
+        <p class="flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1">
+          <span id="h-off" class="num font-mono text-sm font-semibold text-lima">Oferta</span>
+          <span id="h-precio" class="num text-2xl font-bold tracking-tight sm:text-3xl">—</span>
+          <span id="h-antes" class="num text-sm text-ceniza line-through"></span>
+        </p>
+        <p id="h-titulo" class="mx-auto mt-1.5 line-clamp-2 max-w-md text-balance text-sm font-medium leading-6 text-zinc-200 sm:text-base">Teclados en oferta</p>
+        <a id="h-oferta" href="#ofertas" class="btn-lima mt-4 inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-base font-semibold">
+          Aprovechar oferta
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -307,8 +314,8 @@
   function tarjeta(p, k) {
     return `
     <article class="oferta rev rounded-2xl border border-linea bg-mate p-2.5 md:p-3" style="--d:${k % 4}">
-      <a ${enlace(p.link)} tabindex="-1" aria-hidden="true" class="foto relative block aspect-square overflow-hidden rounded-xl bg-alto">
-        <img src="${esc(p.i)}" alt="" loading="lazy" draggable="false" class="h-full w-full object-cover object-center">
+      <a ${enlace(p.link)} tabindex="-1" aria-hidden="true" class="foto relative block aspect-square overflow-hidden rounded-xl bg-white p-3 md:p-4">
+        <img src="${esc(p.i)}" alt="" loading="lazy" draggable="false" class="h-full w-full object-contain object-center">
         <span class="num absolute left-1.5 top-1.5 rounded-full bg-lima px-2 py-0.5 font-mono text-[11px] font-semibold text-tinta md:left-2.5 md:top-2.5">-${off(p)}%</span>
       </a>
       <div class="info pt-3">
@@ -375,10 +382,10 @@
   const aviso = txt => { grid.innerHTML = `<p class="col-span-full py-16 text-center text-humo">${txt}</p>`; };
 
   /* ---------- Aparición al hacer scroll ---------- */
-  const vigia = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); vigia.unobserve(e.target); }
-  }), { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
-  function observar() { document.querySelectorAll('.rev:not(.in)').forEach(el => vigia.observe(el)); }
+  /* Bidireccional: aparece al entrar y se oculta al salir, en cualquier sentido del scroll */
+  const vigia = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('in', e.isIntersecting)),
+    { threshold: 0.15, rootMargin: '-4% 0px -6% 0px' });
+  function observar() { document.querySelectorAll('.rev').forEach(el => vigia.observe(el)); }
   observar();
 
   /* ---------- Gráfico del radar ---------- */
@@ -413,14 +420,16 @@
     const trazo = svg.querySelector('.trazo');
     trazo.style.setProperty('--len', Math.ceil(trazo.getTotalLength() || 900));
     void svg.getBoundingClientRect();
-    if (svg.dataset.visto) requestAnimationFrame(() => svg.classList.add('in'));
+    if (svgVisible) requestAnimationFrame(() => svg.classList.add('in'));
     $('r-nombre').textContent = s.nombre;
     const caida = Math.round((1 - s.ahora / s.antes) * 100);
     $('r-leyenda').innerHTML = `<span class="h-2 w-2 rounded-[3px] bg-lima"></span><span>${esc(corto(s.nombre, 4))}</span><span class="text-ceniza">·</span><span>antes ${esc(mxn.format(s.antes))}</span><span class="text-ceniza">→</span><span class="font-semibold text-lima">${esc(mxn.format(s.ahora))}</span><span class="text-ceniza">(-${caida} %)</span>`;
     [...$('r-chips').children].forEach((b, i) => { const on = i === k; b.setAttribute('aria-pressed', on);
       b.className = 'btn-linea rounded-full px-3 py-2 font-mono text-xs font-semibold ' + (on ? 'bg-lima text-tinta' : 'text-humo hover:text-zinc-200'); });
   }
-  new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { svg.dataset.visto = 1; svg.classList.add('in'); o.disconnect(); } }), { threshold: 0.4 }).observe(svg);
+  /* La línea se vuelve a dibujar cada vez que el gráfico entra en pantalla */
+  let svgVisible = false;
+  new IntersectionObserver(es => es.forEach(e => { svgVisible = e.isIntersecting; svg.classList.toggle('in', svgVisible); }), { threshold: 0.35 }).observe(svg);
 
   function montarRadar(d, hist) {
     const alertas = (d.alertas || []).filter(a => a && a.antes > a.ahora).slice(0, 3);
@@ -459,11 +468,10 @@
       if (!P.length) return aviso('Hoy no hay ofertas nuevas. Vuelve en unas horas.');
       pintar();
       const tec = [...P].sort(ordenes.descuento).find(p => /teclado/i.test(p.t)) || [...P].sort(ordenes.descuento)[0];
-      $('h-titulo').textContent = corto(tec.t, 7);
+      $('h-titulo').textContent = corto(tec.t, 9);
       $('h-precio').textContent = mxn.format(tec.n);
       $('h-antes').textContent = mxn.format(tec.o);
       $('h-off').textContent = `-${off(tec)}%`;
-      $('h-img').innerHTML = `<img src="${esc(tec.i)}" alt="" class="h-full w-full object-cover object-center">`;
       const a = $('h-oferta'); a.href = tec.link; a.target = '_blank'; a.rel = 'noopener noreferrer sponsored';
       a.setAttribute('aria-label', `Oferta: ${tec.t}, ${mxn.format(tec.n)}`);
     })

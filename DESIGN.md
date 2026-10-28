@@ -187,12 +187,12 @@ Foto del héroe sin esquinas (bordes difuminados) → tarjeta 1rem → imagen de
 - **Píldoras técnicas:** 3 por tarjeta, borde `linea`, fondo negro al 30 %, icono SVG lima + texto mono. Se extraen del título real (Hz, pulgadas, ms, inalámbrico/alámbrico, mecánico/magnético, ANC, mAh, GB/TB, RGB); si faltan, se completan con "-X %" y "Ahorras $Y".
 
 ### Cards
-- **Tarjeta de oferta:** mate, borde `linea`, 1rem, 10–12 px de relleno. Orden: imagen cuadrada a sangre (`object-cover object-center`, sin fondo blanco ni relleno, contenedor `mate-alto` con `overflow-hidden`) + píldora de descuento → título completo a 2 líneas → píldoras técnicas → precio lima + tachado (+ "Ahorras" desde 768 px) → botón. Botón: "Ver oferta" en móvil, "Aprovechar oferta" desde 768 px. Hover: sube 4 px y la foto escala 1.05.
+- **Tarjeta de oferta:** mate, borde `linea`, 1rem, 10–12 px de relleno. Orden: imagen cuadrada completa (`object-contain` centrada, fondo blanco y relleno de 12–16 px para que ningún producto se recorte) + píldora de descuento → título completo a 2 líneas → píldoras técnicas → precio lima + tachado (+ "Ahorras" desde 768 px) → botón. Botón: "Ver oferta" en móvil, "Aprovechar oferta" desde 768 px. Hover: sube 4 px y la foto escala 1.05.
 - **Vista lista (móvil):** fila con foto de 108 px, 2 píldoras y el botón compacto a la derecha del precio. **Vista cuadrícula (móvil):** 2 columnas, 1 píldora.
 
 ### Héroe
-- **Foto:** teclado mecánico retroiluminado de Unsplash (`img/teclado-rgb.jpg`, crédito "Foto: Unsplash" debajo), `object-cover` 4:3 (5:4 desde 1024 px), sin marco: una máscara radial (`mask-image`) la funde con el fondo, sobre la luz ambiental lima y azul, con deriva lenta de 14 s.
-- **Oferta destacada sobre la foto:** tarjeta translúcida con miniatura real, nombre, precio lima, tachado y descuento del teclado con más descuento de `ofertas.json`; enlaza a Mercado Libre.
+- **Foto:** teclado mecánico retroiluminado de Unsplash (`img/teclado-rgb.jpg`, crédito "Foto: Unsplash" dentro de la foto), `object-cover` 4:3 (5:4 desde 1024 px), sin marco: una máscara radial (`mask-image`) la funde con el fondo, sobre la luz ambiental lima y azul, con deriva lenta de 14 s. La foto puede cambiar a diario.
+- **Oferta destacada:** sin caja ni tarjeta. Centrada directamente sobre la zona difuminada (sube 64–80 px sobre la foto): "-X%" en lima, precio grande, precio anterior tachado, título a 2 líneas y botón lima grande "Aprovechar oferta" con flecha. Sombra de texto oscura para que se lea. Es el teclado real con más descuento de `ofertas.json`.
 - **Métricas:** ofertas verificadas (conteo real), "24/7" radar activo, "100%" precios reales, sobre una línea `linea`.
 
 ### Radar (mini software)
@@ -202,9 +202,9 @@ Panel `panel` con barra superior (nombre del producto + botones de baja "-X %"),
 Carga con 8 esqueletos brillantes en la cuadrícula; vacío: "Hoy no hay ofertas nuevas. Vuelve en unas horas."; error: "No pudimos cargar las ofertas. Recarga en un momento."
 
 ### Motion
-- **Aparición:** sube 14 px y aparece (opacidad 0.5 s, transform 0.6 s, `cubic-bezier(.16,1,.3,1)`), con 60 ms entre piezas (cascada por fila de 4), por IntersectionObserver; sin JS todo es visible.
+- **Aparición bidireccional:** sube 22 px y aparece al entrar en pantalla, y se oculta al salir, en ambos sentidos del scroll (opacidad 0.45 s, `translate` 0.6 s, `cubic-bezier(.16,1,.3,1)`), con 60 ms entre piezas (cascada por fila de 4), por IntersectionObserver (umbral 0.15, márgenes -4 % / -6 %); usa `translate` para no pisar el `transform` del hover; sin JS todo es visible.
 - **Foto del héroe:** deriva lenta (escala 1.06, desplazamiento ~1 %) en 14 s.
-- **Gráfico:** la línea se dibuja en 1.6 s; después aparecen el relleno y los puntos en cascada.
+- **Gráfico:** la línea se dibuja en 1.6 s cada vez que el gráfico entra en pantalla; después aparecen el relleno y los puntos en cascada.
 - **Interacción:** tarjetas y botones 200–300 ms; menú 0.38 s.
 - **Movimiento reducido:** se apagan los loops, los desplazamientos y el dibujo; solo queda un fundido corto.
 
