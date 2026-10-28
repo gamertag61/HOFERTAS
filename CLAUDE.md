@@ -42,7 +42,7 @@ Para cada interfaz que se toque, usar las skills de diseño instaladas: **Impecc
   - Centro TikTok: SKU/modelo → búsqueda en Pinterest "aesthetic wallpaper".
 - Se sirve con `python -m http.server 8765` (`.claude/launch.json`) → `http://localhost:8765/dashboard.html`.
 
-### Fase B: Radar + despliegue sin laptop principal — CÓDIGO LISTO (2026-10-27), FALTA SUBIR
+### Fase B: Radar + despliegue sin laptop principal — SUBIDO a gamertag61/HOFERTAS (2026-10-27); falta activar Pages, token y radar en la laptop viejita
 
 Arquitectura: **GitHub es el bus de datos**. Solo el radar depende de una máquina encendida (laptop viejita).
 
