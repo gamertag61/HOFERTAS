@@ -1,48 +1,47 @@
 ---
 name: Heleos
-description: Vitrina nocturna de ofertas verificadas de Mercado Libre, mobile-first, en azul noche y ámbar.
+description: Landing "H | Ofertas" en grafito y verde lima, con datos reales del radar, inspirada en la referencia Voltio.
 colors:
-  azul-noche: "#070b14"
-  noche-media: "#0a1220"
-  noche-profunda: "#060a12"
-  superficie: "#0b121d"
-  superficie-alta: "#0f1826"
-  borde-vitrina: "#1b2a3d"
-  ambar-oferta: "#ffb340"
-  azul-resplandor: "#2f8fff"
-  texto-principal: "#f4f4f5"
-  texto-tarjeta: "#e4e4e7"
-  texto-secundario: "#a1a1aa"
-  texto-tachado: "#71717a"
+  grafito: "#0a0b0d"
+  panel: "#101215"
+  mate: "#15171b"
+  mate-alto: "#1b1e23"
+  linea: "#24272d"
+  lima: "#c6f135"
+  texto-principal: "#f2f3f5"
+  texto-tarjeta: "#f4f4f5"
+  humo: "#9aa0a8"
+  ceniza: "#6b7079"
 typography:
   display:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"SF Pro Display\", \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif"
-    fontSize: "3.75rem"
-    fontWeight: 600
-    lineHeight: 1.05
-    letterSpacing: "-0.025em"
+    fontFamily: "Poppins, ui-sans-serif, sans-serif"
+    fontSize: "4.6rem"
+    fontWeight: 800
+    lineHeight: 0.98
+    letterSpacing: "-0.035em"
   headline:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"SF Pro Display\", \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif"
-    fontSize: "1.875rem"
-    fontWeight: 600
-    lineHeight: 1.2
-  title:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"SF Pro Display\", \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif"
-    fontSize: "1.125rem"
-    fontWeight: 600
-    lineHeight: 1.55
+    fontFamily: "Poppins, ui-sans-serif, sans-serif"
+    fontSize: "2.6rem"
+    fontWeight: 700
+    lineHeight: 1.1
     letterSpacing: "-0.025em"
-  body:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"SF Pro Display\", \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif"
-    fontSize: "0.875rem"
-    fontWeight: 400
-    lineHeight: 1.25rem
-  label:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"SF Pro Display\", \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif"
-    fontSize: "0.75rem"
+  title:
+    fontFamily: "Poppins, ui-sans-serif, sans-serif"
+    fontSize: "0.9375rem"
     fontWeight: 600
-    lineHeight: 1rem
+    lineHeight: 1.4rem
+  body:
+    fontFamily: "Poppins, ui-sans-serif, sans-serif"
+    fontSize: "1rem"
+    fontWeight: 400
+    lineHeight: 1.75rem
+  data:
+    fontFamily: "\"JetBrains Mono\", ui-monospace, monospace"
+    fontSize: "0.6875rem"
+    fontWeight: 500
+    lineHeight: 1.25rem
 rounded:
+  foto: "0.75rem"
   imagen: "1rem"
   tarjeta: "1.5rem"
   heroe: "2rem"
@@ -53,209 +52,173 @@ spacing:
   md: "16px"
   lg: "20px"
   xl: "32px"
-  xxl: "48px"
+  xxl: "80px"
 components:
-  boton-comprar:
-    backgroundColor: "{colors.ambar-oferta}"
-    textColor: "{colors.azul-noche}"
-    typography: "{typography.body}"
+  boton-primario:
+    backgroundColor: "{colors.lima}"
+    textColor: "{colors.grafito}"
     rounded: "{rounded.pildora}"
-    padding: "10px 0"
-  boton-comprar-heroe:
-    backgroundColor: "{colors.ambar-oferta}"
-    textColor: "{colors.azul-noche}"
+    padding: "14px 24px"
+  boton-secundario:
+    textColor: "{colors.texto-principal}"
     rounded: "{rounded.pildora}"
-    padding: "12px 36px"
+    padding: "14px 24px"
+  boton-oferta:
+    backgroundColor: "{colors.lima}"
+    textColor: "{colors.grafito}"
+    rounded: "{rounded.pildora}"
+    padding: "12px 0"
   pildora-descuento:
-    backgroundColor: "{colors.azul-noche}"
-    textColor: "{colors.ambar-oferta}"
-    typography: "{typography.label}"
+    backgroundColor: "{colors.lima}"
+    textColor: "{colors.grafito}"
+    typography: "{typography.data}"
     rounded: "{rounded.pildora}"
     padding: "4px 10px"
-  pildora-descuento-heroe:
-    textColor: "{colors.ambar-oferta}"
-    typography: "{typography.label}"
+  pildora-tecnica:
+    textColor: "{colors.texto-tarjeta}"
+    typography: "{typography.data}"
     rounded: "{rounded.pildora}"
-    padding: "2px 10px"
-  tarjeta-producto:
-    backgroundColor: "{colors.superficie}"
+    padding: "4px 10px"
+  tarjeta-oferta:
+    backgroundColor: "{colors.mate}"
     textColor: "{colors.texto-tarjeta}"
     rounded: "{rounded.tarjeta}"
     padding: "12px"
   cabecera:
-    backgroundColor: "{colors.azul-noche}"
+    backgroundColor: "{colors.grafito}"
     textColor: "{colors.texto-principal}"
-    padding: "12px 16px"
+    height: "64px"
   menu-lateral:
-    backgroundColor: "{colors.noche-profunda}"
+    backgroundColor: "{colors.panel}"
     textColor: "{colors.texto-principal}"
     padding: "16px 24px 32px"
-  boton-icono:
-    textColor: "{colors.texto-principal}"
-    rounded: "{rounded.pildora}"
-    size: "40px"
 ---
 
 # Design System: Heleos
 
 > Encabezados de sección en inglés a propósito: son los nombres canónicos del formato DESIGN.md y las herramientas los leen tal cual. Todo el contenido está en español.
-> Fuente extraída: `index.html` (catálogo "H | Ofertas"). Los tokens del frontmatter son normativos; la prosa explica cómo aplicarlos.
+> Fuente extraída: `index.html` (landing "H | Ofertas", rediseño del 2026-10-28 sobre la referencia "Voltio"). Los tokens del frontmatter son normativos. `dashboard.html` (Cockpit) todavía usa la paleta anterior (azul noche y ámbar; ver CLAUDE.md) hasta que se migre.
 
 ## Overview
 
-**Creative North Star: "Vitrina nocturna"**
+**Creative North Star: "Datos, no humo"**
 
-Una tienda iluminada de noche. El producto flota bajo un foco de luz azul fría, todo lo demás se hunde en el azul noche, y el ámbar aparece solo donde está el dinero: el precio, el descuento y el botón de compra. El ojo no tiene que buscar; la luz ya decidió qué mirar.
+Una herramienta de compra con aire de producto técnico: fondo grafito casi negro, tarjetas gris mate y un único acento verde lima que marca lo que importa (la palabra clave, el precio, la acción). La página no promete: muestra. Cada número sale del radar.
 
-La densidad es baja y táctil. Pensado primero para un pulgar en el celular que viene de TikTok: un héroe deslizable con tres ofertas, una cinta de categorías en movimiento y una cuadrícula de tarjetas de dos columnas que crece a tres y cuatro. Las superficies son translúcidas o con degradado vertical sutil sobre el fondo, con borde fino `borde-vitrina`; la profundidad se construye con luz (halos, resplandores, brillo del precio), no con capas de sombra gris.
-
-El movimiento es parte del escaparate: las piezas suben en cascada al cargar, el producto del héroe entra desenfocado y se enfoca, el halo respira y la imagen flota. Todo se apaga con `prefers-reduced-motion`.
+Mobile-first para quien llega desde TikTok. Héroe dividido (texto monumental + teclado que levita), carrusel horizontal de ofertas con scroll-snap y una sección "mini software" que dibuja el historial real de una baja de precio.
 
 **Key Characteristics:**
-- Fondo azul noche con degradado vertical y un foco de luz azul en la parte superior.
-- Ámbar como única voz de acción y de dinero.
-- Azul resplandor solo como luz ambiental, nunca como color de interfaz.
-- Formas muy redondeadas: píldoras para acciones y etiquetas, esquinas amplias en contenedores.
-- Tipografía del sistema (SF Pro en Apple), seminegrita y apretada en titulares.
-- Motion de entrada generoso y lento; respuestas de interacción cortas.
+- Grafito `#0a0b0d` con una luz lima muy tenue arriba a la derecha.
+- Verde lima como acento exclusivo: palabras clave, botones primarios, píldoras de valor, precios.
+- Titulares en Poppins 800 con interletrado apretado; datos en JetBrains Mono con cifras tabulares.
+- Píldoras para toda acción y etiqueta; esquinas amplias en contenedores.
+- Movimiento sobrio: aparición desde abajo al hacer scroll, teclado que flota, línea de precio que se dibuja.
 
 ## Colors
 
-Una noche azul casi negra, iluminada por dos luces: ámbar cálido para la oferta y azul frío para la atmósfera.
-
 ### Primary
-- **Ámbar oferta** (`ambar-oferta`): precio actual, píldora de descuento, botón "Comprar", punto de marca con brillo, barra de avance del día, relleno de los indicadores del héroe, hover del menú lateral y anillo de foco. Es el único color que pide acción.
-
-### Secondary
-- **Azul resplandor** (`azul-resplandor`): luz ambiental exclusivamente. Halo detrás del producto del héroe, brillo radial superior del fondo (14 % de opacidad), borde y resplandor de tarjeta en hover (55 %), y separadores de la cinta. Oficializado como color de atmósfera; no se usa en botones, texto ni rellenos sólidos.
+- **Lima** (`lima`): palabra clave del titular, CTA primario, botón "Aprovechar oferta", píldora de descuento, precio actual, punto de marca, estado del radar, línea y puntos del gráfico, anillo de foco y selección de texto. También como luz difusa: halo radial detrás de cada producto (32 % → 8 % → transparente, `blur(18px)`) y relleno bajo la línea del gráfico.
 
 ### Neutral
-- **Azul noche** (`azul-noche`): fondo de página, `theme-color`, texto sobre botones ámbar y base translúcida de cabecera (80 %) y píldoras sobre imagen.
-- **Noche media** (`noche-media`): punto medio del degradado vertical del fondo.
-- **Noche profunda** (`noche-profunda`): fondo del menú lateral, un escalón más oscuro que la página para separarlo.
-- **Superficie** (`superficie`): parte inferior del degradado de tarjetas; superficie secundaria oficial.
-- **Superficie alta** (`superficie-alta`): parte superior del degradado de tarjetas.
-- **Borde vitrina** (`borde-vitrina`): bordes de tarjetas, héroe, menú, cabecera (70 %) y separadores; también la pista vacía de los indicadores.
-- **Texto principal** (`texto-principal`): marca, titulares, ítems del menú.
-- **Texto tarjeta** (`texto-tarjeta`): título del producto en tarjeta.
-- **Texto secundario** (`texto-secundario`): descripción del héroe, cinta, "Expiran pronto", mensajes de carga/vacío/error.
-- **Texto tachado** (`texto-tachado`): precio original tachado.
+- **Grafito** (`grafito`): fondo de página, `theme-color`, texto sobre lima, cabecera al 75 % con desenfoque.
+- **Panel** (`panel`): menú lateral, bloque del radar, base del degradado del escenario.
+- **Mate** (`mate`): tarjetas de oferta.
+- **Mate alto** (`mate-alto`): parte superior del degradado de escenario e imagen, etiquetas del gráfico.
+- **Línea** (`linea`): bordes de 1 px, guías punteadas del gráfico, bordes de píldoras técnicas.
+- **Texto principal / tarjeta**: titulares y nombres de producto.
+- **Humo** (`humo`): subtítulos y párrafos.
+- **Ceniza** (`ceniza`): etiquetas de métricas, precio tachado, ejes del gráfico, pie de página.
 
 ### Named Rules
-**The Ámbar Es Dinero Rule.** El ámbar solo marca precio, descuento y la acción de comprar (más el foco y el progreso). Si algo ámbar no es dinero ni acción, sobra.
+**The Lima Es Valor Rule.** El lima marca valor o acción: el dato que convence (palabra clave, precio, descuento, la baja en el gráfico) y el botón que lleva a Mercado Libre. Si algo lima no es valor ni acción, sobra.
 
-**The Luz No Es Botón Rule.** El azul resplandor es luz, no interfaz: siempre difuso (halo, blur, sombra, opacidad ≤ 62 %). Nunca un relleno sólido, un texto ni un botón azul.
-
-**The Paleta Cerrada Rule.** Ningún color de marca fuera de este frontmatter sin preguntar. Los grises de texto son la escala zinc de Tailwind; no se agregan acentos nuevos (ni rojo TikTok, ni verde de "éxito") sin decisión explícita.
+**The Paleta Cerrada Rule.** Ningún color de marca fuera de este frontmatter sin preguntar. Sin rojos de "baja", sin azules, sin rosa TikTok.
 
 ## Typography
 
-**Display Font:** pila del sistema: `-apple-system`, `SF Pro Display` (con Segoe UI, Roboto, Helvetica, Arial)
-**Body Font:** la misma pila.
-
-**Character:** Sin fuente web: carga instantánea y aspecto nativo en el iPhone del comprador. La personalidad viene del peso (seminegrita) y del interletrado apretado en titulares, no de una tipografía decorativa.
+**Display Font:** Poppins (Google Fonts), pesos 400–800.
+**Data Font:** JetBrains Mono (Google Fonts), solo para datos: precios en píldoras, specs, ejes y log del radar.
 
 ### Hierarchy
-- **Display** (600, 2.25rem en móvil → 3.75rem desde 768 px, interlineado 1.05, `-0.025em`): titular del héroe, las primeras 5 palabras del título del producto.
-- **Headline** (600, 1.875rem): precio en el héroe, en ámbar.
-- **Title** (600, 1.125rem, `-0.025em`): nombre de marca en la cabecera y precio en tarjeta. Los ítems del menú lateral usan 1.25rem en peso 500.
-- **Body** (400, 0.875rem, interlineado 1.25rem): títulos de tarjeta (2 líneas máximo, altura mínima reservada de 2.5rem), descripción del héroe (2 líneas, máx. ~28rem), botones.
-- **Label** (600, 0.75rem): píldoras de descuento y textos auxiliares de cabecera.
+- **Display** (800, `clamp(2.1rem, 10.4vw, 2.75rem)` en móvil → 3.75rem desde 640 px → 4.6rem desde 1024 px, interlineado 0.98, `-0.035em`, `text-wrap: balance`): titular del héroe.
+- **Headline** (700, 1.875rem → 2.6rem desde 640 px, `-0.025em`): títulos de sección.
+- **Métrica** (700, 1.875rem, cifras tabulares): fila de confianza del héroe.
+- **Precio** (700, 1.5rem, lima): precio actual en tarjeta.
+- **Title** (600, 0.9375rem, 2 líneas con altura reservada): nombre corto del producto (primeras 8 palabras).
+- **Body** (400, 1rem → 1.125rem en el héroe, interlineado 1.75rem, color humo).
+- **Data** (JetBrains Mono 500–600, 0.6875–0.75rem): píldoras, leyenda y log del radar.
 
 ### Named Rules
-**The Precio Manda Rule.** En cualquier tarjeta, el precio actual es el texto más fuerte después de la imagen: ámbar, seminegrita, con brillo. El precio original va al lado, más chico, gris y tachado.
-
-**The Dos Líneas Rule.** Los títulos de Mercado Libre son largos; siempre se cortan a 2 líneas con altura reservada para que la cuadrícula no baile.
+**The Precio Manda Rule.** En la tarjeta, el precio actual en lima es el texto más fuerte después de la imagen; el original va al lado, más chico, ceniza y tachado.
 
 ## Layout
 
-- **Contenedor:** ancho máximo 72rem (1152 px), centrado, con margen lateral de 16 px.
-- **Cabecera:** fija arriba (sticky), translúcida con desenfoque; debajo, una línea de 1 px que se llena en ámbar según la hora del día.
-- **Héroe:** carrusel horizontal con scroll-snap; en móvil la imagen va arriba (proporción 5:4) y el texto abajo; desde 768 px son dos columnas, texto a la izquierda e imagen cuadrada (máx. 500 px) a la derecha. Avance automático cada 5 s, pausa al tocar y cuando la pestaña está oculta.
-- **Cinta:** franja entre bordes superior e inferior con las categorías desplazándose en bucle.
-- **Cuadrícula:** 2 columnas en móvil, 3 desde 768 px, 4 desde 1024 px. Separación de 12 px en móvil y 20 px desde 640 px.
-- **Ritmo vertical:** 16 px bajo la cabecera, 24 px héroe → cinta, 32 px cinta → cuadrícula, 64 px al final.
-- **Puntos de quiebre:** los de Tailwind: 640, 768 y 1024 px.
+- **Contenedor:** 72rem máx., centrado, margen lateral de 20 px (24 px desde 640 px).
+- **Cabecera:** sticky, 64 px, tres columnas: menú hamburguesa a la izquierda, logo "H | Ofertas" con punto lima al centro, estado del radar a la derecha (desde 640 px).
+- **Héroe:** una columna en móvil (texto arriba, teclado abajo); desde 768 px, dos columnas `1.05fr / .95fr`.
+- **Carrusel de ofertas:** pista horizontal sin barra visible, `scroll-snap-type: x mandatory`; tarjetas de `78vw` (máx. 300 px) en móvil y 290 px desde 640 px; separación de 16 px; flechas desde 768 px. Desde 1200 px la primera tarjeta se alinea con el contenedor.
+- **Radar:** una columna en móvil; desde 1024 px, texto `.8fr` + panel `1.2fr`.
+- **Ritmo vertical:** secciones de 80 px (112 px desde 768 px), separadas por una línea blanca al 5 %.
 
 ## Elevation & Depth
 
-Profundidad por luz, no por sombras grises. Las superficies en reposo son planas (degradado sutil + borde fino). La elevación aparece como respuesta: la tarjeta sube 3 px y se ilumina en azul al pasar el cursor; el botón del héroe y el precio brillan en ámbar. Las únicas sombras oscuras son para despegar el producto del héroe y el menú lateral del fondo.
+Profundidad por luz lima difusa detrás del producto y por sombras oscuras con desplazamiento; nunca resplandores de color alrededor de botones.
 
 ### Shadow Vocabulary
-- **Resplandor de tarjeta** (`box-shadow: 0 0 34px -8px rgba(47,143,255,.55)`): hover de tarjeta, junto con borde azul al 55 %.
-- **Resplandor ámbar de acción** (`box-shadow: 0 0 28px -4px rgba(255,179,64,.6)`): botón "Comprar" del héroe.
-- **Punto de marca** (`box-shadow: 0 0 14px 3px rgba(255,179,64,.55)`): el punto ámbar junto a "H | Ofertas".
-- **Brillo de precio** (`filter: drop-shadow(0 0 10px rgba(255,179,64,.35))`): precio en tarjeta.
-- **Producto flotante** (`box-shadow: 0 30px 80px -20px rgba(0,0,0,.8)`): imagen del héroe.
-- **Panel lateral** (`box-shadow: 20px 0 60px -20px rgba(0,0,0,.9)`): menú lateral abierto, con velo negro al 60 % y desenfoque detrás.
-- **Halo** (degradado radial azul 62 % → 28 % → transparente, `blur(8px)`): detrás del producto del héroe, respirando cada 5 s.
-
-### Named Rules
-**The Foco Rule.** La luz azul vive detrás del producto o alrededor de lo que el usuario está tocando. Nunca ilumina un área vacía ni un bloque de texto.
+- **Botón lima** (`0 6px 16px -8px rgba(0,0,0,.8)`; hover `0 10px 22px -10px rgba(0,0,0,.9)`).
+- **Foto de producto** (`0 18px 30px -12px rgba(0,0,0,.7)`).
+- **Teclado** (`drop-shadow(0 30px 40px rgba(0,0,0,.6))`) más una sombra elíptica en el piso que se encoge cuando sube.
+- **Halo lima**: degradado radial desenfocado detrás de cada producto (ver Colors).
 
 ## Shapes
 
-Formas suaves y generosas. Contenedores con esquinas amplias que se anidan de mayor a menor: héroe 2rem → tarjeta 1.5rem → imagen dentro de la tarjeta 1rem. Toda acción y toda etiqueta es una píldora completa. Bordes de 1 px en `borde-vitrina`; no hay bordes gruesos ni esquinas rectas. Las imágenes de producto se recortan en cuadrado (`object-cover`).
+Héroe/escenario 2rem → tarjeta 1.5rem → imagen 1rem → foto 0.75rem. Toda acción y etiqueta es píldora. Bordes de 1 px en `linea`.
 
 ## Components
 
 ### Buttons
-Confiados y táctiles: píldora ámbar llena, sin contorno.
-- **Shape:** píldora completa (9999px).
-- **Primario "Comprar" (tarjeta):** ámbar lleno, texto azul noche seminegrita 0.875rem, ancho completo, 10 px de alto interno.
-- **Primario "Comprar" (héroe):** igual, más ancho (36 px laterales), con resplandor ámbar.
-- **Hover / Active:** brillo +10 % al pasar el cursor; escala 0.95 al presionar.
-- **Focus:** anillo ámbar de 2 px a 3 px de distancia.
-- **Botón de icono (menú/cerrar):** círculo de 40 px, transparente; hover con blanco al 5 %; escala 0.95 al presionar.
+- **Primario:** píldora lima llena, texto grafito 600, 14 × 24 px, con flecha.
+- **Secundario:** píldora con borde `linea` y texto claro; hover con borde zinc-500 y fondo blanco al 3 %.
+- **"Aprovechar oferta":** lima, ancho completo en la tarjeta.
+- **Active:** escala 0.97. **Focus:** anillo lima de 2 px a 3 px de distancia.
 
 ### Chips
-- **Píldora de descuento:** texto ámbar seminegrita 0.75rem. Sobre imagen: fondo azul noche al 80 % con desenfoque, esquina superior izquierda (10 px). En el héroe: fondo ámbar al 15 %.
+- **Descuento:** lima lleno, texto grafito, mono, en la esquina superior izquierda de la imagen.
+- **Píldoras técnicas:** 3 por tarjeta, borde `linea`, fondo negro al 30 %, icono SVG lima + texto mono. Se extraen del título real (Hz, pulgadas, ms, inalámbrico/alámbrico, mecánico/magnético, ANC, mAh, GB/TB, RGB); si faltan, se completan con "-X %" y "Ahorras $Y".
 
-### Cards / Containers
-- **Corner Style:** 1.5rem.
-- **Background:** degradado vertical de `superficie-alta` a `superficie`.
-- **Shadow Strategy:** ninguna en reposo; resplandor azul en hover (ver Elevation & Depth).
-- **Border:** 1 px `borde-vitrina`, pasa a azul resplandor al 55 % en hover.
-- **Internal Padding:** 12 px; textos con 4 px extra a los lados.
-- **Contenido en orden:** imagen cuadrada (con zoom 1.05 en hover, 500 ms) → píldora de descuento sobre la imagen → título (2 líneas) → precio + tachado → botón "Comprar".
-- **Héroe:** contenedor de 2rem con borde `borde-vitrina` sobre azul noche al 60 %.
+### Cards
+- **Tarjeta de oferta:** mate, borde `linea`, 1.5rem, 12 px de relleno. Orden: escenario con halo + foto sobre blanco + píldora de descuento → nombre (2 líneas) → píldoras técnicas → precio + tachado → botón. Hover: sube 3 px, el borde se aclara y la foto escala 1.04.
 
-### Navigation
-- **Cabecera:** botón de menú + punto ámbar + "H | Ofertas" (título 1.125rem) a la izquierda; "Expiran pronto" en label gris a la derecha. Fondo azul noche al 80 % con desenfoque y borde inferior.
-- **Menú lateral:** entra desde la izquierda (78 % del ancho, máx. 20rem) en 0.45 s; ítems 1.25rem peso 500 separados por líneas `borde-vitrina`, con flecha a la derecha y hover ámbar; entran en cascada de 70 ms. Se cierra con Escape, con el velo o con el botón; el foco va y vuelve al botón que lo abrió.
-- **Indicadores del héroe:** barras de 36×4 px en píldora; la activa se llena en ámbar durante 5 s.
+### Héroe
+- **Escenario del teclado:** contenedor de 2rem con degradado `mate-alto → panel`, halo lima, teclado SVG en perspectiva (`rotateX(34deg) rotateZ(-9deg)`) con dos teclas lima, píldora "Oferta: $precio real" flotando y barra inferior con nombre, precio anterior y "Ver oferta". Todo apunta al teclado real con más descuento de `ofertas.json`.
+- **Métricas:** ofertas verificadas (conteo real), "24/7" radar activo, "100%" precios reales.
 
-### Barra del día (firma)
-Línea de 1 px bajo la cabecera que se llena en ámbar según la hora actual. Refuerza "Expiran pronto" sin texto extra.
+### Radar (mini software)
+Panel `panel` con barra superior (nombre del producto + botones de baja "-X %"), gráfico SVG del historial real (`historial.json` + la alerta), leyenda "antes → ahora" y log mono de las bajas detectadas. Sin bajas muestra "El radar no detectó bajas en su última vuelta."
 
-### Estados de carga, vacío y error
-Texto gris secundario centrado con 64 px de aire vertical, en el lugar de la cuadrícula; el héroe se oculta. Mensajes cortos en español: "Cargando ofertas…", "Hoy no hay ofertas nuevas. Vuelve en unas horas.", "No pudimos cargar las ofertas. Recarga en un momento."
+### Estados
+Carga con esqueletos brillantes en la pista; vacío: "Hoy no hay ofertas nuevas. Vuelve en unas horas."; error: "No pudimos cargar las ofertas. Recarga en un momento."
 
 ### Motion
-- **Entrada en cascada:** sube 18 px y aparece en 0.8 s con `cubic-bezier(.2,.7,.2,1)`, 90 ms entre piezas.
-- **Producto del héroe:** entra de escala 1.3, desplazado 6 % y desenfocado 16 px hasta su lugar en 1.3 s con `cubic-bezier(.16,.8,.2,1)`; el texto lo sigue en cascada de 150 ms.
-- **Ambiente:** halo respira (5 s), producto flota 8 px (6 s), cinta recorre en 32 s.
-- **Interacción:** tarjeta 0.4 s; menú 0.45 s con `cubic-bezier(.2,.8,.2,1)`; velo 0.35 s.
-- **Movimiento reducido:** todas las animaciones y transiciones se desactivan y el contenido aparece en su estado final.
+- **Aparición:** sube 18 px y aparece (opacidad 0.7 s, transform 0.9 s, `cubic-bezier(.16,1,.3,1)`), con 70 ms entre piezas, por IntersectionObserver; sin JS todo es visible.
+- **Teclado:** flota 14 px en 6 s; la sombra y la píldora lo acompañan.
+- **Gráfico:** la línea se dibuja en 1.6 s; después aparecen el relleno y los puntos en cascada.
+- **Interacción:** botones de 160 a 200 ms; menú 0.38 s.
+- **Movimiento reducido:** se apagan los loops, los desplazamientos y el dibujo; solo queda un fundido corto.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** usar `ambar-oferta` solo para precio, descuento, comprar, foco y progreso.
-- **Do** usar `azul-resplandor` únicamente como luz difusa: halos, brillo de fondo, hover de tarjetas.
-- **Do** construir tarjetas translúcidas o con degradado sobre azul noche, con borde 1 px `borde-vitrina` y esquinas de 1.5rem.
-- **Do** formatear precios en MXN sin centavos (`es-MX`) y mostrar siempre el original tachado junto al actual.
-- **Do** diseñar primero para móvil de 2 columnas y verificar en 375 px de ancho.
-- **Do** respetar `prefers-reduced-motion` y mantener el anillo de foco ámbar en todo elemento interactivo.
+- **Do** usar el lima solo para valor y acción.
+- **Do** sacar todo número de `ofertas.json`/`historial.json`; MXN sin centavos (`es-MX`).
 - **Do** marcar los enlaces de afiliado con `rel="noopener noreferrer sponsored"` y abrirlos en pestaña nueva.
+- **Do** verificar en 375 px sin scroll horizontal y respetar `prefers-reduced-motion`.
 
 ### Don't:
-- **Don't** introducir colores fuera del frontmatter sin preguntar: ni el rosa TikTok `#ff0050` ni los azules/rojos de Tailwind que hoy usa `studio.html`.
-- **Don't** hacer botones, textos o rellenos sólidos en azul resplandor.
-- **Don't** usar sombras grises para separar tarjetas en reposo; la profundidad es luz.
-- **Don't** usar esquinas rectas ni botones que no sean píldora.
-- **Don't** cargar fuentes web; la pila del sistema es parte del rendimiento.
-- **Don't** inventar datos en tarjetas (envío gratis, reseñas, stock): solo lo que trae `ofertas.json`.
+- **Don't** poner resplandores de color alrededor de botones.
+- **Don't** usar emojis como iconos; los iconos son SVG de trazo de 2 px.
+- **Don't** inventar specs, reseñas, envío ni stock.
+- **Don't** poner etiquetas pequeñas encima de los títulos.
 
 ## Flujo de diseño con skills
 
@@ -263,6 +226,6 @@ Toda interfaz que se toque pasa por las tres skills instaladas, en este orden:
 
 1. **Impeccable** (`/impeccable`): fuente de verdad del contexto. Lee `PRODUCT.md` y este `DESIGN.md` antes de editar; usar sus comandos según la tarea (`shape` para planear, `critique`/`audit` para revisar, `polish` antes de publicar). Si el sistema cambia, volver a correr `/impeccable document`.
 2. **Taste Skill** (`design-taste-frontend`): dirección de arte y control anti-genérico. En el catálogo (público) aplica su flujo de páginas; en el Centro de Mando aplica su flujo de pantallas de trabajo (dashboards). Siempre dentro de esta paleta y estas formas.
-3. **Emil Kowalski** (`emilkowalski-motion`): al final, cuando la interfaz ya existe, para micro-interacciones y transiciones. Respetar la gramática de Motion de arriba: entradas lentas y suaves, respuestas de interacción cortas, todo desactivable con movimiento reducido.
+3. **Emil Kowalski** (`emilkowalski-motion`): al final, cuando la interfaz ya existe, para micro-interacciones y transiciones. Respetar la gramática de Motion de arriba, con respuestas de interacción cortas y todo desactivable con movimiento reducido.
 
 Revisión visual: Playwright en la laptop principal (nunca como dependencia de `heleos_radar.py`).

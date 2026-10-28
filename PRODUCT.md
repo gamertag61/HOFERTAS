@@ -30,7 +30,7 @@ Las ofertas no se escriben a mano ni se calculan con porcentajes: el Radar lee e
 
 Superficies:
 
-- **Catálogo "H | Ofertas"** (`index.html`): héroe deslizable con las 3 ofertas de mayor descuento, cinta de categorías, cuadrícula de tarjetas (imagen, título, precio actual, precio tachado, % de descuento, botón "Comprar"), menú lateral de categorías, barra de avance del día y estados de carga/vacío/error. Ordena por descuento.
+- **Catálogo "H | Ofertas"** (`index.html`, landing rediseñada el 2026-10-28): héroe dividido con el teclado en oferta y métricas reales, carrusel horizontal de ofertas (imagen, píldoras técnicas sacadas del título, precio actual, tachado, % de descuento, botón "Aprovechar oferta") ordenado por descuento, sección del radar con el historial real de las bajas (`historial.json` + `alertas`), menú lateral y estados de carga/vacío/error.
 - **Estudio** (`studio.html`): genera marcos 9:16 por oferta para capturar, con accesos a "Ver Link" y a búsqueda de fondos en Pinterest. Se integrará al Centro de Mando.
 - **Centro de Mando:** aún no existe. Panel privado del dueño para gestionar enlaces/ofertas, revisar lo que detectó el Radar, ver historial de precios y estadísticas, y generar piezas para TikTok (absorbe el Estudio).
 - `heleos_prototipo.html` es un prototipo anterior con datos ficticios; no es fuente de verdad.

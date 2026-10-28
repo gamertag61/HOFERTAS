@@ -1,256 +1,445 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>H | Ofertas</title>
-<meta name="theme-color" content="#070b14">
+<meta name="description" content="Ofertas de tecnología de Mercado Libre verificadas por precio real. El radar revisa cada precio y solo publica bajas de verdad.">
+<meta name="theme-color" content="#0a0b0d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com/3.4.17"></script>
 <script>
-  tailwind.config = { theme: { extend: { colors: { sun: '#ffb340', deep: '#070b14', navy: '#0d141f', edge: '#1b2a3d', glow: '#2f8fff' } } } };
+  tailwind.config = { theme: { extend: {
+    colors: { lima: '#c6f135', tinta: '#0a0b0d', grafito: '#101215', mate: '#15171b', alto: '#1b1e23', linea: '#24272d', humo: '#9aa0a8', ceniza: '#6b7079' },
+    fontFamily: { sans: ['Poppins', 'ui-sans-serif', 'sans-serif'], mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'] }
+  } } };
+  document.documentElement.classList.add('js');
 </script>
 <style>
-  html { background: #070b14; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    -webkit-text-size-adjust: 100%;
-    background:
-      radial-gradient(ellipse 80% 40% at 50% -5%, rgba(47,143,255,.14), transparent 70%),
-      linear-gradient(180deg, #070b14 0%, #0a1220 50%, #070b14 100%);
-    background-attachment: fixed;
-  }
+  :root { --lima: #c6f135; --tinta: #0a0b0d; --ease: cubic-bezier(.16, 1, .3, 1); color-scheme: dark; }
+  html { background: var(--tinta); scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body { background: var(--tinta); color: #f2f3f5; -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; }
+  ::selection { background: var(--lima); color: var(--tinta); }
+  :focus-visible { outline: 2px solid var(--lima); outline-offset: 3px; border-radius: 10px; }
+  html { scrollbar-color: #2c3037 var(--tinta); }
+  .num { font-variant-numeric: tabular-nums; }
   .noscroll { scrollbar-width: none; -ms-overflow-style: none; }
   .noscroll::-webkit-scrollbar { display: none; }
 
-  /* Entrada en cascada (usa "translate" para no chocar con los transform de hover) */
-  @keyframes rise { from { opacity: 0; translate: 0 18px; } to { opacity: 1; translate: 0 0; } }
-  .rise { opacity: 0; animation: rise .8s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 90ms); }
+  /* Luz ambiental de la página */
+  .ambiente { background:
+      radial-gradient(ellipse 60% 45% at 78% 8%, rgba(198,241,53,.08), transparent 70%),
+      radial-gradient(ellipse 50% 40% at 10% 0%, rgba(255,255,255,.035), transparent 70%); }
 
-  /* Héroe deslizable */
-  .slide { transition: none; }
-  .prod { opacity: 0; transform: scale(1.3) translateX(6%); filter: blur(16px);
-          transition: transform 1.3s cubic-bezier(.16,.8,.2,1), filter 1.1s ease, opacity .9s ease; }
-  .slide.on .prod { opacity: 1; transform: none; filter: none; }
-  .txt > * { opacity: 0; transform: translateY(14px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
-  .slide.on .txt > * { opacity: 1; transform: none; }
-  .slide.on .txt > :nth-child(1) { transition-delay: .2s; }
-  .slide.on .txt > :nth-child(2) { transition-delay: .35s; }
-  .slide.on .txt > :nth-child(3) { transition-delay: .5s; }
-  .slide.on .txt > :nth-child(4) { transition-delay: .65s; }
+  /* Aparición al hacer scroll (solo con JS; sin JS todo es visible) */
+  .js .rev { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .9s var(--ease); transition-delay: calc(var(--d, 0) * 70ms); }
+  .js .rev.in { opacity: 1; transform: none; }
 
-  /* Iluminación 3D y resplandor azul */
-  @keyframes pulse { 0%, 100% { opacity: .75; transform: scale(1); } 50% { opacity: 1; transform: scale(1.1); } }
-  .halo { background: radial-gradient(circle, rgba(47,143,255,.62) 0%, rgba(30,90,200,.28) 38%, transparent 68%);
-          filter: blur(8px); animation: pulse 5s ease-in-out infinite; }
-  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-  .float { animation: float 6s ease-in-out infinite; }
+  /* Teclado levitando */
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+  @keyframes sombra { 0%, 100% { transform: scaleX(1); opacity: .55; } 50% { transform: scaleX(.86); opacity: .35; } }
+  @keyframes pill { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-6px) rotate(-3deg); } }
+  .levita { animation: float 6s ease-in-out infinite; }
+  .sombra { animation: sombra 6s ease-in-out infinite; }
+  .pill-flota { animation: pill 6s ease-in-out infinite; animation-delay: -1.2s; }
+  .teclado { transform: perspective(1100px) rotateX(34deg) rotateZ(-9deg); transform-origin: 50% 60%; }
 
-  /* Indicadores */
-  @keyframes fill { from { width: 0; } to { width: 100%; } }
-  .dot i { display: block; height: 100%; width: 0; background: #ffb340; }
-  .dot.on i { animation: fill 5s linear forwards; }
+  /* Estado del radar */
+  @keyframes latido { 0% { box-shadow: 0 0 0 0 rgba(198,241,53,.55); } 70%, 100% { box-shadow: 0 0 0 7px rgba(198,241,53,0); } }
+  .latido { animation: latido 2.4s ease-out infinite; }
 
-  /* Cinta */
-  @keyframes marquee { to { transform: translateX(-50%); } }
-  .marquee { animation: marquee 32s linear infinite; }
+  /* Carrusel */
+  .pista { scroll-snap-type: x mandatory; scroll-padding-inline: 20px; overscroll-behavior-x: contain; }
+  .pista > * { scroll-snap-align: start; }
+  @media (min-width: 1200px) { #pista.pista { --g: calc((100vw - 72rem) / 2 + 1rem); padding-inline: var(--g); scroll-padding-left: var(--g); scroll-padding-right: var(--g); } }
+  .tarjeta { transition: border-color .25s ease, transform .35s var(--ease); }
+  .tarjeta:hover { border-color: #33373f; transform: translateY(-3px); }
+  .tarjeta img { transition: transform .5s var(--ease); }
+  .tarjeta:hover img { transform: scale(1.04); }
+  .halo { background: radial-gradient(circle at 50% 55%, rgba(198,241,53,.32), rgba(198,241,53,.08) 42%, transparent 68%); filter: blur(18px); }
 
-  /* Tarjetas */
-  .card { background: linear-gradient(180deg, #0f1826, #0b121d); border: 1px solid #1b2a3d;
-          transition: border-color .4s ease, box-shadow .4s ease, transform .4s ease; }
-  .card:hover { border-color: rgba(47,143,255,.55); box-shadow: 0 0 34px -8px rgba(47,143,255,.55); transform: translateY(-3px); }
+  /* Botones */
+  .btn-lima { background: var(--lima); color: var(--tinta); box-shadow: 0 6px 16px -8px rgba(0,0,0,.8); transition: transform .16s ease, box-shadow .2s ease, filter .2s ease; }
+  .btn-lima:hover { filter: brightness(1.06); box-shadow: 0 10px 22px -10px rgba(0,0,0,.9); }
+  .btn-lima:active, .btn-linea:active { transform: scale(.97); }
+  .btn-linea { transition: transform .16s ease, border-color .2s ease, background-color .2s ease; }
 
-  /* Menú lateral */
-  #menu { transform: translateX(-102%); transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+  /* Gráfico del radar */
+  .trazo { stroke-dasharray: var(--len); stroke-dashoffset: var(--len); }
+  .grafico.in .trazo { transition: stroke-dashoffset 1.6s var(--ease); stroke-dashoffset: 0; }
+  .area, .punto, .etiqueta { opacity: 0; }
+  .grafico.in .area { opacity: 1; transition: opacity .9s ease .7s; }
+  .grafico.in .punto, .grafico.in .etiqueta { opacity: 1; transition: opacity .4s ease; transition-delay: calc(.35s + var(--k, 0) * .22s); }
+
+  /* Menú */
+  #menu { transform: translateX(-100%); transition: transform .38s var(--ease); }
   #menu.open { transform: none; }
-  #velo { opacity: 0; pointer-events: none; transition: opacity .35s ease; }
+  #velo { opacity: 0; pointer-events: none; transition: opacity .3s ease; }
   #velo.open { opacity: 1; pointer-events: auto; }
-  #menu li { opacity: 0; transform: translateX(-12px); transition: opacity .5s ease, transform .5s ease; }
-  #menu.open li { opacity: 1; transform: none; transition-delay: calc(var(--k) * 70ms + 150ms); }
 
-  a:focus-visible, button:focus-visible { outline: 2px solid #ffb340; outline-offset: 3px; }
+  /* Esqueleto de carga */
+  @keyframes brillo { to { background-position: -200% 0; } }
+  .esq { background: linear-gradient(90deg, #15171b 0%, #1d2026 50%, #15171b 100%); background-size: 200% 100%; animation: brillo 1.4s linear infinite; }
+
   @media (prefers-reduced-motion: reduce) {
-    .rise { animation: none; opacity: 1; }
-    .halo, .float, .marquee { animation: none; }
-    .prod, .txt > *, .card, .card img, #menu, #menu li, #velo { transition: none; }
-    .prod { transform: none; filter: none; }
-    .dot.on i { animation: none; width: 100%; }
+    html { scroll-behavior: auto; }
+    .levita, .sombra, .pill-flota, .latido, .esq { animation: none; }
+    .js .rev { transform: none; transition: opacity .3s linear; }
+    .grafico .trazo { stroke-dashoffset: 0; transition: none; }
+    .area, .punto, .etiqueta { opacity: 1; transition: none; }
+    .tarjeta, .tarjeta img { transition: none; }
   }
 </style>
 </head>
-<body class="min-h-screen text-zinc-100 antialiased">
+<body class="font-sans antialiased">
+<div class="ambiente pointer-events-none fixed inset-0 -z-10"></div>
 
 <!-- Cabecera -->
-<header class="rise sticky top-0 z-20 border-b border-edge/70 bg-deep/80 backdrop-blur-md" style="--i:0">
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-    <div class="flex items-center gap-3">
-      <button id="abrir" class="-ml-2 flex h-10 w-10 items-center justify-center rounded-full transition hover:bg-white/5 active:scale-95" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16"/></svg>
-      </button>
-      <span class="flex items-center gap-2.5">
-        <span class="h-2.5 w-2.5 rounded-full bg-sun shadow-[0_0_14px_3px_rgba(255,179,64,.55)]"></span>
-        <span class="text-lg font-semibold tracking-tight">H | Ofertas</span>
-      </span>
+<header class="sticky top-0 z-30 border-b border-white/[.06] bg-tinta/75 backdrop-blur-md">
+  <div class="mx-auto grid h-16 max-w-6xl grid-cols-[1fr_auto_1fr] items-center px-4 sm:px-6">
+    <button id="abrir" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"
+      class="btn-linea -ml-2 grid h-10 w-10 place-items-center rounded-full text-zinc-200 hover:bg-white/[.06]">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h11M4 17h16"/></svg>
+    </button>
+    <a href="#" class="flex items-baseline gap-0.5 text-[1.15rem] font-extrabold tracking-tight" aria-label="H | Ofertas, inicio">
+      <span>H</span><span class="mx-1.5 font-normal text-ceniza">|</span><span>Ofertas</span><span class="ml-0.5 inline-block h-1.5 w-1.5 rounded-full bg-lima"></span>
+    </a>
+    <div class="flex justify-end">
+      <a href="#radar" class="hidden items-center gap-2 rounded-full border border-linea px-3 py-1.5 text-xs text-humo transition-colors hover:border-zinc-500 hover:text-zinc-200 sm:flex">
+        <span class="latido h-1.5 w-1.5 rounded-full bg-lima"></span><span id="estado">Radar 24/7</span>
+      </a>
     </div>
-    <span class="text-xs text-zinc-400">Expiran pronto</span>
   </div>
-  <div class="h-px w-full bg-edge/60" aria-hidden="true"><div id="dia" class="h-full bg-sun" style="width:0"></div></div>
 </header>
 
 <!-- Menú lateral -->
 <div id="velo" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"></div>
-<aside id="menu" class="fixed inset-y-0 left-0 z-50 flex w-[78%] max-w-xs flex-col border-r border-edge bg-[#060a12] px-6 pb-8 pt-4 shadow-[20px_0_60px_-20px_rgba(0,0,0,.9)]" aria-label="Categorías" inert>
-  <div class="flex items-center justify-between">
-    <span class="flex items-center gap-2.5">
-      <span class="h-2.5 w-2.5 rounded-full bg-sun shadow-[0_0_14px_3px_rgba(255,179,64,.55)]"></span>
-      <span class="text-lg font-semibold tracking-tight">H | Ofertas</span>
-    </span>
-    <button id="cerrar" class="-mr-2 flex h-10 w-10 items-center justify-center rounded-full transition hover:bg-white/5 active:scale-95" aria-label="Cerrar menú">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16"/></svg>
+<nav id="menu" aria-label="Menú" inert class="fixed inset-y-0 left-0 z-50 flex w-[86%] max-w-sm flex-col border-r border-linea bg-grafito px-6 pb-8 pt-4">
+  <div class="flex h-12 items-center justify-between">
+    <span class="text-sm text-humo">Menú</span>
+    <button id="cerrar" type="button" aria-label="Cerrar menú" class="btn-linea -mr-2 grid h-10 w-10 place-items-center rounded-full text-zinc-200 hover:bg-white/[.06]">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
   </div>
-  <ul id="cats" class="mt-10 divide-y divide-edge/70"></ul>
-</aside>
+  <ul class="mt-6 divide-y divide-linea border-y border-linea">
+    <li><a href="#ofertas" class="flex items-center justify-between py-4 text-xl font-semibold transition-colors hover:text-lima">Ofertas de hoy<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a></li>
+    <li><a href="#radar" class="flex items-center justify-between py-4 text-xl font-semibold transition-colors hover:text-lima">Cómo funciona el radar<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a></li>
+  </ul>
+  <p class="mt-auto text-sm leading-6 text-humo">Precios leídos directo de Mercado Libre. Solo publicamos bajas reales de 5 % o más.</p>
+</nav>
 
-<main class="mx-auto max-w-6xl px-4 pb-16 pt-4">
+<main>
+  <!-- Héroe -->
+  <section class="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] items-center gap-12 px-5 pb-20 pt-10 sm:px-6 md:grid-cols-[minmax(0,1.05fr)_minmax(0,.95fr)] md:gap-8 md:pb-28 md:pt-20">
+    <div>
+      <h1 class="rev text-balance text-[clamp(2.1rem,10.4vw,2.75rem)] font-extrabold leading-[.98] tracking-[-0.035em] sm:text-6xl lg:text-[4.6rem]">
+        Arma tu setup con <span class="text-lima">datos</span>, no pagues sobreprecio.
+      </h1>
+      <p class="rev mt-6 max-w-[34rem] text-base leading-7 text-humo sm:text-lg" style="--d:1">
+        Nuestro radar revisa el precio real de cada componente en Mercado Libre todos los días y solo te enseña las bajas de verdad.
+      </p>
+      <div class="rev mt-8 flex flex-wrap items-center gap-3" style="--d:2">
+        <a href="#ofertas" class="btn-lima inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold">
+          Ver ofertas de hoy
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#radar" class="btn-linea inline-flex items-center rounded-full border border-linea px-6 py-3.5 text-sm font-medium text-zinc-200 hover:border-zinc-500 hover:bg-white/[.03]">Cómo funciona el radar</a>
+      </div>
+      <dl class="rev mt-12 flex gap-10 sm:gap-14" style="--d:3">
+        <div><dt class="sr-only">Ofertas verificadas</dt><dd id="m-total" class="num text-3xl font-bold tracking-tight">—</dd><p class="mt-1 text-xs text-ceniza">ofertas verificadas</p></div>
+        <div><dt class="sr-only">Radar</dt><dd class="num text-3xl font-bold tracking-tight">24/7</dd><p class="mt-1 text-xs text-ceniza">radar activo</p></div>
+        <div><dt class="sr-only">Datos reales</dt><dd class="num text-3xl font-bold tracking-tight">100%</dd><p class="mt-1 text-xs text-ceniza">precios reales</p></div>
+      </dl>
+    </div>
 
-  <!-- Héroe deslizable -->
-  <section class="rise relative overflow-hidden rounded-[2rem] border border-edge bg-deep/60" style="--i:1" aria-roledescription="carrusel" aria-label="Ofertas destacadas">
-    <div id="hero" class="noscroll flex snap-x snap-mandatory overflow-x-auto overscroll-x-contain"></div>
-    <div id="dots" class="pointer-events-none absolute inset-x-0 bottom-4 z-10 flex justify-center gap-2 md:justify-start md:px-12"></div>
+    <!-- Escenario del teclado -->
+    <div class="rev relative" style="--d:2">
+      <div class="relative overflow-hidden rounded-[2rem] border border-linea bg-gradient-to-b from-alto to-grafito">
+        <div class="relative grid aspect-[5/4] place-items-center">
+          <div class="halo absolute h-[78%] w-[78%] rounded-full"></div>
+          <div class="sombra absolute bottom-[17%] h-6 w-[58%] rounded-[50%] bg-black blur-xl"></div>
+          <div class="levita relative w-[80%]">
+            <svg class="teclado w-full drop-shadow-[0_30px_40px_rgba(0,0,0,.6)]" viewBox="0 0 520 190" role="img" aria-label="Teclado mecánico">
+              <defs>
+                <linearGradient id="cuerpo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2e35"/><stop offset="1" stop-color="#16181c"/></linearGradient>
+                <linearGradient id="tecla" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3f48"/><stop offset="1" stop-color="#262a31"/></linearGradient>
+                <linearGradient id="teclaL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9ff5c"/><stop offset="1" stop-color="#a6cf1d"/></linearGradient>
+              </defs>
+              <rect x="2" y="8" width="516" height="180" rx="18" fill="#0d0f12"/>
+              <rect x="2" y="2" width="516" height="178" rx="18" fill="url(#cuerpo)" stroke="#3a3f48" stroke-width="1"/>
+              <g id="teclas"></g>
+            </svg>
+          </div>
+          <a id="h-pill" href="#ofertas" class="pill-flota btn-lima absolute right-[7%] top-[11%] rounded-full px-4 py-2 font-mono text-sm font-semibold">Oferta</a>
+        </div>
+        <div class="flex items-center justify-between gap-4 border-t border-linea bg-black/30 px-5 py-4">
+          <div class="min-w-0">
+            <p id="h-titulo" class="truncate text-sm font-semibold">Teclados en oferta</p>
+            <p id="h-precio" class="num mt-0.5 truncate font-mono text-xs text-ceniza">Precio verificado por el radar</p>
+          </div>
+          <a id="h-link" href="#ofertas" class="btn-lima shrink-0 rounded-full px-4 py-2 text-xs font-semibold">Ver oferta</a>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Cinta -->
-  <div class="rise mt-6 overflow-hidden border-y border-edge/60 py-3 text-sm text-zinc-400" style="--i:2" aria-hidden="true">
-    <div class="marquee flex w-max gap-8 whitespace-nowrap">
-      <span id="m1" class="flex gap-8"></span><span id="m2" class="flex gap-8"></span>
+  <!-- Radar de ofertas (carrusel) -->
+  <section id="ofertas" class="border-t border-white/[.05] py-20 md:py-28">
+    <div class="mx-auto flex max-w-6xl items-end justify-between gap-6 px-5 sm:px-6">
+      <div>
+        <h2 class="rev text-balance text-3xl font-bold tracking-[-0.025em] sm:text-[2.6rem] sm:leading-[1.1]">Lo que bajó de precio hoy</h2>
+        <p id="act" class="rev mt-3 max-w-xl text-sm leading-6 text-humo sm:text-base" style="--d:1">Ordenado por descuento real. Toca una oferta y sales directo a Mercado Libre.</p>
+      </div>
+      <div class="hidden shrink-0 gap-2 md:flex">
+        <button id="prev" type="button" aria-label="Ofertas anteriores" class="btn-linea grid h-11 w-11 place-items-center rounded-full border border-linea text-zinc-200 hover:border-zinc-500 disabled:opacity-30"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button id="next" type="button" aria-label="Más ofertas" class="btn-linea grid h-11 w-11 place-items-center rounded-full border border-linea text-zinc-200 hover:border-zinc-500 disabled:opacity-30"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
     </div>
-  </div>
+    <div id="pista" class="pista noscroll mt-10 flex gap-4 overflow-x-auto px-5 pb-4 sm:px-6" aria-live="polite"></div>
+  </section>
 
-  <!-- Vitrina: cuadrícula vertical -->
-  <section id="grid" class="mt-8 grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-4"></section>
+  <!-- El diferenciador: el radar -->
+  <section id="radar" class="border-t border-white/[.05] py-20 md:py-28">
+    <div class="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] gap-10 px-5 sm:px-6 lg:grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)] lg:items-center lg:gap-14">
+      <div>
+        <h2 class="rev text-balance text-3xl font-bold tracking-[-0.025em] sm:text-[2.6rem] sm:leading-[1.1]">Vemos caer el precio <span class="text-lima">antes</span> que tú.</h2>
+        <p class="rev mt-4 max-w-md leading-7 text-humo" style="--d:1">Cada día el radar abre la página de cada producto, anota su precio y lo compara con su historial. Si baja, lo verás aquí; si el “descuento” es inflado, no pasa el filtro.</p>
+        <ul class="rev mt-8 space-y-4 text-sm" style="--d:2">
+          <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-lima"></span><span class="text-zinc-300">Precio leído directo de Mercado Libre, nunca escrito a mano.</span></li>
+          <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-lima"></span><span class="text-zinc-300">Historial diario de hasta 90 días por producto.</span></li>
+          <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-lima"></span><span class="text-zinc-300">Solo se publica un descuento real de 5 % o más.</span></li>
+        </ul>
+      </div>
+
+      <div class="rev overflow-hidden rounded-3xl border border-linea bg-grafito" style="--d:1">
+        <div class="flex flex-wrap items-center gap-2 border-b border-linea p-3">
+          <div class="flex min-w-0 flex-1 items-center gap-2 rounded-full bg-black/40 px-4 py-2.5">
+            <svg class="shrink-0 text-ceniza" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+            <span id="r-nombre" class="truncate text-sm text-zinc-200">Esperando al radar…</span>
+          </div>
+          <div id="r-chips" class="flex gap-1.5" role="group" aria-label="Elegir baja detectada"></div>
+        </div>
+        <div class="relative px-2 pt-4 sm:px-4">
+          <svg id="grafico" class="grafico block w-full" viewBox="0 0 600 260" role="img" aria-label="Historial de precio"></svg>
+        </div>
+        <div class="border-t border-linea px-5 py-4">
+          <p id="r-leyenda" class="num flex flex-wrap items-center gap-x-2 font-mono text-xs text-zinc-300"></p>
+          <ol id="r-log" class="num mt-3 space-y-1 font-mono text-[11px] leading-5 text-ceniza"></ol>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
+
+<footer class="border-t border-white/[.05]">
+  <div class="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-10 text-xs leading-5 text-ceniza sm:flex-row sm:justify-between sm:px-6">
+    <p><span class="font-semibold text-zinc-300">H | Ofertas</span> · Enlaces de afiliado de Mercado Libre.</p>
+    <p>Precios verificados por el radar; pueden cambiar en Mercado Libre.</p>
+  </div>
+</footer>
 
 <script>
 (() => {
   const mxn = new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', maximumFractionDigits: 0 });
-
-  // Edita aquí tus 5 categorías
-  const CATS = ['Audífonos', 'Monitores', 'Teclados', 'Smartwatch', 'Bocinas'];
-
-  let P = [], H = [];
-  const esc = t => String(t ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const enlace = p => `href="${esc(p.link)}" target="_blank" rel="noopener noreferrer sponsored"`;
-  const titular = t => t.split(/[,\-–|(]/)[0].trim().split(/\s+/).slice(0, 5).join(' ');
+  const dia = new Intl.DateTimeFormat('es-MX', { day: 'numeric', month: 'short' });
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const off = p => Math.round((1 - p.n / p.o) * 100);
+  const corto = (t, n = 6) => t.split(/[,|(]/)[0].trim().split(/\s+/).slice(0, n).join(' ');
+  const enlace = url => `href="${esc(url)}" target="_blank" rel="noopener noreferrer sponsored"`;
+  const $ = id => document.getElementById(id);
 
-  const hero = document.getElementById('hero'), dots = document.getElementById('dots');
-  function montar() {
-  /* ---------- Héroe ---------- */
-  hero.innerHTML = H.map((s, k) => {
-    const p = P[s.p];
-    return `
-    <article class="slide ${k === 0 ? 'on' : ''} grid w-full min-w-full shrink-0 snap-center items-center md:grid-cols-2" aria-hidden="${k !== 0}">
-      <div class="relative order-1 flex aspect-[5/4] items-center justify-center md:order-2 md:aspect-square md:max-h-[500px]">
-        <div class="halo absolute h-[85%] w-[85%] rounded-full"></div>
-        <div class="float relative h-[78%] w-[78%]">
-          <img src="${esc(p.i)}" alt="" draggable="false" class="prod h-full w-full rounded-3xl object-cover shadow-[0_30px_80px_-20px_rgba(0,0,0,.8)]" ${k ? '' : 'fetchpriority="high"'}>
-        </div>
-      </div>
-      <div class="txt order-2 px-6 pb-14 pt-2 md:order-1 md:px-12 md:pb-0">
-        <h2 class="text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">${esc(s.h)}</h2>
-        <p class="mt-3 line-clamp-2 max-w-md text-sm text-zinc-400 md:text-base">${esc(p.t)}</p>
-        <div class="mt-4 flex items-baseline gap-3">
-          <span class="text-3xl font-semibold text-sun">${mxn.format(p.n)}</span>
-          <span class="text-zinc-500 line-through">${mxn.format(p.o)}</span>
-          <span class="rounded-full bg-sun/15 px-2.5 py-0.5 text-xs font-semibold text-sun">-${off(p)}%</span>
-        </div>
-        <a ${enlace(p)} class="mt-5 inline-block rounded-full bg-sun px-9 py-3 text-sm font-semibold text-deep shadow-[0_0_28px_-4px_rgba(255,179,64,.6)] transition hover:brightness-110 active:scale-95">Comprar</a>
-      </div>
-    </article>`;
+  /* ---------- Teclas del teclado (SVG) ---------- */
+  const filas = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2], [1.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.5], [1.75, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2.25], [2.25, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2.75], [1.25, 1.25, 1.25, 6.25, 1.25, 1.25, 1.25, 1.25]];
+  const u = 34, g = 2.6, x0 = 18, y0 = 16;
+  $('teclas').innerHTML = filas.map((fila, r) => {
+    let x = x0;
+    return fila.map((w, c) => {
+      const ancho = w * u - g, y = y0 + r * u;
+      const lima = (r === 0 && c === 0) || (r === 2 && c === fila.length - 1);
+      const s = `<rect x="${x.toFixed(1)}" y="${y + 3}" width="${ancho.toFixed(1)}" height="${u - g}" rx="6" fill="#0b0c0f"/><rect x="${x.toFixed(1)}" y="${y}" width="${ancho.toFixed(1)}" height="${u - g - 2}" rx="6" fill="url(#${lima ? 'teclaL' : 'tecla'})"/>`;
+      x += w * u;
+      return s;
+    }).join('');
   }).join('');
-  dots.innerHTML = H.map((_, k) => `<span class="dot ${k === 0 ? 'on' : ''} h-1 w-9 overflow-hidden rounded-full bg-edge"><i></i></span>`).join('');
 
-  const slides = [...hero.children], ds = [...dots.children];
-  let cur = 0, timer;
-  function activar(k) {
-    if (k === cur) return;
-    slides[cur].classList.remove('on'); slides[cur].setAttribute('aria-hidden', 'true'); ds[cur].classList.remove('on');
-    cur = k;
-    slides[cur].classList.add('on'); slides[cur].setAttribute('aria-hidden', 'false');
-    void ds[cur].offsetWidth;
-    ds[cur].classList.add('on');
-    start();
+  /* ---------- Píldoras técnicas sacadas del título real ---------- */
+  const I = {
+    rayo: '<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>',
+    pantalla: '<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>',
+    reloj: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    wifi: '<path d="M5 12.5a11 11 0 0 1 14 0M2 9a15.5 15.5 0 0 1 20 0M8.5 16a6 6 0 0 1 7 0M12 20h.01"/>',
+    cable: '<path d="M7 3v6M17 3v6M5 9h14v3a7 7 0 0 1-14 0zM12 19v3"/>',
+    tecla: '<rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/>',
+    luz: '<path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2z"/>',
+    bateria: '<rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/>',
+    disco: '<path d="M22 12H2M5.5 5.1 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1z"/>',
+    audio: '<path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>',
+    baja: '<path d="M12 5v14M19 12l-7 7-7-7"/>',
+    etiqueta: '<path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8z"/><path d="M7 7h.01"/>'
+  };
+  const reglas = [
+    [/(\d{2,3})\s?hz/i, m => `${m[1]} Hz`, 'rayo'],
+    [/(\d{2}(?:[.,]\d)?)\s?(?:"|”|''|pulgadas|pulg\b)/i, m => `${m[1].replace(',', '.')}"`, 'pantalla'],
+    [/\b(\d(?:\.\d)?)\s?ms\b/i, m => `${m[1]} ms`, 'reloj'],
+    [/inal[aá]mbric|bluetooth|wireless|\bbt\b/i, () => 'Inalámbrico', 'wifi'],
+    [/al[aá]mbric|\bwired\b/i, () => 'Alámbrico', 'cable'],
+    [/mec[aá]nic|magn[eé]tic/i, m => /magn/i.test(m[0]) ? 'Magnético' : 'Mecánico', 'tecla'],
+    [/cancelaci[oó]n|\banc\b/i, () => 'ANC', 'audio'],
+    [/(\d{3,5})\s?mah/i, m => `${m[1]} mAh`, 'bateria'],
+    [/(\d{2,4})\s?(gb|tb)\b/i, m => `${m[1]} ${m[2].toUpperCase()}`, 'disco'],
+    [/\brgb\b/i, () => 'RGB', 'luz']
+  ];
+  const icono = k => `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${I[k]}</svg>`;
+  function pildoras(p) {
+    const out = [];
+    for (const [re, f, ic] of reglas) { const m = p.t.match(re); if (m) out.push([f(m), ic]); if (out.length === 3) break; }
+    if (out.length < 3) out.push([`-${off(p)} %`, 'baja']);
+    if (out.length < 3) out.push([`Ahorras ${mxn.format(p.o - p.n)}`, 'etiqueta']);
+    return out.slice(0, 3);
   }
-  function start() {
-    clearInterval(timer);
-    timer = setInterval(() => hero.scrollTo({ left: ((cur + 1) % slides.length) * hero.clientWidth, behavior: 'smooth' }), 5000);
-  }
-  const vigia = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) activar(slides.indexOf(e.target)); }),
-    { root: hero, threshold: 0.6 });
-  slides.forEach(s => vigia.observe(s));
-  hero.addEventListener('pointerdown', () => clearInterval(timer));
-  hero.addEventListener('pointerup', start);
-  hero.addEventListener('pointercancel', start);
-  document.addEventListener('visibilitychange', () => document.hidden ? clearInterval(timer) : start());
-  start();
 
-  /* ---------- Cinta ---------- */
-  const cinta = CATS.map(c => `<span class="flex items-center gap-8">${c}<i class="h-1 w-1 rounded-full bg-glow"></i></span>`).join('');
-  document.getElementById('m1').innerHTML = cinta; document.getElementById('m2').innerHTML = cinta;
+  /* ---------- Carrusel ---------- */
+  const pista = $('pista');
+  const ancho = 'w-[78vw] max-w-[300px] shrink-0 sm:w-[290px]';
+  pista.innerHTML = Array.from({ length: 4 }, () => `<div class="${ancho} rounded-3xl border border-linea bg-mate p-3"><div class="esq aspect-square rounded-2xl"></div><div class="esq mt-4 h-4 w-4/5 rounded"></div><div class="esq mt-3 h-4 w-1/2 rounded"></div><div class="esq mt-6 h-11 rounded-full"></div></div>`).join('');
+  const aviso = txt => { pista.innerHTML = `<p class="w-full py-16 text-center text-humo">${txt}</p>`; };
 
-  /* ---------- Vitrina ---------- */
-  document.getElementById('grid').innerHTML = P.map((p, k) => `
-    <article class="card rise group flex flex-col rounded-3xl p-3" style="--i:${k + 4}">
-      <a ${enlace(p)} class="relative block overflow-hidden rounded-2xl" tabindex="-1" aria-hidden="true">
-        <img src="${esc(p.i)}" alt="" loading="lazy" draggable="false" class="aspect-square w-full object-cover transition duration-500 ease-out group-hover:scale-105">
-        <span class="absolute left-2.5 top-2.5 rounded-full bg-deep/80 px-2.5 py-1 text-xs font-semibold text-sun backdrop-blur">-${off(p)}%</span>
+  function tarjeta(p, k) {
+    return `
+    <article class="tarjeta rev ${ancho} flex flex-col rounded-3xl border border-linea bg-mate p-3" style="--d:${Math.min(k, 4)}">
+      <a ${enlace(p.link)} tabindex="-1" aria-hidden="true" class="relative grid aspect-square place-items-center overflow-hidden rounded-2xl bg-gradient-to-b from-alto to-grafito">
+        <div class="halo absolute h-[80%] w-[80%] rounded-full"></div>
+        <img src="${esc(p.i)}" alt="" loading="lazy" draggable="false" class="relative h-[74%] w-[74%] rounded-xl bg-white object-contain p-2 shadow-[0_18px_30px_-12px_rgba(0,0,0,.7)]">
+        <span class="num absolute left-3 top-3 rounded-full bg-lima px-2.5 py-1 font-mono text-[11px] font-semibold text-tinta">-${off(p)} %</span>
       </a>
-      <h3 class="mt-3 line-clamp-2 min-h-[2.5rem] px-1 text-sm leading-5 text-zinc-200">${esc(p.t)}</h3>
-      <div class="mt-2 flex items-baseline gap-2 px-1">
-        <span class="text-lg font-semibold text-sun drop-shadow-[0_0_10px_rgba(255,179,64,.35)]">${mxn.format(p.n)}</span>
-        <span class="text-sm text-zinc-500 line-through">${mxn.format(p.o)}</span>
+      <h3 class="mt-4 line-clamp-2 min-h-[2.75rem] px-1 text-[15px] font-semibold leading-[1.4rem] text-zinc-100" title="${esc(p.t)}">${esc(corto(p.t, 8))}</h3>
+      <ul class="mt-3 flex flex-wrap gap-1.5 px-1">
+        ${pildoras(p).map(([t, ic]) => `<li class="num inline-flex items-center gap-1.5 rounded-full border border-linea bg-black/30 px-2.5 py-1 font-mono text-[11px] text-zinc-300"><span class="text-lima">${icono(ic)}</span>${esc(t)}</li>`).join('')}
+      </ul>
+      <div class="mt-auto flex items-baseline gap-2.5 px-1 pt-5">
+        <span class="num text-2xl font-bold tracking-tight text-lima">${mxn.format(p.n)}</span>
+        <span class="num text-sm text-ceniza line-through">${mxn.format(p.o)}</span>
       </div>
-      <a ${enlace(p)} class="mt-3 block rounded-full bg-sun py-2.5 text-center text-sm font-semibold text-deep transition hover:brightness-110 active:scale-95">Comprar</a>
-    </article>`).join('');
+      <a ${enlace(p.link)} class="btn-lima mt-4 block rounded-full py-3 text-center text-sm font-semibold">Aprovechar oferta</a>
+    </article>`;
   }
+
+  const paso = dir => pista.scrollBy({ left: dir * (pista.firstElementChild?.offsetWidth + 16 || 300) * 2, behavior: 'smooth' });
+  $('prev').addEventListener('click', () => paso(-1));
+  $('next').addEventListener('click', () => paso(1));
+  const flechas = () => { $('prev').disabled = pista.scrollLeft < 8; $('next').disabled = pista.scrollLeft + pista.clientWidth > pista.scrollWidth - 8; };
+  pista.addEventListener('scroll', flechas, { passive: true });
+
+  /* ---------- Aparición al hacer scroll ---------- */
+  const vigia = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); vigia.unobserve(e.target); }
+  }), { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  const observar = () => document.querySelectorAll('.rev:not(.in)').forEach(el => vigia.observe(el));
+  observar();
+
+  /* ---------- Gráfico del radar ---------- */
+  const svg = $('grafico');
+  let serieActual = 0, series = [];
+  function dibujar(k) {
+    const s = series[k]; if (!s) return;
+    serieActual = k;
+    const W = 600, H = 260, pl = 54, pr = 22, pt = 34, pb = 34;
+    const v = s.puntos.map(q => q.precio), max = Math.max(...v), min = Math.min(...v);
+    const pad = Math.max((max - min) * 0.35, max * 0.03);
+    const y = val => pt + (1 - (val - (min - pad)) / ((max + pad) - (min - pad))) * (H - pt - pb);
+    const x = i => pl + (s.puntos.length === 1 ? 0 : i / (s.puntos.length - 1)) * (W - pl - pr);
+    const pts = s.puntos.map((q, i) => [x(i), y(q.precio)]);
+    const linea = pts.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ');
+    const area = `${linea} L${pts[pts.length - 1][0].toFixed(1)} ${H - pb} L${pts[0][0].toFixed(1)} ${H - pb} Z`;
+    const guias = [0, 1, 2, 3].map(i => { const val = (max + pad) - i * ((max - min + 2 * pad) / 3); const yy = y(val);
+      return `<line x1="${pl}" x2="${W - pr}" y1="${yy.toFixed(1)}" y2="${yy.toFixed(1)}" stroke="#24272d" stroke-dasharray="3 5"/><text x="${pl - 10}" y="${(yy + 4).toFixed(1)}" text-anchor="end" fill="#6b7079" font-family="JetBrains Mono" font-size="10">${esc(mxn.format(val))}</text>`; }).join('');
+    const salto = Math.max(1, Math.ceil(s.puntos.length / 6));
+    const fechas = s.puntos.map((q, i) => (i % salto === 0 || i === s.puntos.length - 1) ? `<text x="${x(i).toFixed(1)}" y="${H - 10}" text-anchor="middle" fill="#6b7079" font-family="JetBrains Mono" font-size="10">${esc(q.etiqueta)}</text>` : '').join('');
+    const ult = pts.length - 1;
+    const marcas = pts.map((p, i) => `<circle class="punto" style="--k:${i}" cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="${i === ult ? 5.5 : 3.5}" fill="${i === ult ? '#c6f135' : '#0a0b0d'}" stroke="#c6f135" stroke-width="2"/>`).join('');
+    const tip = (i, txt, lima) => { const [px, py] = pts[i]; const w = txt.length * 7.2 + 18; const tx = Math.min(Math.max(px - w / 2, pl), W - pr - w);
+      return `<g class="etiqueta" style="--k:${i + 1}"><rect x="${tx.toFixed(1)}" y="${(py - 32).toFixed(1)}" width="${w.toFixed(1)}" height="22" rx="11" fill="${lima ? '#c6f135' : '#1b1e23'}" stroke="${lima ? 'none' : '#2c3037'}"/><text x="${(tx + w / 2).toFixed(1)}" y="${(py - 17).toFixed(1)}" text-anchor="middle" fill="${lima ? '#0a0b0d' : '#e4e4e7'}" font-family="JetBrains Mono" font-size="11" font-weight="600">${esc(txt)}</text></g>`; };
+    svg.classList.remove('in');
+    svg.innerHTML = `
+      <defs><linearGradient id="relleno" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c6f135" stop-opacity=".28"/><stop offset="1" stop-color="#c6f135" stop-opacity="0"/></linearGradient></defs>
+      ${guias}${fechas}
+      <path class="area" d="${area}" fill="url(#relleno)"/>
+      <path class="trazo" d="${linea}" fill="none" stroke="#c6f135" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+      ${marcas}${pts.length > 1 ? tip(0, mxn.format(s.puntos[0].precio), false) : ''}${tip(ult, mxn.format(s.puntos[ult].precio), true)}`;
+    const trazo = svg.querySelector('.trazo');
+    trazo.style.setProperty('--len', Math.ceil(trazo.getTotalLength() || 900));
+    void svg.getBoundingClientRect();
+    if (svg.dataset.visto) requestAnimationFrame(() => svg.classList.add('in'));
+    $('r-nombre').textContent = s.nombre;
+    const caida = Math.round((1 - s.ahora / s.antes) * 100);
+    $('r-leyenda').innerHTML = `<span class="h-2 w-2 rounded-[3px] bg-lima"></span><span>${esc(corto(s.nombre, 4))}</span><span class="text-ceniza">·</span><span>antes ${esc(mxn.format(s.antes))}</span><span class="text-ceniza">→</span><span class="font-semibold text-lima">${esc(mxn.format(s.ahora))}</span><span class="text-ceniza">(-${caida} %)</span>`;
+    [...$('r-chips').children].forEach((b, i) => { const on = i === k; b.setAttribute('aria-pressed', on);
+      b.className = 'btn-linea rounded-full px-3 py-2 font-mono text-xs font-semibold ' + (on ? 'bg-lima text-tinta' : 'text-humo hover:text-zinc-200'); });
+  }
+  new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { svg.dataset.visto = 1; svg.classList.add('in'); o.disconnect(); } }), { threshold: 0.4 }).observe(svg);
+
+  function montarRadar(d, hist) {
+    const alertas = (d.alertas || []).filter(a => a && a.antes > a.ahora).slice(0, 3);
+    series = alertas.map(a => {
+      const h = (hist[a.link] || []).filter(q => q && q.precio > 0).map(q => ({ fecha: q.fecha, precio: q.precio }));
+      const f = String(a.fecha || '').slice(0, 10);
+      if (!h.length || h[h.length - 1].precio !== a.antes) h.push({ fecha: h.length ? h[h.length - 1].fecha : f, precio: a.antes });
+      h.push({ fecha: f, precio: a.ahora, ahora: true });
+      const puntos = h.slice(-14).map((q, i, arr) => ({ precio: q.precio, etiqueta: q.ahora ? 'ahora' : (q.fecha ? dia.format(new Date(q.fecha + 'T12:00:00')) : '') }));
+      return { nombre: a.t, antes: a.antes, ahora: a.ahora, puntos };
+    });
+    if (!series.length) {
+      $('r-nombre').textContent = 'Sin bajas nuevas hoy';
+      svg.innerHTML = `<text x="300" y="130" text-anchor="middle" fill="#6b7079" font-family="Poppins" font-size="14">El radar no detectó bajas en su última vuelta.</text>`;
+      return;
+    }
+    $('r-chips').innerHTML = series.map((s, i) => `<button type="button" aria-label="Ver ${esc(corto(s.nombre, 4))}">-${Math.round((1 - s.ahora / s.antes) * 100)} %</button>`).join('');
+    [...$('r-chips').children].forEach((b, i) => b.addEventListener('click', () => i !== serieActual && dibujar(i)));
+    $('r-log').innerHTML = alertas.map(a => `<li class="truncate"><span class="text-lima">▾</span> ${esc(corto(a.t, 4))} <span class="text-zinc-500">${esc(mxn.format(a.antes))} → </span><span class="text-zinc-300">${esc(mxn.format(a.ahora))}</span></li>`).join('');
+    dibujar(0);
+  }
+
+  /* ---------- Datos reales del radar ---------- */
+  const leer = url => fetch(url + '?t=' + Date.now(), { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
+  Promise.all([leer('ofertas.json'), leer('historial.json').catch(() => ({}))])
+    .then(([d, hist]) => {
+      const P = (d.productos || [])
+        .filter(p => p && /^https:\/\//.test(p.link) && /^https:\/\//.test(p.i) && p.n > 0 && p.n < p.o)
+        .sort((x, y) => off(y) - off(x));
+      $('m-total').textContent = P.length;
+      if (d.actualizado) {
+        const t = new Date(d.actualizado), h = Math.max(0, Math.round((Date.now() - t) / 36e5));
+        const txt = h < 1 ? 'hace menos de 1 h' : h < 48 ? `hace ${h} h` : `el ${dia.format(t)}`;
+        $('estado').textContent = `Radar · revisó ${txt}`;
+        $('act').textContent = `Ordenado por descuento real. Última revisión del radar ${txt}.`;
+      }
+      montarRadar(d, hist);
+      if (!P.length) return aviso('Hoy no hay ofertas nuevas. Vuelve en unas horas.');
+      pista.innerHTML = P.map(tarjeta).join('');
+      observar(); flechas();
+      const tec = P.find(p => /teclado/i.test(p.t)) || P[0];
+      $('h-pill').textContent = `Oferta: ${mxn.format(tec.n)}`;
+      $('h-titulo').textContent = corto(tec.t, 6);
+      $('h-precio').textContent = `Antes ${mxn.format(tec.o)} · -${off(tec)} %`;
+      for (const id of ['h-pill', 'h-link']) { const a = $(id); a.href = tec.link; a.target = '_blank'; a.rel = 'noopener noreferrer sponsored'; }
+    })
+    .catch(() => { aviso('No pudimos cargar las ofertas. Recarga en un momento.'); $('r-nombre').textContent = 'Radar sin conexión'; });
 
   /* ---------- Menú lateral ---------- */
-  const menu = document.getElementById('menu'), velo = document.getElementById('velo'), abrir = document.getElementById('abrir');
-  document.getElementById('cats').innerHTML = CATS.map((c, k) => `
-    <li style="--k:${k}"><a href="#" class="flex items-center justify-between py-4 text-xl font-medium text-zinc-100 transition hover:text-sun">${c}
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a></li>`).join('');
+  const menu = $('menu'), velo = $('velo'), abrir = $('abrir');
   function menuOn(v) {
     menu.classList.toggle('open', v); velo.classList.toggle('open', v);
     menu.inert = !v; abrir.setAttribute('aria-expanded', v);
     document.documentElement.style.overflow = v ? 'hidden' : '';
-    (v ? document.getElementById('cerrar') : abrir).focus();
+    (v ? $('cerrar') : abrir).focus();
   }
   abrir.addEventListener('click', () => menuOn(true));
-  document.getElementById('cerrar').addEventListener('click', () => menuOn(false));
+  $('cerrar').addEventListener('click', () => menuOn(false));
   velo.addEventListener('click', () => menuOn(false));
-  menu.addEventListener('click', e => { if (e.target.closest('#cats a')) { e.preventDefault(); menuOn(false); } });
+  menu.addEventListener('click', e => { if (e.target.closest('a')) menuOn(false); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) menuOn(false); });
-
-  /* ---------- Carga de ofertas.json ---------- */
-  const grid = document.getElementById('grid');
-  const aviso = txt => { grid.className = 'mt-8'; grid.innerHTML = `<p class="py-16 text-center text-zinc-400">${txt}</p>`; };
-  aviso('Cargando ofertas…');
-  fetch('ofertas.json?t=' + Date.now(), { cache: 'no-store' })
-    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-    .then(d => {
-      P = (d.productos || [])
-        .filter(p => p && /^https:\/\//.test(p.link) && /^https:\/\//.test(p.i) && p.n > 0 && p.n < p.o)
-        .sort((x, y) => off(y) - off(x));
-      if (!P.length) { hero.parentElement.classList.add('hidden'); return aviso('Hoy no hay ofertas nuevas. Vuelve en unas horas.'); }
-      H = P.slice(0, 3).map((p, k) => ({ p: k, h: titular(p.t) }));
-      grid.className = 'mt-8 grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-4';
-      montar();
-    })
-    .catch(() => { hero.parentElement.classList.add('hidden'); aviso('No pudimos cargar las ofertas. Recarga en un momento.'); });
-
-  /* ---------- Barra del día ---------- */
-  const d = new Date();
-  document.getElementById('dia').style.width = (((d.getHours() * 60 + d.getMinutes()) / 1440) * 100).toFixed(1) + '%';
 })();
 </script>
 </body>

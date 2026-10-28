@@ -7,15 +7,20 @@ Ecosistema de afiliados de Mercado Libre compuesto por:
 
 ## Paleta oficial
 
+Desde 2026-10-28 (rediseño de `index.html` con referencia "Voltio", pedido por el usuario): grafito y verde lima.
+
 | Uso | Color |
 |---|---|
-| Fondo principal (azul noche profundo) | `#070b14` |
-| Fondo secundario / superficies | `#0b121d` |
-| Bordes de tarjetas translúcidas | `#1b2a3d` |
-| Acentos y botones (amarillo brillante) | `#ffb340` |
-| Luz ambiental: halos, brillos, hover (azul resplandor; nunca botones ni texto) | `#2f8fff` |
+| Fondo principal (grafito casi negro) | `#0a0b0d` |
+| Fondo secundario / paneles | `#101215` |
+| Tarjetas (gris oscuro mate) | `#15171b` (superficie alta `#1b1e23`) |
+| Bordes de tarjetas | `#24272d` |
+| Acento exclusivo (verde lima): palabras clave, botones principales, píldoras de valor y precios | `#c6f135` |
+| Texto secundario / terciario | `#9aa0a8` / `#6b7079` |
 
-Las tarjetas son translúcidas (fondo semitransparente sobre el azul noche) con borde `#1b2a3d`. No introducir colores de marca fuera de esta paleta sin preguntar.
+El verde lima también se usa como luz difusa (halo detrás del producto). Tipografía: Poppins (títulos en 800) + JetBrains Mono para datos (precios, specs, log del radar). No introducir colores de marca fuera de esta paleta sin preguntar.
+
+`dashboard.html` (Cockpit, aprobado) conserva la paleta anterior (azul noche `#070b14`, ámbar `#ffb340`, resplandor `#2f8fff`) hasta que el usuario pida migrarlo.
 
 ## Regla de hardware
 
