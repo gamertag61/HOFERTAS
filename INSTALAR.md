@@ -68,7 +68,7 @@ Reglas de oro:
 - Si una clave se filtra: revócala (GitHub → Tokens / AI Studio → borrar clave), crea otra y pégala en `heleos_config.json`.
 
 **La clave de Gemini solo se lee de `heleos_config.json`**: las variables de entorno de Windows se ignoran para ella.
-(Para GitHub, `HELEOS_TOKEN` y `HELEOS_REPO` solo se usan si el archivo no trae `token`/`repo`.)
+(Para GitHub también se aceptan los nombres `GITHUB_REPO` / `GITHUB_TOKEN` en el archivo, y el repo puede ir como URL completa. Las variables de entorno `HELEOS_TOKEN` y `HELEOS_REPO` solo se usan si el archivo no trae ninguno. En cada vuelta la consola muestra "Subiendo a GitHub…" y luego "Commit exitoso" o el error exacto.)
 
 ## 3. Radar en la laptop viejita
 

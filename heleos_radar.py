@@ -9,7 +9,7 @@ Uso:       python heleos_radar.py              una vuelta
 
 Claves en heleos_config.json, que nunca se sube a git (ver INSTALAR.md). La clave de Gemini va en "GEMINI_API_KEY";
 si falta, el radar se detiene. No hay ninguna clave escrita en el código.
-Con repo + token, lee enlaces.txt del repositorio y publica ahí en un solo commit; sin ellos, trabaja local.
+Con GITHUB_REPO + GITHUB_TOKEN (o "repo" + "token"), lee enlaces.txt del repositorio y publica ahí en un solo commit; sin ellos, trabaja local.
 """
 import hashlib
 import json
@@ -145,10 +145,32 @@ def vuelta(db, gh, cfg, R, cliente_ia):
         with open(nombre, "w", encoding="utf-8") as f:
             f.write(txt)
     resumen = f"{len(datos['productos'])} ofertas, {len(alertas['alertas'])} súper"
+    log.info("Listo: %s → %s y %s (copia local)", resumen, DATOS, ALERTAS)
     if gh:
-        sha = gh.publicar({DATOS: txt_datos, ALERTAS: txt_alertas}, f"Precios: {resumen}", borrar=LEGADO)
-        log.info("Publicado en GitHub%s", f" ({sha[:7]})" if sha else " (sin cambios)")
-    log.info("Listo: %s → %s y %s", resumen, DATOS, ALERTAS)
+        subir(gh, {DATOS: txt_datos, ALERTAS: txt_alertas}, f"Precios: {resumen}")
+    else:
+        log.info("Sin subir a GitHub: falta GITHUB_REPO o GITHUB_TOKEN en %s", config.ARCHIVO)
+
+
+def subir(gh, archivos, mensaje):
+    """Commit directo vía API REST. Un fallo se informa con el error exacto y el radar sigue (se reintenta en la próxima vuelta)."""
+    log.info("Subiendo a GitHub (%s, rama %s): %s…", gh.repo, gh.rama, ", ".join(archivos))
+    try:
+        sha = gh.publicar(archivos, mensaje, borrar=LEGADO)
+    except Exception as e:
+        log.error("ERROR al subir a GitHub: %s", e)
+        if "HTTP 401" in str(e):
+            log.error("  → El token no es válido o venció. Genera otro en GitHub (Settings → Developer settings).")
+        elif "HTTP 403" in str(e):
+            log.error("  → El token no tiene permiso de escritura: dale «Contents: Read and write» sobre %s.", gh.repo)
+        elif "HTTP 404" in str(e):
+            log.error("  → No se encontró %s o la rama %s, o el token no tiene acceso a ese repositorio.", gh.repo, gh.rama)
+        return None
+    if sha:
+        log.info("Commit exitoso: %s → https://github.com/%s/commit/%s", sha[:7], gh.repo, sha)
+    else:
+        log.info("Commit exitoso: nada que subir, los archivos en GitHub ya estaban iguales.")
+    return sha
 
 
 def probar_ia(cfg):
@@ -174,6 +196,9 @@ def main():
         return probar_ia(cfg)
     preparar_log()
     gh = GitHub(cfg["repo"], cfg["token"], cfg["rama"]) if cfg["repo"] and cfg["token"] else None
+    if bool(cfg["repo"]) != bool(cfg["token"]):
+        log.warning("Ojo: en %s hay %s pero falta %s; el radar trabajará solo en local.", config.ARCHIVO,
+                    *(("GITHUB_REPO", "GITHUB_TOKEN") if cfg["repo"] else ("GITHUB_TOKEN", "GITHUB_REPO")))
     if "--debug" in sys.argv:
         urls = leer_enlaces(gh)
         return diagnostico(nueva_sesion(), urls[0]) if urls else print("enlaces.txt vacío")

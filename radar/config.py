@@ -22,6 +22,16 @@ DEFECTOS = {
 }
 
 ENTORNO = {"HELEOS_REPO": "repo", "HELEOS_TOKEN": "token"}  # solo GitHub; Gemini sale únicamente del archivo
+# Nombres aceptados en el archivo para los datos de GitHub (el primero que tenga valor gana)
+ALIAS = {"repo": ("repo", "GITHUB_REPO", "HELEOS_REPO"), "token": ("token", "GITHUB_TOKEN", "HELEOS_TOKEN")}
+
+
+def limpiar_repo(repo):
+    """Acepta "usuario/repo" o la URL completa (https://github.com/usuario/repo.git)."""
+    repo = str(repo or "").strip().rstrip("/")
+    if "github.com/" in repo:
+        repo = repo.split("github.com/", 1)[1]
+    return repo[:-4] if repo.endswith(".git") else repo
 
 
 def cargar(ruta=ARCHIVO):
@@ -36,14 +46,17 @@ def cargar(ruta=ARCHIVO):
         sys.exit(f"Error: {ruta} tiene un error de formato en la línea {e.lineno}: {e.msg}. "
                  "Revisa comas y comillas (ver heleos_config.ejemplo.json).")
     cfg.update({k: v for k, v in archivo.items() if k not in ("GEMINI_API_KEY", "gemini_api_key")})
+    for clave, nombres in ALIAS.items():
+        cfg[clave] = next((str(archivo[n]).strip() for n in nombres if str(archivo.get(n) or "").strip()), "")
     for var, clave in ENTORNO.items():
         if os.environ.get(var) and not cfg.get(clave):
             cfg[clave] = os.environ[var].strip()
     for clave in ("token",):
         if str(cfg.get(clave, "")).startswith("PEGA_AQUI"):
             cfg[clave] = ""
+    cfg["repo"] = limpiar_repo(cfg["repo"])
 
-    clave = str(archivo.get("GEMINI_API_KEY") or archivo.get("gemini_api_key") or "").strip()
+    clave =str(archivo.get("GEMINI_API_KEY") or archivo.get("gemini_api_key") or "").strip()
     if not clave or clave.startswith("PEGA_AQUI"):
         sys.exit(f"Error: No se encontró la clave en {ruta}")
     cfg["gemini_api_key"] = clave
