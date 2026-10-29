@@ -1,5 +1,41 @@
 {
  "version": 2,
- "actualizado": "2026-10-29T13:23:08-06:00",
- "alertas": []
+ "actualizado": "2026-10-29T14:15:36-06:00",
+ "alertas": [
+  {
+   "id": "MLM37498971",
+   "link": "https://meli.la/2TWBd3D",
+   "nombre": "Control GameSir Kaleid",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_802407-MLA99452784724_112025-P.webp",
+   "precio_antes": 950.94,
+   "precio_ahora": 932.18,
+   "caida_pct": 2,
+   "descuento_real_pct": 0.0,
+   "ts": "2026-10-29T14:14:00-06:00",
+   "motivo": "baja de precio",
+   "tipo": "baja",
+   "titulo": "Mando GameSir Kaleid para Xbox Series X|S, Xbox One, Windows 10/11 y Steam, Gamepad alámbrico con joysticks y gatillos de efecto Hall, joystick antidrift. - $ 932.18",
+   "categoria": "controles",
+   "categoria_nombre": "Controles",
+   "specs": [
+    {
+     "texto": "Alámbrico",
+     "emoji": "🔌",
+     "icono": "cable"
+    },
+    {
+     "texto": "Efecto Hall",
+     "emoji": "🕹️",
+     "icono": "check"
+    },
+    {
+     "texto": "Antidrift",
+     "emoji": "🚫",
+     "icono": "check"
+    }
+   ],
+   "cupon": null,
+   "precio_actual": 932.18
+  }
+ ]
 }
