@@ -75,6 +75,25 @@ En GitHub Actions no hace falta `heleos_config.json`: el repo sale de `GITHUB_RE
 (pásalo al paso con `env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}` y permiso `contents: write`).
 (Para GitHub también se aceptan los nombres `GITHUB_REPO` / `GITHUB_TOKEN` en el archivo, y el repo puede ir como URL completa. Las variables de entorno `HELEOS_TOKEN` y `HELEOS_REPO` solo se usan si el archivo no trae ninguno. En cada vuelta la consola muestra "Subiendo a GitHub…" y luego "Commit exitoso" o el error exacto.)
 
+## 3A. Radar en GitHub Actions (24/7 sin laptop, recomendado)
+
+El archivo `.github/workflows/radar.yml` corre una vuelta del radar cada 30 minutos en los servidores de GitHub
+(gratis en repositorios públicos) y publica `datos.json` y `alertas.json` en `main`.
+
+1. **Secreto de Gemini:** en GitHub abre el repositorio → **Settings → Secrets and variables → Actions → New repository
+   secret**. Nombre: `GEMINI_API_KEY`. Valor: tu clave de Gemini. (El token de GitHub no hace falta: Actions pone uno solo.)
+2. **Conservar tu historial (opcional, recomendado):** copia `precios.db` de la laptop viejita a la carpeta del repositorio
+   con el nombre **`precios.semilla.db`** y súbelo una vez. La primera ejecución parte de esa memoria (los 30 días
+   anti-fraude); sin semilla empieza de cero y las súper ofertas tardan 7 días en aparecer. Solo contiene precios públicos.
+3. **Primera prueba:** pestaña **Actions → Radar de precios → Run workflow**. En el registro del paso "Correr una vuelta
+   del radar" debe salir `Modo: GitHub gamertag61/HOFERTAS`, `clave de variable de entorno GEMINI_API_KEY: …XXXX` y al final
+   `Commit exitoso`. Después corre solo cada 30 min (GitHub puede retrasar las ejecuciones programadas unos minutos).
+4. **Apaga el radar de la laptop** (quita `iniciar_radar.bat` de `shell:startup`): dos radares a la vez se pisan los commits.
+
+La memoria (`precios.db`) viaja entre ejecuciones en la caché de Actions. Si el workflow se detiene más de 7 días, GitHub
+borra la caché y la memoria vuelve a empezar (o a la semilla). Si Mercado Libre no devuelve ningún precio (por ejemplo,
+si bloquea a los servidores de GitHub), la ejecución queda en rojo con ese mensaje y el sitio conserva los últimos datos.
+
 ## 3. Radar en la laptop viejita
 
 1. Instala Python 3 (python.org, marca "Add python.exe to PATH").

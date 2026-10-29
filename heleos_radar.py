@@ -125,13 +125,17 @@ def vuelta(db, gh, cfg, R, cliente_ia):
     if not urls:
         return log.info("%s está vacío: nada que rastrear", ENLACES)
     db.sincronizar_activos(urls)
-    sesion, candidatos = nueva_sesion(), []
+    sesion, candidatos, leidos = nueva_sesion(), [], 0
     for u in urls:
         log.info("Rastreando: %s", u)
         res = leer_producto(db, sesion, u, R)
+        leidos += bool(res)
         if res and res[2]["super_deal"]:
             candidatos.append(res)
         time.sleep(random.uniform(*PAUSA))
+    if not leidos:
+        # Sin ninguna lectura no se publica nada (el sitio conserva los últimos datos buenos) y la vuelta queda en rojo
+        raise RuntimeError(f"Mercado Libre no devolvió ningún precio de {len(urls)} enlaces (¿bloqueo o caída de red?)")
     if candidatos:
         confirmar(db, sesion, candidatos, R)
 
@@ -210,7 +214,10 @@ def main():
     db = DB(BASE)
     importar_legado(db, gh)
     if "--loop" not in sys.argv:
-        return vuelta(db, gh, cfg, R, cliente_ia)
+        try:
+            return vuelta(db, gh, cfg, R, cliente_ia)
+        finally:
+            db.cerrar()
     while True:
         inicio = time.time()
         log.info("=== Vuelta %s ===", time.strftime("%Y-%m-%d %H:%M"))

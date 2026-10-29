@@ -66,6 +66,8 @@ class DB:
         self.c.executescript(ESQUEMA)
 
     def cerrar(self):
+        # Pasa todo el WAL al archivo principal: precios.db queda completo por sí solo (caché de GitHub Actions)
+        self.c.execute("PRAGMA wal_checkpoint(TRUNCATE)")
         self.c.close()
 
     # ---------- productos ----------

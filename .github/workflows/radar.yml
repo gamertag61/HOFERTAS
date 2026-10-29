@@ -1,0 +1,74 @@
+# Radar de precios 24/7 en GitHub Actions (sin laptop).
+# Cada 30 min: lee enlaces.txt del repo, mide precios, limpia nombres con Gemini y publica datos.json + alertas.json.
+# Requiere el secreto GEMINI_API_KEY (Settings → Secrets and variables → Actions). El token de GitHub lo pone Actions.
+# La memoria de precios (precios.db, 30 días anti-fraude) viaja entre ejecuciones en la caché de Actions.
+name: Radar de precios
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # GitHub puede retrasar las ejecuciones programadas unos minutos
+  workflow_dispatch:          # botón "Run workflow" para correrlo a mano
+
+permissions:
+  contents: write             # para publicar datos.json y alertas.json en main
+
+concurrency:
+  group: radar                # nunca dos radares a la vez (se pisarían los commits y la memoria)
+  cancel-in-progress: false
+
+jobs:
+  radar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      TZ: America/Mexico_City  # los días del historial y "hace 1 h" en hora de México
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Revisar el secreto de Gemini
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          if [ -z "$GEMINI_API_KEY" ]; then
+            echo "::error::Falta el secreto GEMINI_API_KEY: Settings > Secrets and variables > Actions > New repository secret."
+            exit 1
+          fi
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias (solo requests + BeautifulSoup)
+        run: pip install --disable-pip-version-check requests beautifulsoup4
+
+      - name: Recuperar la memoria de precios
+        id: memoria
+        uses: actions/cache/restore@v4
+        with:
+          path: precios.db
+          key: precios-${{ github.run_id }}
+          restore-keys: precios-
+
+      - name: Primera vez sin memoria → usar la semilla si existe
+        if: steps.memoria.outputs.cache-matched-key == ''
+        run: |
+          if [ -f precios.semilla.db ]; then
+            cp precios.semilla.db precios.db
+            echo "Memoria inicial tomada de precios.semilla.db"
+          else
+            echo "Sin memoria previa: el radar empieza de cero (las súper ofertas necesitan 7 días de historial)."
+          fi
+
+      - name: Correr una vuelta del radar
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python heleos_radar.py
+
+      - name: Guardar la memoria de precios
+        if: always() && hashFiles('precios.db') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: precios.db
+          key: precios-${{ github.run_id }}
