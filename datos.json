@@ -1,6 +1,6 @@
 {
  "version": 2,
- "actualizado": "2026-10-29T14:15:36-06:00",
+ "actualizado": "2026-10-29T15:14:47-06:00",
  "categorias": [
   {
    "id": "escritorios",
@@ -97,7 +97,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:13:07-06:00"
+    "verificado": "2026-10-29T15:13:13-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -150,7 +150,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:13:16-06:00"
+    "verificado": "2026-10-29T15:13:26-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -203,7 +203,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:13:14-06:00"
+    "verificado": "2026-10-29T15:13:21-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -256,7 +256,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:12:57-06:00"
+    "verificado": "2026-10-29T15:13:06-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -309,7 +309,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:13:34-06:00"
+    "verificado": "2026-10-29T15:13:43-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -362,7 +362,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:13:57-06:00"
+    "verificado": "2026-10-29T15:14:09-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -415,7 +415,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:13:03-06:00"
+    "verificado": "2026-10-29T15:13:09-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -468,7 +468,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:12:36-06:00"
+    "verificado": "2026-10-29T15:12:43-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -481,7 +481,7 @@
   {
    "id": "MLM47293464",
    "link": "https://meli.la/2pZcUyu",
-   "nombre": "Anker Soundcore Audífonos Gamer Bluetooth Q11i",
+   "nombre": "Audífonos Gamer Anker Soundcore Q11i",
    "titulo": "Anker Soundcore Audífonos Gamer Bluetooth Q11i de Diadema Hi-Res Audio Drivers Dinámicos de 40 mm 22 Ajustes de EQ Almohadillas Desmontables Control de Graves 60 Horas Negro - $ 474.01",
    "categoria": "audio",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_727560-MLA99925676705_112025-P.webp",
@@ -501,17 +501,27 @@
    "cupon": null,
    "specs": [
     {
-     "texto": "Inalámbrico",
-     "emoji": "📶",
-     "icono": "wifi"
+     "texto": "60 Horas",
+     "emoji": "🔋",
+     "icono": "bateria"
+    },
+    {
+     "texto": "Drivers 40 mm",
+     "emoji": "🔊",
+     "icono": "audio"
+    },
+    {
+     "texto": "Hi-Res Audio",
+     "emoji": "🎧",
+     "icono": "audio"
     }
    ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-29T14:14:10-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-29T15:14:25-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -564,13 +574,66 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:13:20-06:00"
+    "verificado": "2026-10-29T15:13:30-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
      1299.0
+    ]
+   ]
+  },
+  {
+   "id": "MLM37498971",
+   "link": "https://meli.la/2TWBd3D",
+   "nombre": "Control GameSir Kaleid",
+   "titulo": "Mando GameSir Kaleid para Xbox Series X|S, Xbox One, Windows 10/11 y Steam, Gamepad alámbrico con joysticks y gatillos de efecto Hall, joystick antidrift. - $ 950.94",
+   "categoria": "controles",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_802407-MLA99452784724_112025-P.webp",
+   "precio": {
+    "actual": 950.94,
+    "antes": 1406.0,
+    "tachado": 1406.0,
+    "referencia_30d": null,
+    "minimo_30d": 932.18
+   },
+   "descuento": {
+    "pct": 32,
+    "real_pct": 0,
+    "tachado_pct": 32,
+    "ahorro": 455.06
+   },
+   "cupon": null,
+   "specs": [
+    {
+     "texto": "Alámbrico",
+     "emoji": "🔌",
+     "icono": "cable"
+    },
+    {
+     "texto": "Efecto Hall",
+     "emoji": "🕹️",
+     "icono": "check"
+    },
+    {
+     "texto": "Antidrift",
+     "emoji": "🚫",
+     "icono": "check"
+    }
+   ],
+   "senales": {
+    "tachado_inflado": false,
+    "historial_dias": 1,
+    "historial_suficiente": false,
+    "nombre_ia": true,
+    "verificado": "2026-10-29T15:14:12-06:00"
+   },
+   "super_deal": false,
+   "historial": [
+    [
+     "2026-10-29",
+     932.18
     ]
    ]
   },
@@ -617,66 +680,13 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:13:31-06:00"
+    "verificado": "2026-10-29T15:13:40-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
      1590.0
-    ]
-   ]
-  },
-  {
-   "id": "MLM37498971",
-   "link": "https://meli.la/2TWBd3D",
-   "nombre": "Control GameSir Kaleid",
-   "titulo": "Mando GameSir Kaleid para Xbox Series X|S, Xbox One, Windows 10/11 y Steam, Gamepad alámbrico con joysticks y gatillos de efecto Hall, joystick antidrift. - $ 932.18",
-   "categoria": "controles",
-   "imagen": "https://http2.mlstatic.com/D_NQ_NP_802407-MLA99452784724_112025-P.webp",
-   "precio": {
-    "actual": 932.18,
-    "antes": 1313.0,
-    "tachado": 1313.0,
-    "referencia_30d": null,
-    "minimo_30d": 932.18
-   },
-   "descuento": {
-    "pct": 29,
-    "real_pct": 0,
-    "tachado_pct": 29,
-    "ahorro": 380.82
-   },
-   "cupon": null,
-   "specs": [
-    {
-     "texto": "Alámbrico",
-     "emoji": "🔌",
-     "icono": "cable"
-    },
-    {
-     "texto": "Efecto Hall",
-     "emoji": "🕹️",
-     "icono": "check"
-    },
-    {
-     "texto": "Antidrift",
-     "emoji": "🚫",
-     "icono": "check"
-    }
-   ],
-   "senales": {
-    "tachado_inflado": false,
-    "historial_dias": 1,
-    "historial_suficiente": false,
-    "nombre_ia": true,
-    "verificado": "2026-10-29T14:14:00-06:00"
-   },
-   "super_deal": false,
-   "historial": [
-    [
-     "2026-10-29",
-     932.18
     ]
    ]
   },
@@ -723,7 +733,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:14:07-06:00"
+    "verificado": "2026-10-29T15:14:20-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -776,7 +786,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:12:53-06:00"
+    "verificado": "2026-10-29T15:13:01-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -829,7 +839,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:12:39-06:00"
+    "verificado": "2026-10-29T15:12:48-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -882,7 +892,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:13:54-06:00"
+    "verificado": "2026-10-29T15:14:04-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -935,7 +945,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:13:11-06:00"
+    "verificado": "2026-10-29T15:13:17-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -988,7 +998,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:12:32-06:00"
+    "verificado": "2026-10-29T15:12:38-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1041,7 +1051,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:12:50-06:00"
+    "verificado": "2026-10-29T15:12:57-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1055,21 +1065,21 @@
    "id": "MLM19444510",
    "link": "https://meli.la/2mrYvFT",
    "nombre": "Procesador AMD Ryzen 5 5500",
-   "titulo": "Procesador AMD Ryzen 5 5500 S-AM4 3.60GHz Six-Core 16MB 100-100000457BOX - $ 1,732",
+   "titulo": "Procesador AMD Ryzen 5 5500 S-AM4 3.60GHz Six-Core 16MB 100-100000457BOX - $ 1,800",
    "categoria": "componentes",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_801013-MLA99496628892_112025-P.webp",
    "precio": {
-    "actual": 1732.0,
+    "actual": 1800.0,
     "antes": 1999.0,
     "tachado": 1999.0,
     "referencia_30d": null,
     "minimo_30d": 1732.0
    },
    "descuento": {
-    "pct": 13,
+    "pct": 10,
     "real_pct": 0,
-    "tachado_pct": 13,
-    "ahorro": 267.0
+    "tachado_pct": 10,
+    "ahorro": 199.0
    },
    "cupon": null,
    "specs": [
@@ -1084,7 +1094,7 @@
      "icono": "disco"
     },
     {
-     "texto": "16MB Cache",
+     "texto": "16 MB Caché",
      "emoji": "💾",
      "icono": "check"
     }
@@ -1094,7 +1104,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:13:50-06:00"
+    "verificado": "2026-10-29T15:14:00-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1147,7 +1157,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:14:05-06:00"
+    "verificado": "2026-10-29T15:14:17-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1200,7 +1210,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:13:39-06:00"
+    "verificado": "2026-10-29T15:13:46-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1253,7 +1263,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T14:13:42-06:00"
+    "verificado": "2026-10-29T15:13:50-06:00"
    },
    "super_deal": false,
    "historial": [
