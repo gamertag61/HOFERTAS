@@ -1,6 +1,6 @@
 {
  "version": 2,
- "actualizado": "2026-10-29T15:14:47-06:00",
+ "actualizado": "2026-10-29T16:10:57-06:00",
  "categorias": [
   {
    "id": "escritorios",
@@ -10,6 +10,11 @@
   {
    "id": "monitores",
    "nombre": "Monitores",
+   "total": 3
+  },
+  {
+   "id": "iluminacion",
+   "nombre": "Iluminación",
    "total": 3
   },
   {
@@ -25,11 +30,6 @@
   {
    "id": "mouse",
    "nombre": "Mouse",
-   "total": 2
-  },
-  {
-   "id": "iluminacion",
-   "nombre": "Iluminación",
    "total": 2
   },
   {
@@ -97,7 +97,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:13:13-06:00"
+    "verificado": "2026-10-29T16:09:43-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -150,7 +150,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:13:26-06:00"
+    "verificado": "2026-10-29T16:09:55-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -203,7 +203,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:13:21-06:00"
+    "verificado": "2026-10-29T16:09:52-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -256,7 +256,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:13:06-06:00"
+    "verificado": "2026-10-29T16:09:36-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -309,7 +309,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:13:43-06:00"
+    "verificado": "2026-10-29T16:10:12-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -362,7 +362,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:14:09-06:00"
+    "verificado": "2026-10-29T16:10:38-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -415,7 +415,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:13:09-06:00"
+    "verificado": "2026-10-29T16:09:40-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -468,13 +468,66 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:12:43-06:00"
+    "verificado": "2026-10-29T16:09:16-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
      998.0
+    ]
+   ]
+  },
+  {
+   "id": "MLM61677176",
+   "link": "https://meli.la/2JNk1rS",
+   "nombre": "Lámpara LED de escritorio con clip",
+   "titulo": "Lámpara Led De Escritorio Con Clip Ajustable, 3 Tonos, 10 Niveles, 360° Y Usb - $ 249.99",
+   "categoria": "iluminacion",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_912775-MLA96770588696_112025-P.webp",
+   "precio": {
+    "actual": 249.99,
+    "antes": 469.0,
+    "tachado": 469.0,
+    "referencia_30d": null,
+    "minimo_30d": 249.99
+   },
+   "descuento": {
+    "pct": 47,
+    "real_pct": 0,
+    "tachado_pct": 47,
+    "ahorro": 219.01
+   },
+   "cupon": null,
+   "specs": [
+    {
+     "texto": "3 tonos",
+     "emoji": "💡",
+     "icono": "check"
+    },
+    {
+     "texto": "10 niveles",
+     "emoji": "🎚️",
+     "icono": "check"
+    },
+    {
+     "texto": "Conexión USB",
+     "emoji": "🔌",
+     "icono": "cable"
+    }
+   ],
+   "senales": {
+    "tachado_inflado": false,
+    "historial_dias": 1,
+    "historial_suficiente": false,
+    "nombre_ia": true,
+    "verificado": "2026-10-29T16:10:25-06:00"
+   },
+   "super_deal": false,
+   "historial": [
+    [
+     "2026-10-29",
+     249.99
     ]
    ]
   },
@@ -521,13 +574,66 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:14:25-06:00"
+    "verificado": "2026-10-29T16:10:52-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
      474.01
+    ]
+   ]
+  },
+  {
+   "id": "MLM19159879",
+   "link": "https://meli.la/143CXmW",
+   "nombre": "Procesador AMD Ryzen 7 5700X",
+   "titulo": "Procesadoramd Ryzen 7 5700x 4.6ghz 8core Am4 100000926box - $ 4,119",
+   "categoria": "componentes",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_928840-MLA99509517996_112025-P.webp",
+   "precio": {
+    "actual": 4119.0,
+    "antes": 6647.0,
+    "tachado": 6647.0,
+    "referencia_30d": null,
+    "minimo_30d": 4119.0
+   },
+   "descuento": {
+    "pct": 38,
+    "real_pct": 0,
+    "tachado_pct": 38,
+    "ahorro": 2528.0
+   },
+   "cupon": null,
+   "specs": [
+    {
+     "texto": "8 Núcleos",
+     "emoji": "⚙️",
+     "icono": "disco"
+    },
+    {
+     "texto": "4.6 GHz",
+     "emoji": "⚡",
+     "icono": "disco"
+    },
+    {
+     "texto": "Socket AM4",
+     "emoji": "🔌",
+     "icono": "check"
+    }
+   ],
+   "senales": {
+    "tachado_inflado": false,
+    "historial_dias": 1,
+    "historial_suficiente": false,
+    "nombre_ia": true,
+    "verificado": "2026-10-29T16:10:19-06:00"
+   },
+   "super_deal": false,
+   "historial": [
+    [
+     "2026-10-29",
+     4119.0
     ]
    ]
   },
@@ -574,7 +680,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:13:30-06:00"
+    "verificado": "2026-10-29T16:10:00-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -627,7 +733,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:14:12-06:00"
+    "verificado": "2026-10-29T16:10:41-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -680,7 +786,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:13:40-06:00"
+    "verificado": "2026-10-29T16:10:07-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -733,7 +839,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:14:20-06:00"
+    "verificado": "2026-10-29T16:10:48-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -786,7 +892,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:13:01-06:00"
+    "verificado": "2026-10-29T16:09:33-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -839,7 +945,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:12:48-06:00"
+    "verificado": "2026-10-29T16:09:20-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -892,7 +998,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:14:04-06:00"
+    "verificado": "2026-10-29T16:10:35-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -945,7 +1051,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:13:17-06:00"
+    "verificado": "2026-10-29T16:09:47-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -998,7 +1104,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:12:38-06:00"
+    "verificado": "2026-10-29T16:09:11-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1051,7 +1157,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:12:57-06:00"
+    "verificado": "2026-10-29T16:09:29-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1104,7 +1210,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:14:00-06:00"
+    "verificado": "2026-10-29T16:10:30-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1157,7 +1263,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:14:17-06:00"
+    "verificado": "2026-10-29T16:10:45-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1210,66 +1316,13 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T15:13:46-06:00"
+    "verificado": "2026-10-29T16:10:16-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
      190.79
-    ]
-   ]
-  },
-  {
-   "id": "MLM19159879",
-   "link": "https://meli.la/143CXmW",
-   "nombre": "Procesador AMD Ryzen 7 5700X",
-   "titulo": "Procesadoramd Ryzen 7 5700x 4.6ghz 8core Am4 100000926box - $ 4,119",
-   "categoria": "componentes",
-   "imagen": "https://http2.mlstatic.com/D_NQ_NP_928840-MLA99509517996_112025-P.webp",
-   "precio": {
-    "actual": 4119.0,
-    "antes": 4399.0,
-    "tachado": 4399.0,
-    "referencia_30d": null,
-    "minimo_30d": 4119.0
-   },
-   "descuento": {
-    "pct": 6,
-    "real_pct": 0,
-    "tachado_pct": 6,
-    "ahorro": 280.0
-   },
-   "cupon": null,
-   "specs": [
-    {
-     "texto": "8 Núcleos",
-     "emoji": "⚙️",
-     "icono": "disco"
-    },
-    {
-     "texto": "4.6 GHz",
-     "emoji": "⚡",
-     "icono": "disco"
-    },
-    {
-     "texto": "Socket AM4",
-     "emoji": "🔌",
-     "icono": "check"
-    }
-   ],
-   "senales": {
-    "tachado_inflado": false,
-    "historial_dias": 1,
-    "historial_suficiente": false,
-    "nombre_ia": true,
-    "verificado": "2026-10-29T15:13:50-06:00"
-   },
-   "super_deal": false,
-   "historial": [
-    [
-     "2026-10-29",
-     4119.0
     ]
    ]
   }
