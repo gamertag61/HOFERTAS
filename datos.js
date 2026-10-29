@@ -30,6 +30,25 @@ window.cargarAlertas = async function () {
   return { actualizado: d.actualizado, alertas };
 };
 
+/* Relleno para que el feed nunca se quede vacío (5 videos diarios): con 5 o más caídas reales se usan tal cual;
+   con menos, se completa hasta exactamente `minimo` con productos del catálogo (datos.json) marcados como destacados.
+   Los destacados NO llevan precio anterior ni descuento (o = null, relleno = true): no se inventa ninguna baja.
+   Se eligen de categorías distintas y rotan cada día para no repetir siempre los mismos. */
+window.completarConDestacados = function (caidas, productos, minimo = 5) {
+  if (caidas.length >= minimo) return caidas;
+  const usados = new Set(caidas.map(p => p.link));
+  const pool = (productos || [])
+    .filter(p => p && !usados.has(p.link) && p.n > 0 && /^https:\/\//.test(p.link) && p.i)
+    .sort((a, b) => (b.specs?.length || 0) - (a.specs?.length || 0) || String(a.link).localeCompare(String(b.link)));
+  if (!pool.length) return caidas;
+  const dia = Math.floor(Date.now() / 864e5), inicio = dia % pool.length;
+  const rotado = pool.slice(inicio).concat(pool.slice(0, inicio));
+  const elegidos = [], cats = new Set(caidas.map(p => p.categoria));
+  for (const p of rotado) if (elegidos.length + caidas.length < minimo && !cats.has(p.categoria)) { elegidos.push(p); cats.add(p.categoria); }
+  for (const p of rotado) if (elegidos.length + caidas.length < minimo && !elegidos.includes(p)) elegidos.push(p);
+  return caidas.concat(elegidos.map(p => ({ ...p, o: null, super: false, caida: null, relleno: true })));
+};
+
 function deV2(d) {
   const hist = {};
   const productos = (d.productos || []).map(p => {
