@@ -2,5 +2,10 @@
   "repo": "gamertag61/HOFERTAS",
   "token": "PEGA_AQUI_TU_TOKEN_DE_GITHUB",
   "rama": "main",
-  "intervalo_min": 180
+  "gemini_api_key": "PEGA_AQUI_TU_CLAVE_DE_GEMINI",
+  "gemini_modelo": "gemini-3.1-flash-lite",
+  "intervalo_min": 30,
+  "ia_max_por_vuelta": 12,
+  "ia_minutos_por_vuelta": 6,
+  "reglas": {}
 }

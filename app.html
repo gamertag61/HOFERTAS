@@ -84,13 +84,14 @@
   </div>
 </div>
 
+<script src="nombres.js"></script>
+<script src="datos.js"></script>
 <script>
 (() => {
   const $ = id => document.getElementById(id);
   const mxn = new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', maximumFractionDigits: 0 });
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const off = p => Math.round((1 - p.n / p.o) * 100);
-  const corto = (t, n = 5) => t.split(/[,|(]/)[0].trim().split(/\s+/).slice(0, n).join(' ');
   const enlace = url => `href="${esc(url)}" target="_blank" rel="noopener noreferrer sponsored"`;
 
   /* ---------- Especificaciones sacadas del título real ---------- */
@@ -106,13 +107,11 @@
     [/(\d{2,4})\s?(gb|tb)\b/i, m => `${m[1]} ${m[2].toUpperCase()}`],
     [/\brgb\b/i, () => 'RGB']
   ];
-  const specs = p => { const out = []; for (const [re, f] of reglas) { const m = p.t.match(re); if (m) out.push(f(m)); if (out.length === 3) break; } return out; };
+  const specs = p => { if (p.specs && p.specs.length) return p.specs.map(s => s.texto); const out = []; for (const [re, f] of reglas) { const m = p.t.match(re); if (m) out.push(f(m)); if (out.length === 3) break; } return out; };
 
   /* ---------- Guion (plantilla con los datos reales de la oferta) ---------- */
-  // Nombre corto sin palabras sueltas al final ("Escritorio Gamer Tielopa en" → "Escritorio Gamer Tielopa")
-  const nombreCorto = t => corto(t, 4).replace(/(\s+(en|de|del|con|para|y|la|el|los|las|a|para|sin|por))+$/i, '');
   function guion(p) {
-    const nombre = nombreCorto(p.t), s = specs(p), ahorro = mxn.format(p.o - p.n);
+    const nombre = window.nombreComercial(p), s = specs(p), ahorro = mxn.format(p.o - p.n);
     const lista = s.length > 1 ? s.slice(0, -1).join(', ') + ' y ' + s[s.length - 1] : s[0];
     return [
       `¿Ibas a pagar <span class="text-zinc-400 line-through decoration-[3px]">${esc(mxn.format(p.o))}</span> por esto?`,
@@ -133,12 +132,13 @@
     return `
     <li class="entra rounded-2xl border border-linea bg-mate p-2.5" style="--i:${Math.min(k, 8)}">
       <div class="flex gap-3">
-        <a ${enlace(p.link)} class="relative block h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-white p-2" aria-label="Abrir ${esc(corto(p.t))} en Mercado Libre">
+        <a ${enlace(p.link)} class="relative block h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-white p-2" aria-label="Abrir ${esc(window.nombreComercial(p))} en Mercado Libre">
           <img src="${esc(p.i)}" alt="" loading="lazy" class="h-full w-full object-contain">
           <span class="num absolute left-1 top-1 rounded-full bg-lima px-1.5 py-0.5 font-mono text-[10px] font-bold text-tinta">-${off(p)}%</span>
         </a>
         <div class="min-w-0 flex-1">
-          <h3 class="line-clamp-2 text-[13px] font-medium leading-5 text-zinc-100">${esc(p.t)}</h3>
+          ${p.super ? '<span class="mb-0.5 inline-block rounded-full bg-lima/15 px-2 py-0.5 text-[10px] font-semibold text-lima">Súper oferta</span>' : ''}
+          <h3 class="line-clamp-2 text-[13px] font-medium leading-5 text-zinc-100" title="${esc(p.t)}">${esc(window.nombreComercial(p))}</h3>
           <p class="mt-1 truncate font-mono text-[10.5px] text-humo">${esc(specs(p).join(' · ') || 'Ahorras ' + mxn.format(p.o - p.n))}</p>
           <p class="mt-1.5 flex items-baseline gap-2">
             <span class="num text-lg font-bold tracking-tight text-lima">${mxn.format(p.n)}</span>
@@ -161,7 +161,7 @@
 
   feed.addEventListener('click', e => {
     const f = e.target.closest('[data-fondos]'), g = e.target.closest('[data-guion]');
-    if (f) window.open('https://www.pinterest.com/search/pins/?q=' + encodeURIComponent(corto(P[f.dataset.fondos].t, 4) + ' aesthetic wallpaper'), '_blank', 'noopener');
+    if (f) window.open('https://www.pinterest.com/search/pins/?q=' + encodeURIComponent(window.nombreComercial(P[f.dataset.fondos]) + ' aesthetic wallpaper'), '_blank', 'noopener');
     if (g) abrir(P[g.dataset.guion], g);
   });
 
@@ -176,7 +176,7 @@
 
   function abrir(p, boton) {
     origen = boton;
-    $('p-titulo').textContent = corto(p.t, 6);
+    $('p-titulo').textContent = window.nombreComercial(p);
     texto.innerHTML = guion(p).map(l => `<p>${l}</p>`).join('');
     texto.scrollTop = 0;
     prompter.classList.add('abierto');
@@ -192,12 +192,11 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && prompter.classList.contains('abierto')) cerrar(); });
 
   /* ---------- Datos ---------- */
-  fetch('ofertas.json?t=' + Date.now(), { cache: 'no-store' })
-    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  window.cargarOfertas()
     .then(d => {
       P = (d.productos || [])
         .filter(p => p && /^https:\/\//.test(p.link) && /^(https:\/\/|[\w\/-]+\.(webp|jpe?g|png)$)/i.test(p.i) && p.n > 0 && p.n < p.o)
-        .sort((x, y) => off(y) - off(x));
+        .sort((x, y) => (!!y.super - !!x.super) || off(y) - off(x));
       const hora = d.actualizado ? new Date(d.actualizado).toLocaleString('es-MX', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '';
       $('estado').textContent = `${P.length} ofertas` + (hora ? ` · actualizado ${hora}` : '');
       feed.innerHTML = P.length ? P.map(tarjeta).join('') : '<li class="py-16 text-center text-humo">Hoy no hay ofertas nuevas.</li>';

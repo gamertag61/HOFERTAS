@@ -21,7 +21,7 @@ Las ofertas no se escriben a mano ni se calculan con porcentajes: el Radar lee e
 
 ## Operating Context
 
-- **Flujo de datos:** `enlaces.txt` (lista curada) → `heleos_radar.py` → `ofertas.json` (ofertas publicables) + `historial.json` (precio por día, hasta 90 días por enlace) → catálogo y estudio leen `ofertas.json` con `fetch`.
+- **Flujo de datos:** `enlaces.txt` (lista curada) → `heleos_radar.py` (memoria en `precios.db`, reglas anti-fraude de 30 días, nombres con IA) → `datos.json` (catálogo con historial diario) + `alertas.json` (súper ofertas) → sitio, panel y app los leen con `fetch` (vía `datos.js`).
 - **Contenido:** el dueño genera capturas 9:16 de cada oferta (hoy en `studio.html`) y las publica como carruseles de TikTok; el comprador llega de ahí al catálogo.
 - **Hardware:** el catálogo y el Centro de Mando se programan en la laptop principal (8 GB). El Radar corre 24/7 en una laptop secundaria de 4 GB (ver CLAUDE.md).
 - **Mercado:** México, español (`es-MX`), precios en MXN sin centavos.

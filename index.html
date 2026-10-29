@@ -272,6 +272,7 @@
 </footer>
 
 <script src="nombres.js"></script>
+<script src="datos.js"></script>
 <script>
 (() => {
   const mxn = new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', maximumFractionDigits: 0 });
@@ -312,6 +313,7 @@
   ];
   const icono = k => `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${I[k]}</svg>`;
   function pildoras(p) {
+    if (p.specs && p.specs.length) return p.specs.slice(0, 3).map(s => [s.texto, I[s.icono] ? s.icono : 'etiqueta']);
     const out = [];
     for (const [re, f, ic] of reglas) { const m = p.t.match(re); if (m) out.push([f(m), ic]); if (out.length === 3) break; }
     if (out.length < 2) out.push([`Ahorras ${mxn.format(p.o - p.n)}`, 'etiqueta']);
@@ -445,7 +447,7 @@
   new IntersectionObserver(es => es.forEach(e => { svgVisible = e.isIntersecting; svg.classList.toggle('in', svgVisible); }), { threshold: 0.35 }).observe(svg);
 
   function montarHistorial(d, hist) {
-    const alertas = (d.alertas || []).filter(a => a && a.antes > a.ahora).slice(0, 3);
+    const alertas = (d.bajas || []).filter(a => a && a.antes > a.ahora).slice(0, 3);
     series = alertas.map(a => {
       const h = (hist[a.link] || []).filter(q => q && q.precio > 0).map(q => ({ fecha: q.fecha, precio: q.precio }));
       const f = String(a.fecha || '').slice(0, 10);
@@ -466,9 +468,8 @@
   }
 
   /* ---------- Datos reales de precios ---------- */
-  const leer = url => fetch(url + '?t=' + Date.now(), { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
-  Promise.all([leer('ofertas.json'), leer('historial.json').catch(() => ({}))])
-    .then(([d, hist]) => {
+  window.cargarOfertas()
+    .then(d => {
       P = (d.productos || []).filter(p => p && /^https:\/\//.test(p.link) && /^(https:\/\/|[\w\/-]+\.(webp|jpe?g|png)$)/i.test(p.i) && p.n > 0 && p.n < p.o);
       $('m-total').textContent = P.length;
       if (d.actualizado) {
@@ -478,7 +479,7 @@
         $('f-fecha').textContent = `Precios actualizados el ${new Intl.DateTimeFormat('es-MX', { dateStyle: 'long', timeStyle: 'short' }).format(t)}`;
         $('act').textContent = `${P.length} ofertas con descuento real. Última actualización de precios ${txt}.`;
       }
-      montarHistorial(d, hist);
+      montarHistorial(d, d.hist);
       if (!P.length) { $('h-oferta').hidden = true; return aviso('Hoy no hay ofertas nuevas. Vuelve en unas horas.'); }
       pintar();
       /* Oferta del día: el teclado con más descuento (o la mayor oferta si no hay teclados) */

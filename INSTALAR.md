@@ -1,51 +1,103 @@
-# Instalar Heleos (sin depender de la laptop principal)
+# Instalar el sistema (sin depender de la laptop principal)
 
 ```
- Cockpit (dashboard.html) ──escribe enlaces.txt──▶  GitHub (repositorio)  ◀──lee enlaces.txt── Radar (laptop viejita, 24/7)
- Catálogo (index.html)    ◀──lee ofertas.json────  + GitHub Pages        ◀──publica ofertas.json + historial.json──┘
+ Panel (dashboard.html) ──escribe enlaces.txt──▶  GitHub (repositorio)  ◀──lee enlaces.txt──── Radar (laptop viejita, 24/7)
+ Sitio, panel y app      ◀──leen datos.json─────  + GitHub Pages        ◀──publica datos.json + alertas.json──┘
+                                                                          precios.db (memoria de 30 días) se queda en la laptop
 ```
 
-- **GitHub Pages** sirve el catálogo y el Cockpit gratis y siempre encendidos.
+- **GitHub Pages** sirve el sitio, el panel y la app gratis y siempre encendidos.
 - **El radar** es lo único que corre en tu casa: en la laptop viejita (4 GB), solo `requests` + `BeautifulSoup`.
 - **Tu laptop principal** ya no hace falta encendida.
 
 ## 1. Repositorio y GitHub Pages (una sola vez)
 
-1. En github.com crea un repositorio **público** llamado `HOFERTAS` (sin README) — hecho.
-2. Sube esta carpeta (Claude deja el commit listo; `git push` te pedirá iniciar sesión en GitHub).
-3. En el repositorio: **Settings → Pages → Source: Deploy from a branch → `main` / `(root)` → Save**.
-4. En 1–2 minutos quedan en línea:
-   - Catálogo: `https://gamertag61.github.io/HOFERTAS/`
-   - Cockpit: `https://gamertag61.github.io/HOFERTAS/dashboard.html`
+1. Repositorio **público** `gamertag61/HOFERTAS` — hecho.
+2. En el repositorio: **Settings → Pages → Source: Deploy from a branch → `main` / `(root)` → Save**.
+3. En 1–2 minutos quedan en línea:
+   - Sitio: `https://gamertag61.github.io/HOFERTAS/`
+   - Panel: `https://gamertag61.github.io/HOFERTAS/dashboard.html`
+   - App del creador: `https://gamertag61.github.io/HOFERTAS/app.html`
 
-## 2. Token de GitHub (lo creas tú)
+## 2. Tus claves (token de GitHub y clave de Gemini)
 
-GitHub → **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**:
+### 2.1 Crear o revisar cada clave
 
+**Token de GitHub** — GitHub → **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**:
 - Repository access: **Only select repositories → `HOFERTAS`**.
 - Permissions → Repository → **Contents: Read and write** (nada más).
-- Expiración: la que prefieras (cuando venza, crea otro y cámbialo en los dos lugares de abajo).
+- Expiración: la que prefieras (cuando venza, crea otro y cámbialo en `heleos_config.json` y en el panel).
 
-Ese token se usa en el radar y en el Cockpit. No lo subas al repositorio ni lo compartas.
+**Clave de Gemini** — en **Google AI Studio → Get API key** (https://aistudio.google.com/apikey).
+Usa una clave de un proyecto dedicado a esto. El radar usa el modelo `gemini-3.1-flash-lite`; si AI Studio ya no lo
+lista, cambia `gemini_modelo` en el paso 2.2 por el modelo "Flash-Lite" que aparezca ahí.
+
+### 2.2 Guardarlas en la laptop del radar (nunca en el código)
+
+1. Copia a una carpeta, p. ej. `C:\Radar`: `heleos_radar.py`, la carpeta `radar\`, `iniciar_radar.bat`
+   y `heleos_config.ejemplo.json`.
+2. En esa carpeta, copia `heleos_config.ejemplo.json` y renombra la copia a **`heleos_config.json`**
+   (en el Explorador activa **Vista → Mostrar → Extensiones de nombre de archivo** para no terminar con `heleos_config.json.txt`).
+3. Ábrelo con el Bloc de notas y reemplaza solo los textos entre comillas:
+   ```json
+   {
+     "repo": "gamertag61/HOFERTAS",
+     "token": "github_pat_11ABC…",
+     "rama": "main",
+     "gemini_api_key": "AIzaSy…",
+     "gemini_modelo": "gemini-3.1-flash-lite",
+     "intervalo_min": 30,
+     "ia_max_por_vuelta": 12,
+     "ia_minutos_por_vuelta": 6,
+     "reglas": {}
+   }
+   ```
+   - Pega cada clave completa, sin espacios antes ni después, dentro de las comillas.
+   - No borres comas ni llaves. Guarda con **Archivo → Guardar** (codificación UTF-8).
+4. Comprueba Gemini: abre una terminal en la carpeta y corre `python heleos_radar.py --probar-ia`.
+   Debe mostrar un nombre limpio y decir **"La clave de Gemini funciona."**
+5. Protege el archivo (opcional, recomendado): clic derecho en `heleos_config.json` → **Propiedades → Seguridad**
+   y deja con acceso solo a tu usuario.
+6. **Borra el .txt donde tenías las claves** (y vacía la Papelera). Desde ahora viven solo en `heleos_config.json`.
+
+Reglas de oro:
+- `heleos_config.json` está en `.gitignore`: **nunca lo subas** al repositorio ni lo mandes por chat o correo.
+- El radar nunca imprime las claves completas (solo `AIza…x1Y2`).
+- Si una clave se filtra: revócala (GitHub → Tokens / AI Studio → borrar clave), crea otra y pégala en `heleos_config.json`.
+
+**Alternativa sin archivo:** variables de entorno de Windows. En una terminal, una vez:
+`setx GEMINI_API_KEY "AIzaSy…"` y `setx HELEOS_TOKEN "github_pat_…"` (y `setx HELEOS_REPO "gamertag61/HOFERTAS"`).
+Cierra y abre la terminal. Si existen, tienen prioridad sobre `heleos_config.json`.
 
 ## 3. Radar en la laptop viejita
 
 1. Instala Python 3 (python.org, marca "Add python.exe to PATH").
 2. En una terminal: `pip install requests beautifulsoup4`
-3. Copia a una carpeta (p. ej. `C:\Heleos`): `heleos_radar.py`, `iniciar_radar.bat` y `heleos_config.ejemplo.json`.
-4. Renombra `heleos_config.ejemplo.json` a `heleos_config.json` y llena `repo` (`gamertag61/HOFERTAS`) y `token`.
-   `intervalo_min` = minutos entre vueltas (180 = cada 3 horas; mínimo 15).
-5. Doble clic en `iniciar_radar.bat`. Debe decir `Modo: GitHub gamertag61/HOFERTAS` y al final `publicado en GitHub`.
-6. Para que arranque solo: `Win + R` → `shell:startup` → pega ahí un acceso directo a `iniciar_radar.bat`.
-7. Configura Windows para que la laptop no se suspenda (Configuración → Energía → Suspender: Nunca).
+3. Haz el paso 2.2.
+4. Doble clic en `iniciar_radar.bat`. La primera línea debe decir `Modo: GitHub gamertag61/HOFERTAS | IA: gemini-…`
+   y cada vuelta termina con `Publicado en GitHub`.
+5. Para que arranque solo: `Win + R` → `shell:startup` → pega ahí un acceso directo a `iniciar_radar.bat`.
+6. Configura Windows para que la laptop no se suspenda (Configuración → Energía → Suspender: Nunca).
 
-## 4. Cockpit
+Qué hace cada vuelta (cada `intervalo_min` minutos, por defecto 30):
+- Lee cada enlace, guarda el precio en `precios.db` y descarta lecturas absurdas.
+- Detecta bajas y **súper ofertas** (caída de 8 % o más contra hace 1 hora, 15 % o más bajo su precio normal de 30 días y mínimo
+  del mes, confirmada con una segunda lectura 5 minutos después). Con menos de 7 días de historial no hay súper ofertas.
+- La IA limpia nombre, categoría y 3 specs. Si Gemini se satura, espera y reintenta; si se acaba la cuota del día,
+  se pausa hasta mañana. Los precios nunca se detienen y mientras tanto se usan nombres de respaldo.
+- Publica `datos.json` y `alertas.json` en un solo commit. Todo queda registrado en `radar.log`.
 
-Abre `https://gamertag61.github.io/HOFERTAS/dashboard.html`, toca el ícono de enlace junto al contador de la Caja de municiones,
-pega tu token y presiona **Conectar** (el repositorio se detecta solo). Desde ahí, **Guardar Enlaces** escribe en el `enlaces.txt`
-del repositorio y el radar los rastrea en su siguiente vuelta.
+Otros comandos: `python heleos_radar.py` (una sola vuelta), `--debug` (si falla un precio),
+`python -m unittest discover tests` (pruebas sin internet).
+
+## 4. Panel
+
+Abre `https://gamertag61.github.io/HOFERTAS/dashboard.html`, toca el ícono de enlace junto al contador de enlaces,
+pega tu token de GitHub y presiona **Conectar** (el repositorio se detecta solo). Desde ahí, **Guardar enlaces** escribe en el
+`enlaces.txt` del repositorio y el radar los rastrea en su siguiente vuelta. Al agregar productos, suma su nombre comercial
+en `nombres.js` si quieres uno escrito a mano (si no, se usa el de la IA).
 
 ## Probar en la laptop principal (opcional)
 
-`python -m http.server 8765` → `http://localhost:8765/` y `http://localhost:8765/dashboard.html`.
-Sin `heleos_config.json`, `python heleos_radar.py` trabaja con los archivos locales.
+`python -m http.server 8765` → `http://localhost:8765/`. Sin `heleos_config.json`, `python heleos_radar.py` trabaja con
+los archivos locales.

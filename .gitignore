@@ -11,3 +11,8 @@ skills-lock.json
 probar_ml*.py
 __pycache__/
 *.log
+
+# Memoria local del radar (solo en la laptop del radar)
+precios.db
+precios.db-*
+.env

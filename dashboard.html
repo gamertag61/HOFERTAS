@@ -150,6 +150,7 @@
 </div>
 
 <script src="nombres.js"></script>
+<script src="datos.js"></script>
 <script>
 (() => {
   const $ = id => document.getElementById(id);
@@ -350,7 +351,7 @@
     [/(\d{2,4})\s?(gb|tb)\b/i, m => `${m[1]} ${m[2].toUpperCase()}`],
     [/\brgb\b/i, () => 'RGB']
   ];
-  const specs = p => { const out = []; for (const [re, f] of reglas) { const m = p.t.match(re); if (m) out.push(f(m)); if (out.length === 3) break; } return out; };
+  const specs = p => { if (p.specs && p.specs.length) return p.specs.map(s => s.texto); const out = []; for (const [re, f] of reglas) { const m = p.t.match(re); if (m) out.push(f(m)); if (out.length === 3) break; } return out; };
 
   const feed = $('feed'), origen = $('origen');
   let P = [];
@@ -366,6 +367,7 @@
           <span class="num absolute left-1 top-1 rounded-full bg-lima px-1.5 py-0.5 font-mono text-[11px] font-bold text-tinta">-${off(p)}%</span>
         </a>
         <div class="min-w-0 flex-1">
+          ${p.super ? '<span class="mb-1 inline-block rounded-full bg-lima/15 px-2 py-0.5 text-[11px] font-semibold text-lima">Súper oferta</span>' : ''}
           <h3 class="line-clamp-2 text-[15px] font-semibold leading-snug text-zinc-50" title="${esc(p.t)}">${esc(nombre(p))}</h3>
           ${s.length ? `<p class="mt-1 truncate font-mono text-xs text-humo">${esc(s.join(' · '))}</p>` : ''}
           <p class="mt-2 flex items-baseline gap-2.5">
@@ -430,18 +432,17 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && prompter.classList.contains('abierto')) cerrar(); });
 
   /* ---------- Datos ---------- */
-  fetch('ofertas.json?t=' + Date.now(), { cache: 'no-store' })
-    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  window.cargarOfertas()
     .then(d => {
       P = (d.productos || [])
         .filter(p => p && /^https:\/\//.test(p.link) && /^(https:\/\/|[\w\/-]+\.(webp|jpe?g|png)$)/i.test(p.i) && p.n > 0 && p.n < p.o)
-        .sort((x, y) => off(y) - off(x));
+        .sort((x, y) => (!!y.super - !!x.super) || off(y) - off(x));
       const hora = d.actualizado ? new Date(d.actualizado).toLocaleString('es-MX', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '';
       origen.textContent = `${P.length} súper ofertas` + (hora ? ` · actualizado ${hora}` : '');
       feed.innerHTML = P.length ? P.map(tarjeta).join('') : '<li class="py-16 text-center text-humo">Hoy no hay ofertas nuevas.</li>';
     })
     .catch(() => {
-      origen.textContent = 'Sin conexión con ofertas.json';
+      origen.textContent = 'Sin conexión con los datos de precios';
       feed.innerHTML = '<li class="py-16 text-center text-humo">No pudimos cargar las ofertas. Recarga en un momento.</li>';
     });
 

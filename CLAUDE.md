@@ -45,17 +45,22 @@ Pedido por el usuario el 2026-10-28. Ya **no** carga Mercado Libre: el `<iframe>
 - Las claves de `localStorage` siguen siendo `heleos.municion` y `heleos.github` para no perder el borrador ni el token ya guardados.
 ### App del creador (`app.html`) — nueva (2026-10-28)
 
-Mobile-first (`max-w-md`), para usar en el celular al grabar TikToks. (Todavía muestra el título largo de Mercado Libre recortado a 2 líneas; no usa `nombres.js`.) Feed compacto de `ofertas.json` (foto, título a 2 líneas, specs sacadas del título, tachado y precio lima) con "Buscar fondos" (Pinterest) y "Ver guion": teleprompter a pantalla completa con un guion armado por plantilla con los datos reales (no hay IA conectada), botón lima grande para cerrar, A−/A+ y Escape.
+Mobile-first (`max-w-md`), para usar en el celular al grabar TikToks. Feed compacto de `ofertas.json` (foto, título a 2 líneas, specs sacadas del título, tachado y precio lima) con "Buscar fondos" (Pinterest) y "Ver guion": teleprompter a pantalla completa con un guion armado por plantilla con los datos reales (no hay IA conectada), botón lima grande para cerrar, A−/A+ y Escape.
 
 - Se sirve con `python -m http.server 8765` (`.claude/launch.json`) → `http://localhost:8765/dashboard.html`.
 
-### Fase B: Radar + despliegue sin laptop principal — SUBIDO a gamertag61/HOFERTAS (2026-10-27); falta activar Pages, token y radar en la laptop viejita
+### Fase B: Radar v2 (2026-10-28) — código listo y probado en local; falta instalarlo en la laptop viejita con las claves
 
-Arquitectura: **GitHub es el bus de datos**. Solo el radar depende de una máquina encendida (laptop viejita).
+Arquitectura: **GitHub es el bus de datos**. Solo el radar depende de una máquina encendida (laptop viejita). Pasos para el usuario: `INSTALAR.md` (claves en `heleos_config.json`, fuera de git, o variables de entorno `GEMINI_API_KEY`, `HELEOS_TOKEN`, `HELEOS_REPO`).
 
-- **Nombres comerciales:** `nombres.js` (compartido por `index.html` y `dashboard.html`) guarda `NOMBRES` por enlace de afiliado y `nombreComercial(p)` (NOMBRES → `p.nombre` → recorte automático hasta el modelo). Al agregar enlaces nuevos, sumar aquí su nombre.
-- **GitHub Pages** sirve `index.html`, `dashboard.html` y `app.html` (repositorio público `gamertag61/HOFERTAS` → https://gamertag61.github.io/HOFERTAS/).
-- **Cockpit**: "Guardar Enlaces" escribe `enlaces.txt` en el repo vía API de GitHub (token fine-grained, solo Contents, guardado en `localStorage` del navegador del usuario; repo deducido de `usuario.github.io/repo`). Sin token usa el archivo local como antes.
-- **Radar** (`heleos_radar.py`): con `heleos_config.json` (gitignored) lee `enlaces.txt` del repo y publica `ofertas.json` + `historial.json` en **un solo commit** (Git Data API, solo `requests`). `--loop` corre cada `intervalo_min` (mín. 15, default 180) y no se cae por errores de red. Detecta bajas de precio contra el último precio del historial y las guarda en `ofertas.json.alertas` (máx. 30); el Cockpit las muestra.
-- Pasos de instalación para el usuario: `INSTALAR.md`. Arranque 24/7: `iniciar_radar.bat` en `shell:startup`.
-- Probado: vuelta real local (25 ofertas, 5 bajas reales); modo GitHub del radar y del Cockpit con API simulada. **No probado aún contra GitHub real** (falta repo + token del usuario).
+- **Código:** `heleos_radar.py` (orquestador: `--loop`, `--probar-ia`, `--debug`) + paquete `radar/`:
+  - `extraer.py`: requests + BS4 (JSON-LD → meta → pantalla). Precio, tachado, ID `MLM…`, disponibilidad y cupón del producto principal (ignora las tarjetas `poly-card`/recomendaciones, que traen cupones de otros productos).
+  - `db.py`: `precios.db` (SQLite, WAL; gitignored, solo en la laptop del radar). Tablas `productos`, `observaciones`, `enriquecimiento_ia`, `alertas` (`super` | `baja`), `meta`. La primera vez importa `historial.json`.
+  - `reglas.py`: anti-fraude con umbrales configurables (`"reglas"` en la config). Referencia = mediana de 30 días de nuestro historial sin las últimas 24 h; con menos de 7 días se usa el tachado. Súper oferta: caída ≥ 8 % contra hace ~1 h (ventana 45–90 min), descuento real ≥ 15 %, mínimo de 30 días y segunda lectura de confirmación 5 min después. Lecturas a más de 70 % de la mediana se descartan.
+  - `ia.py`: Gemini por REST (solo requests), `responseMimeType: application/json` + `responseJsonSchema` (con respaldo a `responseSchema`). Modelo por defecto `gemini-3.1-flash-lite` (los 2.5 ya no se habilitan para proyectos nuevos). Cola en SQLite: 429/5xx → espera exponencial respetando `retryDelay`; cuota diaria → pausa hasta mañana; clave inválida → reintento en 6 h. Nunca frena los precios: mientras tanto usa `respaldo()` (nombre, categoría y specs por reglas).
+  - `exportar.py`: `datos.json` (`version: 2`, productos con `precio.antes` = referencia o tachado, `descuento`, `cupon`, `specs` con emoji + ícono, `senales`, `super_deal`, `historial` diario, `categorias`, `bajas`) y `alertas.json` (súper ofertas de 7 días, máx. 30). Publica ambos en un commit y retira `ofertas.json`/`historial.json` del repo.
+  - `github.py`: commit único vía Git Data API (también borra archivos).
+- **Frontend:** `datos.js` (compartido por las tres páginas) carga `datos.json` y, si no existe, el formato anterior; lo normaliza a la forma `{t, o, n, i, link, nombre, specs, super}`. `nombres.js` (las tres páginas): `NOMBRES` escritos a mano por enlace → `p.nombre` (IA o respaldo) → recorte automático.
+- **Pruebas:** `python -m unittest discover tests` (reglas, cola de IA con saturación simulada, capa HTTP de Gemini contra servidor local, exportación). Probado además con dos vueltas reales en modo local (26 productos, IDs `MLM` extraídos, una baja real detectada). **No probado aún:** Gemini con una clave válida ni el modo GitHub del radar v2.
+- **Panel**: "Guardar enlaces" escribe `enlaces.txt` en el repo vía API de GitHub (token fine-grained, solo Contents, en `localStorage` del navegador). Sin token usa el archivo local.
+- Arranque 24/7: `iniciar_radar.bat` en `shell:startup`. GitHub Pages sirve `index.html`, `dashboard.html` y `app.html` (https://gamertag61.github.io/HOFERTAS/).
