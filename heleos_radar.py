@@ -7,7 +7,8 @@ Uso:       python heleos_radar.py              una vuelta
            python heleos_radar.py --probar-ia  comprueba la clave de Gemini con un título de prueba
            python heleos_radar.py --debug      muestra qué trae la primera página (si falla un precio)
 
-Claves (GitHub y Gemini) en heleos_config.json, que nunca se sube a git (ver INSTALAR.md).
+Claves en heleos_config.json, que nunca se sube a git (ver INSTALAR.md). La clave de Gemini va en "GEMINI_API_KEY";
+si falta, el radar se detiene. No hay ninguna clave escrita en el código.
 Con repo + token, lee enlaces.txt del repositorio y publica ahí en un solo commit; sin ellos, trabaja local.
 """
 import hashlib
@@ -151,15 +152,18 @@ def vuelta(db, gh, cfg, R, cliente_ia):
 
 
 def probar_ia(cfg):
-    if not cfg["gemini_api_key"]:
-        return print("Falta gemini_api_key en heleos_config.json (o la variable GEMINI_API_KEY).")
     titulo = "Teclado Inalámbrico Mecánico Attack Shark X85 Pro 82 Teclas Teclado RGB con Pantalla TFT 4000mAh"
-    print(f"Modelo: {cfg['gemini_modelo']} | clave: {config.oculto(cfg['gemini_api_key'])}")
-    try:
-        print(json.dumps(ia.Gemini(cfg["gemini_api_key"], cfg["gemini_modelo"]).enriquecer(titulo), ensure_ascii=False, indent=2))
-        print("La clave de Gemini funciona.")
-    except Exception as e:
-        print(f"No funcionó: {e.__class__.__name__}: {e}")
+    cliente = ia.Gemini(cfg["gemini_api_key"], cfg["gemini_modelo"])
+    print(f"Clave leída de {config.ARCHIVO}: {config.ultimos4(cfg['gemini_api_key'])} | modelo: {cfg['gemini_modelo']}")
+    for _ in range(4):  # el respaldo de modelo (404) y el cambio de esquema reintentan solos
+        try:
+            print(json.dumps(cliente.enriquecer(titulo), ensure_ascii=False, indent=2))
+            return print(f"La clave de Gemini funciona (modelo {cliente.modelo}).")
+        except ia.Saturada as e:
+            if e.espera > 5:
+                return print(f"Gemini está saturado ahora mismo ({e}). La clave sí respondió; vuelve a probar en un minuto.")
+        except Exception as e:
+            return print(f"No funcionó: {e.__class__.__name__}: {e}")
 
 
 def main():
@@ -174,9 +178,9 @@ def main():
         urls = leer_enlaces(gh)
         return diagnostico(nueva_sesion(), urls[0]) if urls else print("enlaces.txt vacío")
     R = reglas.con_ajustes(cfg.get("reglas"))
-    cliente_ia = ia.Gemini(cfg["gemini_api_key"], cfg["gemini_modelo"]) if cfg["gemini_api_key"] else None
+    cliente_ia = ia.Gemini(cfg["gemini_api_key"], cfg["gemini_modelo"])
     log.info("Modo: %s | IA: %s | cada %d min", f"GitHub {gh.repo}" if gh else "local",
-             f"{cfg['gemini_modelo']} (clave {config.oculto(cfg['gemini_api_key'])})" if cliente_ia else "sin clave (nombres de respaldo)",
+             f"{cfg['gemini_modelo']} (clave de {config.ARCHIVO}: {config.ultimos4(cfg['gemini_api_key'])})",
              cfg["intervalo_min"])
     db = DB(BASE)
     importar_legado(db, gh)

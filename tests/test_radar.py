@@ -255,3 +255,12 @@ class GeminiHTTP(unittest.TestCase):
         gen = recibidos[0]["generationConfig"]
         self.assertEqual(gen["responseMimeType"], "application/json")
         self.assertIn("responseJsonSchema", gen)
+
+    def test_modelo_no_disponible_pasa_al_siguiente(self):
+        url, recibidos = self.servidor([self.error(404, "NOT_FOUND", []), self.error(400, "INVALID_ARGUMENT", [])])
+        g = ia.Gemini("clave", "gemini-2.5-flash", url=url)
+        with self.assertRaises(ia.Saturada):
+            g.enriquecer("t")
+        self.assertEqual(g.modelo, "gemini-3.1-flash-lite")
+        with self.assertRaises(ia.ClaveInvalida):
+            g.enriquecer("t")

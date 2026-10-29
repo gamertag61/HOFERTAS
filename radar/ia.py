@@ -17,6 +17,8 @@ CATEGORIAS = ["Teclados", "Mouse", "Monitores", "Audio", "Escritorios", "Sillas"
               "Componentes", "Controles", "Accesorios"]
 MAX_NOMBRE = 48
 ESPERA_MAX = 900  # 15 min
+# Si el modelo configurado no existe para tu proyecto (404), se prueba el siguiente de esta lista.
+MODELOS_RESPALDO = ["gemini-2.5-flash", "gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]
 
 # Ícono SVG que dibuja la web para cada spec (la web no usa emoji); el emoji queda para la app y TikTok.
 ICONOS = [
@@ -164,9 +166,14 @@ def _segundos(txt):
 
 class Gemini:
     def __init__(self, clave, modelo, sesion=None, url=URL):
-        self.clave, self.modelo, self.url = clave, modelo, url.format(modelo=modelo)
+        self.clave, self.plantilla = clave, url
+        self.pendientes = [m for m in MODELOS_RESPALDO if m != modelo]
+        self.usar(modelo)
         self.s = sesion or requests.Session()
         self.esquema_legado = False  # por si el modelo solo acepta el formato anterior "responseSchema"
+
+    def usar(self, modelo):
+        self.modelo, self.url = modelo, self.plantilla.format(modelo=modelo)
 
     def _cuerpo(self, titulo):
         gen = {"responseMimeType": "application/json", "temperature": 0.2, "maxOutputTokens": 512}
@@ -207,6 +214,10 @@ class Gemini:
         if r.status_code == 400 and not self.esquema_legado and "responseJsonSchema" in msg:
             self.esquema_legado = True
             raise Saturada("el modelo pide el esquema anterior; se reintenta", 1)
+        if r.status_code == 404 and self.pendientes:
+            anterior = self.modelo
+            self.usar(self.pendientes.pop(0))
+            raise Saturada(f"el modelo {anterior} no está disponible para tu clave; se prueba {self.modelo}", 1)
         if r.status_code in (400, 401, 403, 404):
             raise ClaveInvalida(msg)
         raise Saturada(msg, espera or 60)

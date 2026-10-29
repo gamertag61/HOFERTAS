@@ -29,8 +29,8 @@
 - Expiración: la que prefieras (cuando venza, crea otro y cámbialo en `heleos_config.json` y en el panel).
 
 **Clave de Gemini** — en **Google AI Studio → Get API key** (https://aistudio.google.com/apikey).
-Usa una clave de un proyecto dedicado a esto. El radar usa el modelo `gemini-3.1-flash-lite`; si AI Studio ya no lo
-lista, cambia `gemini_modelo` en el paso 2.2 por el modelo "Flash-Lite" que aparezca ahí.
+Usa una clave de un proyecto dedicado a esto. El radar pide `gemini_modelo` (por defecto `gemini-2.5-flash`); si ese modelo
+no está disponible para tu clave, prueba solo `gemini-3.1-flash-lite` y luego `gemini-2.5-flash-lite`.
 
 ### 2.2 Guardarlas en la laptop del radar (nunca en el código)
 
@@ -44,8 +44,8 @@ lista, cambia `gemini_modelo` en el paso 2.2 por el modelo "Flash-Lite" que apar
      "repo": "gamertag61/HOFERTAS",
      "token": "github_pat_11ABC…",
      "rama": "main",
-     "gemini_api_key": "AIzaSy…",
-     "gemini_modelo": "gemini-3.1-flash-lite",
+     "GEMINI_API_KEY": "tu-clave-de-gemini",
+     "gemini_modelo": "gemini-2.5-flash",
      "intervalo_min": 30,
      "ia_max_por_vuelta": 12,
      "ia_minutos_por_vuelta": 6,
@@ -55,19 +55,20 @@ lista, cambia `gemini_modelo` en el paso 2.2 por el modelo "Flash-Lite" que apar
    - Pega cada clave completa, sin espacios antes ni después, dentro de las comillas.
    - No borres comas ni llaves. Guarda con **Archivo → Guardar** (codificación UTF-8).
 4. Comprueba Gemini: abre una terminal en la carpeta y corre `python heleos_radar.py --probar-ia`.
-   Debe mostrar un nombre limpio y decir **"La clave de Gemini funciona."**
+   La primera línea muestra los últimos 4 caracteres de la clave que leyó del archivo (deben coincidir con la tuya);
+   al final debe decir **"La clave de Gemini funciona"**. Si falta `GEMINI_API_KEY`, el radar se detiene con
+   `Error: No se encontró la clave en heleos_config.json`.
 5. Protege el archivo (opcional, recomendado): clic derecho en `heleos_config.json` → **Propiedades → Seguridad**
    y deja con acceso solo a tu usuario.
 6. **Borra el .txt donde tenías las claves** (y vacía la Papelera). Desde ahora viven solo en `heleos_config.json`.
 
 Reglas de oro:
 - `heleos_config.json` está en `.gitignore`: **nunca lo subas** al repositorio ni lo mandes por chat o correo.
-- El radar nunca imprime las claves completas (solo `AIza…x1Y2`).
+- El radar nunca imprime las claves completas (solo los últimos 4 caracteres).
 - Si una clave se filtra: revócala (GitHub → Tokens / AI Studio → borrar clave), crea otra y pégala en `heleos_config.json`.
 
-**Alternativa sin archivo:** variables de entorno de Windows. En una terminal, una vez:
-`setx GEMINI_API_KEY "AIzaSy…"` y `setx HELEOS_TOKEN "github_pat_…"` (y `setx HELEOS_REPO "gamertag61/HOFERTAS"`).
-Cierra y abre la terminal. Si existen, tienen prioridad sobre `heleos_config.json`.
+**La clave de Gemini solo se lee de `heleos_config.json`**: las variables de entorno de Windows se ignoran para ella.
+(Para GitHub, `HELEOS_TOKEN` y `HELEOS_REPO` solo se usan si el archivo no trae `token`/`repo`.)
 
 ## 3. Radar en la laptop viejita
 
