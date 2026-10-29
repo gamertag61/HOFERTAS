@@ -7,9 +7,9 @@ Uso:       python heleos_radar.py              una vuelta
            python heleos_radar.py --probar-ia  comprueba la clave de Gemini con un título de prueba
            python heleos_radar.py --debug      muestra qué trae la primera página (si falla un precio)
 
-Claves en heleos_config.json, que nunca se sube a git (ver INSTALAR.md). La clave de Gemini va en "GEMINI_API_KEY";
-si falta, el radar se detiene. No hay ninguna clave escrita en el código.
-Con GITHUB_REPO + GITHUB_TOKEN (o "repo" + "token"), lee enlaces.txt del repositorio y publica ahí en un solo commit; sin ellos, trabaja local.
+Cero claves en el código. La clave de Gemini sale de la variable de entorno GEMINI_API_KEY (GitHub Secrets en Actions)
+o, en una laptop, de "GEMINI_API_KEY" en heleos_config.json (nunca se sube a git); si no está, el radar se detiene.
+Con repo + token de GitHub (archivo o variables de entorno, ver radar/config.py), lee enlaces.txt del repositorio y publica ahí en un solo commit; sin ellos, trabaja local.
 """
 import hashlib
 import json
@@ -176,7 +176,7 @@ def subir(gh, archivos, mensaje):
 def probar_ia(cfg):
     titulo = "Teclado Inalámbrico Mecánico Attack Shark X85 Pro 82 Teclas Teclado RGB con Pantalla TFT 4000mAh"
     cliente = ia.Gemini(cfg["gemini_api_key"], cfg["gemini_modelo"])
-    print(f"Clave leída de {config.ARCHIVO}: {config.ultimos4(cfg['gemini_api_key'])} | modelo: {cfg['gemini_modelo']}")
+    print(f"Clave leída de {cfg['origen_clave']}: {config.ultimos4(cfg['gemini_api_key'])} | modelo: {cfg['gemini_modelo']}")
     for _ in range(4):  # el respaldo de modelo (404) y el cambio de esquema reintentan solos
         try:
             print(json.dumps(cliente.enriquecer(titulo), ensure_ascii=False, indent=2))
@@ -205,7 +205,7 @@ def main():
     R = reglas.con_ajustes(cfg.get("reglas"))
     cliente_ia = ia.Gemini(cfg["gemini_api_key"], cfg["gemini_modelo"])
     log.info("Modo: %s | IA: %s | cada %d min", f"GitHub {gh.repo}" if gh else "local",
-             f"{cfg['gemini_modelo']} (clave de {config.ARCHIVO}: {config.ultimos4(cfg['gemini_api_key'])})",
+             f"{cfg['gemini_modelo']} (clave de {cfg['origen_clave']}: {config.ultimos4(cfg['gemini_api_key'])})",
              cfg["intervalo_min"])
     db = DB(BASE)
     importar_legado(db, gh)

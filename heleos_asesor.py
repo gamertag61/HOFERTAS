@@ -4,7 +4,8 @@ Requiere:  pip install requests
 Uso:       python heleos_asesor.py           genera misiones.json y lo sube a GitHub (rama main)
            python heleos_asesor.py --local   solo genera misiones.json, sin subir
 
-Usa las mismas claves que el radar, desde heleos_config.json (GEMINI_API_KEY y GITHUB_REPO + GITHUB_TOKEN).
+Usa las mismas claves que el radar: GEMINI_API_KEY como variable de entorno (GitHub Secrets) o en heleos_config.json,
+y el repo + token de GitHub (ver radar/config.py).
 No hay ninguna clave escrita en el código. Si Gemini falla, misiones.json no se toca: las misiones anteriores siguen.
 """
 import collections
@@ -117,7 +118,7 @@ def main():
         print(f"  {cat:<14} {n}")
 
     cliente = ia.Gemini(cfg["gemini_api_key"], cfg["gemini_modelo"])
-    print(f"Consultando a Gemini ({cfg['gemini_modelo']}, clave {config.ultimos4(cfg['gemini_api_key'])})…")
+    print(f"Consultando a Gemini ({cfg['gemini_modelo']}, clave {config.ultimos4(cfg['gemini_api_key'])} de {cfg['origen_clave']})…")
     texto = PROMPT.format(nicho=NICHO, conteo="\n".join(f"- {c}: {n}" for c, n in conteo.most_common()),
                           productos="\n".join(f"- {p}" for p in productos if p))
     misiones = pedir_misiones(cliente, texto)

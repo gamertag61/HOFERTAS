@@ -1,7 +1,7 @@
 # Instalar el sistema (sin depender de la laptop principal)
 
 ```
- Panel (dashboard.html) ──escribe enlaces.txt──▶  GitHub (repositorio)  ◀──lee enlaces.txt──── Radar (laptop viejita, 24/7)
+ Panel (panel_h7x_secreto.html) ──escribe enlaces.txt──▶  GitHub (repositorio)  ◀──lee enlaces.txt──── Radar (laptop viejita, 24/7)
  Sitio, panel y app      ◀──leen datos.json─────  + GitHub Pages        ◀──publica datos.json + alertas.json──┘
                                                                           precios.db (memoria de 30 días) se queda en la laptop
 ```
@@ -16,7 +16,7 @@
 2. En el repositorio: **Settings → Pages → Source: Deploy from a branch → `main` / `(root)` → Save**.
 3. En 1–2 minutos quedan en línea:
    - Sitio: `https://gamertag61.github.io/HOFERTAS/`
-   - Panel: `https://gamertag61.github.io/HOFERTAS/dashboard.html`
+   - Panel: `https://gamertag61.github.io/HOFERTAS/panel_h7x_secreto.html`
    - App del creador: `https://gamertag61.github.io/HOFERTAS/app.html`
 
 ## 2. Tus claves (token de GitHub y clave de Gemini)
@@ -55,9 +55,9 @@ no está disponible para tu clave, prueba solo `gemini-3.1-flash-lite` y luego `
    - Pega cada clave completa, sin espacios antes ni después, dentro de las comillas.
    - No borres comas ni llaves. Guarda con **Archivo → Guardar** (codificación UTF-8).
 4. Comprueba Gemini: abre una terminal en la carpeta y corre `python heleos_radar.py --probar-ia`.
-   La primera línea muestra los últimos 4 caracteres de la clave que leyó del archivo (deben coincidir con la tuya);
-   al final debe decir **"La clave de Gemini funciona"**. Si falta `GEMINI_API_KEY`, el radar se detiene con
-   `Error: No se encontró la clave en heleos_config.json`.
+   La primera línea dice de dónde leyó la clave y sus últimos 4 caracteres (deben coincidir con la tuya);
+   al final debe decir **"La clave de Gemini funciona"**. Si no encuentra la clave en ningún lado, se detiene con
+   `Error: falta la clave de Gemini…`.
 5. Protege el archivo (opcional, recomendado): clic derecho en `heleos_config.json` → **Propiedades → Seguridad**
    y deja con acceso solo a tu usuario.
 6. **Borra el .txt donde tenías las claves** (y vacía la Papelera). Desde ahora viven solo en `heleos_config.json`.
@@ -67,7 +67,12 @@ Reglas de oro:
 - El radar nunca imprime las claves completas (solo los últimos 4 caracteres).
 - Si una clave se filtra: revócala (GitHub → Tokens / AI Studio → borrar clave), crea otra y pégala en `heleos_config.json`.
 
-**La clave de Gemini solo se lee de `heleos_config.json`**: las variables de entorno de Windows se ignoran para ella.
+**Orden de lectura de la clave de Gemini:** primero la variable de entorno `GEMINI_API_KEY` (así la recibe GitHub Actions
+desde GitHub Secrets: Settings → Secrets and variables → Actions → `GEMINI_API_KEY`) y, si no existe, `heleos_config.json`.
+Si en una laptop tienes una variable de entorno `GEMINI_API_KEY` vieja, **bórrala**: ganaría sobre el archivo
+(`[Environment]::SetEnvironmentVariable('GEMINI_API_KEY', $null, 'User')` en PowerShell y abre otra terminal).
+En GitHub Actions no hace falta `heleos_config.json`: el repo sale de `GITHUB_REPOSITORY` y el token de `GITHUB_TOKEN`
+(pásalo al paso con `env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}` y permiso `contents: write`).
 (Para GitHub también se aceptan los nombres `GITHUB_REPO` / `GITHUB_TOKEN` en el archivo, y el repo puede ir como URL completa. Las variables de entorno `HELEOS_TOKEN` y `HELEOS_REPO` solo se usan si el archivo no trae ninguno. En cada vuelta la consola muestra "Subiendo a GitHub…" y luego "Commit exitoso" o el error exacto.)
 
 ## 3. Radar en la laptop viejita
@@ -93,7 +98,7 @@ Otros comandos: `python heleos_radar.py` (una sola vuelta), `--debug` (si falla 
 
 ## 4. Panel
 
-Abre `https://gamertag61.github.io/HOFERTAS/dashboard.html`, toca el ícono de enlace junto al contador de enlaces,
+Abre `https://gamertag61.github.io/HOFERTAS/panel_h7x_secreto.html`, toca el ícono de enlace junto al contador de enlaces,
 pega tu token de GitHub y presiona **Conectar** (el repositorio se detecta solo). Desde ahí, **Guardar enlaces** escribe en el
 `enlaces.txt` del repositorio y el radar los rastrea en su siguiente vuelta. Al agregar productos, suma su nombre comercial
 en `nombres.js` si quieres uno escrito a mano (si no, se usa el de la IA).

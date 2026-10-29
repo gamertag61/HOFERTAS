@@ -1,4 +1,4 @@
-/* Cupones de Mercado Libre, compartido por index.html, dashboard.html y app.html.
+/* Cupones de Mercado Libre, compartido por index.html, panel_h7x_secreto.html y app.html.
    Mercado Libre no tiene API pública de cupones: se escriben a mano en cupones.json y aquí se cruzan con la
    "categoria" que la IA asignó a cada producto.
      await window.cargarCupones()            → cupones activos y vigentes (nunca falla: sin archivo devuelve [])

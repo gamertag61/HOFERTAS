@@ -1,4 +1,4 @@
-/* Carga de ofertas compartida por index.html, dashboard.html y app.html.
+/* Carga de ofertas compartida por index.html, panel_h7x_secreto.html y app.html.
    Lee datos.json (radar v2) y, si todavía no existe, el formato anterior (ofertas.json + historial.json).
    Siempre devuelve la misma forma:
    { actualizado, productos: [{ t, o, n, i, link, nombre?, specs?, categoria?, super?, cupon? }],

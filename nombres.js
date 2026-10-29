@@ -1,4 +1,4 @@
-/* Nombres comerciales de los productos, compartidos por index.html, dashboard.html y app.html.
+/* Nombres comerciales de los productos, compartidos por index.html, panel_h7x_secreto.html y app.html.
    NOMBRES va por enlace de afiliado y sobrevive a cada actualización de ofertas.json.
    Para un producto nuevo: agrega aquí su enlace; si no está, se usa p.nombre o el recorte automático. */
 window.NOMBRES = {
