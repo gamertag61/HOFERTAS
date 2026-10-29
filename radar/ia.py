@@ -95,7 +95,7 @@ def icono_de(texto):
     for regex, icono, emoji in ICONOS:
         if re.search(regex, texto, re.I):
             return icono, emoji
-    return "etiqueta", "🏷️"
+    return "check", "✔️"  # nunca la etiqueta 🏷️: en el sitio ese ícono es exclusivo de los cupones
 
 
 # ---------- Respaldo local (sin IA) ----------
@@ -155,7 +155,10 @@ def validar(d):
         if not texto:
             raise ValueError("spec vacía")
         icono, emoji_defecto = icono_de(texto)
-        limpias.append({"texto": texto, "emoji": str(s.get("emoji") or emoji_defecto).strip()[:4], "icono": icono})
+        emoji = str(s.get("emoji") or "").strip()[:4]
+        if not emoji or emoji.startswith(("🏷", "🎟")):  # etiquetas y boletos son solo para cupones
+            emoji = emoji_defecto
+        limpias.append({"texto": texto, "emoji": emoji, "icono": icono})
     return {"nombre": nombre, "categoria": cat, "specs": limpias, "fuente": "ia"}
 
 

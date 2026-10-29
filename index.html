@@ -319,8 +319,11 @@
     bateria: '<rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/>',
     disco: '<path d="M22 12H2M5.5 5.1 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1z"/>',
     audio: '<path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>',
-    etiqueta: '<path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8z"/><path d="M7 7h.01"/>'
+    check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+    ahorro: '<path d="M3 7l6 6 4-4 8 8"/><path d="M21 11v6h-6"/>'
   };
+  // Características sin ícono propio usan el check. La etiqueta de precio es solo para los cupones (🎟️ de cupones.js).
+  const iconoSpec = k => I[k] ? k : 'check';  // datos.json anterior trae "etiqueta" como genérico
   const reglas = [
     [/(\d{2,3})\s?hz/i, m => `${m[1]} Hz`, 'rayo'],
     [/(\d{2}(?:[.,]\d)?)\s?(?:"|”|''|pulgadas|pulg\b)/i, m => `${m[1].replace(',', '.')}"`, 'pantalla'],
@@ -335,10 +338,10 @@
   ];
   const icono = k => `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${I[k]}</svg>`;
   function pildoras(p) {
-    if (p.specs && p.specs.length) return p.specs.slice(0, 3).map(s => [s.texto, I[s.icono] ? s.icono : 'etiqueta']);
+    if (p.specs && p.specs.length) return p.specs.slice(0, 3).map(s => [s.texto, iconoSpec(s.icono)]);
     const out = [];
     for (const [re, f, ic] of reglas) { const m = p.t.match(re); if (m) out.push([f(m), ic]); if (out.length === 3) break; }
-    if (out.length < 2) out.push([`Ahorras ${mxn.format(p.o - p.n)}`, 'etiqueta']);
+    if (out.length < 2) out.push([`Ahorras ${mxn.format(p.o - p.n)}`, 'ahorro']);
     return out.slice(0, 3);
   }
 
