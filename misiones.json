@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "generado": "2026-10-29T10:17:15",
+  "modelo": "gemini-3.1-flash-lite",
+  "nicho": "PC Gamer",
+  "catalogo": [
+    {
+      "categoria": "Escritorios",
+      "total": 6
+    },
+    {
+      "categoria": "Monitores",
+      "total": 4
+    },
+    {
+      "categoria": "Iluminación",
+      "total": 3
+    },
+    {
+      "categoria": "Controles",
+      "total": 3
+    },
+    {
+      "categoria": "Mouse",
+      "total": 2
+    },
+    {
+      "categoria": "Teclados",
+      "total": 2
+    },
+    {
+      "categoria": "Audio",
+      "total": 2
+    },
+    {
+      "categoria": "Componentes",
+      "total": 2
+    },
+    {
+      "categoria": "Accesorios",
+      "total": 1
+    },
+    {
+      "categoria": "Sillas",
+      "total": 1
+    }
+  ],
+  "misiones": [
+    {
+      "sugerencia": "Mousepad Gamer XL",
+      "motivo": "Complementa la falta de accesorios básicos para la zona de juego y el mouse."
+    },
+    {
+      "sugerencia": "Tarjeta Gráfica Dedicada",
+      "motivo": "Es el componente principal que falta para que el catálogo de hardware sea funcional."
+    },
+    {
+      "sugerencia": "Brazo articulado para monitor",
+      "motivo": "Aprovecha la variedad de monitores actuales mejorando la ergonomía del escritorio."
+    }
+  ]
+}

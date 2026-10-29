@@ -76,7 +76,7 @@ Reglas de oro:
 2. En una terminal: `pip install requests beautifulsoup4`
 3. Haz el paso 2.2.
 4. Doble clic en `iniciar_radar.bat`. La primera línea debe decir `Modo: GitHub gamertag61/HOFERTAS | IA: gemini-…`
-   y cada vuelta termina con `Publicado en GitHub`.
+   y cada vuelta termina con `Subiendo a GitHub…` y `Commit exitoso` (o el error exacto).
 5. Para que arranque solo: `Win + R` → `shell:startup` → pega ahí un acceso directo a `iniciar_radar.bat`.
 6. Configura Windows para que la laptop no se suspenda (Configuración → Energía → Suspender: Nunca).
 
@@ -97,6 +97,16 @@ Abre `https://gamertag61.github.io/HOFERTAS/dashboard.html`, toca el ícono de e
 pega tu token de GitHub y presiona **Conectar** (el repositorio se detecta solo). Desde ahí, **Guardar enlaces** escribe en el
 `enlaces.txt` del repositorio y el radar los rastrea en su siguiente vuelta. Al agregar productos, suma su nombre comercial
 en `nombres.js` si quieres uno escrito a mano (si no, se usa el de la IA).
+
+## 5. Misiones de inventario (director de compras)
+
+`python heleos_asesor.py` lee `datos.json` (el local; si no hay, el de GitHub), cuenta productos por categoría y le pide a
+Gemini 3 tipos de producto que faltan en el catálogo de PC Gamer. Guarda `misiones.json` y lo sube a GitHub (rama main)
+con las mismas claves de `heleos_config.json`. `--local` solo lo guarda sin subir. Si Gemini falla, `misiones.json` no
+se toca. Córrelo cuando quieras nuevas misiones (por ejemplo una vez por semana); no hace falta tenerlo encendido.
+
+En el panel y en la app, el botón **🎯 Misiones** abre la lista como tareas: márcalas cuando consigas el producto (se
+recuerda en ese navegador) y usa **Buscar en Mercado Libre** para encontrar candidatos.
 
 ## Probar en la laptop principal (opcional)
 

@@ -175,25 +175,33 @@ class Gemini:
     def usar(self, modelo):
         self.modelo, self.url = modelo, self.plantilla.format(modelo=modelo)
 
-    def _cuerpo(self, titulo):
-        gen = {"responseMimeType": "application/json", "temperature": 0.2, "maxOutputTokens": 512}
+    def _cuerpo(self, texto, esquema, temperatura, max_tokens):
+        gen = {"responseMimeType": "application/json", "temperature": temperatura, "maxOutputTokens": max_tokens}
         if self.esquema_legado:
-            gen["responseSchema"] = _a_legado(ESQUEMA)
+            gen["responseSchema"] = _a_legado(esquema)
         else:
-            gen["responseJsonSchema"] = ESQUEMA
-        texto = PROMPT.format(max=MAX_NOMBRE, cats=", ".join(CATEGORIAS), titulo=titulo)
+            gen["responseJsonSchema"] = esquema
         return {"contents": [{"role": "user", "parts": [{"text": texto}]}], "generationConfig": gen}
 
     def enriquecer(self, titulo):
+        texto = PROMPT.format(max=MAX_NOMBRE, cats=", ".join(CATEGORIAS), titulo=titulo)
+        d = self.generar(texto, ESQUEMA)
         try:
-            r = self.s.post(self.url, headers={"x-goog-api-key": self.clave}, json=self._cuerpo(titulo), timeout=60)
+            return validar(d)
+        except ValueError as e:
+            raise Saturada(f"respuesta inválida: {e}", 10)
+
+    def generar(self, texto, esquema, temperatura=0.2, max_tokens=512):
+        """Una llamada con salida JSON forzada por `esquema`. Devuelve el JSON ya leído o lanza Saturada/CuotaDiaria/ClaveInvalida."""
+        try:
+            r = self.s.post(self.url, headers={"x-goog-api-key": self.clave},
+                            json=self._cuerpo(texto, esquema, temperatura, max_tokens), timeout=60)
         except requests.RequestException as e:
             raise Saturada(f"red: {e.__class__.__name__}", 30)
         if r.status_code == 200:
             try:
                 d = r.json()
-                texto = d["candidates"][0]["content"]["parts"][0]["text"]
-                return validar(json.loads(texto))
+                return json.loads(d["candidates"][0]["content"]["parts"][0]["text"])
             except (KeyError, IndexError, ValueError, TypeError) as e:
                 raise Saturada(f"respuesta inválida: {e}", 10)
         err = {}
