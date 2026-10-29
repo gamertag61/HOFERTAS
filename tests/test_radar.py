@@ -188,8 +188,21 @@ class Exportar(unittest.TestCase):
         self.assertEqual(p["categoria"], "monitores")
         self.assertEqual(p["nombre"], "Monitor Gamer 24 Pulgadas LG Ultragear")  # respaldo hasta que la IA lo procese
         self.assertFalse(p["senales"]["nombre_ia"])
-        self.assertEqual(alertas["alertas"][0]["precio_ahora"], 800)
+        a = alertas["alertas"][0]
+        self.assertEqual((a["precio_ahora"], a["tipo"], a["categoria"], a["precio_actual"]), (800, "super", "monitores", 800))
+        self.assertEqual(a["specs"], p["specs"])
         json.dumps(datos, ensure_ascii=False)
+
+    def test_alertas_solo_caidas_vigentes(self):
+        prods = [{"link": "a", "precio": {"actual": 90}, "nombre": "A", "titulo": "A", "imagen": "i", "categoria": "mouse",
+                  "specs": [], "cupon": None},
+                 {"link": "b", "precio": {"actual": 120}, "nombre": "B", "titulo": "B", "imagen": "i", "categoria": "audio",
+                  "specs": [], "cupon": None}]
+        cats = {"mouse": {"id": "mouse", "nombre": "Mouse"}, "audio": {"id": "audio", "nombre": "Audio"}}
+        baja = lambda link, antes, ts: {"link": link, "precio_antes": antes, "precio_ahora": antes - 10, "ts": ts}
+        salida = exportar.caidas_vigentes([], [baja("a", 100, "2"), baja("a", 110, "1"), baja("b", 115, "3")], prods, cats)
+        self.assertEqual([(x["link"], x["tipo"], x["caida_pct"], x["categoria_nombre"]) for x in salida],
+                         [("a", "baja", 10, "Mouse")])  # "b" volvió a subir; "a" solo una vez, la más reciente
 
 
 if __name__ == "__main__":

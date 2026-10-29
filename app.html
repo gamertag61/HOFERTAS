@@ -66,7 +66,8 @@
 
   <!-- Feed de ofertas -->
   <main class="px-3 pt-3">
-    <ol id="feed" class="flex flex-col gap-2.5" aria-live="polite"></ol>
+    <section id="cupones" class="mb-4 px-1" aria-label="Cupones de Mercado Libre" hidden></section>
+    <ol id="feed" class="flex flex-col gap-2.5" aria-live="polite" aria-label="Caídas de precio reales"></ol>
   </main>
 </div>
 
@@ -90,6 +91,7 @@
 <script src="nombres.js"></script>
 <script src="datos.js"></script>
 <script src="misiones.js"></script>
+<script src="cupones.js"></script>
 <script>
 (() => {
   const $ = id => document.getElementById(id);
@@ -97,6 +99,11 @@
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const off = p => Math.round((1 - p.n / p.o) * 100);
   const enlace = url => `href="${esc(url)}" target="_blank" rel="noopener noreferrer sponsored"`;
+  const hace = f => {
+    const min = (Date.now() - new Date(f)) / 6e4;
+    if (!(min >= 0)) return '';
+    return min < 60 ? `hace ${Math.max(1, Math.round(min))} min` : min < 1440 ? `hace ${Math.round(min / 60)} h` : `hace ${Math.round(min / 1440)} d`;
+  };
 
   /* ---------- Especificaciones sacadas del título real ---------- */
   const reglas = [
@@ -129,7 +136,7 @@
 
   /* ---------- Feed ---------- */
   const feed = $('feed');
-  let P = [];
+  let P = [], CUP = [];
   feed.innerHTML = Array.from({ length: 5 }, () => `<li class="flex gap-3 rounded-2xl border border-linea bg-mate p-2.5"><div class="esq h-24 w-24 shrink-0 rounded-xl"></div><div class="flex-1 pt-1"><div class="esq h-3.5 w-4/5 rounded"></div><div class="esq mt-2 h-3.5 w-1/2 rounded"></div><div class="esq mt-5 h-5 w-1/3 rounded"></div></div></li>`).join('');
 
   function tarjeta(p, k) {
@@ -141,12 +148,16 @@
           <span class="num absolute left-1 top-1 rounded-full bg-lima px-1.5 py-0.5 font-mono text-[10px] font-bold text-tinta">-${off(p)}%</span>
         </a>
         <div class="min-w-0 flex-1">
-          ${p.super ? '<span class="mb-0.5 inline-block rounded-full bg-lima/15 px-2 py-0.5 text-[10px] font-semibold text-lima">Súper oferta</span>' : ''}
+          <p class="mb-0.5 flex items-center gap-1.5">
+            <span class="rounded-full ${p.super ? 'bg-lima/15 text-lima' : 'bg-white/[.06] text-zinc-300'} px-2 py-0.5 text-[10px] font-semibold">${p.super ? 'Súper oferta' : 'Bajó de precio'}</span>
+            <span class="num font-mono text-[10px] text-ceniza">${hace(p.caida.fecha)}</span>
+          </p>
           <h3 class="line-clamp-2 text-[13px] font-medium leading-5 text-zinc-100" title="${esc(p.t)}">${esc(window.nombreComercial(p))}</h3>
           <p class="mt-1 truncate font-mono text-[10.5px] text-humo">${esc(specs(p).join(' · ') || 'Ahorras ' + mxn.format(p.o - p.n))}</p>
-          <p class="mt-1.5 flex items-baseline gap-2">
+          <p class="mt-1.5 flex flex-wrap items-baseline gap-x-2 gap-y-1">
             <span class="num text-lg font-bold tracking-tight text-lima">${mxn.format(p.n)}</span>
             <span class="num text-xs text-humo line-through">${mxn.format(p.o)}</span>
+            ${window.etiquetaCupon(window.cuponPara(p.categoria, CUP))}
           </p>
         </div>
       </div>
@@ -196,14 +207,18 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && prompter.classList.contains('abierto')) cerrar(); });
 
   /* ---------- Datos ---------- */
-  window.cargarOfertas()
-    .then(d => {
-      P = (d.productos || [])
-        .filter(p => p && /^https:\/\//.test(p.link) && /^(https:\/\/|[\w\/-]+\.(webp|jpe?g|png)$)/i.test(p.i) && p.n > 0 && p.n < p.o)
-        .sort((x, y) => (!!y.super - !!x.super) || off(y) - off(x));
+  // Solo alertas.json: caídas reales vigentes filtradas por el radar (súper primero).
+  // Los cupones de cupones.json se cruzan con la categoría que la IA asignó a cada caída.
+  Promise.all([window.cargarAlertas(), window.cargarCupones()])
+    .then(([d, cupones]) => {
+      CUP = cupones;
+      P = d.alertas.filter(p => p && /^https:\/\//.test(p.link) && /^(https:\/\/|[\w\/-]+\.(webp|jpe?g|png)$)/i.test(p.i) && p.n > 0);
       const hora = d.actualizado ? new Date(d.actualizado).toLocaleString('es-MX', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '';
-      $('estado').textContent = `${P.length} ofertas` + (hora ? ` · actualizado ${hora}` : '');
-      feed.innerHTML = P.length ? P.map(tarjeta).join('') : '<li class="py-16 text-center text-humo">Hoy no hay ofertas nuevas.</li>';
+      const n = P.length, s = P.filter(p => p.super).length;
+      $('estado').textContent = `${n} ${n === 1 ? 'caída real' : 'caídas reales'}` + (s ? ` · ${s} súper` : '') + (hora ? ` · actualizado ${hora}` : '');
+      feed.innerHTML = n ? P.map(tarjeta).join('')
+        : '<li class="rounded-2xl border border-dashed border-linea px-6 py-14 text-center"><p class="text-sm font-semibold text-zinc-200">Sin caídas de precio esta semana</p><p class="mt-1 text-xs text-humo">Aquí solo aparecen los productos que bajaron de verdad.</p></li>';
+      window.pintarCupones($('cupones'), CUP, new Map(P.map(p => [p.categoria, p.categoriaNombre])), new Set(P.map(p => p.categoria)));
     })
     .catch(() => {
       $('estado').textContent = 'Sin conexión';

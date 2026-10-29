@@ -74,7 +74,28 @@ def construir(db, R, ahora):
     datos = {"version": 2, "actualizado": iso(ahora),
              "categorias": sorted(categorias.values(), key=lambda c: -c["total"]),
              "productos": productos, "bajas": bajas}
-    return datos, {"version": 2, "actualizado": iso(ahora), "alertas": supers}
+    return datos, {"version": 2, "actualizado": iso(ahora), "alertas": caidas_vigentes(supers, bajas, productos, categorias)}
+
+
+def caidas_vigentes(supers, bajas, productos, categorias):
+    """alertas.json: una caída real por producto (súper primero, luego la más reciente), solo si el precio de hoy
+    sigue abajo del precio anterior medido. Lleva la categoría y las specs de la IA para que el panel no lea nada más."""
+    por_link = {p["link"]: p for p in productos}
+    nombres = {c["id"]: c["nombre"] for c in categorias.values()}
+    eventos = ([("super", a) for a in sorted(supers, key=lambda a: a["ts"], reverse=True)]
+               + [("baja", a) for a in sorted(bajas, key=lambda a: a["ts"], reverse=True)])
+    vistos, salida = set(), []
+    for tipo, a in eventos:
+        p = por_link.get(a["link"])
+        if not p or a["link"] in vistos or not a["precio_antes"] or p["precio"]["actual"] >= a["precio_antes"]:
+            continue
+        vistos.add(a["link"])
+        actual = p["precio"]["actual"]
+        salida.append({**a, "tipo": tipo, "nombre": p["nombre"], "titulo": p["titulo"], "imagen": p["imagen"],
+                       "categoria": p["categoria"], "categoria_nombre": nombres.get(p["categoria"], p["categoria"]),
+                       "specs": p["specs"], "cupon": p["cupon"], "precio_actual": actual,
+                       "caida_pct": reglas.pct(a["precio_antes"], actual)})
+    return salida
 
 
 def a_texto(obj):

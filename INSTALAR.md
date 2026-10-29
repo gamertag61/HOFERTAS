@@ -98,6 +98,15 @@ pega tu token de GitHub y presiona **Conectar** (el repositorio se detecta solo)
 `enlaces.txt` del repositorio y el radar los rastrea en su siguiente vuelta. Al agregar productos, suma su nombre comercial
 en `nombres.js` si quieres uno escrito a mano (si no, se usa el de la IA).
 
+## 4.1 Cupones de Mercado Libre
+
+Mercado Libre no tiene API pública de cupones, así que se escriben a mano en `cupones.json`. Por cada cupón real pon
+`"activo": true`, el `codigo`, el `pct` (número), las `categorias` donde aplica (`monitores`, `teclados`, `mouse`, … o
+`"*"` para todas) y, si tiene, `vence` (AAAA-MM-DD; al vencer se oculta solo). Con eso, cada producto de esa categoría
+muestra la etiqueta "🎟️ CODIGO (-15%)" junto al precio (catálogo, panel y app), el menú del catálogo lo lista en
+"Cupones activos" y el panel y la app lo listan arriba del feed. Los ejemplos TECH10 y GAMER15 vienen apagados: no son
+códigos reales.
+
 ## 5. Misiones de inventario (director de compras)
 
 `python heleos_asesor.py` lee `datos.json` (el local; si no hay, el de GitHub), cuenta productos por categoría y le pide a

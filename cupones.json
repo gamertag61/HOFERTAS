@@ -1,0 +1,24 @@
+{
+  "_ayuda": "Tus cupones de Mercado Libre (no hay API pública: se escriben a mano). Por cupón: \"codigo\", \"pct\" (número, % de descuento), \"categorias\" con los ids de la IA (monitores, teclados, mouse, audio, escritorios, sillas, iluminacion, controles, componentes, accesorios) o \"*\" para todas, y opcionales \"detalle\", \"vence\" (AAAA-MM-DD, al vencer se oculta solo) y \"link\". Solo se muestran los que tienen \"activo\": true. Los dos de abajo son EJEMPLOS apagados: TECH10 y GAMER15 no son códigos reales, cámbialos por los tuyos antes de activarlos.",
+  "pagina_cupones": "https://www.mercadolibre.com.mx/cupones",
+  "cupones": [
+    {
+      "activo": false,
+      "codigo": "TECH10",
+      "pct": 10,
+      "categorias": ["monitores", "componentes"],
+      "detalle": "Compra mínima $999 · tope $500",
+      "vence": "2026-11-30",
+      "link": "https://www.mercadolibre.com.mx/cupones"
+    },
+    {
+      "activo": false,
+      "codigo": "GAMER15",
+      "pct": 15,
+      "categorias": ["teclados", "mouse", "audio", "controles"],
+      "detalle": "Tope $300",
+      "vence": "2026-11-15",
+      "link": "https://www.mercadolibre.com.mx/cupones"
+    }
+  ]
+}

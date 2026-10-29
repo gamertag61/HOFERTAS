@@ -14,6 +14,22 @@ window.cargarOfertas = async function () {
   return { actualizado: d.actualizado, productos: d.productos || [], bajas: d.alertas || [], hist: hist || {} };
 };
 
+/* Panel y app: lee SOLO alertas.json (caídas reales vigentes que filtró el radar, con la categoría y specs de la IA).
+   "o" es el precio anterior medido por el radar, nunca el tachado del vendedor.
+   Devuelve { actualizado, alertas: [{ t, o, n, i, link, nombre, specs, categoria, categoriaNombre, super, cupon, caida }] } */
+window.cargarAlertas = async function () {
+  const r = await fetch('alertas.json?t=' + Date.now(), { cache: 'no-store' });
+  if (!r.ok) throw new Error(r.status);
+  const d = await r.json();
+  const alertas = (d.alertas || []).map(a => {
+    const tipo = a.tipo || 'super';  // alertas.json anterior: solo traía súper ofertas
+    return { t: a.titulo || a.nombre, o: a.precio_antes, n: a.precio_actual ?? a.precio_ahora, i: a.imagen, link: a.link,
+             nombre: a.nombre, specs: a.specs, categoria: a.categoria, categoriaNombre: a.categoria_nombre || a.categoria,
+             super: tipo === 'super', cupon: a.cupon, caida: { tipo, fecha: a.ts } };
+  }).filter(a => a.o > a.n);
+  return { actualizado: d.actualizado, alertas };
+};
+
 function deV2(d) {
   const hist = {};
   const productos = (d.productos || []).map(p => {
@@ -23,5 +39,5 @@ function deV2(d) {
   });
   const bajas = (d.bajas || []).map(a => ({ link: a.link, t: a.nombre, i: a.imagen, antes: a.precio_antes,
                                             ahora: a.precio_ahora, fecha: a.ts }));
-  return { actualizado: d.actualizado, productos, bajas, hist };
+  return { actualizado: d.actualizado, productos, bajas, hist, categorias: d.categorias || [] };
 }
