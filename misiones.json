@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generado": "2026-10-29T10:17:15",
+  "generado": "2026-10-29T10:39:51",
   "modelo": "gemini-3.1-flash-lite",
   "nicho": "PC Gamer",
   "catalogo": [
@@ -47,16 +47,16 @@
   ],
   "misiones": [
     {
-      "sugerencia": "Mousepad Gamer XL",
-      "motivo": "Complementa la falta de accesorios básicos para la zona de juego y el mouse."
+      "sugerencia": "Mousepad Gamer XL extendido",
+      "motivo": "Complementa la falta de superficies de control para mejorar la precisión del mouse."
     },
     {
-      "sugerencia": "Tarjeta Gráfica Dedicada",
-      "motivo": "Es el componente principal que falta para que el catálogo de hardware sea funcional."
+      "sugerencia": "Tarjeta gráfica dedicada",
+      "motivo": "Es el componente principal que falta para que el usuario pueda jugar realmente."
     },
     {
-      "sugerencia": "Brazo articulado para monitor",
-      "motivo": "Aprovecha la variedad de monitores actuales mejorando la ergonomía del escritorio."
+      "sugerencia": "Soporte articulado para monitor",
+      "motivo": "Optimiza el espacio en el escritorio y mejora la ergonomía de la estación gamer."
     }
   ]
 }
