@@ -19,6 +19,11 @@
 </script>
 <style>
   :root { --lima: #c6f135; --tinta: #0a0b0d; --ease: cubic-bezier(.16, 1, .3, 1); color-scheme: dark; }
+  /* `hidden` siempre gana: sin esto, clases como inline-flex dejaban visible el chip de categoría vacío */
+  [hidden] { display: none !important; }
+  /* Cambio de vista (catálogo ↔ categoría) */
+  @keyframes vista-entra { from { opacity: 0; translate: 0 10px; } to { opacity: 1; translate: 0 0; } }
+  .vista-entra { animation: vista-entra .32s cubic-bezier(.16,1,.3,1) both; }
   html { background: var(--tinta); scroll-behavior: smooth; scroll-padding-top: 80px; scrollbar-color: #2c3037 var(--tinta); }
   body { background: var(--tinta); color: #f2f3f5; -webkit-text-size-adjust: 100%; text-rendering: optimizeLegibility; }
   ::selection { background: var(--lima); color: var(--tinta); }
@@ -83,7 +88,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .latido, .esq { animation: none; }
+    .latido, .esq, .vista-entra { animation: none; }
     .js .rev { opacity: 1; translate: none; transition: none; }
     .grafico .trazo { stroke-dashoffset: 0; transition: none; }
     .area, .punto, .etiqueta { opacity: 1; transition: none; }
@@ -142,7 +147,7 @@
 
 <main class="overflow-x-clip">
   <!-- Héroe -->
-  <section class="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)] items-center gap-12 px-4 pb-16 pt-8 sm:px-6 md:grid-cols-2 md:gap-10 md:pb-24 md:pt-16 lg:grid-cols-[minmax(0,.95fr)_minmax(0,1.05fr)] lg:gap-14 lg:px-8">
+  <section id="heroe" class="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)] items-center gap-12 px-4 pb-16 pt-8 sm:px-6 md:grid-cols-2 md:gap-10 md:pb-24 md:pt-16 lg:grid-cols-[minmax(0,.95fr)_minmax(0,1.05fr)] lg:gap-14 lg:px-8">
     <div>
       <h1 class="rev text-balance text-[clamp(2.1rem,10.4vw,2.75rem)] font-extrabold leading-[.98] tracking-[-0.035em] sm:text-[3.4rem] lg:text-[4rem] xl:text-[4.5rem]">
         Arma tu setup con <span class="text-lima">datos</span>, no pagues sobreprecio.
@@ -199,7 +204,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
         <div>
-          <h2 class="rev text-balance text-[1.75rem] font-bold leading-tight tracking-[-0.025em] sm:text-4xl">Lo que bajó de precio hoy</h2>
+          <h2 id="t-ofertas" class="rev text-balance text-[1.75rem] font-bold leading-tight tracking-[-0.025em] sm:text-4xl">Lo que bajó de precio hoy</h2>
           <p id="act" class="rev mt-2 max-w-xl text-sm leading-6 text-humo" style="--d:1">Ordenado por descuento real. Toca una oferta y sales directo a Mercado Libre.</p>
           <button id="cat-activa" type="button" hidden class="btn-linea mt-3 inline-flex items-center gap-2 rounded-full border border-lima/40 bg-lima/10 py-1.5 pl-3.5 pr-2.5 text-sm font-semibold text-lima hover:bg-lima/15" aria-label="Quitar filtro de categoría">
             <span id="cat-nombre"></span>
@@ -421,14 +426,42 @@
     $('cat-activa').hidden = !cat;
     $('cat-nombre').textContent = cat ? CATS.get(cat)?.nombre || cat : '';
   }
-  function elegirCat(id) {
+
+  /* Vista de categoría: se siente como una página aparte. Oculta el héroe y el bloque del historial,
+     cambia el título y tiene su propia dirección (#categoria=monitores) para que "Atrás" regrese al catálogo. */
+  const T_OFERTAS = $('t-ofertas').textContent;
+  let T_ACT = '';
+  function aplicarVista() {
+    const c = CATS.get(cat);
+    $('heroe').hidden = $('monitoreo').hidden = !!c;
+    $('t-ofertas').textContent = c ? `Categoría: ${c.nombre}` : T_OFERTAS;
+    if (c) $('act').textContent = `${c.total} ${c.total === 1 ? 'oferta' : 'ofertas'} con descuento real en ${c.nombre}. Toca una y sales directo a Mercado Libre.`;
+    else if (T_ACT) $('act').textContent = T_ACT;
+    document.title = c ? `${c.nombre} · H | Ofertas` : 'H | Ofertas';
+    const sec = $('ofertas');
+    sec.classList.remove('vista-entra'); void sec.offsetWidth; sec.classList.add('vista-entra');
+    sec.querySelectorAll('.rev').forEach(el => el.classList.add('in'));
+  }
+  const catDeHash = () => (decodeURIComponent(location.hash).match(/^#categoria=(.+)$/) || [])[1] || '';
+  function elegirCat(id, { historial = true } = {}) {
+    const antes = cat;
     cat = CATS.has(id) ? id : '';
     visibles = 12;
     marcarCat();
+    aplicarVista();
     if (P.length) pintar();
+    if (historial && cat !== antes) history.pushState(null, '', cat ? `#categoria=${encodeURIComponent(cat)}` : location.pathname + location.search);
+    // Sin animar el scroll: es un cambio de "página", no un desplazamiento
+    window.scrollTo({ top: cat ? $('ofertas').offsetTop : 0, behavior: 'instant' });
   }
-  $('m-cats').addEventListener('click', e => { const a = e.target.closest('[data-cat]'); if (a) elegirCat(a.dataset.cat); });
+  $('m-cats').addEventListener('click', e => {
+    const a = e.target.closest('[data-cat]');
+    if (!a) return;
+    e.preventDefault();
+    elegirCat(a.dataset.cat);
+  });
   $('cat-activa').addEventListener('click', () => elegirCat(''));
+  window.addEventListener('popstate', () => { if (CATS.size) elegirCat(catDeHash(), { historial: false }); });
   mas.addEventListener('click', () => { visibles = P.length; pintar(); });
 
   function vista(v) {
@@ -546,12 +579,14 @@
         $('f-fecha').textContent = `Precios actualizados el ${new Intl.DateTimeFormat('es-MX', { dateStyle: 'long', timeStyle: 'short' }).format(t)}`;
         $('act').textContent = `${P.length} ofertas con descuento real. Última actualización de precios ${txt}.`;
       }
+      T_ACT = $('act').textContent;
       montarCategorias(d.categorias);
       montarHistorial(d, d.hist);
       if (!P.length) { $('h-oferta').hidden = true; return aviso('Hoy no hay ofertas nuevas. Vuelve en unas horas.'); }
       pintar();
-      /* Oferta del día: el teclado con más descuento (o la mayor oferta si no hay teclados) */
-      const tec = [...P].sort(ordenes.descuento).find(p => /teclado/i.test(p.t)) || [...P].sort(ordenes.descuento)[0];
+      /* Oferta del día: la súper oferta vigente que detectó el radar o, si no hay, la de mayor descuento del catálogo.
+         Sale de datos.json, así que cambia sola con cada vuelta del radar. */
+      const tec = [...P].sort((x, y) => (!!y.super - !!x.super) || ordenes.descuento(x, y))[0];
       $('h-titulo').textContent = nombreComercial(tec);
       $('h-titulo').title = tec.t;
       $('h-pildoras').innerHTML = pildoras(tec).map(([t, ic]) => `<li class="num inline-flex items-center gap-1.5 rounded-full border border-linea bg-black/30 px-3 py-1 font-mono text-xs text-zinc-200"><span class="text-lima">${icono(ic)}</span>${esc(t)}</li>`).join('');
@@ -563,6 +598,8 @@
       $('h-img').className = 'h-full w-full';
       $('h-img').innerHTML = `<img src="${esc(tec.i)}" alt="${esc(tec.t)}" fetchpriority="high" class="h-full w-full object-contain object-center">`;
       for (const id of ['h-foto', 'h-link']) { const a = $(id); a.href = tec.link; a.target = '_blank'; a.rel = 'noopener noreferrer sponsored'; }
+      // Enlace directo a una categoría (#categoria=monitores): abre su vista exclusiva
+      if (catDeHash()) elegirCat(catDeHash(), { historial: false });
     })
     .catch(() => { $('h-oferta').hidden = true; aviso('No pudimos cargar las ofertas. Recarga en un momento.'); $('r-nombre').textContent = 'Historial no disponible'; });
 
