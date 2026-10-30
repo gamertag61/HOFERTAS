@@ -1,6 +1,6 @@
 {
  "version": 2,
- "actualizado": "2026-10-29T18:02:35-06:00",
+ "actualizado": "2026-10-29T19:34:06-06:00",
  "categorias": [
   {
    "id": "escritorios",
@@ -38,13 +38,13 @@
    "total": 2
   },
   {
-   "id": "componentes",
-   "nombre": "Componentes",
-   "total": 2
-  },
-  {
    "id": "sillas",
    "nombre": "Sillas",
+   "total": 1
+  },
+  {
+   "id": "componentes",
+   "nombre": "Componentes",
    "total": 1
   },
   {
@@ -97,7 +97,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T18:01:09-06:00"
+    "verificado": "2026-10-29T19:32:41-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -150,66 +150,13 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T18:01:24-06:00"
+    "verificado": "2026-10-29T19:32:52-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
      1497.0
-    ]
-   ]
-  },
-  {
-   "id": "MLM19444510",
-   "link": "https://meli.la/2mrYvFT",
-   "nombre": "Procesador AMD Ryzen 5 5500",
-   "titulo": "Procesador AMD Ryzen 5 5500 S-AM4 3.60GHz Six-Core 16MB 100-100000457BOX - $ 1,800",
-   "categoria": "componentes",
-   "imagen": "https://http2.mlstatic.com/D_NQ_NP_801013-MLA99496628892_112025-P.webp",
-   "precio": {
-    "actual": 1800.0,
-    "antes": 5000.0,
-    "tachado": 5000.0,
-    "referencia_30d": null,
-    "minimo_30d": 1732.0
-   },
-   "descuento": {
-    "pct": 64,
-    "real_pct": 0,
-    "tachado_pct": 64,
-    "ahorro": 3200.0
-   },
-   "cupon": null,
-   "specs": [
-    {
-     "texto": "6 Núcleos",
-     "emoji": "⚙️",
-     "icono": "disco"
-    },
-    {
-     "texto": "3.60 GHz",
-     "emoji": "⚡",
-     "icono": "disco"
-    },
-    {
-     "texto": "16 MB Caché",
-     "emoji": "💾",
-     "icono": "check"
-    }
-   ],
-   "senales": {
-    "tachado_inflado": false,
-    "historial_dias": 1,
-    "historial_suficiente": false,
-    "nombre_ia": true,
-    "verificado": "2026-10-29T18:01:59-06:00"
-   },
-   "super_deal": false,
-   "historial": [
-    [
-     "2026-10-29",
-     1732.0
     ]
    ]
   },
@@ -256,7 +203,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T18:01:19-06:00"
+    "verificado": "2026-10-29T19:32:49-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -362,7 +309,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T18:01:40-06:00"
+    "verificado": "2026-10-29T19:33:06-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -415,7 +362,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T18:02:08-06:00"
+    "verificado": "2026-10-29T19:33:33-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -468,7 +415,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T18:01:06-06:00"
+    "verificado": "2026-10-29T19:32:37-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -521,7 +468,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T18:00:40-06:00"
+    "verificado": "2026-10-29T19:32:11-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -574,7 +521,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T18:01:53-06:00"
+    "verificado": "2026-10-29T19:33:22-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -627,7 +574,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T18:02:25-06:00"
+    "verificado": "2026-10-29T19:33:52-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -680,13 +627,66 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T18:01:28-06:00"
+    "verificado": "2026-10-29T19:32:55-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
      1299.0
+    ]
+   ]
+  },
+  {
+   "id": "MLM37498971",
+   "link": "https://meli.la/2TWBd3D",
+   "nombre": "Control GameSir Kaleid",
+   "titulo": "Mando GameSir Kaleid para Xbox Series X|S, Xbox One, Windows 10/11 y Steam, Gamepad alámbrico con joysticks y gatillos de efecto Hall, joystick antidrift. - $ 950.94",
+   "categoria": "controles",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_802407-MLA99452784724_112025-P.webp",
+   "precio": {
+    "actual": 950.94,
+    "antes": 1406.0,
+    "tachado": 1406.0,
+    "referencia_30d": null,
+    "minimo_30d": 932.18
+   },
+   "descuento": {
+    "pct": 32,
+    "real_pct": 0,
+    "tachado_pct": 32,
+    "ahorro": 455.06
+   },
+   "cupon": null,
+   "specs": [
+    {
+     "texto": "Alámbrico",
+     "emoji": "🔌",
+     "icono": "cable"
+    },
+    {
+     "texto": "Efecto Hall",
+     "emoji": "🕹️",
+     "icono": "check"
+    },
+    {
+     "texto": "Antidrift",
+     "emoji": "🚫",
+     "icono": "check"
+    }
+   ],
+   "senales": {
+    "tachado_inflado": false,
+    "historial_dias": 1,
+    "historial_suficiente": false,
+    "nombre_ia": true,
+    "verificado": "2026-10-29T19:33:38-06:00"
+   },
+   "super_deal": false,
+   "historial": [
+    [
+     "2026-10-29",
+     932.18
     ]
    ]
   },
@@ -733,66 +733,13 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T18:01:36-06:00"
+    "verificado": "2026-10-29T19:33:03-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
      1590.0
-    ]
-   ]
-  },
-  {
-   "id": "MLM37498971",
-   "link": "https://meli.la/2TWBd3D",
-   "nombre": "Control GameSir Kaleid",
-   "titulo": "Mando GameSir Kaleid para Xbox Series X|S, Xbox One, Windows 10/11 y Steam, Gamepad alámbrico con joysticks y gatillos de efecto Hall, joystick antidrift. - $ 932.18",
-   "categoria": "controles",
-   "imagen": "https://http2.mlstatic.com/D_NQ_NP_802407-MLA99452784724_112025-P.webp",
-   "precio": {
-    "actual": 932.18,
-    "antes": 1313.0,
-    "tachado": 1313.0,
-    "referencia_30d": null,
-    "minimo_30d": 932.18
-   },
-   "descuento": {
-    "pct": 29,
-    "real_pct": 0,
-    "tachado_pct": 29,
-    "ahorro": 380.82
-   },
-   "cupon": null,
-   "specs": [
-    {
-     "texto": "Alámbrico",
-     "emoji": "🔌",
-     "icono": "cable"
-    },
-    {
-     "texto": "Efecto Hall",
-     "emoji": "🕹️",
-     "icono": "check"
-    },
-    {
-     "texto": "Antidrift",
-     "emoji": "🚫",
-     "icono": "check"
-    }
-   ],
-   "senales": {
-    "tachado_inflado": false,
-    "historial_dias": 1,
-    "historial_suficiente": false,
-    "nombre_ia": true,
-    "verificado": "2026-10-29T18:02:11-06:00"
-   },
-   "super_deal": false,
-   "historial": [
-    [
-     "2026-10-29",
-     932.18
     ]
    ]
   },
@@ -839,7 +786,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T18:02:21-06:00"
+    "verificado": "2026-10-29T19:33:46-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -892,7 +839,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T18:00:56-06:00"
+    "verificado": "2026-10-29T19:32:29-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -945,66 +892,13 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T18:00:44-06:00"
+    "verificado": "2026-10-29T19:32:16-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
      2289.0
-    ]
-   ]
-  },
-  {
-   "id": "MLM19159879",
-   "link": "https://meli.la/143CXmW",
-   "nombre": "Procesador AMD Ryzen 7 5700X",
-   "titulo": "Procesadoramd Ryzen 7 5700x 4.6ghz 8core Am4 100000926box - $ 4,119",
-   "categoria": "componentes",
-   "imagen": "https://http2.mlstatic.com/D_NQ_NP_928840-MLA99509517996_112025-P.webp",
-   "precio": {
-    "actual": 4119.0,
-    "antes": 5000.0,
-    "tachado": 5000.0,
-    "referencia_30d": null,
-    "minimo_30d": 4119.0
-   },
-   "descuento": {
-    "pct": 18,
-    "real_pct": 0,
-    "tachado_pct": 18,
-    "ahorro": 881.0
-   },
-   "cupon": null,
-   "specs": [
-    {
-     "texto": "8 Núcleos",
-     "emoji": "⚙️",
-     "icono": "disco"
-    },
-    {
-     "texto": "4.6 GHz",
-     "emoji": "⚡",
-     "icono": "disco"
-    },
-    {
-     "texto": "Socket AM4",
-     "emoji": "🔌",
-     "icono": "check"
-    }
-   ],
-   "senales": {
-    "tachado_inflado": false,
-    "historial_dias": 1,
-    "historial_suficiente": false,
-    "nombre_ia": true,
-    "verificado": "2026-10-29T18:01:49-06:00"
-   },
-   "super_deal": false,
-   "historial": [
-    [
-     "2026-10-29",
-     4119.0
     ]
    ]
   },
@@ -1051,7 +945,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T18:02:03-06:00"
+    "verificado": "2026-10-29T19:33:30-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1104,7 +998,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T18:01:15-06:00"
+    "verificado": "2026-10-29T19:32:44-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1157,7 +1051,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T18:00:35-06:00"
+    "verificado": "2026-10-29T19:32:08-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1210,13 +1104,66 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T18:00:52-06:00"
+    "verificado": "2026-10-29T19:32:25-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
      1690.0
+    ]
+   ]
+  },
+  {
+   "id": "MLM19444510",
+   "link": "https://meli.la/2mrYvFT",
+   "nombre": "Procesador AMD Ryzen 5 5500",
+   "titulo": "Procesador AMD Ryzen 5 5500 S-AM4 3.60GHz Six-Core 16MB 100-100000457BOX - $ 1,800",
+   "categoria": "componentes",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_801013-MLA99496628892_112025-P.webp",
+   "precio": {
+    "actual": 1800.0,
+    "antes": 1999.0,
+    "tachado": 1999.0,
+    "referencia_30d": null,
+    "minimo_30d": 1732.0
+   },
+   "descuento": {
+    "pct": 10,
+    "real_pct": 0,
+    "tachado_pct": 10,
+    "ahorro": 199.0
+   },
+   "cupon": null,
+   "specs": [
+    {
+     "texto": "6 Núcleos",
+     "emoji": "⚙️",
+     "icono": "disco"
+    },
+    {
+     "texto": "3.60 GHz",
+     "emoji": "⚡",
+     "icono": "disco"
+    },
+    {
+     "texto": "16 MB Caché",
+     "emoji": "💾",
+     "icono": "check"
+    }
+   ],
+   "senales": {
+    "tachado_inflado": false,
+    "historial_dias": 1,
+    "historial_suficiente": false,
+    "nombre_ia": true,
+    "verificado": "2026-10-29T19:33:25-06:00"
+   },
+   "super_deal": false,
+   "historial": [
+    [
+     "2026-10-29",
+     1732.0
     ]
    ]
   },
@@ -1263,7 +1210,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T18:02:16-06:00"
+    "verificado": "2026-10-29T19:33:43-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1316,7 +1263,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T18:01:44-06:00"
+    "verificado": "2026-10-29T19:33:12-06:00"
    },
    "super_deal": false,
    "historial": [
