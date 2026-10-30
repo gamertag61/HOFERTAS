@@ -1,6 +1,6 @@
 {
  "version": 2,
- "actualizado": "2026-10-29T23:37:42-06:00",
+ "actualizado": "2026-10-30T00:41:29-06:00",
  "categorias": [
   {
    "id": "escritorios",
@@ -92,12 +92,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:36:35-06:00"
+    "verificado": "2026-10-30T00:40:03-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
+     1353.0
+    ],
+    [
+     "2026-10-30",
      1353.0
     ]
    ]
@@ -106,13 +110,13 @@
    "id": "MLM47223189",
    "link": "https://meli.la/1yqVWgS",
    "nombre": "Escritorio Gamer En L",
-   "titulo": "Mesas Gamer Escritorio Gamer En L Con Soporte Para Monitor - $ 1,497",
+   "titulo": "Mesas Gamer Escritorio Gamer En L Con Soporte Para Monitor - $ 1,498",
    "categoria": "escritorios",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_718207-CBT106602529963_022026-P.webp",
    "precio": {
-    "actual": 1497.0,
-    "antes": 4310.0,
-    "tachado": 4310.0,
+    "actual": 1498.0,
+    "antes": 4314.0,
+    "tachado": 4314.0,
     "referencia_30d": null,
     "minimo_30d": 1497.0
    },
@@ -120,7 +124,7 @@
     "pct": 65,
     "real_pct": 0,
     "tachado_pct": 65,
-    "ahorro": 2813.0
+    "ahorro": 2816.0
    },
    "cupon": null,
    "specs": [
@@ -145,13 +149,17 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:36:48-06:00"
+    "verificado": "2026-10-30T00:40:15-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
      1497.0
+    ],
+    [
+     "2026-10-30",
+     1498.0
     ]
    ]
   },
@@ -198,12 +206,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:36:43-06:00"
+    "verificado": "2026-10-30T00:40:10-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
+     1764.0
+    ],
+    [
+     "2026-10-30",
      1764.0
     ]
    ]
@@ -217,8 +229,8 @@
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_942239-MLA99992479355_112025-P.webp",
    "precio": {
     "actual": 439.42,
-    "antes": 1031.0,
-    "tachado": 1031.0,
+    "antes": 1033.0,
+    "tachado": 1033.0,
     "referencia_30d": null,
     "minimo_30d": 439.42
    },
@@ -226,7 +238,7 @@
     "pct": 57,
     "real_pct": 0,
     "tachado_pct": 57,
-    "ahorro": 591.58
+    "ahorro": 593.58
    },
    "cupon": null,
    "specs": [
@@ -251,12 +263,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:36:25-06:00"
+    "verificado": "2026-10-30T00:39:54-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
+     439.42
+    ],
+    [
+     "2026-10-30",
      439.42
     ]
    ]
@@ -304,12 +320,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:37:03-06:00"
+    "verificado": "2026-10-30T00:40:32-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
+     193.65
+    ],
+    [
+     "2026-10-30",
      193.65
     ]
    ]
@@ -357,18 +377,22 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:37:22-06:00"
+    "verificado": "2026-10-30T00:40:58-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
      125.02
+    ],
+    [
+     "2026-10-30",
+     125.02
     ]
    ]
   },
   {
-   "id": "MLM29899089",
+   "id": "MLM2109735221",
    "link": "https://meli.la/2W8Y1Hs",
    "nombre": "Mouse Inalámbrico Recargable Bluetooth",
    "titulo": "Mouse Inalámbrico Silencioso Bluetooth Ratón 2.4g Recargable Negro - $ 80.98",
@@ -410,12 +434,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:36:30-06:00"
+    "verificado": "2026-10-30T00:39:59-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
+     80.98
+    ],
+    [
+     "2026-10-30",
      80.98
     ]
    ]
@@ -463,12 +491,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:36:04-06:00"
+    "verificado": "2026-10-30T00:39:31-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
+     998.0
+    ],
+    [
+     "2026-10-30",
      998.0
     ]
    ]
@@ -516,12 +548,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:37:13-06:00"
+    "verificado": "2026-10-30T00:40:44-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
+     249.99
+    ],
+    [
+     "2026-10-30",
      249.99
     ]
    ]
@@ -569,12 +605,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:37:39-06:00"
+    "verificado": "2026-10-30T00:41:16-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
+     474.01
+    ],
+    [
+     "2026-10-30",
      474.01
     ]
    ]
@@ -622,12 +662,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:36:52-06:00"
+    "verificado": "2026-10-30T00:40:18-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
+     1299.0
+    ],
+    [
+     "2026-10-30",
      1299.0
     ]
    ]
@@ -675,12 +719,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:37:00-06:00"
+    "verificado": "2026-10-30T00:40:27-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
+     1590.0
+    ],
+    [
+     "2026-10-30",
      1590.0
     ]
    ]
@@ -688,14 +736,14 @@
   {
    "id": "MLM37498971",
    "link": "https://meli.la/2TWBd3D",
-   "nombre": "Control GameSir Kaleid",
-   "titulo": "Mando GameSir Kaleid para Xbox Series X|S, Xbox One, Windows 10/11 y Steam, Gamepad alámbrico con joysticks y gatillos de efecto Hall, joystick antidrift. - $ 932.18",
+   "nombre": "Mando GameSir Kaleid",
+   "titulo": "Mando GameSir Kaleid para Xbox Series X|S, Xbox One, Windows 10/11 y Steam, Gamepad alámbrico con joysticks y gatillos de efecto Hall, joystick antidrift. - $ 942.12",
    "categoria": "controles",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_802407-MLA99452784724_112025-P.webp",
    "precio": {
-    "actual": 932.18,
-    "antes": 1313.0,
-    "tachado": 1313.0,
+    "actual": 942.12,
+    "antes": 1327.0,
+    "tachado": 1327.0,
     "referencia_30d": null,
     "minimo_30d": 932.18
    },
@@ -703,13 +751,13 @@
     "pct": 29,
     "real_pct": 0,
     "tachado_pct": 29,
-    "ahorro": 380.82
+    "ahorro": 384.88
    },
    "cupon": null,
    "specs": [
     {
      "texto": "Alámbrico",
-     "emoji": "🔌",
+     "emoji": "🎮",
      "icono": "cable"
     },
     {
@@ -728,13 +776,17 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:37:26-06:00"
+    "verificado": "2026-10-30T00:41:04-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
      932.18
+    ],
+    [
+     "2026-10-30",
+     942.12
     ]
    ]
   },
@@ -781,12 +833,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:37:34-06:00"
+    "verificado": "2026-10-30T00:41:11-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
+     936.56
+    ],
+    [
+     "2026-10-30",
      936.56
     ]
    ]
@@ -834,12 +890,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:36:20-06:00"
+    "verificado": "2026-10-30T00:39:49-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
+     2759.0
+    ],
+    [
+     "2026-10-30",
      2759.0
     ]
    ]
@@ -887,12 +947,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:36:09-06:00"
+    "verificado": "2026-10-30T00:39:35-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
+     2289.0
+    ],
+    [
+     "2026-10-30",
      2289.0
     ]
    ]
@@ -940,12 +1004,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:37:19-06:00"
+    "verificado": "2026-10-30T00:40:54-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
+     297.0
+    ],
+    [
+     "2026-10-30",
      297.0
     ]
    ]
@@ -993,12 +1061,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:36:38-06:00"
+    "verificado": "2026-10-30T00:40:06-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
+     784.73
+    ],
+    [
+     "2026-10-30",
      784.73
     ]
    ]
@@ -1046,12 +1118,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:35:59-06:00"
+    "verificado": "2026-10-30T00:39:26-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
+     649.0
+    ],
+    [
+     "2026-10-30",
      649.0
     ]
    ]
@@ -1060,13 +1136,13 @@
    "id": "MLM43960236",
    "link": "https://meli.la/1roJ5aB",
    "nombre": "Monitor Arzopa A1",
-   "titulo": "Monitor gamer Arzopa A1 de 15 pulgadas Full HD con 60 Hertz y 127 V - $ 1,690",
+   "titulo": "Monitor gamer Arzopa A1 de 15 pulgadas Full HD con 60 Hertz y 127 V - $ 1,708",
    "categoria": "monitores",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_765988-MLA99500311274_112025-P.webp",
    "precio": {
-    "actual": 1690.0,
-    "antes": 1988.0,
-    "tachado": 1988.0,
+    "actual": 1708.0,
+    "antes": 2009.0,
+    "tachado": 2009.0,
     "referencia_30d": null,
     "minimo_30d": 1690.0
    },
@@ -1074,18 +1150,18 @@
     "pct": 15,
     "real_pct": 0,
     "tachado_pct": 15,
-    "ahorro": 298.0
+    "ahorro": 301.0
    },
    "cupon": null,
    "specs": [
     {
      "texto": "15 pulgadas",
-     "emoji": "📏",
+     "emoji": "🖥️",
      "icono": "pantalla"
     },
     {
      "texto": "Full HD",
-     "emoji": "🖥️",
+     "emoji": "📺",
      "icono": "pantalla"
     },
     {
@@ -1099,13 +1175,17 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:36:17-06:00"
+    "verificado": "2026-10-30T00:39:46-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
      1690.0
+    ],
+    [
+     "2026-10-30",
+     1708.0
     ]
    ]
   },
@@ -1152,12 +1232,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:37:29-06:00"
+    "verificado": "2026-10-30T00:41:07-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
+     1698.0
+    ],
+    [
+     "2026-10-30",
      1698.0
     ]
    ]
@@ -1205,12 +1289,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T23:37:07-06:00"
+    "verificado": "2026-10-30T00:40:37-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
+     190.79
+    ],
+    [
+     "2026-10-30",
      190.79
     ]
    ]
@@ -1220,7 +1308,7 @@
   {
    "id": "MLM37498971",
    "link": "https://meli.la/2TWBd3D",
-   "nombre": "Control GameSir Kaleid",
+   "nombre": "Mando GameSir Kaleid",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_802407-MLA99452784724_112025-P.webp",
    "precio_antes": 950.94,
    "precio_ahora": 932.18,
@@ -1232,7 +1320,7 @@
   {
    "id": "MLM37498971",
    "link": "https://meli.la/2TWBd3D",
-   "nombre": "Control GameSir Kaleid",
+   "nombre": "Mando GameSir Kaleid",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_802407-MLA99452784724_112025-P.webp",
    "precio_antes": 950.94,
    "precio_ahora": 932.18,
@@ -1244,7 +1332,7 @@
   {
    "id": "MLM37498971",
    "link": "https://meli.la/2TWBd3D",
-   "nombre": "Control GameSir Kaleid",
+   "nombre": "Mando GameSir Kaleid",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_802407-MLA99452784724_112025-P.webp",
    "precio_antes": 950.94,
    "precio_ahora": 932.18,
