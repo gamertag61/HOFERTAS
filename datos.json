@@ -1,6 +1,6 @@
 {
  "version": 2,
- "actualizado": "2026-10-30T02:46:21-06:00",
+ "actualizado": "2026-10-30T03:44:18-06:00",
  "categorias": [
   {
    "id": "escritorios",
@@ -92,7 +92,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:45:02-06:00"
+    "verificado": "2026-10-30T03:43:06-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -149,7 +149,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:45:16-06:00"
+    "verificado": "2026-10-30T03:43:18-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -206,7 +206,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:45:11-06:00"
+    "verificado": "2026-10-30T03:43:13-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -263,7 +263,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:44:54-06:00"
+    "verificado": "2026-10-30T03:42:57-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -320,7 +320,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:45:34-06:00"
+    "verificado": "2026-10-30T03:43:33-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -335,7 +335,7 @@
    ]
   },
   {
-   "id": "MLM77943841",
+   "id": "MLM48477693",
    "link": "https://meli.la/1C5wWyp",
    "nombre": "Soporte para Tablet Giratorio Plegable",
    "titulo": "Soporte Tablet Base Giratoria 360° Plegable Para iPad - $ 125.02",
@@ -377,7 +377,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:46:00-06:00"
+    "verificado": "2026-10-30T03:43:57-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -434,7 +434,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:44:57-06:00"
+    "verificado": "2026-10-30T03:43:02-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -491,7 +491,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:44:35-06:00"
+    "verificado": "2026-10-30T03:42:34-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -502,63 +502,6 @@
     [
      "2026-10-30",
      998.0
-    ]
-   ]
-  },
-  {
-   "id": "MLM61677176",
-   "link": "https://meli.la/2JNk1rS",
-   "nombre": "Lámpara LED de escritorio con clip",
-   "titulo": "Lámpara Led De Escritorio Con Clip Ajustable, 3 Tonos, 10 Niveles, 360° Y Usb - $ 249.99",
-   "categoria": "iluminacion",
-   "imagen": "https://http2.mlstatic.com/D_NQ_NP_912775-MLA96770588696_112025-P.webp",
-   "precio": {
-    "actual": 249.99,
-    "antes": 469.0,
-    "tachado": 469.0,
-    "referencia_30d": null,
-    "minimo_30d": 249.99
-   },
-   "descuento": {
-    "pct": 47,
-    "real_pct": 0,
-    "tachado_pct": 47,
-    "ahorro": 219.01
-   },
-   "cupon": null,
-   "specs": [
-    {
-     "texto": "3 tonos",
-     "emoji": "💡",
-     "icono": "check"
-    },
-    {
-     "texto": "10 niveles",
-     "emoji": "🎚️",
-     "icono": "check"
-    },
-    {
-     "texto": "Conexión USB",
-     "emoji": "🔌",
-     "icono": "cable"
-    }
-   ],
-   "senales": {
-    "tachado_inflado": false,
-    "historial_dias": 2,
-    "historial_suficiente": false,
-    "nombre_ia": true,
-    "verificado": "2026-10-30T02:45:48-06:00"
-   },
-   "super_deal": false,
-   "historial": [
-    [
-     "2026-10-29",
-     249.99
-    ],
-    [
-     "2026-10-30",
-     249.99
     ]
    ]
   },
@@ -605,7 +548,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:46:17-06:00"
+    "verificado": "2026-10-30T03:44:15-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -620,7 +563,64 @@
    ]
   },
   {
-   "id": "MLM63026650",
+   "id": "MLM61677176",
+   "link": "https://meli.la/2JNk1rS",
+   "nombre": "Lámpara LED de escritorio con clip",
+   "titulo": "Lámpara Led De Escritorio Con Clip Ajustable, 3 Tonos, 10 Niveles, 360° Y Usb - $ 249.99",
+   "categoria": "iluminacion",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_912775-MLA96770588696_112025-P.webp",
+   "precio": {
+    "actual": 249.99,
+    "antes": 399.0,
+    "tachado": 399.0,
+    "referencia_30d": null,
+    "minimo_30d": 249.99
+   },
+   "descuento": {
+    "pct": 37,
+    "real_pct": 0,
+    "tachado_pct": 37,
+    "ahorro": 149.01
+   },
+   "cupon": null,
+   "specs": [
+    {
+     "texto": "3 tonos",
+     "emoji": "💡",
+     "icono": "check"
+    },
+    {
+     "texto": "10 niveles",
+     "emoji": "🎚️",
+     "icono": "check"
+    },
+    {
+     "texto": "Conexión USB",
+     "emoji": "🔌",
+     "icono": "cable"
+    }
+   ],
+   "senales": {
+    "tachado_inflado": false,
+    "historial_dias": 2,
+    "historial_suficiente": false,
+    "nombre_ia": true,
+    "verificado": "2026-10-30T03:43:43-06:00"
+   },
+   "super_deal": false,
+   "historial": [
+    [
+     "2026-10-29",
+     249.99
+    ],
+    [
+     "2026-10-30",
+     249.99
+    ]
+   ]
+  },
+  {
+   "id": "MLM56976913",
    "link": "https://meli.la/2TgQfrM",
    "nombre": "Escritorio Librero Ejecutivo Moderno",
    "titulo": "Escritorio Librero Ejecutivo Para Computadora Diseño Moderno - $ 1,299",
@@ -662,7 +662,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:45:19-06:00"
+    "verificado": "2026-10-30T03:43:20-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -719,7 +719,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:46:05-06:00"
+    "verificado": "2026-10-30T03:44:01-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -776,7 +776,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:45:28-06:00"
+    "verificado": "2026-10-30T03:43:29-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -833,7 +833,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:46:12-06:00"
+    "verificado": "2026-10-30T03:44:10-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -890,7 +890,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:44:51-06:00"
+    "verificado": "2026-10-30T03:42:52-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -947,7 +947,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:44:38-06:00"
+    "verificado": "2026-10-30T03:42:38-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -962,7 +962,7 @@
    ]
   },
   {
-   "id": "MLM2115442219",
+   "id": "MLM2065580884",
    "link": "https://meli.la/1cJLBjz",
    "nombre": "Lámpara de Escritorio LED con USB-C",
    "titulo": "Lámparas De Buró Escritorio Led 3 Colores Con Foco Y Usb-c Gris/lino - $ 297",
@@ -1004,7 +1004,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:45:56-06:00"
+    "verificado": "2026-10-30T03:43:52-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1019,7 +1019,7 @@
    ]
   },
   {
-   "id": "MLM79992741",
+   "id": "MLM65324139",
    "link": "https://meli.la/2tHSan9",
    "nombre": "Escritorio de oficina con estantería",
    "titulo": "Escritorio De Oficina Y Computadora En Roble Con Estantería Madera De Manzano - $ 784.73",
@@ -1061,7 +1061,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:45:06-06:00"
+    "verificado": "2026-10-30T03:43:10-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1118,7 +1118,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:44:32-06:00"
+    "verificado": "2026-10-30T03:42:28-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1175,7 +1175,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:44:46-06:00"
+    "verificado": "2026-10-30T03:42:47-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1232,7 +1232,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:46:09-06:00"
+    "verificado": "2026-10-30T03:44:05-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1289,7 +1289,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T02:45:38-06:00"
+    "verificado": "2026-10-30T03:43:36-06:00"
    },
    "super_deal": false,
    "historial": [
