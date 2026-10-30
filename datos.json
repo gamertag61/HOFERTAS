@@ -1,11 +1,11 @@
 {
  "version": 2,
- "actualizado": "2026-10-30T16:09:00-06:00",
+ "actualizado": "2026-10-30T17:05:45-06:00",
  "categorias": [
   {
    "id": "accesorios",
    "nombre": "Accesorios",
-   "total": 6
+   "total": 9
   },
   {
    "id": "monitores",
@@ -20,11 +20,11 @@
   {
    "id": "mouse",
    "nombre": "Mouse",
-   "total": 4
+   "total": 3
   },
   {
-   "id": "teclados",
-   "nombre": "Teclados",
+   "id": "iluminacion",
+   "nombre": "Iluminación",
    "total": 3
   },
   {
@@ -38,13 +38,13 @@
    "total": 3
   },
   {
-   "id": "sillas",
-   "nombre": "Sillas",
+   "id": "teclados",
+   "nombre": "Teclados",
    "total": 2
   },
   {
-   "id": "iluminacion",
-   "nombre": "Iluminación",
+   "id": "sillas",
+   "nombre": "Sillas",
    "total": 2
   },
   {
@@ -97,7 +97,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:04:04-06:00"
+    "verificado": "2026-10-30T17:03:07-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -110,7 +110,7 @@
   {
    "id": "MLM46454804",
    "link": "https://meli.la/2EjqjZp",
-   "nombre": "Silla Gamer Ergonómica Reclinable Giratoria Súper",
+   "nombre": "Silla Gamer Selectshop Ergonómica",
    "titulo": "Silla Gamer Ergonómica Reclinable Giratoria Súper Cómoda Selectshop Color Negro - $ 1,349",
    "categoria": "sillas",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_676446-MLA104126543848_012026-P.webp",
@@ -128,13 +128,29 @@
     "ahorro": 2650.0
    },
    "cupon": null,
-   "specs": [],
+   "specs": [
+    {
+     "texto": "Ergonómica",
+     "emoji": "💺",
+     "icono": "check"
+    },
+    {
+     "texto": "Giratoria",
+     "emoji": "🔄",
+     "icono": "check"
+    },
+    {
+     "texto": "Reclinable",
+     "emoji": "🛋️",
+     "icono": "check"
+    }
+   ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T16:05:56-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T17:05:03-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -187,7 +203,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:04:19-06:00"
+    "verificado": "2026-10-30T17:03:18-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -240,7 +256,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:04:53-06:00"
+    "verificado": "2026-10-30T17:03:51-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -253,9 +269,9 @@
   {
    "id": "MLM65189679",
    "link": "https://meli.la/1gafjjE",
-   "nombre": "Galaxy Tab A11",
+   "nombre": "Tablet Samsung Galaxy Tab A11",
    "titulo": "Galaxy Tab A11, 64 GB, 4 GB de RAM, pantalla de 8,7 Color Gris - $ 2,189",
-   "categoria": "componentes",
+   "categoria": "accesorios",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_972495-MLA106359524805_022026-P.webp",
    "precio": {
     "actual": 2189.0,
@@ -276,14 +292,24 @@
      "texto": "64 GB",
      "emoji": "💾",
      "icono": "disco"
+    },
+    {
+     "texto": "4 GB RAM",
+     "emoji": "🧠",
+     "icono": "disco"
+    },
+    {
+     "texto": "8.7 pulgadas",
+     "emoji": "📱",
+     "icono": "pantalla"
     }
    ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T16:05:20-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T17:04:22-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -296,7 +322,7 @@
   {
    "id": "MLM27088584",
    "link": "https://meli.la/2pkZmbv",
-   "nombre": "Base Soporte Para Laptop Tablet Ajustable",
+   "nombre": "Soporte para Laptop y Tablet Ajustable",
    "titulo": "Base Soporte Para Laptop Tablet Ajustable De Aluminio Portátil - $ 85.99",
    "categoria": "accesorios",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_927396-MLA100066869729_122025-P.webp",
@@ -314,13 +340,29 @@
     "ahorro": 144.01
    },
    "cupon": null,
-   "specs": [],
+   "specs": [
+    {
+     "texto": "Para Laptop",
+     "emoji": "💻",
+     "icono": "check"
+    },
+    {
+     "texto": "Para Tablet",
+     "emoji": "📱",
+     "icono": "check"
+    },
+    {
+     "texto": "Ajustable",
+     "emoji": "⚙️",
+     "icono": "check"
+    }
+   ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T16:05:29-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T17:04:37-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -333,7 +375,7 @@
   {
    "id": "MLM43933278",
    "link": "https://meli.la/2fERPtB",
-   "nombre": "Proyector Profesional 4k",
+   "nombre": "Proyector Bigview 4K Android 14",
    "titulo": "Proyector Profesional 4k 22000 Lúmenes Con Android 14 Wifi6 Smart TV 1080P Full HD Nativo Bigview, Mini Proyector Portatil Celular Ajustable De 270° Con Bluetooth 5.4, HDMI, USB, Android Y IOS - $ 713.64",
    "categoria": "accesorios",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_636373-MLA99504276208_112025-P.webp",
@@ -353,17 +395,27 @@
    "cupon": null,
    "specs": [
     {
-     "texto": "Inalámbrico",
+     "texto": "4K Nativo",
+     "emoji": "📽️",
+     "icono": "pantalla"
+    },
+    {
+     "texto": "WiFi 6",
      "emoji": "📶",
      "icono": "wifi"
+    },
+    {
+     "texto": "Android 14",
+     "emoji": "📱",
+     "icono": "check"
     }
    ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T16:05:22-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T17:04:28-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -416,7 +468,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:04:15-06:00"
+    "verificado": "2026-10-30T17:03:15-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -469,7 +521,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:03:54-06:00"
+    "verificado": "2026-10-30T17:03:01-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -522,7 +574,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:04:36-06:00"
+    "verificado": "2026-10-30T17:03:36-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -575,7 +627,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:03:34-06:00"
+    "verificado": "2026-10-30T17:02:40-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -628,7 +680,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:05:01-06:00"
+    "verificado": "2026-10-30T17:04:01-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -641,7 +693,7 @@
   {
    "id": "MLM43960597",
    "link": "https://meli.la/2xUjzAu",
-   "nombre": "Monitor Stylos Tech",
+   "nombre": "Monitor Stylos Tech 19 pulgadas",
    "titulo": "Monitor Stylos Tech de 19\" LED HD para Oficina y Hogar - $ 699",
    "categoria": "monitores",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_877589-MLA95709709192_102025-P.webp",
@@ -661,17 +713,27 @@
    "cupon": null,
    "specs": [
     {
-     "texto": "19\"",
+     "texto": "19 pulgadas",
      "emoji": "🖥️",
      "icono": "pantalla"
+    },
+    {
+     "texto": "LED",
+     "emoji": "💡",
+     "icono": "luz"
+    },
+    {
+     "texto": "HD",
+     "emoji": "📺",
+     "icono": "check"
     }
    ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T16:05:27-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T17:04:32-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -724,7 +786,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:03:59-06:00"
+    "verificado": "2026-10-30T17:03:04-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -737,7 +799,7 @@
   {
    "id": "MLM77148630",
    "link": "https://meli.la/1igr8R8",
-   "nombre": "Hub Usb C Multipuerto Linkernel",
+   "nombre": "Hub USB-C Linkernel 8 en 1",
    "titulo": "Hub Usb C Multipuerto Linkernel 8 En 1 Con Adaptador Usb Y Lector Sd/tf Para Macbook, iPad Y Pc Gris - $ 98.49",
    "categoria": "accesorios",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_995688-MLA114680300988_082026-P.webp",
@@ -755,13 +817,29 @@
     "ahorro": 102.51
    },
    "cupon": null,
-   "specs": [],
+   "specs": [
+    {
+     "texto": "8 en 1",
+     "emoji": "🔌",
+     "icono": "check"
+    },
+    {
+     "texto": "Lector SD/TF",
+     "emoji": "💾",
+     "icono": "check"
+    },
+    {
+     "texto": "USB-C",
+     "emoji": "💻",
+     "icono": "cable"
+    }
+   ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T16:05:38-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T17:04:47-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -798,7 +876,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": false,
-    "verificado": "2026-10-30T16:06:11-06:00"
+    "verificado": "2026-10-30T17:05:17-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -811,7 +889,7 @@
   {
    "id": "MLM28945623",
    "link": "https://meli.la/1aL79BG",
-   "nombre": "Base enfriador KS BDN00021A Negro",
+   "nombre": "Base Enfriadora KS BDN00021A",
    "titulo": "Base enfriador KS BDN00021A Negro para laptop Led Azul - $ 269",
    "categoria": "accesorios",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_795267-MLA114104615713_072026-P.webp",
@@ -829,13 +907,29 @@
     "ahorro": 241.0
    },
    "cupon": null,
-   "specs": [],
+   "specs": [
+    {
+     "texto": "Para Laptop",
+     "emoji": "💻",
+     "icono": "check"
+    },
+    {
+     "texto": "Iluminación LED",
+     "emoji": "🔵",
+     "icono": "luz"
+    },
+    {
+     "texto": "Enfriamiento",
+     "emoji": "❄️",
+     "icono": "check"
+    }
+   ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T16:05:35-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T17:04:42-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -888,13 +982,66 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:05:17-06:00"
+    "verificado": "2026-10-30T17:04:17-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
      474.01
+    ]
+   ]
+  },
+  {
+   "id": "MLM61677176",
+   "link": "https://meli.la/2JNk1rS",
+   "nombre": "Lámpara LED de escritorio con clip",
+   "titulo": "Lámpara Led De Escritorio Con Clip Ajustable, 3 Tonos, 10 Niveles, 360° Y Usb - $ 249.99",
+   "categoria": "iluminacion",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_912775-MLA96770588696_112025-P.webp",
+   "precio": {
+    "actual": 249.99,
+    "antes": 399.0,
+    "tachado": 399.0,
+    "referencia_30d": null,
+    "minimo_30d": 249.99
+   },
+   "descuento": {
+    "pct": 37,
+    "real_pct": 0,
+    "tachado_pct": 37,
+    "ahorro": 149.01
+   },
+   "cupon": null,
+   "specs": [
+    {
+     "texto": "3 tonos",
+     "emoji": "💡",
+     "icono": "check"
+    },
+    {
+     "texto": "10 niveles",
+     "emoji": "🎚️",
+     "icono": "check"
+    },
+    {
+     "texto": "Conexión USB",
+     "emoji": "🔌",
+     "icono": "cable"
+    }
+   ],
+   "senales": {
+    "tachado_inflado": false,
+    "historial_dias": 1,
+    "historial_suficiente": false,
+    "nombre_ia": true,
+    "verificado": "2026-10-30T17:03:46-06:00"
+   },
+   "super_deal": false,
+   "historial": [
+    [
+     "2026-10-30",
+     249.99
     ]
    ]
   },
@@ -941,7 +1088,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:04:22-06:00"
+    "verificado": "2026-10-30T17:03:22-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -954,9 +1101,9 @@
   {
    "id": "MLM24065288",
    "link": "https://meli.la/25bRxiG",
-   "nombre": "RGB Mouse Pad Gamer 300x800x4mm XL",
+   "nombre": "Mouse Pad Gamer Free Wolf XL",
    "titulo": "RGB Mouse Pad Gamer 300x800x4mm XL Luz Led Tapete para maus con Base de Goma Antideslizante Alfombrilla Mouse Free Wolf Tec0052-1 Alfombrilla Raton Negro - $ 198",
-   "categoria": "mouse",
+   "categoria": "accesorios",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_619460-MLA114643499684_082026-P.webp",
    "precio": {
     "actual": 198.0,
@@ -974,17 +1121,27 @@
    "cupon": null,
    "specs": [
     {
-     "texto": "RGB",
-     "emoji": "💡",
+     "texto": "Iluminación RGB",
+     "emoji": "🌈",
      "icono": "luz"
+    },
+    {
+     "texto": "Tamaño XL",
+     "emoji": "📏",
+     "icono": "check"
+    },
+    {
+     "texto": "Base antideslizante",
+     "emoji": "🚫",
+     "icono": "check"
     }
    ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T16:05:52-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T17:05:00-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1037,7 +1194,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:05:05-06:00"
+    "verificado": "2026-10-30T17:04:05-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1090,7 +1247,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:04:31-06:00"
+    "verificado": "2026-10-30T17:03:33-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1103,9 +1260,9 @@
   {
    "id": "MLM33976083",
    "link": "https://meli.la/1PEZ1sS",
-   "nombre": "PU Mouse Pad Gamer 800x400X2mm Free",
+   "nombre": "Mouse Pad Gamer Free Wolf 800x400mm",
    "titulo": "PU Mouse Pad Gamer 800x400X2mm Free Wolf Alfombrilla Raton y Teclado Alfombrilla Escritorio Impermeable Tapete Escritorio de Leather Antideslizante Para Juego y Oficina Negro - $ 168",
-   "categoria": "teclados",
+   "categoria": "accesorios",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_727353-MLA99594140584_122025-P.webp",
    "precio": {
     "actual": 168.0,
@@ -1121,13 +1278,29 @@
     "ahorro": 61.0
    },
    "cupon": null,
-   "specs": [],
+   "specs": [
+    {
+     "texto": "800x400mm",
+     "emoji": "📏",
+     "icono": "check"
+    },
+    {
+     "texto": "Impermeable",
+     "emoji": "💧",
+     "icono": "check"
+    },
+    {
+     "texto": "Antideslizante",
+     "emoji": "🚫",
+     "icono": "check"
+    }
+   ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T16:06:01-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T17:05:08-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1180,7 +1353,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:05:12-06:00"
+    "verificado": "2026-10-30T17:04:14-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1233,7 +1406,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:03:51-06:00"
+    "verificado": "2026-10-30T17:02:57-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1246,7 +1419,7 @@
   {
    "id": "MLM74475477",
    "link": "https://meli.la/2GmsmEx",
-   "nombre": "LG Monitor 24U411B 24U411B-B.AWM",
+   "nombre": "Monitor LG 24U411B",
    "titulo": "LG Monitor 24U411B 24U411B-B.AWM 24 \" - Negro - $ 1,621",
    "categoria": "monitores",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_828665-MLA113145832724_072026-P.webp",
@@ -1266,17 +1439,27 @@
    "cupon": null,
    "specs": [
     {
-     "texto": "24\"",
+     "texto": "24 pulgadas",
      "emoji": "🖥️",
      "icono": "pantalla"
+    },
+    {
+     "texto": "Pantalla plana",
+     "emoji": "📏",
+     "icono": "pantalla"
+    },
+    {
+     "texto": "Modelo 24U411B",
+     "emoji": "✔️",
+     "icono": "check"
     }
    ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T16:05:42-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T17:04:51-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1329,7 +1512,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:03:38-06:00"
+    "verificado": "2026-10-30T17:02:45-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1382,7 +1565,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:04:43-06:00"
+    "verificado": "2026-10-30T17:03:42-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1435,7 +1618,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:04:58-06:00"
+    "verificado": "2026-10-30T17:03:57-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1488,7 +1671,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:04:10-06:00"
+    "verificado": "2026-10-30T17:03:12-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1541,7 +1724,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:03:28-06:00"
+    "verificado": "2026-10-30T17:02:35-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1594,7 +1777,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:03:46-06:00"
+    "verificado": "2026-10-30T17:02:53-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1607,9 +1790,9 @@
   {
    "id": "MLM40827289",
    "link": "https://meli.la/1ZVLSd4",
-   "nombre": "Zotac Gaming Geforce Rtx",
+   "nombre": "Tarjeta Gráfica Zotac Gaming GeForce RTX 4060",
    "titulo": "Zotac Gaming Geforce Rtx 4060 Tarjeta Gráfica Compacta Para - $ 7,499",
-   "categoria": "accesorios",
+   "categoria": "componentes",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_661432-MLA99463969542_112025-P.webp",
    "precio": {
     "actual": 7499.0,
@@ -1625,13 +1808,29 @@
     "ahorro": 1001.0
    },
    "cupon": null,
-   "specs": [],
+   "specs": [
+    {
+     "texto": "GeForce RTX 4060",
+     "emoji": "🎮",
+     "icono": "check"
+    },
+    {
+     "texto": "Diseño compacto",
+     "emoji": "📏",
+     "icono": "check"
+    },
+    {
+     "texto": "Zotac Gaming",
+     "emoji": "⚡",
+     "icono": "check"
+    }
+   ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T16:05:48-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T17:04:55-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1684,7 +1883,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:05:10-06:00"
+    "verificado": "2026-10-30T17:04:10-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1737,7 +1936,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T16:04:39-06:00"
+    "verificado": "2026-10-30T17:03:39-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1746,13 +1945,78 @@
      190.79
     ]
    ]
+  },
+  {
+   "id": "MLM19836205",
+   "link": "https://meli.la/1HW8aia",
+   "nombre": "Mouse Pad Logitech Studio Series",
+   "titulo": "Mouse Pad Logitech Studio Series Black 23x20cm - $ 227",
+   "categoria": "accesorios",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_697680-MLA99424477732_112025-P.webp",
+   "precio": {
+    "actual": 227.0,
+    "antes": 239.0,
+    "tachado": 239.0,
+    "referencia_30d": null,
+    "minimo_30d": 227.0
+   },
+   "descuento": {
+    "pct": 5,
+    "real_pct": 0,
+    "tachado_pct": 5,
+    "ahorro": 12.0
+   },
+   "cupon": null,
+   "specs": [
+    {
+     "texto": "Mouse Pad",
+     "emoji": "🖱️",
+     "icono": "check"
+    },
+    {
+     "texto": "23x20 cm",
+     "emoji": "📏",
+     "icono": "check"
+    },
+    {
+     "texto": "Logitech",
+     "emoji": "✔️",
+     "icono": "check"
+    }
+   ],
+   "senales": {
+    "tachado_inflado": false,
+    "historial_dias": 1,
+    "historial_suficiente": false,
+    "nombre_ia": true,
+    "verificado": "2026-10-30T17:05:12-06:00"
+   },
+   "super_deal": false,
+   "historial": [
+    [
+     "2026-10-30",
+     227.0
+    ]
+   ]
   }
  ],
  "bajas": [
   {
    "id": "MLM19836205",
    "link": "https://meli.la/1HW8aia",
-   "nombre": "Mouse Pad Logitech Studio Series Black",
+   "nombre": "Mouse Pad Logitech Studio Series",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_697680-MLA99424477732_112025-P.webp",
+   "precio_antes": 299.0,
+   "precio_ahora": 227.0,
+   "caida_pct": 24.0,
+   "descuento_real_pct": 0.0,
+   "ts": "2026-10-30T17:05:12-06:00",
+   "motivo": "baja de precio"
+  },
+  {
+   "id": "MLM19836205",
+   "link": "https://meli.la/1HW8aia",
+   "nombre": "Mouse Pad Logitech Studio Series",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_697680-MLA99424477732_112025-P.webp",
    "precio_antes": 299.0,
    "precio_ahora": 227.0,
