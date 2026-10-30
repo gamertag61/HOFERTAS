@@ -119,7 +119,7 @@ Otros comandos: `python heleos_radar.py` (una sola vuelta), `--debug` (si falla 
 
 Abre `https://gamertag61.github.io/HOFERTAS/panel_h7x_secreto.html`, toca el ícono de enlace junto al contador de enlaces,
 pega tu token de GitHub y presiona **Conectar** (el repositorio se detecta solo). Desde ahí, **Guardar enlaces** escribe en el
-`enlaces.txt` del repositorio y el radar los rastrea en su siguiente vuelta. Al agregar productos, suma su nombre comercial
+`enlaces.txt` del repositorio (sin token, junta tu lista con `enlaces.txt` y la copia al portapapeles para que la pegues tú) y el radar los rastrea en su siguiente vuelta. Al agregar productos, suma su nombre comercial
 en `nombres.js` si quieres uno escrito a mano (si no, se usa el de la IA).
 
 ## 4.1 Cupones de Mercado Libre
