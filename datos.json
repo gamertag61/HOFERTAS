@@ -1,20 +1,15 @@
 {
  "version": 2,
- "actualizado": "2026-10-30T15:15:05-06:00",
+ "actualizado": "2026-10-30T16:09:00-06:00",
  "categorias": [
   {
    "id": "accesorios",
    "nombre": "Accesorios",
-   "total": 7
+   "total": 6
   },
   {
    "id": "monitores",
    "nombre": "Monitores",
-   "total": 5
-  },
-  {
-   "id": "mouse",
-   "nombre": "Mouse",
    "total": 5
   },
   {
@@ -23,13 +18,13 @@
    "total": 5
   },
   {
-   "id": "teclados",
-   "nombre": "Teclados",
-   "total": 3
+   "id": "mouse",
+   "nombre": "Mouse",
+   "total": 4
   },
   {
-   "id": "iluminacion",
-   "nombre": "Iluminación",
+   "id": "teclados",
+   "nombre": "Teclados",
    "total": 3
   },
   {
@@ -38,18 +33,23 @@
    "total": 3
   },
   {
+   "id": "controles",
+   "nombre": "Controles",
+   "total": 3
+  },
+  {
    "id": "sillas",
    "nombre": "Sillas",
    "total": 2
   },
   {
-   "id": "audio",
-   "nombre": "Audio",
+   "id": "iluminacion",
+   "nombre": "Iluminación",
    "total": 2
   },
   {
-   "id": "controles",
-   "nombre": "Controles",
+   "id": "audio",
+   "nombre": "Audio",
    "total": 2
   }
  ],
@@ -97,7 +97,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T15:09:08-06:00"
+    "verificado": "2026-10-30T16:04:04-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -134,7 +134,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": false,
-    "verificado": "2026-10-30T15:10:57-06:00"
+    "verificado": "2026-10-30T16:05:56-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -187,7 +187,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T15:09:22-06:00"
+    "verificado": "2026-10-30T16:04:19-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -200,7 +200,7 @@
   {
    "id": "MLM19444510",
    "link": "https://meli.la/2mrYvFT",
-   "nombre": "Procesador AMD Ryzen",
+   "nombre": "Procesador AMD Ryzen 5 5500",
    "titulo": "Procesador AMD Ryzen 5 5500 S-AM4 3.60GHz Six-Core 16MB 100-100000457BOX - $ 1,800",
    "categoria": "componentes",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_801013-MLA99496628892_112025-P.webp",
@@ -218,13 +218,29 @@
     "ahorro": 3200.0
    },
    "cupon": null,
-   "specs": [],
+   "specs": [
+    {
+     "texto": "6 Núcleos",
+     "emoji": "⚙️",
+     "icono": "disco"
+    },
+    {
+     "texto": "3.60 GHz",
+     "emoji": "⚡",
+     "icono": "disco"
+    },
+    {
+     "texto": "16MB Caché",
+     "emoji": "💾",
+     "icono": "check"
+    }
+   ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T15:09:56-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T16:04:53-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -267,7 +283,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": false,
-    "verificado": "2026-10-30T15:10:24-06:00"
+    "verificado": "2026-10-30T16:05:20-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -304,7 +320,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": false,
-    "verificado": "2026-10-30T15:10:34-06:00"
+    "verificado": "2026-10-30T16:05:29-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -347,7 +363,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": false,
-    "verificado": "2026-10-30T15:10:28-06:00"
+    "verificado": "2026-10-30T16:05:22-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -400,7 +416,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T15:09:17-06:00"
+    "verificado": "2026-10-30T16:04:15-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -453,7 +469,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T15:09:03-06:00"
+    "verificado": "2026-10-30T16:03:54-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -466,7 +482,7 @@
   {
    "id": "MLM51536643",
    "link": "https://meli.la/2UL7Zk8",
-   "nombre": "Lámpara De Escritorio Giratoria 360°",
+   "nombre": "Lámpara de Escritorio Giratoria con Clip",
    "titulo": "Lámpara De Escritorio Giratoria 360° Con Clip, Base Y Foco Estructura Blanco Pantalla Blanco - $ 193.65",
    "categoria": "iluminacion",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_661096-MLA99943276587_112025-P.webp",
@@ -484,13 +500,29 @@
     "ahorro": 235.35
    },
    "cupon": null,
-   "specs": [],
+   "specs": [
+    {
+     "texto": "Giratoria 360°",
+     "emoji": "🔄",
+     "icono": "check"
+    },
+    {
+     "texto": "Con Clip",
+     "emoji": "📎",
+     "icono": "check"
+    },
+    {
+     "texto": "Incluye Foco",
+     "emoji": "💡",
+     "icono": "check"
+    }
+   ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T15:09:37-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T16:04:36-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -543,7 +575,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T15:08:42-06:00"
+    "verificado": "2026-10-30T16:03:34-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -556,7 +588,7 @@
   {
    "id": "MLM48477693",
    "link": "https://meli.la/1C5wWyp",
-   "nombre": "Soporte Tablet Base Giratoria 360° Plegable",
+   "nombre": "Soporte para Tablet Giratorio Plegable",
    "titulo": "Soporte Tablet Base Giratoria 360° Plegable Para iPad - $ 125.02",
    "categoria": "accesorios",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_756691-MLM112660199312_062026-P.webp",
@@ -574,13 +606,29 @@
     "ahorro": 140.98
    },
    "cupon": null,
-   "specs": [],
+   "specs": [
+    {
+     "texto": "Giratorio 360°",
+     "emoji": "🔄",
+     "icono": "check"
+    },
+    {
+     "texto": "Para iPad",
+     "emoji": "📱",
+     "icono": "check"
+    },
+    {
+     "texto": "Plegable",
+     "emoji": "📐",
+     "icono": "check"
+    }
+   ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T15:10:03-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T16:05:01-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -623,7 +671,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": false,
-    "verificado": "2026-10-30T15:10:31-06:00"
+    "verificado": "2026-10-30T16:05:27-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -676,7 +724,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T15:09:05-06:00"
+    "verificado": "2026-10-30T16:03:59-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -713,7 +761,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": false,
-    "verificado": "2026-10-30T15:10:41-06:00"
+    "verificado": "2026-10-30T16:05:38-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -750,7 +798,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": false,
-    "verificado": "2026-10-30T15:11:10-06:00"
+    "verificado": "2026-10-30T16:06:11-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -787,7 +835,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": false,
-    "verificado": "2026-10-30T15:10:37-06:00"
+    "verificado": "2026-10-30T16:05:35-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -800,7 +848,7 @@
   {
    "id": "MLM47293464",
    "link": "https://meli.la/2pZcUyu",
-   "nombre": "Anker Soundcore Audífonos Gamer Bluetooth Q11i",
+   "nombre": "Audífonos Gamer Anker Soundcore Q11i",
    "titulo": "Anker Soundcore Audífonos Gamer Bluetooth Q11i de Diadema Hi-Res Audio Drivers Dinámicos de 40 mm 22 Ajustes de EQ Almohadillas Desmontables Control de Graves 60 Horas Negro - $ 474.01",
    "categoria": "audio",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_727560-MLA99925676705_112025-P.webp",
@@ -820,60 +868,33 @@
    "cupon": null,
    "specs": [
     {
-     "texto": "Inalámbrico",
-     "emoji": "📶",
-     "icono": "wifi"
+     "texto": "60 Horas",
+     "emoji": "🔋",
+     "icono": "bateria"
+    },
+    {
+     "texto": "Drivers 40 mm",
+     "emoji": "🔊",
+     "icono": "audio"
+    },
+    {
+     "texto": "Hi-Res Audio",
+     "emoji": "🎧",
+     "icono": "audio"
     }
    ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T15:10:20-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T16:05:17-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
      474.01
-    ]
-   ]
-  },
-  {
-   "id": "MLM61677176",
-   "link": "https://meli.la/2JNk1rS",
-   "nombre": "Lámpara Led De Escritorio",
-   "titulo": "Lámpara Led De Escritorio Con Clip Ajustable, 3 Tonos, 10 Niveles, 360° Y Usb - $ 249.99",
-   "categoria": "iluminacion",
-   "imagen": "https://http2.mlstatic.com/D_NQ_NP_912775-MLA96770588696_112025-P.webp",
-   "precio": {
-    "actual": 249.99,
-    "antes": 399.0,
-    "tachado": 399.0,
-    "referencia_30d": null,
-    "minimo_30d": 249.99
-   },
-   "descuento": {
-    "pct": 37,
-    "real_pct": 0,
-    "tachado_pct": 37,
-    "ahorro": 149.01
-   },
-   "cupon": null,
-   "specs": [],
-   "senales": {
-    "tachado_inflado": false,
-    "historial_dias": 1,
-    "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T15:09:53-06:00"
-   },
-   "super_deal": false,
-   "historial": [
-    [
-     "2026-10-30",
-     249.99
     ]
    ]
   },
@@ -920,7 +941,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T15:09:25-06:00"
+    "verificado": "2026-10-30T16:04:22-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -963,7 +984,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": false,
-    "verificado": "2026-10-30T15:10:54-06:00"
+    "verificado": "2026-10-30T16:05:52-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -976,7 +997,7 @@
   {
    "id": "MLM37498971",
    "link": "https://meli.la/2TWBd3D",
-   "nombre": "Mando GameSir Kaleid",
+   "nombre": "Control GameSir Kaleid",
    "titulo": "Mando GameSir Kaleid para Xbox Series X|S, Xbox One, Windows 10/11 y Steam, Gamepad alámbrico con joysticks y gatillos de efecto Hall, joystick antidrift. - $ 950.94",
    "categoria": "controles",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_802407-MLA99452784724_112025-P.webp",
@@ -999,14 +1020,24 @@
      "texto": "Alámbrico",
      "emoji": "🔌",
      "icono": "cable"
+    },
+    {
+     "texto": "Efecto Hall",
+     "emoji": "🕹️",
+     "icono": "check"
+    },
+    {
+     "texto": "Antidrift",
+     "emoji": "🚫",
+     "icono": "check"
     }
    ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T15:10:08-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T16:05:05-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1019,7 +1050,7 @@
   {
    "id": "MLM54505836",
    "link": "https://meli.la/1t8NUEe",
-   "nombre": "Silla De Escritorio Oficina Ergonomica",
+   "nombre": "Silla de Oficina Ergonómica",
    "titulo": "Silla De Escritorio Oficina Ergonomica Con Lumbar Ajustable Color Blanco/negro Material Del Tapizado Algodón - $ 1,590",
    "categoria": "sillas",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_863671-MLA99991185235_112025-P.webp",
@@ -1037,13 +1068,29 @@
     "ahorro": 650.0
    },
    "cupon": null,
-   "specs": [],
+   "specs": [
+    {
+     "texto": "Ergonómica",
+     "emoji": "🪑",
+     "icono": "check"
+    },
+    {
+     "texto": "Lumbar ajustable",
+     "emoji": "⚙️",
+     "icono": "check"
+    },
+    {
+     "texto": "Tapizado algodón",
+     "emoji": "☁️",
+     "icono": "check"
+    }
+   ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T15:09:35-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T16:04:31-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1080,7 +1127,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": false,
-    "verificado": "2026-10-30T15:11:01-06:00"
+    "verificado": "2026-10-30T16:06:01-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1093,9 +1140,9 @@
   {
    "id": "MLM45437840",
    "link": "https://meli.la/15C8wq7",
-   "nombre": "Gamesir Kaleid Flux Wired Controller For",
+   "nombre": "Control GameSir Kaleid Flux",
    "titulo": "Gamesir Kaleid Flux Wired Controller For Xbox Pc And Steam Negro/dorado - $ 936.56",
-   "categoria": "accesorios",
+   "categoria": "controles",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_961709-MLA99531219786_122025-P.webp",
    "precio": {
     "actual": 936.56,
@@ -1116,14 +1163,24 @@
      "texto": "Alámbrico",
      "emoji": "🔌",
      "icono": "cable"
+    },
+    {
+     "texto": "Para Xbox",
+     "emoji": "🎮",
+     "icono": "check"
+    },
+    {
+     "texto": "Compatible PC",
+     "emoji": "💻",
+     "icono": "check"
     }
    ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T15:10:16-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T16:05:12-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1176,7 +1233,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T15:08:58-06:00"
+    "verificado": "2026-10-30T16:03:51-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1219,7 +1276,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": false,
-    "verificado": "2026-10-30T15:10:45-06:00"
+    "verificado": "2026-10-30T16:05:42-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1272,7 +1329,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T15:08:47-06:00"
+    "verificado": "2026-10-30T16:03:38-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1285,7 +1342,7 @@
   {
    "id": "MLM19159879",
    "link": "https://meli.la/143CXmW",
-   "nombre": "Procesadoramd Ryzen 7 5700x 4.6ghz 8core",
+   "nombre": "Procesador AMD Ryzen 7 5700X",
    "titulo": "Procesadoramd Ryzen 7 5700x 4.6ghz 8core Am4 100000926box - $ 4,119",
    "categoria": "componentes",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_928840-MLA99509517996_112025-P.webp",
@@ -1303,13 +1360,29 @@
     "ahorro": 881.0
    },
    "cupon": null,
-   "specs": [],
+   "specs": [
+    {
+     "texto": "8 Núcleos",
+     "emoji": "⚙️",
+     "icono": "disco"
+    },
+    {
+     "texto": "4.6 GHz",
+     "emoji": "⚡",
+     "icono": "disco"
+    },
+    {
+     "texto": "Socket AM4",
+     "emoji": "🔌",
+     "icono": "check"
+    }
+   ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T15:09:47-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T16:04:43-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1320,9 +1393,9 @@
    ]
   },
   {
-   "id": "MLM2065580884",
+   "id": "MLM2115442219",
    "link": "https://meli.la/1cJLBjz",
-   "nombre": "Lámparas De Buró Escritorio",
+   "nombre": "Lámpara de Escritorio LED con USB-C",
    "titulo": "Lámparas De Buró Escritorio Led 3 Colores Con Foco Y Usb-c Gris/lino - $ 297",
    "categoria": "iluminacion",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_704042-MLM118528840513_092026-P.webp",
@@ -1340,13 +1413,29 @@
     "ahorro": 63.0
    },
    "cupon": null,
-   "specs": [],
+   "specs": [
+    {
+     "texto": "3 Colores",
+     "emoji": "💡",
+     "icono": "check"
+    },
+    {
+     "texto": "Puerto USB-C",
+     "emoji": "🔌",
+     "icono": "cable"
+    },
+    {
+     "texto": "Incluye Foco",
+     "emoji": "🔋",
+     "icono": "check"
+    }
+   ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T15:10:00-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T16:04:58-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1399,7 +1488,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T15:09:12-06:00"
+    "verificado": "2026-10-30T16:04:10-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1452,7 +1541,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T15:08:38-06:00"
+    "verificado": "2026-10-30T16:03:28-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1505,7 +1594,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T15:08:54-06:00"
+    "verificado": "2026-10-30T16:03:46-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1542,7 +1631,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": false,
-    "verificado": "2026-10-30T15:10:49-06:00"
+    "verificado": "2026-10-30T16:05:48-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1555,7 +1644,7 @@
   {
    "id": "MLM53225642",
    "link": "https://meli.la/2iJyZxj",
-   "nombre": "Control Alámbrico GameSir G7 Pro",
+   "nombre": "Control GameSir G7 Pro",
    "titulo": "Control Alámbrico GameSir G7 Pro para Xbox Series X|S y Xbox One, Gamepad Inalámbrico para PC y Android con Palancas TMR, Gatillos Analógicos Hall Effect y Tasa de Sondeo de 1000Hz - $ 1,698",
    "categoria": "controles",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_689134-MLA116309139477_082026-P.webp",
@@ -1575,27 +1664,27 @@
    "cupon": null,
    "specs": [
     {
-     "texto": "000 Hz",
-     "emoji": "⚡",
-     "icono": "rayo"
-    },
-    {
-     "texto": "Inalámbrico",
-     "emoji": "📶",
-     "icono": "wifi"
-    },
-    {
      "texto": "Alámbrico",
      "emoji": "🔌",
      "icono": "cable"
+    },
+    {
+     "texto": "Hall Effect",
+     "emoji": "🎮",
+     "icono": "check"
+    },
+    {
+     "texto": "1000Hz",
+     "emoji": "⚡",
+     "icono": "check"
     }
    ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T15:10:13-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T16:05:10-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1608,7 +1697,7 @@
   {
    "id": "MLM49348956",
    "link": "https://meli.la/2Nu8c5R",
-   "nombre": "Bocina para PC",
+   "nombre": "Bocina Gamer MTK con Subwoofer",
    "titulo": "Bocina para PC con Subwoofer y Luces RGB 5W USB Altavoces Gamer para Computadora MTK - $ 190.79",
    "categoria": "audio",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_817468-MLA108288946392_032026-P.webp",
@@ -1628,8 +1717,18 @@
    "cupon": null,
    "specs": [
     {
-     "texto": "RGB",
-     "emoji": "💡",
+     "texto": "5W Potencia",
+     "emoji": "🔊",
+     "icono": "check"
+    },
+    {
+     "texto": "Conexión USB",
+     "emoji": "🔌",
+     "icono": "cable"
+    },
+    {
+     "texto": "Luces RGB",
+     "emoji": "🌈",
      "icono": "luz"
     }
    ],
@@ -1637,51 +1736,14 @@
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T15:09:42-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T16:04:39-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
      190.79
-    ]
-   ]
-  },
-  {
-   "id": "MLM19836205",
-   "link": "https://meli.la/1HW8aia",
-   "nombre": "Mouse Pad Logitech Studio Series Black",
-   "titulo": "Mouse Pad Logitech Studio Series Black 23x20cm - $ 227",
-   "categoria": "mouse",
-   "imagen": "https://http2.mlstatic.com/D_NQ_NP_697680-MLA99424477732_112025-P.webp",
-   "precio": {
-    "actual": 227.0,
-    "antes": 239.0,
-    "tachado": 239.0,
-    "referencia_30d": null,
-    "minimo_30d": 227.0
-   },
-   "descuento": {
-    "pct": 5,
-    "real_pct": 0,
-    "tachado_pct": 5,
-    "ahorro": 12.0
-   },
-   "cupon": null,
-   "specs": [],
-   "senales": {
-    "tachado_inflado": false,
-    "historial_dias": 1,
-    "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T15:11:05-06:00"
-   },
-   "super_deal": false,
-   "historial": [
-    [
-     "2026-10-30",
-     227.0
     ]
    ]
   }
