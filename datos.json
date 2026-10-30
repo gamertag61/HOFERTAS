@@ -1,6 +1,6 @@
 {
  "version": 2,
- "actualizado": "2026-10-29T19:34:06-06:00",
+ "actualizado": "2026-10-29T20:40:42-06:00",
  "categorias": [
   {
    "id": "escritorios",
@@ -40,11 +40,6 @@
   {
    "id": "sillas",
    "nombre": "Sillas",
-   "total": 1
-  },
-  {
-   "id": "componentes",
-   "nombre": "Componentes",
    "total": 1
   },
   {
@@ -97,7 +92,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:32:41-06:00"
+    "verificado": "2026-10-29T20:39:23-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -150,7 +145,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:32:52-06:00"
+    "verificado": "2026-10-29T20:39:36-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -203,7 +198,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:32:49-06:00"
+    "verificado": "2026-10-29T20:39:31-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -309,7 +304,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:33:06-06:00"
+    "verificado": "2026-10-29T20:39:52-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -362,7 +357,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:33:33-06:00"
+    "verificado": "2026-10-29T20:40:20-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -415,7 +410,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:32:37-06:00"
+    "verificado": "2026-10-29T20:39:19-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -468,7 +463,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:32:11-06:00"
+    "verificado": "2026-10-29T20:38:55-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -521,7 +516,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:33:22-06:00"
+    "verificado": "2026-10-29T20:40:07-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -574,7 +569,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:33:52-06:00"
+    "verificado": "2026-10-29T20:40:37-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -627,7 +622,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:32:55-06:00"
+    "verificado": "2026-10-29T20:39:40-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -680,7 +675,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:33:38-06:00"
+    "verificado": "2026-10-29T20:40:24-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -733,7 +728,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:33:03-06:00"
+    "verificado": "2026-10-29T20:39:46-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -786,7 +781,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:33:46-06:00"
+    "verificado": "2026-10-29T20:40:33-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -839,7 +834,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:32:29-06:00"
+    "verificado": "2026-10-29T20:39:11-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -892,7 +887,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:32:16-06:00"
+    "verificado": "2026-10-29T20:38:59-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -903,7 +898,7 @@
    ]
   },
   {
-   "id": "MLM2057291715",
+   "id": "MLM2115442219",
    "link": "https://meli.la/1cJLBjz",
    "nombre": "Lámpara de Escritorio LED con USB-C",
    "titulo": "Lámparas De Buró Escritorio Led 3 Colores Con Foco Y Usb-c Gris/lino - $ 297",
@@ -945,7 +940,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:33:30-06:00"
+    "verificado": "2026-10-29T20:40:16-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -998,7 +993,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:32:44-06:00"
+    "verificado": "2026-10-29T20:39:27-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1051,7 +1046,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:32:08-06:00"
+    "verificado": "2026-10-29T20:38:50-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1104,66 +1099,13 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:32:25-06:00"
+    "verificado": "2026-10-29T20:39:07-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-29",
      1690.0
-    ]
-   ]
-  },
-  {
-   "id": "MLM19444510",
-   "link": "https://meli.la/2mrYvFT",
-   "nombre": "Procesador AMD Ryzen 5 5500",
-   "titulo": "Procesador AMD Ryzen 5 5500 S-AM4 3.60GHz Six-Core 16MB 100-100000457BOX - $ 1,800",
-   "categoria": "componentes",
-   "imagen": "https://http2.mlstatic.com/D_NQ_NP_801013-MLA99496628892_112025-P.webp",
-   "precio": {
-    "actual": 1800.0,
-    "antes": 1999.0,
-    "tachado": 1999.0,
-    "referencia_30d": null,
-    "minimo_30d": 1732.0
-   },
-   "descuento": {
-    "pct": 10,
-    "real_pct": 0,
-    "tachado_pct": 10,
-    "ahorro": 199.0
-   },
-   "cupon": null,
-   "specs": [
-    {
-     "texto": "6 Núcleos",
-     "emoji": "⚙️",
-     "icono": "disco"
-    },
-    {
-     "texto": "3.60 GHz",
-     "emoji": "⚡",
-     "icono": "disco"
-    },
-    {
-     "texto": "16 MB Caché",
-     "emoji": "💾",
-     "icono": "check"
-    }
-   ],
-   "senales": {
-    "tachado_inflado": false,
-    "historial_dias": 1,
-    "historial_suficiente": false,
-    "nombre_ia": true,
-    "verificado": "2026-10-29T19:33:25-06:00"
-   },
-   "super_deal": false,
-   "historial": [
-    [
-     "2026-10-29",
-     1732.0
     ]
    ]
   },
@@ -1210,7 +1152,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:33:43-06:00"
+    "verificado": "2026-10-29T20:40:29-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1263,7 +1205,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-29T19:33:12-06:00"
+    "verificado": "2026-10-29T20:39:56-06:00"
    },
    "super_deal": false,
    "historial": [
