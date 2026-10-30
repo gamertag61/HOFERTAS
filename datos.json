@@ -1,6 +1,6 @@
 {
  "version": 2,
- "actualizado": "2026-10-30T11:14:39-06:00",
+ "actualizado": "2026-10-30T12:07:54-06:00",
  "categorias": [
   {
    "id": "escritorios",
@@ -35,6 +35,11 @@
   {
    "id": "audio",
    "nombre": "Audio",
+   "total": 2
+  },
+  {
+   "id": "componentes",
+   "nombre": "Componentes",
    "total": 2
   },
   {
@@ -92,7 +97,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:13:33-06:00"
+    "verificado": "2026-10-30T12:06:36-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -149,7 +154,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:13:46-06:00"
+    "verificado": "2026-10-30T12:06:47-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -160,6 +165,63 @@
     [
      "2026-10-30",
      1498.0
+    ]
+   ]
+  },
+  {
+   "id": "MLM19444510",
+   "link": "https://meli.la/2mrYvFT",
+   "nombre": "Procesador AMD Ryzen 5 5500",
+   "titulo": "Procesador AMD Ryzen 5 5500 S-AM4 3.60GHz Six-Core 16MB 100-100000457BOX - $ 1,800",
+   "categoria": "componentes",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_801013-MLA99496628892_112025-P.webp",
+   "precio": {
+    "actual": 1800.0,
+    "antes": 5000.0,
+    "tachado": 5000.0,
+    "referencia_30d": null,
+    "minimo_30d": 1732.0
+   },
+   "descuento": {
+    "pct": 64,
+    "real_pct": 0,
+    "tachado_pct": 64,
+    "ahorro": 3200.0
+   },
+   "cupon": null,
+   "specs": [
+    {
+     "texto": "6 Núcleos",
+     "emoji": "⚙️",
+     "icono": "disco"
+    },
+    {
+     "texto": "3.60 GHz",
+     "emoji": "⚡",
+     "icono": "disco"
+    },
+    {
+     "texto": "16 MB Caché",
+     "emoji": "💾",
+     "icono": "check"
+    }
+   ],
+   "senales": {
+    "tachado_inflado": false,
+    "historial_dias": 2,
+    "historial_suficiente": false,
+    "nombre_ia": true,
+    "verificado": "2026-10-30T12:07:19-06:00"
+   },
+   "super_deal": false,
+   "historial": [
+    [
+     "2026-10-29",
+     1732.0
+    ],
+    [
+     "2026-10-30",
+     1800.0
     ]
    ]
   },
@@ -206,7 +268,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:13:41-06:00"
+    "verificado": "2026-10-30T12:06:44-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -263,7 +325,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:13:27-06:00"
+    "verificado": "2026-10-30T12:06:29-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -320,7 +382,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:14:01-06:00"
+    "verificado": "2026-10-30T12:07:05-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -331,6 +393,63 @@
     [
      "2026-10-30",
      193.65
+    ]
+   ]
+  },
+  {
+   "id": "MLM64186211",
+   "link": "https://meli.la/2XiVSGp",
+   "nombre": "Teclado Mecánico Attack Shark X85 Pro",
+   "titulo": "Teclado Inalámbrico Mecánico Attack Shark X85 Pro 82 Teclas Teclado RGB con Pantalla TFT y Perilla Anti-Ghosting 4000mAh QWERTY Español ñ Programable y Hot-Swappable Bluetooth+2.4G+USB - $ 919",
+   "categoria": "teclados",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_807312-MLA112672321119_062026-P.webp",
+   "precio": {
+    "actual": 919.0,
+    "antes": 1968.0,
+    "tachado": 1968.0,
+    "referencia_30d": null,
+    "minimo_30d": 919.0
+   },
+   "descuento": {
+    "pct": 53,
+    "real_pct": 0,
+    "tachado_pct": 53,
+    "ahorro": 1049.0
+   },
+   "cupon": null,
+   "specs": [
+    {
+     "texto": "4000 mAh",
+     "emoji": "🔋",
+     "icono": "bateria"
+    },
+    {
+     "texto": "Inalámbrico",
+     "emoji": "📶",
+     "icono": "wifi"
+    },
+    {
+     "texto": "82 Teclas",
+     "emoji": "⌨️",
+     "icono": "tecla"
+    }
+   ],
+   "senales": {
+    "tachado_inflado": false,
+    "historial_dias": 2,
+    "historial_suficiente": false,
+    "nombre_ia": true,
+    "verificado": "2026-10-30T12:06:08-06:00"
+   },
+   "super_deal": false,
+   "historial": [
+    [
+     "2026-10-29",
+     998.0
+    ],
+    [
+     "2026-10-30",
+     919.0
     ]
    ]
   },
@@ -377,7 +496,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:14:22-06:00"
+    "verificado": "2026-10-30T12:07:26-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -434,7 +553,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:13:30-06:00"
+    "verificado": "2026-10-30T12:06:32-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -445,63 +564,6 @@
     [
      "2026-10-30",
      80.98
-    ]
-   ]
-  },
-  {
-   "id": "MLM64186211",
-   "link": "https://meli.la/2XiVSGp",
-   "nombre": "Teclado Mecánico Attack Shark X85 Pro",
-   "titulo": "Teclado Inalámbrico Mecánico Attack Shark X85 Pro 82 Teclas Teclado RGB con Pantalla TFT y Perilla Anti-Ghosting 4000mAh QWERTY Español ñ Programable y Hot-Swappable Bluetooth+2.4G+USB - $ 998",
-   "categoria": "teclados",
-   "imagen": "https://http2.mlstatic.com/D_NQ_NP_807312-MLA112672321119_062026-P.webp",
-   "precio": {
-    "actual": 998.0,
-    "antes": 1968.0,
-    "tachado": 1968.0,
-    "referencia_30d": null,
-    "minimo_30d": 998.0
-   },
-   "descuento": {
-    "pct": 49,
-    "real_pct": 0,
-    "tachado_pct": 49,
-    "ahorro": 970.0
-   },
-   "cupon": null,
-   "specs": [
-    {
-     "texto": "4000 mAh",
-     "emoji": "🔋",
-     "icono": "bateria"
-    },
-    {
-     "texto": "Inalámbrico",
-     "emoji": "📶",
-     "icono": "wifi"
-    },
-    {
-     "texto": "82 Teclas",
-     "emoji": "⌨️",
-     "icono": "tecla"
-    }
-   ],
-   "senales": {
-    "tachado_inflado": false,
-    "historial_dias": 2,
-    "historial_suficiente": false,
-    "nombre_ia": true,
-    "verificado": "2026-10-30T11:13:11-06:00"
-   },
-   "super_deal": false,
-   "historial": [
-    [
-     "2026-10-29",
-     998.0
-    ],
-    [
-     "2026-10-30",
-     998.0
     ]
    ]
   },
@@ -548,7 +610,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:14:37-06:00"
+    "verificado": "2026-10-30T12:07:42-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -605,7 +667,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:14:13-06:00"
+    "verificado": "2026-10-30T12:07:16-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -662,7 +724,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:13:49-06:00"
+    "verificado": "2026-10-30T12:06:51-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -719,7 +781,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:14:27-06:00"
+    "verificado": "2026-10-30T12:07:31-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -776,7 +838,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:13:57-06:00"
+    "verificado": "2026-10-30T12:07:01-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -833,7 +895,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:14:32-06:00"
+    "verificado": "2026-10-30T12:07:38-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -890,7 +952,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:13:24-06:00"
+    "verificado": "2026-10-30T12:06:24-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -947,7 +1009,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:13:15-06:00"
+    "verificado": "2026-10-30T12:06:11-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -958,6 +1020,63 @@
     [
      "2026-10-30",
      2289.0
+    ]
+   ]
+  },
+  {
+   "id": "MLM19159879",
+   "link": "https://meli.la/143CXmW",
+   "nombre": "Procesador AMD Ryzen 7 5700X",
+   "titulo": "Procesadoramd Ryzen 7 5700x 4.6ghz 8core Am4 100000926box - $ 4,119",
+   "categoria": "componentes",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_928840-MLA99509517996_112025-P.webp",
+   "precio": {
+    "actual": 4119.0,
+    "antes": 5000.0,
+    "tachado": 5000.0,
+    "referencia_30d": null,
+    "minimo_30d": 4119.0
+   },
+   "descuento": {
+    "pct": 18,
+    "real_pct": 0,
+    "tachado_pct": 18,
+    "ahorro": 881.0
+   },
+   "cupon": null,
+   "specs": [
+    {
+     "texto": "8 Núcleos",
+     "emoji": "⚙️",
+     "icono": "disco"
+    },
+    {
+     "texto": "4.6 GHz",
+     "emoji": "⚡",
+     "icono": "disco"
+    },
+    {
+     "texto": "Socket AM4",
+     "emoji": "🔌",
+     "icono": "check"
+    }
+   ],
+   "senales": {
+    "tachado_inflado": false,
+    "historial_dias": 2,
+    "historial_suficiente": false,
+    "nombre_ia": true,
+    "verificado": "2026-10-30T12:07:11-06:00"
+   },
+   "super_deal": false,
+   "historial": [
+    [
+     "2026-10-29",
+     4119.0
+    ],
+    [
+     "2026-10-30",
+     4119.0
     ]
    ]
   },
@@ -1004,7 +1123,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:14:19-06:00"
+    "verificado": "2026-10-30T12:07:23-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1061,7 +1180,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:13:36-06:00"
+    "verificado": "2026-10-30T12:06:41-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1118,7 +1237,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:13:09-06:00"
+    "verificado": "2026-10-30T12:06:05-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1175,7 +1294,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:13:22-06:00"
+    "verificado": "2026-10-30T12:06:20-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1232,7 +1351,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:14:29-06:00"
+    "verificado": "2026-10-30T12:07:34-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1289,7 +1408,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T11:14:05-06:00"
+    "verificado": "2026-10-30T12:07:09-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1305,6 +1424,30 @@
   }
  ],
  "bajas": [
+  {
+   "id": "MLM19159879",
+   "link": "https://meli.la/143CXmW",
+   "nombre": "Procesador AMD Ryzen 7 5700X",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_928840-MLA99509517996_112025-P.webp",
+   "precio_antes": 4319.0,
+   "precio_ahora": 4119.0,
+   "caida_pct": 5.0,
+   "descuento_real_pct": 0.0,
+   "ts": "2026-10-30T12:07:11-06:00",
+   "motivo": "baja de precio"
+  },
+  {
+   "id": "MLM64186211",
+   "link": "https://meli.la/2XiVSGp",
+   "nombre": "Teclado Mecánico Attack Shark X85 Pro",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_807312-MLA112672321119_062026-P.webp",
+   "precio_antes": 998.0,
+   "precio_ahora": 919.0,
+   "caida_pct": 8.0,
+   "descuento_real_pct": 0.0,
+   "ts": "2026-10-30T12:06:08-06:00",
+   "motivo": "baja de precio"
+  },
   {
    "id": "MLM37498971",
    "link": "https://meli.la/2TWBd3D",
