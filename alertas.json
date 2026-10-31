@@ -1,6 +1,6 @@
 {
  "version": 2,
- "actualizado": "2026-10-30T23:33:31-06:00",
+ "actualizado": "2026-10-31T00:40:12-06:00",
  "alertas": [
   {
    "id": "MLM19836205",
@@ -9,12 +9,12 @@
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_697680-MLA99424477732_112025-P.webp",
    "precio_antes": 230.6,
    "precio_ahora": 227.0,
-   "caida_pct": 1,
+   "caida_pct": 2,
    "descuento_real_pct": 0.0,
    "ts": "2026-10-30T22:37:31-06:00",
    "motivo": "baja de precio",
    "tipo": "baja",
-   "titulo": "Mouse Pad Logitech Studio Series Black 23x20cm - $ 228.20",
+   "titulo": "Mouse Pad Logitech Studio Series Black 23x20cm - $ 227",
    "categoria": "accesorios",
    "categoria_nombre": "Accesorios",
    "specs": [
@@ -29,13 +29,13 @@
      "icono": "check"
     },
     {
-     "texto": "Color Negro",
-     "emoji": "🖤",
+     "texto": "Logitech",
+     "emoji": "✔️",
      "icono": "check"
     }
    ],
    "cupon": null,
-   "precio_actual": 228.2
+   "precio_actual": 227.0
   },
   {
    "id": "MLM53225642",

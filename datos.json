@@ -1,6 +1,6 @@
 {
  "version": 2,
- "actualizado": "2026-10-30T23:33:31-06:00",
+ "actualizado": "2026-10-31T00:40:12-06:00",
  "categorias": [
   {
    "id": "accesorios",
@@ -97,12 +97,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:31:11-06:00"
+    "verificado": "2026-10-31T00:37:56-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     1353.0
+    ],
+    [
+     "2026-10-31",
      1353.0
     ]
    ]
@@ -150,12 +154,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:33:02-06:00"
+    "verificado": "2026-10-31T00:39:43-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     1349.0
+    ],
+    [
+     "2026-10-31",
      1349.0
     ]
    ]
@@ -203,12 +211,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:31:22-06:00"
+    "verificado": "2026-10-31T00:38:08-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     1498.0
+    ],
+    [
+     "2026-10-31",
      1498.0
     ]
    ]
@@ -256,12 +268,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:31:52-06:00"
+    "verificado": "2026-10-31T00:38:40-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     1800.0
+    ],
+    [
+     "2026-10-31",
      1800.0
     ]
    ]
@@ -309,12 +325,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:32:23-06:00"
+    "verificado": "2026-10-31T00:39:08-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     2189.0
+    ],
+    [
+     "2026-10-31",
      2189.0
     ]
    ]
@@ -362,12 +382,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:32:35-06:00"
+    "verificado": "2026-10-31T00:39:21-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     85.99
+    ],
+    [
+     "2026-10-31",
      85.99
     ]
    ]
@@ -415,12 +439,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:32:27-06:00"
+    "verificado": "2026-10-31T00:39:12-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     713.64
+    ],
+    [
+     "2026-10-31",
      713.64
     ]
    ]
@@ -468,12 +496,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:31:19-06:00"
+    "verificado": "2026-10-31T00:38:04-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     1764.0
+    ],
+    [
+     "2026-10-31",
      1764.0
     ]
    ]
@@ -521,12 +553,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:31:04-06:00"
+    "verificado": "2026-10-31T00:37:46-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     439.42
+    ],
+    [
+     "2026-10-31",
      439.42
     ]
    ]
@@ -574,66 +610,17 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:31:38-06:00"
+    "verificado": "2026-10-31T00:38:23-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
      193.65
-    ]
-   ]
-  },
-  {
-   "id": "MLM64186211",
-   "link": "https://meli.la/2XiVSGp",
-   "nombre": "Teclado Mecánico Attack Shark X85 Pro",
-   "titulo": "Teclado Inalámbrico Mecánico Attack Shark X85 Pro 82 Teclas Teclado RGB con Pantalla TFT y Perilla Anti-Ghosting 4000mAh QWERTY Español ñ Programable y Hot-Swappable Bluetooth+2.4G+USB - $ 919",
-   "categoria": "teclados",
-   "imagen": "https://http2.mlstatic.com/D_NQ_NP_807312-MLA112672321119_062026-P.webp",
-   "precio": {
-    "actual": 919.0,
-    "antes": 1968.0,
-    "tachado": 1968.0,
-    "referencia_30d": null,
-    "minimo_30d": 919.0
-   },
-   "descuento": {
-    "pct": 53,
-    "real_pct": 0,
-    "tachado_pct": 53,
-    "ahorro": 1049.0
-   },
-   "cupon": null,
-   "specs": [
-    {
-     "texto": "4000 mAh",
-     "emoji": "🔋",
-     "icono": "bateria"
-    },
-    {
-     "texto": "Inalámbrico",
-     "emoji": "📶",
-     "icono": "wifi"
-    },
-    {
-     "texto": "82 Teclas",
-     "emoji": "⌨️",
-     "icono": "tecla"
-    }
-   ],
-   "senales": {
-    "tachado_inflado": false,
-    "historial_dias": 1,
-    "historial_suficiente": false,
-    "nombre_ia": true,
-    "verificado": "2026-10-30T23:30:46-06:00"
-   },
-   "super_deal": false,
-   "historial": [
+    ],
     [
-     "2026-10-30",
-     919.0
+     "2026-10-31",
+     193.65
     ]
    ]
   },
@@ -680,12 +667,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:32:01-06:00"
+    "verificado": "2026-10-31T00:38:48-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     125.02
+    ],
+    [
+     "2026-10-31",
      125.02
     ]
    ]
@@ -733,12 +724,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:32:30-06:00"
+    "verificado": "2026-10-31T00:39:17-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     699.0
+    ],
+    [
+     "2026-10-31",
      699.0
     ]
    ]
@@ -786,12 +781,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:31:07-06:00"
+    "verificado": "2026-10-31T00:37:50-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     80.98
+    ],
+    [
+     "2026-10-31",
      80.98
     ]
    ]
@@ -839,12 +838,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:32:46-06:00"
+    "verificado": "2026-10-31T00:39:28-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     98.49
+    ],
+    [
+     "2026-10-31",
      98.49
     ]
    ]
@@ -892,13 +895,74 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:33:16-06:00"
+    "verificado": "2026-10-31T00:39:56-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
      98.99
+    ],
+    [
+     "2026-10-31",
+     98.99
+    ]
+   ]
+  },
+  {
+   "id": "MLM64186211",
+   "link": "https://meli.la/2XiVSGp",
+   "nombre": "Teclado Mecánico Attack Shark X85 Pro",
+   "titulo": "Teclado Inalámbrico Mecánico Attack Shark X85 Pro 82 Teclas Teclado RGB con Pantalla TFT y Perilla Anti-Ghosting 4000mAh QWERTY Español ñ Programable y Hot-Swappable Bluetooth+2.4G+USB - $ 998",
+   "categoria": "teclados",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_807312-MLA112672321119_062026-P.webp",
+   "precio": {
+    "actual": 998.0,
+    "antes": 1968.0,
+    "tachado": 1968.0,
+    "referencia_30d": null,
+    "minimo_30d": 919.0
+   },
+   "descuento": {
+    "pct": 49,
+    "real_pct": 0,
+    "tachado_pct": 49,
+    "ahorro": 970.0
+   },
+   "cupon": null,
+   "specs": [
+    {
+     "texto": "4000 mAh",
+     "emoji": "🔋",
+     "icono": "bateria"
+    },
+    {
+     "texto": "Inalámbrico",
+     "emoji": "📶",
+     "icono": "wifi"
+    },
+    {
+     "texto": "82 Teclas",
+     "emoji": "⌨️",
+     "icono": "tecla"
+    }
+   ],
+   "senales": {
+    "tachado_inflado": false,
+    "historial_dias": 1,
+    "historial_suficiente": false,
+    "nombre_ia": true,
+    "verificado": "2026-10-31T00:37:28-06:00"
+   },
+   "super_deal": false,
+   "historial": [
+    [
+     "2026-10-30",
+     919.0
+    ],
+    [
+     "2026-10-31",
+     998.0
     ]
    ]
   },
@@ -945,12 +1009,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:32:40-06:00"
+    "verificado": "2026-10-31T00:39:24-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     269.0
+    ],
+    [
+     "2026-10-31",
      269.0
     ]
    ]
@@ -998,12 +1066,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:32:18-06:00"
+    "verificado": "2026-10-31T00:39:05-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     474.01
+    ],
+    [
+     "2026-10-31",
      474.01
     ]
    ]
@@ -1051,12 +1123,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:31:49-06:00"
+    "verificado": "2026-10-31T00:38:35-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     249.99
+    ],
+    [
+     "2026-10-31",
      249.99
     ]
    ]
@@ -1104,12 +1180,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:31:25-06:00"
+    "verificado": "2026-10-31T00:38:12-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     1299.0
+    ],
+    [
+     "2026-10-31",
      1299.0
     ]
    ]
@@ -1157,12 +1237,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:32:59-06:00"
+    "verificado": "2026-10-31T00:39:40-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     198.0
+    ],
+    [
+     "2026-10-31",
      198.0
     ]
    ]
@@ -1210,12 +1294,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:32:07-06:00"
+    "verificado": "2026-10-31T00:38:52-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     950.94
+    ],
+    [
+     "2026-10-31",
      950.94
     ]
    ]
@@ -1263,12 +1351,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:31:34-06:00"
+    "verificado": "2026-10-31T00:38:20-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     1590.0
+    ],
+    [
+     "2026-10-31",
      1590.0
     ]
    ]
@@ -1316,12 +1408,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:33:07-06:00"
+    "verificado": "2026-10-31T00:39:47-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     168.0
+    ],
+    [
+     "2026-10-31",
      168.0
     ]
    ]
@@ -1369,12 +1465,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:32:14-06:00"
+    "verificado": "2026-10-31T00:39:00-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     936.56
+    ],
+    [
+     "2026-10-31",
      936.56
     ]
    ]
@@ -1422,12 +1522,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:31:00-06:00"
+    "verificado": "2026-10-31T00:37:44-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     2759.0
+    ],
+    [
+     "2026-10-31",
      2759.0
     ]
    ]
@@ -1475,13 +1579,17 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:32:51-06:00"
+    "verificado": "2026-10-31T00:39:33-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
      1390.0
+    ],
+    [
+     "2026-10-31",
+     1621.0
     ]
    ]
   },
@@ -1528,12 +1636,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:30:51-06:00"
+    "verificado": "2026-10-31T00:37:32-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     2289.0
+    ],
+    [
+     "2026-10-31",
      2289.0
     ]
    ]
@@ -1581,12 +1693,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:31:44-06:00"
+    "verificado": "2026-10-31T00:38:30-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     4119.0
+    ],
+    [
+     "2026-10-31",
      4119.0
     ]
    ]
@@ -1634,12 +1750,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:31:56-06:00"
+    "verificado": "2026-10-31T00:38:46-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     297.0
+    ],
+    [
+     "2026-10-31",
      297.0
     ]
    ]
@@ -1687,12 +1807,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:31:16-06:00"
+    "verificado": "2026-10-31T00:37:59-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     784.73
+    ],
+    [
+     "2026-10-31",
      784.73
     ]
    ]
@@ -1740,12 +1864,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:30:42-06:00"
+    "verificado": "2026-10-31T00:37:23-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     649.0
+    ],
+    [
+     "2026-10-31",
      649.0
     ]
    ]
@@ -1793,12 +1921,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:32:10-06:00"
+    "verificado": "2026-10-31T00:38:57-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     1585.0
+    ],
+    [
+     "2026-10-31",
      1585.0
     ]
    ]
@@ -1846,12 +1978,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:30:57-06:00"
+    "verificado": "2026-10-31T00:37:39-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     1708.0
+    ],
+    [
+     "2026-10-31",
      1708.0
     ]
    ]
@@ -1899,12 +2035,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:32:55-06:00"
+    "verificado": "2026-10-31T00:39:35-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     7499.0
+    ],
+    [
+     "2026-10-31",
      7499.0
     ]
    ]
@@ -1952,12 +2092,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:31:41-06:00"
+    "verificado": "2026-10-31T00:38:26-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     190.79
+    ],
+    [
+     "2026-10-31",
      190.79
     ]
    ]
@@ -1966,11 +2110,11 @@
    "id": "MLM19836205",
    "link": "https://meli.la/1HW8aia",
    "nombre": "Mouse Pad Logitech Studio Series",
-   "titulo": "Mouse Pad Logitech Studio Series Black 23x20cm - $ 228.20",
+   "titulo": "Mouse Pad Logitech Studio Series Black 23x20cm - $ 227",
    "categoria": "accesorios",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_697680-MLA99424477732_112025-P.webp",
    "precio": {
-    "actual": 228.2,
+    "actual": 227.0,
     "antes": 239.0,
     "tachado": 239.0,
     "referencia_30d": null,
@@ -1980,7 +2124,7 @@
     "pct": 5,
     "real_pct": 0,
     "tachado_pct": 5,
-    "ahorro": 10.8
+    "ahorro": 12.0
    },
    "cupon": null,
    "specs": [
@@ -1995,8 +2139,8 @@
      "icono": "check"
     },
     {
-     "texto": "Color Negro",
-     "emoji": "🖤",
+     "texto": "Logitech",
+     "emoji": "✔️",
      "icono": "check"
     }
    ],
@@ -2005,12 +2149,16 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T23:33:12-06:00"
+    "verificado": "2026-10-31T00:39:51-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
+     227.0
+    ],
+    [
+     "2026-10-31",
      227.0
     ]
    ]
