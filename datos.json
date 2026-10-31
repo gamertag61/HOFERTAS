@@ -1,11 +1,11 @@
 {
  "version": 2,
- "actualizado": "2026-10-31T00:40:12-06:00",
+ "actualizado": "2026-10-31T01:47:06-06:00",
  "categorias": [
   {
    "id": "accesorios",
    "nombre": "Accesorios",
-   "total": 10
+   "total": 9
   },
   {
    "id": "monitores",
@@ -94,10 +94,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:37:56-06:00"
+    "verificado": "2026-10-31T01:44:55-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -151,10 +151,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:39:43-06:00"
+    "verificado": "2026-10-31T01:46:42-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -208,10 +208,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:38:08-06:00"
+    "verificado": "2026-10-31T01:45:07-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -265,10 +265,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:38:40-06:00"
+    "verificado": "2026-10-31T01:45:41-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -322,10 +322,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:39:08-06:00"
+    "verificado": "2026-10-31T01:46:07-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -379,10 +379,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:39:21-06:00"
+    "verificado": "2026-10-31T01:46:18-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -436,10 +436,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:39:12-06:00"
+    "verificado": "2026-10-31T01:46:11-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -493,10 +493,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:38:04-06:00"
+    "verificado": "2026-10-31T01:45:03-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -550,10 +550,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:37:46-06:00"
+    "verificado": "2026-10-31T01:44:46-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -607,10 +607,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:38:23-06:00"
+    "verificado": "2026-10-31T01:45:23-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -664,10 +664,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:38:48-06:00"
+    "verificado": "2026-10-31T01:45:50-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -721,10 +721,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:39:17-06:00"
+    "verificado": "2026-10-31T01:46:16-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -778,10 +778,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:37:50-06:00"
+    "verificado": "2026-10-31T01:44:50-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -835,10 +835,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:39:28-06:00"
+    "verificado": "2026-10-31T01:46:26-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -892,10 +892,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:39:56-06:00"
+    "verificado": "2026-10-31T01:46:54-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -949,10 +949,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:37:28-06:00"
+    "verificado": "2026-10-31T01:44:26-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1006,10 +1006,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:39:24-06:00"
+    "verificado": "2026-10-31T01:46:22-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1063,10 +1063,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:39:05-06:00"
+    "verificado": "2026-10-31T01:46:04-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1120,10 +1120,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:38:35-06:00"
+    "verificado": "2026-10-31T01:45:37-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1177,10 +1177,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:38:12-06:00"
+    "verificado": "2026-10-31T01:45:11-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1234,10 +1234,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:39:40-06:00"
+    "verificado": "2026-10-31T01:46:39-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1291,10 +1291,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:38:52-06:00"
+    "verificado": "2026-10-31T01:45:55-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1348,10 +1348,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:38:20-06:00"
+    "verificado": "2026-10-31T01:45:18-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1405,10 +1405,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:39:47-06:00"
+    "verificado": "2026-10-31T01:46:46-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1462,10 +1462,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:39:00-06:00"
+    "verificado": "2026-10-31T01:46:01-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1519,10 +1519,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:37:44-06:00"
+    "verificado": "2026-10-31T01:44:42-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1576,10 +1576,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:39:33-06:00"
+    "verificado": "2026-10-31T01:46:31-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1633,10 +1633,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:37:32-06:00"
+    "verificado": "2026-10-31T01:44:29-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1690,10 +1690,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:38:30-06:00"
+    "verificado": "2026-10-31T01:45:34-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1747,10 +1747,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:38:46-06:00"
+    "verificado": "2026-10-31T01:45:45-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1804,10 +1804,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:37:59-06:00"
+    "verificado": "2026-10-31T01:44:58-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1861,10 +1861,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:37:23-06:00"
+    "verificado": "2026-10-31T01:44:22-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1918,10 +1918,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:38:57-06:00"
+    "verificado": "2026-10-31T01:45:58-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1975,10 +1975,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:37:39-06:00"
+    "verificado": "2026-10-31T01:44:37-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -2032,10 +2032,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:39:35-06:00"
+    "verificado": "2026-10-31T01:46:34-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -2089,10 +2089,10 @@
    ],
    "senales": {
     "tachado_inflado": false,
-    "historial_dias": 1,
+    "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T00:38:26-06:00"
+    "verificado": "2026-10-31T01:45:29-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -2103,63 +2103,6 @@
     [
      "2026-10-31",
      190.79
-    ]
-   ]
-  },
-  {
-   "id": "MLM19836205",
-   "link": "https://meli.la/1HW8aia",
-   "nombre": "Mouse Pad Logitech Studio Series",
-   "titulo": "Mouse Pad Logitech Studio Series Black 23x20cm - $ 227",
-   "categoria": "accesorios",
-   "imagen": "https://http2.mlstatic.com/D_NQ_NP_697680-MLA99424477732_112025-P.webp",
-   "precio": {
-    "actual": 227.0,
-    "antes": 239.0,
-    "tachado": 239.0,
-    "referencia_30d": null,
-    "minimo_30d": 227.0
-   },
-   "descuento": {
-    "pct": 5,
-    "real_pct": 0,
-    "tachado_pct": 5,
-    "ahorro": 12.0
-   },
-   "cupon": null,
-   "specs": [
-    {
-     "texto": "Mouse Pad",
-     "emoji": "🖱️",
-     "icono": "check"
-    },
-    {
-     "texto": "23x20 cm",
-     "emoji": "📏",
-     "icono": "check"
-    },
-    {
-     "texto": "Logitech",
-     "emoji": "✔️",
-     "icono": "check"
-    }
-   ],
-   "senales": {
-    "tachado_inflado": false,
-    "historial_dias": 1,
-    "historial_suficiente": false,
-    "nombre_ia": true,
-    "verificado": "2026-10-31T00:39:51-06:00"
-   },
-   "super_deal": false,
-   "historial": [
-    [
-     "2026-10-30",
-     227.0
-    ],
-    [
-     "2026-10-31",
-     227.0
     ]
    ]
   }
