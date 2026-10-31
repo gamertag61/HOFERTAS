@@ -1,6 +1,6 @@
 {
  "version": 2,
- "actualizado": "2026-10-30T20:42:38-06:00",
+ "actualizado": "2026-10-30T21:39:12-06:00",
  "categorias": [
   {
    "id": "accesorios",
@@ -97,7 +97,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:39:41-06:00"
+    "verificado": "2026-10-30T21:36:56-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -150,7 +150,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:41:31-06:00"
+    "verificado": "2026-10-30T21:38:44-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -203,7 +203,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:39:57-06:00"
+    "verificado": "2026-10-30T21:37:08-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -256,66 +256,13 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:40:27-06:00"
+    "verificado": "2026-10-30T21:37:39-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
      1800.0
-    ]
-   ]
-  },
-  {
-   "id": "MLM65189679",
-   "link": "https://meli.la/1gafjjE",
-   "nombre": "Tablet Samsung Galaxy Tab A11",
-   "titulo": "Galaxy Tab A11, 64 GB, 4 GB de RAM, pantalla de 8,7 Color Gris - $ 2,189",
-   "categoria": "accesorios",
-   "imagen": "https://http2.mlstatic.com/D_NQ_NP_972495-MLA106359524805_022026-P.webp",
-   "precio": {
-    "actual": 2189.0,
-    "antes": 5999.0,
-    "tachado": 5999.0,
-    "referencia_30d": null,
-    "minimo_30d": 2189.0
-   },
-   "descuento": {
-    "pct": 64,
-    "real_pct": 0,
-    "tachado_pct": 64,
-    "ahorro": 3810.0
-   },
-   "cupon": null,
-   "specs": [
-    {
-     "texto": "64 GB",
-     "emoji": "💾",
-     "icono": "disco"
-    },
-    {
-     "texto": "4 GB RAM",
-     "emoji": "🧠",
-     "icono": "disco"
-    },
-    {
-     "texto": "8.7 pulgadas",
-     "emoji": "📱",
-     "icono": "pantalla"
-    }
-   ],
-   "senales": {
-    "tachado_inflado": false,
-    "historial_dias": 1,
-    "historial_suficiente": false,
-    "nombre_ia": true,
-    "verificado": "2026-10-30T20:40:55-06:00"
-   },
-   "super_deal": false,
-   "historial": [
-    [
-     "2026-10-30",
-     2189.0
     ]
    ]
   },
@@ -362,7 +309,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:41:06-06:00"
+    "verificado": "2026-10-30T21:38:20-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -415,7 +362,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:41:00-06:00"
+    "verificado": "2026-10-30T21:38:11-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -468,7 +415,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:39:52-06:00"
+    "verificado": "2026-10-30T21:37:03-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -521,7 +468,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:39:31-06:00"
+    "verificado": "2026-10-30T21:36:48-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -574,66 +521,13 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:40:13-06:00"
+    "verificado": "2026-10-30T21:37:23-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
      193.65
-    ]
-   ]
-  },
-  {
-   "id": "MLM74475477",
-   "link": "https://meli.la/2GmsmEx",
-   "nombre": "Monitor LG 24U411B",
-   "titulo": "LG Monitor 24U411B 24U411B-B.AWM 24 \" - Negro - $ 1,390",
-   "categoria": "monitores",
-   "imagen": "https://http2.mlstatic.com/D_NQ_NP_828665-MLA113145832724_072026-P.webp",
-   "precio": {
-    "actual": 1390.0,
-    "antes": 2999.0,
-    "tachado": 2999.0,
-    "referencia_30d": null,
-    "minimo_30d": 1390.0
-   },
-   "descuento": {
-    "pct": 54,
-    "real_pct": 0,
-    "tachado_pct": 54,
-    "ahorro": 1609.0
-   },
-   "cupon": null,
-   "specs": [
-    {
-     "texto": "24 pulgadas",
-     "emoji": "🖥️",
-     "icono": "pantalla"
-    },
-    {
-     "texto": "Pantalla plana",
-     "emoji": "📏",
-     "icono": "pantalla"
-    },
-    {
-     "texto": "Modelo 24U411B",
-     "emoji": "✔️",
-     "icono": "check"
-    }
-   ],
-   "senales": {
-    "tachado_inflado": false,
-    "historial_dias": 1,
-    "historial_suficiente": false,
-    "nombre_ia": true,
-    "verificado": "2026-10-30T20:41:19-06:00"
-   },
-   "super_deal": false,
-   "historial": [
-    [
-     "2026-10-30",
-     1390.0
     ]
    ]
   },
@@ -680,7 +574,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:39:06-06:00"
+    "verificado": "2026-10-30T21:36:27-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -733,7 +627,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:40:35-06:00"
+    "verificado": "2026-10-30T21:37:46-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -786,7 +680,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:41:03-06:00"
+    "verificado": "2026-10-30T21:38:15-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -839,7 +733,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:39:36-06:00"
+    "verificado": "2026-10-30T21:36:51-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -892,7 +786,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:41:15-06:00"
+    "verificado": "2026-10-30T21:38:29-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -945,7 +839,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:41:45-06:00"
+    "verificado": "2026-10-30T21:38:58-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -998,7 +892,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:41:10-06:00"
+    "verificado": "2026-10-30T21:38:24-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1051,13 +945,66 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:40:52-06:00"
+    "verificado": "2026-10-30T21:38:03-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
      474.01
+    ]
+   ]
+  },
+  {
+   "id": "MLM65189679",
+   "link": "https://meli.la/1gafjjE",
+   "nombre": "Tablet Samsung Galaxy Tab A11",
+   "titulo": "Galaxy Tab A11, 64 GB, 4 GB de RAM, pantalla de 8,7 Color Gris - $ 2,199",
+   "categoria": "accesorios",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_972495-MLA106359524805_022026-P.webp",
+   "precio": {
+    "actual": 2199.0,
+    "antes": 3699.0,
+    "tachado": 3699.0,
+    "referencia_30d": null,
+    "minimo_30d": 2189.0
+   },
+   "descuento": {
+    "pct": 41,
+    "real_pct": 0,
+    "tachado_pct": 41,
+    "ahorro": 1500.0
+   },
+   "cupon": null,
+   "specs": [
+    {
+     "texto": "64 GB",
+     "emoji": "💾",
+     "icono": "disco"
+    },
+    {
+     "texto": "4 GB RAM",
+     "emoji": "🧠",
+     "icono": "disco"
+    },
+    {
+     "texto": "8.7 pulgadas",
+     "emoji": "📱",
+     "icono": "pantalla"
+    }
+   ],
+   "senales": {
+    "tachado_inflado": false,
+    "historial_dias": 1,
+    "historial_suficiente": false,
+    "nombre_ia": true,
+    "verificado": "2026-10-30T21:38:06-06:00"
+   },
+   "super_deal": false,
+   "historial": [
+    [
+     "2026-10-30",
+     2189.0
     ]
    ]
   },
@@ -1104,7 +1051,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:40:23-06:00"
+    "verificado": "2026-10-30T21:37:36-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1157,7 +1104,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:40:00-06:00"
+    "verificado": "2026-10-30T21:37:13-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1210,7 +1157,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:41:28-06:00"
+    "verificado": "2026-10-30T21:38:42-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1263,7 +1210,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:40:41-06:00"
+    "verificado": "2026-10-30T21:37:50-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1316,7 +1263,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:40:08-06:00"
+    "verificado": "2026-10-30T21:37:19-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1369,7 +1316,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:41:36-06:00"
+    "verificado": "2026-10-30T21:38:47-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1422,7 +1369,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:40:48-06:00"
+    "verificado": "2026-10-30T21:37:59-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1475,13 +1422,66 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:39:26-06:00"
+    "verificado": "2026-10-30T21:36:45-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
      2759.0
+    ]
+   ]
+  },
+  {
+   "id": "MLM74475477",
+   "link": "https://meli.la/2GmsmEx",
+   "nombre": "Monitor LG 24U411B",
+   "titulo": "LG Monitor 24U411B 24U411B-B.AWM 24 \" - Negro - $ 1,621",
+   "categoria": "monitores",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_828665-MLA113145832724_072026-P.webp",
+   "precio": {
+    "actual": 1621.0,
+    "antes": 2099.0,
+    "tachado": 2099.0,
+    "referencia_30d": null,
+    "minimo_30d": 1390.0
+   },
+   "descuento": {
+    "pct": 23,
+    "real_pct": 0,
+    "tachado_pct": 23,
+    "ahorro": 478.0
+   },
+   "cupon": null,
+   "specs": [
+    {
+     "texto": "24 pulgadas",
+     "emoji": "🖥️",
+     "icono": "pantalla"
+    },
+    {
+     "texto": "24U411B-B",
+     "emoji": "📏",
+     "icono": "check"
+    },
+    {
+     "texto": "LG",
+     "emoji": "✔️",
+     "icono": "check"
+    }
+   ],
+   "senales": {
+    "tachado_inflado": false,
+    "historial_dias": 1,
+    "historial_suficiente": false,
+    "nombre_ia": true,
+    "verificado": "2026-10-30T21:38:32-06:00"
+   },
+   "super_deal": false,
+   "historial": [
+    [
+     "2026-10-30",
+     1390.0
     ]
    ]
   },
@@ -1528,7 +1528,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:39:12-06:00"
+    "verificado": "2026-10-30T21:36:31-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1581,7 +1581,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:40:18-06:00"
+    "verificado": "2026-10-30T21:37:32-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1592,7 +1592,7 @@
    ]
   },
   {
-   "id": "MLM2057962827",
+   "id": "MLM2115442219",
    "link": "https://meli.la/1cJLBjz",
    "nombre": "Lámpara de Escritorio LED con USB-C",
    "titulo": "Lámparas De Buró Escritorio Led 3 Colores Con Foco Y Usb-c Gris/lino - $ 297",
@@ -1634,7 +1634,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:40:30-06:00"
+    "verificado": "2026-10-30T21:37:42-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1687,7 +1687,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:39:46-06:00"
+    "verificado": "2026-10-30T21:37:00-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1740,7 +1740,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:39:01-06:00"
+    "verificado": "2026-10-30T21:36:22-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1793,7 +1793,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:40:45-06:00"
+    "verificado": "2026-10-30T21:37:54-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1846,7 +1846,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:39:21-06:00"
+    "verificado": "2026-10-30T21:36:40-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1899,7 +1899,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:41:23-06:00"
+    "verificado": "2026-10-30T21:38:36-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1952,7 +1952,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T20:40:15-06:00"
+    "verificado": "2026-10-30T21:37:27-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1964,6 +1964,18 @@
   }
  ],
  "bajas": [
+  {
+   "id": "MLM19836205",
+   "link": "https://meli.la/1HW8aia",
+   "nombre": "Mouse Pad Logitech Studio Series",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_697680-MLA99424477732_112025-P.webp",
+   "precio_antes": 299.0,
+   "precio_ahora": 230.6,
+   "caida_pct": 23.0,
+   "descuento_real_pct": 0.0,
+   "ts": "2026-10-30T21:38:52-06:00",
+   "motivo": "baja de precio"
+  },
   {
    "id": "MLM53225642",
    "link": "https://meli.la/2iJyZxj",
