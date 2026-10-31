@@ -1,11 +1,11 @@
 {
  "version": 2,
- "actualizado": "2026-10-31T03:38:23-06:00",
+ "actualizado": "2026-10-31T04:15:09-06:00",
  "alertas": [
   {
    "id": "MLM28945623",
    "link": "https://meli.la/1aL79BG",
-   "nombre": "Base enfriador KS BDN00021A Negro",
+   "nombre": "Base Enfriadora KS BDN00021A",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_795267-MLA114104615713_072026-P.webp",
    "precio_antes": 269.0,
    "precio_ahora": 250.0,
@@ -17,7 +17,23 @@
    "titulo": "Base enfriador KS BDN00021A Negro para laptop Led Azul - $ 250",
    "categoria": "accesorios",
    "categoria_nombre": "Accesorios",
-   "specs": [],
+   "specs": [
+    {
+     "texto": "Enfriador",
+     "emoji": "❄️",
+     "icono": "check"
+    },
+    {
+     "texto": "Para laptop",
+     "emoji": "💻",
+     "icono": "check"
+    },
+    {
+     "texto": "Led Azul",
+     "emoji": "💡",
+     "icono": "luz"
+    }
+   ],
    "cupon": null,
    "precio_actual": 250.0
   },
