@@ -1,5 +1,76 @@
 {
  "version": 2,
- "actualizado": "2026-10-30T18:02:44-06:00",
- "alertas": []
+ "actualizado": "2026-10-30T18:57:55-06:00",
+ "alertas": [
+  {
+   "id": "MLM19836205",
+   "link": "https://meli.la/1HW8aia",
+   "nombre": "Mouse Pad Logitech Studio Series",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_697680-MLA99424477732_112025-P.webp",
+   "precio_antes": 299.0,
+   "precio_ahora": 227.0,
+   "caida_pct": 24,
+   "descuento_real_pct": 0.0,
+   "ts": "2026-10-30T18:57:39-06:00",
+   "motivo": "baja de precio",
+   "tipo": "baja",
+   "titulo": "Mouse Pad Logitech Studio Series Black 23x20cm - $ 227",
+   "categoria": "accesorios",
+   "categoria_nombre": "Accesorios",
+   "specs": [
+    {
+     "texto": "Mouse Pad",
+     "emoji": "🖱️",
+     "icono": "check"
+    },
+    {
+     "texto": "23x20 cm",
+     "emoji": "📏",
+     "icono": "check"
+    },
+    {
+     "texto": "Logitech",
+     "emoji": "✔️",
+     "icono": "check"
+    }
+   ],
+   "cupon": null,
+   "precio_actual": 227.0
+  },
+  {
+   "id": "MLM74475477",
+   "link": "https://meli.la/2GmsmEx",
+   "nombre": "Monitor LG 24U411B",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_828665-MLA113145832724_072026-P.webp",
+   "precio_antes": 1621.0,
+   "precio_ahora": 1390.0,
+   "caida_pct": 14,
+   "descuento_real_pct": 0.0,
+   "ts": "2026-10-30T18:57:21-06:00",
+   "motivo": "baja de precio",
+   "tipo": "baja",
+   "titulo": "LG Monitor 24U411B 24U411B-B.AWM 24 \" - Negro - $ 1,390",
+   "categoria": "monitores",
+   "categoria_nombre": "Monitores",
+   "specs": [
+    {
+     "texto": "24 pulgadas",
+     "emoji": "🖥️",
+     "icono": "pantalla"
+    },
+    {
+     "texto": "Pantalla plana",
+     "emoji": "📏",
+     "icono": "pantalla"
+    },
+    {
+     "texto": "Modelo 24U411B",
+     "emoji": "✔️",
+     "icono": "check"
+    }
+   ],
+   "cupon": null,
+   "precio_actual": 1390.0
+  }
+ ]
 }
