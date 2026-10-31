@@ -1,41 +1,41 @@
 {
  "version": 2,
- "actualizado": "2026-10-30T19:51:49-06:00",
+ "actualizado": "2026-10-30T20:42:38-06:00",
  "alertas": [
   {
-   "id": "MLM19836205",
-   "link": "https://meli.la/1HW8aia",
-   "nombre": "Mouse Pad Logitech Studio Series",
-   "imagen": "https://http2.mlstatic.com/D_NQ_NP_697680-MLA99424477732_112025-P.webp",
-   "precio_antes": 299.0,
-   "precio_ahora": 227.0,
-   "caida_pct": 24,
+   "id": "MLM53225642",
+   "link": "https://meli.la/2iJyZxj",
+   "nombre": "Control GameSir G7 Pro",
+   "imagen": "https://http2.mlstatic.com/D_NQ_NP_689134-MLA116309139477_082026-P.webp",
+   "precio_antes": 1698.0,
+   "precio_ahora": 1585.0,
+   "caida_pct": 7,
    "descuento_real_pct": 0.0,
-   "ts": "2026-10-30T18:57:39-06:00",
+   "ts": "2026-10-30T20:40:45-06:00",
    "motivo": "baja de precio",
    "tipo": "baja",
-   "titulo": "Mouse Pad Logitech Studio Series Black 23x20cm - $ 227",
-   "categoria": "accesorios",
-   "categoria_nombre": "Accesorios",
+   "titulo": "Control Alámbrico GameSir G7 Pro para Xbox Series X|S y Xbox One, Gamepad Inalámbrico para PC y Android con Palancas TMR, Gatillos Analógicos Hall Effect y Tasa de Sondeo de 1000Hz - $ 1,585",
+   "categoria": "controles",
+   "categoria_nombre": "Controles",
    "specs": [
     {
-     "texto": "Mouse Pad",
-     "emoji": "🖱️",
-     "icono": "check"
+     "texto": "Alámbrico",
+     "emoji": "🔌",
+     "icono": "cable"
     },
     {
-     "texto": "23x20 cm",
-     "emoji": "📏",
-     "icono": "check"
+     "texto": "1000 Hz",
+     "emoji": "⚡",
+     "icono": "rayo"
     },
     {
-     "texto": "Logitech",
-     "emoji": "✔️",
+     "texto": "Hall Effect",
+     "emoji": "🎮",
      "icono": "check"
     }
    ],
    "cupon": null,
-   "precio_actual": 227.0
+   "precio_actual": 1585.0
   },
   {
    "id": "MLM74475477",
