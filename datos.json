@@ -1,6 +1,6 @@
 {
  "version": 2,
- "actualizado": "2026-10-31T11:27:08-06:00",
+ "actualizado": "2026-10-31T12:00:31-06:00",
  "categorias": [
   {
    "id": "accesorios",
@@ -50,7 +50,7 @@
   {
    "id": "componentes",
    "nombre": "Componentes",
-   "total": 2
+   "total": 1
   }
  ],
  "productos": [
@@ -97,7 +97,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:25:00-06:00"
+    "verificado": "2026-10-31T11:58:24-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -154,7 +154,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:26:54-06:00"
+    "verificado": "2026-10-31T12:00:16-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -211,7 +211,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:25:12-06:00"
+    "verificado": "2026-10-31T11:58:36-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -268,7 +268,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:26:28-06:00"
+    "verificado": "2026-10-31T11:59:54-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -325,7 +325,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:26:20-06:00"
+    "verificado": "2026-10-31T11:59:45-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -382,7 +382,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:25:08-06:00"
+    "verificado": "2026-10-31T11:58:32-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -439,7 +439,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:24:52-06:00"
+    "verificado": "2026-10-31T11:58:17-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -496,7 +496,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:25:28-06:00"
+    "verificado": "2026-10-31T11:58:52-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -553,7 +553,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:25:54-06:00"
+    "verificado": "2026-10-31T11:59:22-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -610,7 +610,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:26:24-06:00"
+    "verificado": "2026-10-31T11:59:48-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -667,7 +667,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:24:56-06:00"
+    "verificado": "2026-10-31T11:58:21-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -724,7 +724,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:26:33-06:00"
+    "verificado": "2026-10-31T11:59:57-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -781,7 +781,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:26:36-06:00"
+    "verificado": "2026-10-31T12:00:01-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -838,7 +838,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:27:06-06:00"
+    "verificado": "2026-10-31T12:00:28-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -895,7 +895,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:24:33-06:00"
+    "verificado": "2026-10-31T11:58:02-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -952,7 +952,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:26:11-06:00"
+    "verificado": "2026-10-31T11:59:38-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1009,7 +1009,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:26:15-06:00"
+    "verificado": "2026-10-31T11:59:41-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1066,7 +1066,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:25:42-06:00"
+    "verificado": "2026-10-31T11:59:06-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1123,7 +1123,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:25:16-06:00"
+    "verificado": "2026-10-31T11:58:39-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1180,7 +1180,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:26:50-06:00"
+    "verificado": "2026-10-31T12:00:11-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1237,7 +1237,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:25:58-06:00"
+    "verificado": "2026-10-31T11:59:26-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1294,7 +1294,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:25:24-06:00"
+    "verificado": "2026-10-31T11:58:48-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1351,7 +1351,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:26:57-06:00"
+    "verificado": "2026-10-31T12:00:20-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1408,7 +1408,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:26:07-06:00"
+    "verificado": "2026-10-31T11:59:34-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1465,7 +1465,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:24:47-06:00"
+    "verificado": "2026-10-31T11:58:14-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1522,7 +1522,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:26:41-06:00"
+    "verificado": "2026-10-31T12:00:03-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1579,7 +1579,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:24:36-06:00"
+    "verificado": "2026-10-31T11:58:05-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1590,63 +1590,6 @@
     [
      "2026-10-31",
      2289.0
-    ]
-   ]
-  },
-  {
-   "id": "MLM19159879",
-   "link": "https://meli.la/143CXmW",
-   "nombre": "Procesador AMD Ryzen 7 5700X",
-   "titulo": "Procesadoramd Ryzen 7 5700x 4.6ghz 8core Am4 100000926box - $ 4,119",
-   "categoria": "componentes",
-   "imagen": "https://http2.mlstatic.com/D_NQ_NP_928840-MLA99509517996_112025-P.webp",
-   "precio": {
-    "actual": 4119.0,
-    "antes": 5000.0,
-    "tachado": 5000.0,
-    "referencia_30d": null,
-    "minimo_30d": 4119.0
-   },
-   "descuento": {
-    "pct": 18,
-    "real_pct": 0,
-    "tachado_pct": 18,
-    "ahorro": 881.0
-   },
-   "cupon": null,
-   "specs": [
-    {
-     "texto": "8 Núcleos",
-     "emoji": "⚙️",
-     "icono": "disco"
-    },
-    {
-     "texto": "4.6 GHz",
-     "emoji": "⚡",
-     "icono": "disco"
-    },
-    {
-     "texto": "Socket AM4",
-     "emoji": "🔌",
-     "icono": "check"
-    }
-   ],
-   "senales": {
-    "tachado_inflado": false,
-    "historial_dias": 2,
-    "historial_suficiente": false,
-    "nombre_ia": true,
-    "verificado": "2026-10-31T11:25:38-06:00"
-   },
-   "super_deal": false,
-   "historial": [
-    [
-     "2026-10-30",
-     4119.0
-    ],
-    [
-     "2026-10-31",
-     4119.0
     ]
    ]
   },
@@ -1693,7 +1636,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:25:50-06:00"
+    "verificado": "2026-10-31T11:59:16-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1750,7 +1693,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:25:04-06:00"
+    "verificado": "2026-10-31T11:58:29-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1807,7 +1750,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:24:28-06:00"
+    "verificado": "2026-10-31T11:57:59-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1864,7 +1807,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:26:03-06:00"
+    "verificado": "2026-10-31T11:59:30-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1921,7 +1864,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:24:44-06:00"
+    "verificado": "2026-10-31T11:58:12-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1978,7 +1921,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:26:46-06:00"
+    "verificado": "2026-10-31T12:00:07-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -2035,7 +1978,7 @@
     "historial_dias": 2,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-31T11:25:33-06:00"
+    "verificado": "2026-10-31T11:58:55-06:00"
    },
    "super_deal": false,
    "historial": [
