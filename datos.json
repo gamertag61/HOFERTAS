@@ -1,6 +1,6 @@
 {
  "version": 2,
- "actualizado": "2026-10-30T17:05:45-06:00",
+ "actualizado": "2026-10-30T18:02:44-06:00",
  "categorias": [
   {
    "id": "accesorios",
@@ -16,11 +16,6 @@
    "id": "escritorios",
    "nombre": "Escritorios",
    "total": 5
-  },
-  {
-   "id": "mouse",
-   "nombre": "Mouse",
-   "total": 3
   },
   {
    "id": "iluminacion",
@@ -40,6 +35,11 @@
   {
    "id": "teclados",
    "nombre": "Teclados",
+   "total": 2
+  },
+  {
+   "id": "mouse",
+   "nombre": "Mouse",
    "total": 2
   },
   {
@@ -97,7 +97,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:03:07-06:00"
+    "verificado": "2026-10-30T18:00:37-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -150,7 +150,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:05:03-06:00"
+    "verificado": "2026-10-30T18:02:19-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -203,7 +203,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:03:18-06:00"
+    "verificado": "2026-10-30T18:00:49-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -256,7 +256,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:03:51-06:00"
+    "verificado": "2026-10-30T18:01:18-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -309,7 +309,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:04:22-06:00"
+    "verificado": "2026-10-30T18:01:44-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -362,7 +362,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:04:37-06:00"
+    "verificado": "2026-10-30T18:01:56-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -415,7 +415,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:04:28-06:00"
+    "verificado": "2026-10-30T18:01:49-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -468,7 +468,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:03:15-06:00"
+    "verificado": "2026-10-30T18:00:44-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -521,7 +521,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:03:01-06:00"
+    "verificado": "2026-10-30T18:00:30-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -574,7 +574,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:03:36-06:00"
+    "verificado": "2026-10-30T18:01:04-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -627,7 +627,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:02:40-06:00"
+    "verificado": "2026-10-30T18:00:09-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -680,7 +680,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:04:01-06:00"
+    "verificado": "2026-10-30T18:01:26-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -733,7 +733,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:04:32-06:00"
+    "verificado": "2026-10-30T18:01:52-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -786,7 +786,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:03:04-06:00"
+    "verificado": "2026-10-30T18:00:33-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -839,7 +839,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:04:47-06:00"
+    "verificado": "2026-10-30T18:02:02-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -852,9 +852,9 @@
   {
    "id": "MLM25131792",
    "link": "https://meli.la/18b3cUT",
-   "nombre": "Mouse Pad Gamer Alfombrilla Ratón 80x30cm",
+   "nombre": "Mouse Pad Gamer Profesional",
    "titulo": "Mouse Pad Gamer Alfombrilla Ratón 80x30cm Profesional Color Negro - $ 98.99",
-   "categoria": "mouse",
+   "categoria": "accesorios",
    "imagen": "https://http2.mlstatic.com/D_NQ_NP_871619-MLA99595841064_122025-P.webp",
    "precio": {
     "actual": 98.99,
@@ -870,13 +870,29 @@
     "ahorro": 101.01
    },
    "cupon": null,
-   "specs": [],
+   "specs": [
+    {
+     "texto": "80x30 cm",
+     "emoji": "📏",
+     "icono": "check"
+    },
+    {
+     "texto": "Gamer",
+     "emoji": "🎮",
+     "icono": "check"
+    },
+    {
+     "texto": "Profesional",
+     "emoji": "🖱️",
+     "icono": "check"
+    }
+   ],
    "senales": {
     "tachado_inflado": false,
     "historial_dias": 1,
     "historial_suficiente": false,
-    "nombre_ia": false,
-    "verificado": "2026-10-30T17:05:17-06:00"
+    "nombre_ia": true,
+    "verificado": "2026-10-30T18:02:29-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -929,7 +945,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:04:42-06:00"
+    "verificado": "2026-10-30T18:01:59-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -982,7 +998,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:04:17-06:00"
+    "verificado": "2026-10-30T18:01:41-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1035,7 +1051,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:03:46-06:00"
+    "verificado": "2026-10-30T18:01:15-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1088,7 +1104,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:03:22-06:00"
+    "verificado": "2026-10-30T18:00:52-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1141,7 +1157,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:05:00-06:00"
+    "verificado": "2026-10-30T18:02:15-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1194,7 +1210,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:04:05-06:00"
+    "verificado": "2026-10-30T18:01:30-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1247,7 +1263,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:03:33-06:00"
+    "verificado": "2026-10-30T18:01:01-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1300,7 +1316,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:05:08-06:00"
+    "verificado": "2026-10-30T18:02:22-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1353,7 +1369,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:04:14-06:00"
+    "verificado": "2026-10-30T18:01:37-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1406,7 +1422,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:02:57-06:00"
+    "verificado": "2026-10-30T18:00:25-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1459,7 +1475,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:04:51-06:00"
+    "verificado": "2026-10-30T18:02:07-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1512,7 +1528,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:02:45-06:00"
+    "verificado": "2026-10-30T18:00:13-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1565,7 +1581,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:03:42-06:00"
+    "verificado": "2026-10-30T18:01:12-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1618,7 +1634,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:03:57-06:00"
+    "verificado": "2026-10-30T18:01:23-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1671,7 +1687,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:03:12-06:00"
+    "verificado": "2026-10-30T18:00:40-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1724,7 +1740,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:02:35-06:00"
+    "verificado": "2026-10-30T18:00:04-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1777,7 +1793,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:02:53-06:00"
+    "verificado": "2026-10-30T18:00:21-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1830,7 +1846,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:04:55-06:00"
+    "verificado": "2026-10-30T18:02:11-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1883,7 +1899,7 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:04:10-06:00"
+    "verificado": "2026-10-30T18:01:34-06:00"
    },
    "super_deal": false,
    "historial": [
@@ -1936,66 +1952,13 @@
     "historial_dias": 1,
     "historial_suficiente": false,
     "nombre_ia": true,
-    "verificado": "2026-10-30T17:03:39-06:00"
+    "verificado": "2026-10-30T18:01:07-06:00"
    },
    "super_deal": false,
    "historial": [
     [
      "2026-10-30",
      190.79
-    ]
-   ]
-  },
-  {
-   "id": "MLM19836205",
-   "link": "https://meli.la/1HW8aia",
-   "nombre": "Mouse Pad Logitech Studio Series",
-   "titulo": "Mouse Pad Logitech Studio Series Black 23x20cm - $ 227",
-   "categoria": "accesorios",
-   "imagen": "https://http2.mlstatic.com/D_NQ_NP_697680-MLA99424477732_112025-P.webp",
-   "precio": {
-    "actual": 227.0,
-    "antes": 239.0,
-    "tachado": 239.0,
-    "referencia_30d": null,
-    "minimo_30d": 227.0
-   },
-   "descuento": {
-    "pct": 5,
-    "real_pct": 0,
-    "tachado_pct": 5,
-    "ahorro": 12.0
-   },
-   "cupon": null,
-   "specs": [
-    {
-     "texto": "Mouse Pad",
-     "emoji": "🖱️",
-     "icono": "check"
-    },
-    {
-     "texto": "23x20 cm",
-     "emoji": "📏",
-     "icono": "check"
-    },
-    {
-     "texto": "Logitech",
-     "emoji": "✔️",
-     "icono": "check"
-    }
-   ],
-   "senales": {
-    "tachado_inflado": false,
-    "historial_dias": 1,
-    "historial_suficiente": false,
-    "nombre_ia": true,
-    "verificado": "2026-10-30T17:05:12-06:00"
-   },
-   "super_deal": false,
-   "historial": [
-    [
-     "2026-10-30",
-     227.0
     ]
    ]
   }
